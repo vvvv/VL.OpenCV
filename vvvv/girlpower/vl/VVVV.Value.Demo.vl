@@ -118,7 +118,7 @@
               </Pin>
               <Pin Id="D3EK7Kf1dlbMmpByStPbes" Name="Output" Kind="OutputPin" />
             </Node>
-            <Node Bounds="195,346,57,13" Id="CmAs7HQ97N4NrjmUi80DOB">
+            <Node Bounds="241,344,57,13" Id="CmAs7HQ97N4NrjmUi80DOB">
               <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.CoreLib.vl" LastDependency="VVVV.Value.Demo.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Flatten" />
@@ -126,6 +126,26 @@
               <Pin Id="HjmZICnpnNgOlFufZ9qRVc" Name="Input" Kind="StateInputPin" />
               <Pin Id="BD6yupGVYYGMuoU6AnySH1" Name="Output" Kind="StateOutputPin" />
             </Node>
+            <Node Bounds="156,352" Id="MDnxpguY8m8MesqGeno9ne">
+              <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCVSharp.vl" LastDependency="VVVV.Value.Demo.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="ProcessAppFlag" Name="Threshold" />
+              </p:NodeReference>
+              <Pin Id="B15a037IbqdLDidYKUyEl3" Name="Input" Kind="InputPin" />
+              <Pin Id="IEk3TYJlah8OdRUzYZ389i" Name="Type" Kind="InputPin" />
+              <Pin Id="Oc3xbMeU9FaQHGIT9ayoQ4" Name="Thresh" Kind="InputPin">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Float64" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="DuymcxXMB7QLEuLRRryyif" Name="Apply" Kind="InputPin" />
+              <Pin Id="Eq9R1dLdMNJOdvIQKBSZy5" Name="Output" Kind="OutputPin" />
+            </Node>
+            <Pad Id="LtQv560a5rEPxDU5ygtyXa" Comment="Thresh" Bounds="469,348,16,17" ShowValueBox="true" isIOBox="true" Value="241">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="Integer32" />
+              </p:TypeAnnotation>
+            </Pad>
           </Canvas>
           <ProcessDefinition Id="FHNLl8GWgcVOJzRkkPI83E">
             <Fragment Id="MRFnVwHDf0WOO7H3jKbCxI" Patch="ESJZDDS0I02LAWDOx9RJVV" Enabled="true" />
@@ -137,10 +157,12 @@
           <Link Id="FttstWWXEdKO2UQEesJVJt" Ids="LtcFxeAZUf5O1DDzhrEQLb,PAEYBP6nVp2QSd34c6zBLd" />
           <Link Id="T38Ck0GpZePOsN2SRisIn5" Ids="Mr8vms963UMMvaFy50Ii5c,TChzDNOdI4EQJisBZ3yjnf" />
           <Link Id="IflE2CoMBgmLL2aVgFozuR" Ids="ApSVrVytZCUMhbSc0lBzWC,HSBPABuY2ICM7JHLtouY2G" />
-          <Link Id="GBKQc6vWLAhMiLKnNAypJX" Ids="Mr8vms963UMMvaFy50Ii5c,F9pXzzitlQ3Lha11PAc8Cr" />
+          <Link Id="GBKQc6vWLAhMiLKnNAypJX" Ids="Mr8vms963UMMvaFy50Ii5c,B15a037IbqdLDidYKUyEl3" />
           <Link Id="KMY2D5ohyixO3jqbDNOqBy" Ids="D3EK7Kf1dlbMmpByStPbes,Pb0fzUxvce2Lim1MPaQM7p" />
           <Link Id="GI4IkCQrrqJMqownfSouek" Ids="I9hNgc6kPGTPZbowQD7DI4,HjmZICnpnNgOlFufZ9qRVc" />
           <Link Id="H1XibWmQiklNRnybAjPUZ6" Ids="BD6yupGVYYGMuoU6AnySH1,UZNN5gNjtQ9NYIJY8hWQz7" />
+          <Link Id="TxnvIgWDr1AOOB8mfiCkfD" Ids="Eq9R1dLdMNJOdvIQKBSZy5,F9pXzzitlQ3Lha11PAc8Cr" />
+          <Link Id="Htyi9qhPXNmNzd3KueWHGX" Ids="LtQv560a5rEPxDU5ygtyXa,Oc3xbMeU9FaQHGIT9ayoQ4" />
         </Patch>
       </Node>
       <!--
@@ -157,11 +179,6 @@
           <Canvas Id="PFX9BOh0vtwORcN1X0rJkI" />
           <Patch Id="QI7zgZ10GZTOaBOmGOgO2Q" Name="Create" />
           <Patch Id="TulIMcmTnBkNbA9PSSgoYb" Name="Update" />
-          <!--
-
-    ************************  ************************
-
--->
           <ProcessDefinition Id="OH0xgXf1IeDOqCNTdehWOz">
             <Fragment Id="Uxth2Ik7VfMOrKHBnzExqX" Patch="QI7zgZ10GZTOaBOmGOgO2Q" Enabled="true" />
             <Fragment Id="RzTT4M1lXDGL1WOkK1bB90" Patch="TulIMcmTnBkNbA9PSSgoYb" Enabled="true" />
@@ -170,5 +187,5 @@
       </Node>
     </Canvas>
   </Patch>
-  <NugetDependency Id="GngiNWuE76MO0H9zWaNE2b" Location="VL.OpenCVSharp" Version="1.0.0.0" />
+  <NugetDependency Id="GngiNWuE76MO0H9zWaNE2b" Location="VL.OpenCV" Version="1.0.0.0" />
 </Document>
