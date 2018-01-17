@@ -1,4 +1,4 @@
-# VL.OpenCVSharp
+# VL.OpenCV
 A [VL](https://vvvv.org/documentation/vl) wrapper for [OpenCVSharp3-AnyCPU](https://github.com/shimat/opencvsharp)
 
 ## Using
@@ -9,7 +9,7 @@ See ... on how to install and use nugets.
 ## Developing
 If you want to contribute to this repository, clone it into a directory like:
  
-    X:\vl-libs\VL.OpenCVSharp
+    X:\vl-libs\VL.OpenCV
  
 then start vvvv with the commandline parameter:
 
