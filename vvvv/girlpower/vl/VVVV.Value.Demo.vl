@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.73">
+  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
+  <NugetDependency Id="U2JwHqMJLyGLDs97lM6eZ6" Location="VL.CoreLib.VVVV" Version="0.35.21" />
+  <NugetDependency Id="Q18ZLENm9gzPhBnFnztPMP" Location="VL.Core" Version="0.35.21" />
+  <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
+    <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VVVV.Value">
+      <!--
+
+    ************************ Demo ************************
+
+-->
+      <Node Name="Demo" Bounds="153,200" Id="TSttkfeJHQSN5gkEF54G9o">
+        <p:NodeReference>
+          <Choice Kind="ContainerDefinition" Name="Patch" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <Patch Id="CzjSvRY5dvXQDxmAOA8mZj">
+          <Patch Id="ESJZDDS0I02LAWDOx9RJVV" Name="Create" />
+          <Patch Id="OkqGvJfa3PDOppp4PFQghD" Name="Update" />
+          <Canvas Id="C4yd3S6BFv9NWqJ2WO3OFi">
+            <Node Bounds="154,249,65,13" Id="NKsIxSmyYZMPNOgvp6bJZw">
+              <p:NodeReference>
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="ProcessAppFlag" Name="VideoIn" />
+              </p:NodeReference>
+              <Pin Id="PEL2lf51reROwyOQBhADyw" Name="Width" Kind="InputPin" />
+              <Pin Id="Gvu4MlUeRy9PQWEdyuwAKH" Name="Height" Kind="InputPin" />
+              <Pin Id="PAEYBP6nVp2QSd34c6zBLd" Name="FPS" Kind="InputPin" />
+              <Pin Id="Oixs4wqQmOsNYWGfLDZa9z" Name="Show Properties" Kind="InputPin" />
+              <Pin Id="Mr8vms963UMMvaFy50Ii5c" Name="Image" Kind="OutputPin" />
+            </Node>
+            <Pad Id="TINbbhWdgZmL60JXsVdVb8" Comment="Show Properties" Bounds="215,227,40,19" ShowValueBox="true" isIOBox="true" Value="false">
+              <p:ValueBoxSettings>
+                <p:buttonmode p:Assembly="VL.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+              </p:ValueBoxSettings>
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="Boolean" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Pad Id="HsZisNqhBFRNX7RmYvkkss" Comment="Width" Bounds="155,144,30,19" ShowValueBox="true" isIOBox="true" Value="640">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="Integer32" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Pad Id="D3SU5RB1vpROSg9QWReZUX" Comment="Height" Bounds="155,169,30,19" ShowValueBox="true" isIOBox="true" Value="480">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="Integer32" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Pad Id="LtcFxeAZUf5O1DDzhrEQLb" Comment="FPS" Bounds="161,193,24,19" ShowValueBox="true" isIOBox="true" Value="25">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="Integer32" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Node Bounds="195,314,98,13" Id="Ccq12vpak5COSa1DELAXYr">
+              <p:NodeReference LastCategoryFullName="OpenCV.Tracker" LastSymbolSource="VL.OpenCVSharp.vl" LastDependency="VVVV.Value.Demo.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="ProcessAppFlag" Name="MarkerDetector" />
+              </p:NodeReference>
+              <Pin Id="TChzDNOdI4EQJisBZ3yjnf" Name="Input" Kind="InputPin" />
+              <Pin Id="HSBPABuY2ICM7JHLtouY2G" Name="Dictionary" Kind="InputPin" />
+              <Pin Id="M97ouZDAaJaOpmT51pvDUa" Name="Enabled" Kind="InputPin" />
+              <Pin Id="I9hNgc6kPGTPZbowQD7DI4" Name="Markers" Kind="OutputPin" />
+              <Pin Id="HPEZE5EWKNDMkYZQaTNnEE" Name="IDs" Kind="OutputPin" />
+              <Pin Id="KQufSZcdwskO2wktfdyQJb" Name="Rejected Areas" Kind="OutputPin" />
+            </Node>
+            <Pad Id="ApSVrVytZCUMhbSc0lBzWC" Comment="Dictionary" Bounds="244,288,106,18" ShowValueBox="true" isIOBox="true" Value="&quot;Dict5X5_50&quot;">
+              <p:TypeAnnotation LastCategoryFullName="OpenCvSharp.Aruco" LastSymbolSource="OpenCvSharp.dll">
+                <Choice Kind="TypeFlag" Name="PredefinedDictionaryName" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Node Bounds="153,449,67,13" Id="NEh2y6EBs6VNaulq7MLfMV">
+              <p:NodeReference LastCategoryFullName="OpenCV.Sink" LastSymbolSource="VL.OpenCVSharp.vl" LastDependency="VVVV.Value.Demo.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="ProcessAppFlag" Name="Renderer" />
+              </p:NodeReference>
+              <Pin Id="Pb0fzUxvce2Lim1MPaQM7p" Name="Input" Kind="InputPin" />
+              <Pin Id="IkJGFI8lUuCOUVRJlu2WRv" Name="Name" Kind="InputPin" />
+              <Pin Id="ISqS4zlBbg4L8Jneo2XF6Q" Name="Flags" Kind="InputPin">
+                <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
+                  <Choice Kind="TypeFlag" Name="WindowMode" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="CmfCxk8amABPuw7HgnwiZc" Name="Enabled" Kind="InputPin" />
+            </Node>
+            <Node Bounds="154,403,125,13" Id="UhLEUnHZaAWNHFlEQROYOS">
+              <p:NodeReference LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCVSharp.vl" LastDependency="VVVV.Value.Demo.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="DrawMarkers" />
+              </p:NodeReference>
+              <Pin Id="F9pXzzitlQ3Lha11PAc8Cr" Name="Input" Kind="InputPin" />
+              <Pin Id="UZNN5gNjtQ9NYIJY8hWQz7" Name="Markers" Kind="InputPin" />
+              <Pin Id="B4noafNDcfCOjzIMSCl65d" Name="Color" Kind="InputPin" DefaultValue="{&quot;Red&quot;:1.0,&quot;Green&quot;:0.0,&quot;Blue&quot;:0.179999992,&quot;Alpha&quot;:1.0}">
+                <p:TypeAnnotation LastCategoryFullName="Color" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="RGBA" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="Agaj8uNfm6MMG9hOn6f8Aq" Name="Style" Kind="InputPin" DefaultValue="&quot;TiltedCross&quot;">
+                <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
+                  <Choice Kind="TypeFlag" Name="MarkerStyle" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="AKpEijQ3imhQK4GF4CdZYK" Name="Size" Kind="InputPin" DefaultValue="64">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Integer32" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="KHlpcC2iQrOPmBkUXxNq4y" Name="Line Type" Kind="InputPin">
+                <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
+                  <Choice Kind="TypeFlag" Name="LineTypes" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="KlbrnstNw7YP2CN6tcn4LW" Name="Thickness" Kind="InputPin" DefaultValue="13">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Integer32" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="D3EK7Kf1dlbMmpByStPbes" Name="Output" Kind="OutputPin" />
+            </Node>
+            <Node Bounds="195,346,57,13" Id="CmAs7HQ97N4NrjmUi80DOB">
+              <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.CoreLib.vl" LastDependency="VVVV.Value.Demo.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="Flatten" />
+              </p:NodeReference>
+              <Pin Id="HjmZICnpnNgOlFufZ9qRVc" Name="Input" Kind="StateInputPin" />
+              <Pin Id="BD6yupGVYYGMuoU6AnySH1" Name="Output" Kind="StateOutputPin" />
+            </Node>
+          </Canvas>
+          <ProcessDefinition Id="FHNLl8GWgcVOJzRkkPI83E">
+            <Fragment Id="MRFnVwHDf0WOO7H3jKbCxI" Patch="ESJZDDS0I02LAWDOx9RJVV" Enabled="true" />
+            <Fragment Id="PulIQZQ5YLtPp6C2yvbTNE" Patch="OkqGvJfa3PDOppp4PFQghD" Enabled="true" />
+          </ProcessDefinition>
+          <Link Id="R0GJRipXliiPRvL2E7LWxV" Ids="TINbbhWdgZmL60JXsVdVb8,Oixs4wqQmOsNYWGfLDZa9z" />
+          <Link Id="BL5wPLheXrDMTo4bow7RqS" Ids="HsZisNqhBFRNX7RmYvkkss,PEL2lf51reROwyOQBhADyw" />
+          <Link Id="QFWY3S7G6BdP0ICuhdWDzz" Ids="D3SU5RB1vpROSg9QWReZUX,Gvu4MlUeRy9PQWEdyuwAKH" />
+          <Link Id="FttstWWXEdKO2UQEesJVJt" Ids="LtcFxeAZUf5O1DDzhrEQLb,PAEYBP6nVp2QSd34c6zBLd" />
+          <Link Id="T38Ck0GpZePOsN2SRisIn5" Ids="Mr8vms963UMMvaFy50Ii5c,TChzDNOdI4EQJisBZ3yjnf" />
+          <Link Id="IflE2CoMBgmLL2aVgFozuR" Ids="ApSVrVytZCUMhbSc0lBzWC,HSBPABuY2ICM7JHLtouY2G" />
+          <Link Id="GBKQc6vWLAhMiLKnNAypJX" Ids="Mr8vms963UMMvaFy50Ii5c,F9pXzzitlQ3Lha11PAc8Cr" />
+          <Link Id="KMY2D5ohyixO3jqbDNOqBy" Ids="D3EK7Kf1dlbMmpByStPbes,Pb0fzUxvce2Lim1MPaQM7p" />
+          <Link Id="GI4IkCQrrqJMqownfSouek" Ids="I9hNgc6kPGTPZbowQD7DI4,HjmZICnpnNgOlFufZ9qRVc" />
+          <Link Id="H1XibWmQiklNRnybAjPUZ6" Ids="BD6yupGVYYGMuoU6AnySH1,UZNN5gNjtQ9NYIJY8hWQz7" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ Patch ************************
+
+-->
+      <Node Name="Patch" Category="VVVV.Value" Bounds="200,100" Id="U1lKR8i49ZtPhaK6lTsScN">
+        <p:NodeReference>
+          <Choice Kind="ContainerDefinition" Name="Process" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <Patch Id="LeWiynyaegZORmRWsTtzEl" IsGeneric="true">
+          <Canvas Id="PFX9BOh0vtwORcN1X0rJkI" />
+          <Patch Id="QI7zgZ10GZTOaBOmGOgO2Q" Name="Create" />
+          <Patch Id="TulIMcmTnBkNbA9PSSgoYb" Name="Update" />
+          <!--
+
+    ************************  ************************
+
+-->
+          <ProcessDefinition Id="OH0xgXf1IeDOqCNTdehWOz">
+            <Fragment Id="Uxth2Ik7VfMOrKHBnzExqX" Patch="QI7zgZ10GZTOaBOmGOgO2Q" Enabled="true" />
+            <Fragment Id="RzTT4M1lXDGL1WOkK1bB90" Patch="TulIMcmTnBkNbA9PSSgoYb" Enabled="true" />
+          </ProcessDefinition>
+        </Patch>
+      </Node>
+    </Canvas>
+  </Patch>
+  <NugetDependency Id="GngiNWuE76MO0H9zWaNE2b" Location="VL.OpenCVSharp" Version="1.0.0.0" />
+</Document>
