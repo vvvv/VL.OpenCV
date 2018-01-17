@@ -31,6 +31,6 @@ Go to your vvvvs
     
 on a commandline and run
 
-    nuget install OpenCVSharp3-AnyCPU
+    nuget.exe install OpenCVSharp3-AnyCPU
     
 to get this necessary dependency.
