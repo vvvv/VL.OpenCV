@@ -3,7 +3,7 @@
 #---------------------------------#
 
 # version format
-version: 1.0.{build}
+version: 0.1.{build}
 
 # Build worker image (VM template)
 image: Visual Studio 2015
@@ -15,7 +15,7 @@ clone_folder: c:\projects\VL.OpenCV
 assembly_info:
   patch: true
   file: AssemblyInfo.*
-  assembly_version: "1.0.{build}"
+  assembly_version: "0.1.{build}"
   assembly_file_version: "{version}"
   
   #---------------------------------#
@@ -37,6 +37,10 @@ build:
 before_build:
   - cd src
   - nuget restore
+  
+
+after_build:
+  -nuget pack -Version "{version}"
   
 #---------------------------------#
 #         notifications           #
