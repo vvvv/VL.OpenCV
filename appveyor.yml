@@ -41,10 +41,10 @@ before_build:
 
 after_build:
   - cd..
-  - nuget pack VL.OpenCV.BuildServer.nuspec -Version %APPVEYOR_BUILD_VERSION%
+  - nuget pack appveyor\VL.OpenCV.nuspec -Version %APPVEYOR_BUILD_VERSION%
     
 artifacts:
-  - path: '*.nupkg'
+  - path: 'appveyor\*.nupkg'
     type: NuGetPackage
   
 #---------------------------------#
