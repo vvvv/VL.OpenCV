@@ -43,6 +43,15 @@ after_build:
   - cd..
   - nuget pack -Version %APPVEYOR_BUILD_VERSION%
   
+deploy:
+  provider: NuGet
+  server: https://ci.appveyor.com/nuget/ravazquez-d9qadijfm7fo
+  api_key:
+    secure: mc9cuieviqjgq220c1653fwh
+  skip_symbols: false
+  symbol_server:           # remove to push symbols to SymbolSource.org
+  artifact: /.*\.nupkg/
+  
 #---------------------------------#
 #         notifications           #
 #---------------------------------#
