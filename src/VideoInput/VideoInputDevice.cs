@@ -1,0 +1,18 @@
+﻿using System;
+using VL.Lib.Collections;
+
+namespace VL.OpenCV
+{
+
+    [Serializable]
+    public class VideoInputDevice : DynamicEnumBase<VideoInputDevice, VideoInputDeviceDefinition>
+    {
+        public VideoInputDevice(string value) : base(value)
+        {
+            int i = 0;
+        }
+
+        //this method needs to be imported in VL to set the default
+        public static VideoInputDevice CreateDefault() => CreateDefaultBase("No video input device found");
+    }
+}
