@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.16.dtd" >
-   <PATCH nodename="D:\VL-libs\VL.OpenCV\vvvv\girlpower\demo.v4p" systemname="demo" filename="C:\Users\joreg\Documents\repos\vvvv\public-vl\VL.OpenCVSharp\vvvv\girlpower\demo.v4p" scrollx="1085" scrolly="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha35.18.dtd" >
+   <PATCH nodename="D:\VL-libs\VL.OpenCV\vvvv\girlpower\demo.v4p" systemname="demo" filename="C:\Users\joreg\Documents\repos\vvvv\public-vl\VL.OpenCVSharp\vvvv\girlpower\demo.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="224" top="8001" width="4879" height="3752">
    </BOUNDS>
    <PACK Name="addonpack" Version="35.9.0">
@@ -21,22 +21,22 @@
    </BOUNDS>
    <BOUNDS type="Box" left="1071" top="2611" width="1876" height="1414">
    </BOUNDS>
-   <BOUNDS type="Window" left="91" top="2681" width="4830" height="4004">
+   <BOUNDS type="Window" left="0" top="3731" width="4830" height="4004">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <NODE systemname="Segment (EX9.Geometry 2d)" filename="%VVVV%\addonpack\lib\nodes\plugins\2dMeshNodes.dll" nodename="Segment (EX9.Geometry 2d)" componentmode="Hidden" id="86">
-   <BOUNDS type="Node" left="3199" top="1358" width="100" height="100">
+   <NODE id="104" systemname="Demo (Value)" filename="vl\VVVV.Value.Demo.vl" nodename="Demo (Value)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
+   <BOUNDS type="Node" left="1071" top="1218" width="1935" height="270">
    </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Resolution" slicecount="1" values="100">
-   </PIN>
-   <PIN pinname="Inner Radius" slicecount="1" values="0.64">
-   </PIN>
+   <BOUNDS type="Box" left="1071" top="1218" width="2121" height="1596">
+   </BOUNDS>
+   <BOUNDS type="Window" left="0" top="0" width="5306" height="3983">
+   </BOUNDS>
    </NODE>
-   <NODE systemname="Quad (DX9)" filename="" nodename="Quad (DX9)" componentmode="Hidden" id="84">
+   <LINK srcnodeid="104" srcpinname="Result" dstnodeid="82" dstpinname="Data">
+   </LINK>
+   <NODE systemname="FullscreenQuad (DX9)" filename="%VVVV%\addonpack\lib\nodes\modules\TextureFX\misc\FullscreenQuad (DX9).v4p" nodename="FullscreenQuad (DX9)" componentmode="Hidden" id="84">
    <BOUNDS type="Node" left="1071" top="2163" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Texture" visible="1">
@@ -47,105 +47,11 @@
    </BOUNDS>
    <PIN pinname="Texture Transform" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Transform" visible="1">
+   <PIN pinname="Transform" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <LINK srcnodeid="82" srcpinname="Texture Out" dstnodeid="84" dstpinname="Texture">
    </LINK>
-   <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="87">
-   <BOUNDS type="Node" left="42" top="1232" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Transform Out" visible="1">
-   </PIN>
-   <PIN pinname="XYZ" slicecount="1" values="2">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="87" srcpinname="Transform Out" dstnodeid="84" dstpinname="Transform">
-   </LINK>
-   <NODE systemname="Group (EX9)" nodename="Group (EX9)" componentmode="Hidden" id="88">
-   <BOUNDS type="Node" left="2730" top="2100" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Layer 1" visible="1">
-   </PIN>
-   <PIN pinname="Layer 2" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="88" srcpinname="Layer" dstnodeid="83" dstpinname="Layers">
-   </LINK>
-   <LINK srcnodeid="84" srcpinname="Layer" dstnodeid="88" dstpinname="Layer 1">
-   </LINK>
-   <NODE systemname="Constant (EX9.Effect)" filename="%VVVV%\lib\nodes\effects\Constant.fx" nodename="Constant (EX9.Effect)" componentmode="Hidden" id="89">
-   <BOUNDS type="Node" left="3003" top="1792" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Mesh" visible="1">
-   </PIN>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Transform" visible="1">
-   </PIN>
-   <PIN pinname="Color" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="86" srcpinname="Output" dstnodeid="89" dstpinname="Mesh">
-   </LINK>
-   <LINK srcnodeid="89" srcpinname="Layer" dstnodeid="88" dstpinname="Layer 2">
-   </LINK>
-   <NODE systemname="Transform (Transform 2d Vector)" nodename="Transform (Transform 2d Vector)" componentmode="Hidden" id="90">
-   <BOUNDS type="Node" left="3374" top="574" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="TranslateXY" visible="1">
-   </PIN>
-   <PIN pinname="Transform Out" visible="1">
-   </PIN>
-   <PIN pinname="ScaleXY" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="90" srcpinname="Transform Out" dstnodeid="89" dstpinname="Transform">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="91">
-   <BOUNDS type="Box" left="2030" top="196" width="616" height="378">
-   </BOUNDS>
-   <BOUNDS type="Node" left="2030" top="196" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="2" visible="1" values="0.06,0.06">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="2">
-   </PIN>
-   <PIN pinname="Rows" slicecount="1" values="2">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="91" srcpinname="Y Output Value" dstnodeid="90" dstpinname="ScaleXY">
-   </LINK>
-   <NODE id="94" systemname="Demo (Value)" filename="vl\VVVV.Value.Demo.vl" nodename="Demo (Value)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
-   <BOUNDS type="Node" left="1071" top="1218" width="1935" height="270">
-   </BOUNDS>
-   <BOUNDS type="Box" left="1071" top="1218" width="2121" height="1596">
-   </BOUNDS>
-   <BOUNDS type="Window" left="0" top="0" width="5306" height="3983">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="94" srcpinname="Result" dstnodeid="82" dstpinname="Data">
-   </LINK>
-   <LINK srcnodeid="94" srcpinname="CornersXY" dstnodeid="90" dstpinname="TranslateXY">
-   </LINK>
-   <NODE systemname="HSV (Color Join)" nodename="HSV (Color Join)" componentmode="Hidden" id="95">
-   <BOUNDS type="Node" left="3962" top="1372" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Saturation" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Value" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Hue" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="95" srcpinname="Output" dstnodeid="89" dstpinname="Color">
+   <LINK srcnodeid="84" srcpinname="Layer" dstnodeid="83" dstpinname="Layers">
    </LINK>
    </PATCH>
