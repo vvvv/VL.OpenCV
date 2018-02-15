@@ -9,7 +9,6 @@ namespace VL.OpenCV
     {
         public VideoInputDevice(string value) : base(value)
         {
-            int i = 0;
         }
 
         //this method needs to be imported in VL to set the default
