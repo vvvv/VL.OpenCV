@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using VL.Lib;
 using VL.Lib.Collections;
 
 namespace VL.OpenCV

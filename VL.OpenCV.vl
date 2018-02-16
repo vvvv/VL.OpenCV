@@ -3862,7 +3862,7 @@
     ************************ GaussianBlur ************************
 
 -->
-        <Node Name="GaussianBlur" Bounds="62,924" Id="OJ3uU3LmykqLU1K2eyOqMy">
+        <Node Name="GaussianBlur" Bounds="62,909" Id="OJ3uU3LmykqLU1K2eyOqMy">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -4106,7 +4106,7 @@
     ************************ Threshold ************************
 
 -->
-        <Node Name="Threshold" Bounds="62,1159" Id="QCE7TLmXaeMLhgQfVn7RrO">
+        <Node Name="Threshold" Bounds="52,1139" Id="QCE7TLmXaeMLhgQfVn7RrO" Summary="Applies a fixed-level threshold to each Mat element." Remarks="Input image should be single channel only in case of CV_THRESH_OTSU or CV_THRESH_TRIANGLE flags.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -4174,22 +4174,6 @@
                 </Patch>
               </Node>
               <ControlPoint Id="GEbverK2pAXMaHZXtPpJF9" Bounds="426,231" />
-              <Pad Id="DYIxsbwe9NAMkPZSbS9eRx" Comment="" Bounds="616,262,112,20" ShowValueBox="true" isIOBox="true" Value="&quot;BGR2GRAY&quot;">
-                <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
-                  <Choice Kind="TypeFlag" Name="ColorConversionCodes" />
-                </p:TypeAnnotation>
-              </Pad>
-              <Node Bounds="589,284,78,13" Id="HcaU8UmX8ZgN8kovRr4U9c">
-                <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="ProcessAppFlag" Name="ConvertFormat" />
-                </p:NodeReference>
-                <Pin Id="GaeUpxZVeDIPJJ4wHtDtsh" Name="Input" Kind="StateInputPin" />
-                <Pin Id="FJ3lKPbZ5NxO8hAgO74XYG" Name="Output" Kind="StateOutputPin" />
-                <Pin Id="KhwALIgeBrGMbwdy3fWt6o" Name="Code" Kind="InputPin" />
-                <Pin Id="LF7l8ifs9e4QFBdaG0Olqe" Name="Destination Channels" Kind="InputPin" />
-                <Pin Id="H3mtNSh6QRxLrkG41BHXMa" Name="Apply" Kind="InputPin" />
-              </Node>
               <Node Bounds="289,578,338,20" Id="AISoBZI0xSnLaqfHfkADZF">
                 <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -4210,18 +4194,18 @@
                 <Pin Id="R06T4lIPHukQETKDZKFBcJ" Name="Output" Kind="StateOutputPin" />
               </Node>
               <ControlPoint Id="FD5o0wuej5ENGt35VD7GE8" Bounds="243,341" />
-              <ControlPoint Id="VBpjmuXdUZaNKFoRD3ex6C" Bounds="626,244" />
+              <ControlPoint Id="VBpjmuXdUZaNKFoRD3ex6C" Bounds="624,333" />
               <ControlPoint Id="KypJX54kyYpLKVSUysAqHn" Bounds="773,232" />
             </Canvas>
             <Patch Id="IAQWC4K1Db9Lzwm4A30CQU" Name="Create" />
             <Patch Id="GtrmuyOG2ObMd1piiv20Ag" Name="Update" ManuallySortedPins="true">
-              <Pin Id="JwjrhgtoIgfMs3hmGBMq5Y" Name="Input" Kind="InputPin" Bounds="171,247" />
-              <Pin Id="QO1WeSJ3s3oOWsDs49v55i" Name="Threshold" Kind="InputPin" Bounds="463,272" DefaultValue="0.5">
+              <Pin Id="JwjrhgtoIgfMs3hmGBMq5Y" Comment="Input Mat (multiple-channel, 8-bit or 32-bit floating point)." Name="Input" Kind="InputPin" Bounds="171,247" />
+              <Pin Id="QO1WeSJ3s3oOWsDs49v55i" Comment="Use values between 0 and 255." Name="Threshold" Kind="InputPin" Bounds="463,272" DefaultValue="0.5">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="JLs7BMw6kiHNnWGJAcHfKh" Name="Type" Kind="InputPin" Bounds="745,291" DefaultValue="&quot;Binary&quot;">
+              <Pin Id="JLs7BMw6kiHNnWGJAcHfKh" Comment="Thresholding type." Name="Type" Kind="InputPin" Bounds="745,291" DefaultValue="&quot;Binary&quot;">
                 <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
                   <Choice Kind="TypeFlag" Name="ThresholdTypes" />
                 </p:TypeAnnotation>
@@ -4246,11 +4230,7 @@
             <Link Id="Gtc5ods2TpjPijJGKy3iq6" Ids="QA4jD20G6T9OrfDE5JNCwk,RpY4Pd4qc79OaM0sHWjl2f" />
             <Link Id="L1MvMhItUi8LrOSmI9M6sY" Ids="VvchreWriduLamtU2ijEug,MULoutbPbkFOgI67tw0CRt" />
             <Link Id="SSwUvePdPAAQQc1UIS0FCj" Ids="QO1WeSJ3s3oOWsDs49v55i,GEbverK2pAXMaHZXtPpJF9" IsHidden="true" />
-            <Link Id="VSwfslTRRzpLXMKQun7Rd1" Ids="DYIxsbwe9NAMkPZSbS9eRx,KhwALIgeBrGMbwdy3fWt6o" />
-            <Link Id="UyBoH0vQng9MQsBFwywzbT" Ids="IVrmbojVW8mMkq3QzYrO1e,GaeUpxZVeDIPJJ4wHtDtsh" />
-            <Link Id="Ey0pB5sc19tLgEvV9S3Gs2" Ids="FJ3lKPbZ5NxO8hAgO74XYG,EEqPOJvDwDVL8UAHdBeoht" />
             <Link Id="BBuSRiaU7iaMkwk70nJZtO" Ids="GEbverK2pAXMaHZXtPpJF9,Lnjc4WTgQW9QaU7L3jljXa" />
-            <Link Id="RjkuwvlTz4PPVjENulQHOU" Ids="PDU0O9AukNlPzAIJQRVscF,P2Jjdzgf7QSNSHEhduOk2y" />
             <Link Id="A5Ue982hewdOolOmexJG7x" Ids="RVPTYV19i3nPGMHnweAG24,P0mf1xDY2N4OfNJwr1CbX9" />
             <Link Id="CPfxXynmpihNTRdKpwihEw" Ids="OHrr81oWMvMM8AQbnM2rqK,UVOrUrA2nqQNdUfxOEVuyu" />
             <Link Id="VmdplyHbK1vP9fJhdsBeQ3" Ids="Bhn45atnhyMOR09e3JJ0ul,D22n4zju5OlMLpy3x26mok" />
@@ -4260,6 +4240,8 @@
             <Link Id="Vkk2I3WFkBhPkSyh4393iY" Ids="IVrmbojVW8mMkq3QzYrO1e,VBpjmuXdUZaNKFoRD3ex6C,H42V6ofFe1rOWfLhxGa2Wr" />
             <Link Id="FVrjhh4rDeqQAvnamvuNAU" Ids="KypJX54kyYpLKVSUysAqHn,DVNuiAHd0i6LTioQS3kNca" />
             <Link Id="M5TylIHZalBOVyaTqDUjn0" Ids="JLs7BMw6kiHNnWGJAcHfKh,KypJX54kyYpLKVSUysAqHn" IsHidden="true" />
+            <Link Id="BzDBtzQHd0ZNftrCpCuqC1" Ids="IVrmbojVW8mMkq3QzYrO1e,EEqPOJvDwDVL8UAHdBeoht" />
+            <Link Id="Avz9Ptd87T4PTTfC4g30qe" Ids="PDU0O9AukNlPzAIJQRVscF,P2Jjdzgf7QSNSHEhduOk2y" />
           </Patch>
         </Node>
         <!--
@@ -4525,7 +4507,7 @@
     ************************ Difference ************************
 
 -->
-        <Node Name="Difference" Bounds="439,219" Id="UrvGLneiedXOzaxiIrESQb">
+        <Node Name="Difference" Bounds="429,219" Id="UrvGLneiedXOzaxiIrESQb" Summary="Calculates the per-element absolute difference between two Mats." Remarks="Saturation is not applied when the Mats have the depth CV_32S. You may even get a negative value in the case of overflow. In case of multi-channel arrays, each channel is processed independently.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -4600,7 +4582,7 @@
     ************************ ConvertFormat ************************
 
 -->
-        <Node Name="ConvertFormat" Bounds="62,689" Id="JSn2cxdx92ZPCXLQXXtL13">
+        <Node Name="ConvertFormat" Bounds="62,679" Id="JSn2cxdx92ZPCXLQXXtL13">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -4679,7 +4661,7 @@
     ************************ Dilate ************************
 
 -->
-        <Node Name="Dilate" Bounds="62,783" Id="RV7ys19HWc2OVj4PrCIBsT">
+        <Node Name="Dilate" Bounds="62,771" Id="RV7ys19HWc2OVj4PrCIBsT">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -4757,7 +4739,7 @@
     ************************ Canny ************************
 
 -->
-        <Node Name="Canny" Bounds="62,642" Id="AsgLm6m85htLLuMUrxCZPD" Remarks="ryukyu" Tags="edgedetection">
+        <Node Name="Canny" Bounds="52,633" Id="AsgLm6m85htLLuMUrxCZPD" Summary="Finds edges in an image using the Canny algorithm." Remarks="The smallest value between Threshold1 and Threshold2 is used for edge linking. The largest value is used to find initial segments of strong edges." Tags="edgedetection">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -4886,17 +4868,17 @@
             <Patch Id="OeFs6e3S54zPSgqhZJQ1J1" Name="Create" />
             <Patch Id="F8jd6vZP6EtPiKTtVZcQnd" Name="Update" ManuallySortedPins="true">
               <Pin Id="Mj8qLYTBr4mQTbdwrVCeCc" Name="Input" Kind="InputPin" Bounds="171,247" />
-              <Pin Id="DN13yUakVUdQat39yXZJ7B" Name="Threshold 1" Kind="InputPin" Bounds="482,350" DefaultValue="100.0">
+              <Pin Id="DN13yUakVUdQat39yXZJ7B" Comment="First threshold for the hysteresis procedure." Name="Threshold 1" Kind="InputPin" Bounds="482,350" DefaultValue="100.0">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="CY1JRnQ8IAjN4f3zFywaSR" Name="Threshold 2" Kind="InputPin" Bounds="563,358" DefaultValue="40.0">
+              <Pin Id="CY1JRnQ8IAjN4f3zFywaSR" Comment="Second threshold for the hysteresis procedure." Name="Threshold 2" Kind="InputPin" Bounds="563,358" DefaultValue="40.0">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="APljXiYS0CLNBeuNyr5h3A" Name="Aperture Size" Kind="InputPin" Bounds="656,362" DefaultValue="3">
+              <Pin Id="APljXiYS0CLNBeuNyr5h3A" Comment="Aperture size for the Sobel operator." Name="Aperture Size" Kind="InputPin" Bounds="656,362" DefaultValue="3">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Integer32" />
                 </p:TypeAnnotation>
@@ -4947,7 +4929,7 @@
     ************************ Erode ************************
 
 -->
-        <Node Name="Erode" Bounds="62,830" Id="D8fj8GrXUFOMOmvUlFy3jD">
+        <Node Name="Erode" Bounds="62,817" Id="D8fj8GrXUFOMOmvUlFy3jD">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -5036,7 +5018,7 @@
     ************************ ConvertScaleAbs ************************
 
 -->
-        <Node Name="ConvertScaleAbs" Bounds="62,736" Id="IwUmi3NQFNfLoWgZ9j8QS3">
+        <Node Name="ConvertScaleAbs" Bounds="62,725" Id="IwUmi3NQFNfLoWgZ9j8QS3">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -5119,7 +5101,7 @@
     ************************ Sobel ************************
 
 -->
-        <Node Name="Sobel" Bounds="62,1112" Id="HnoDgJ45p8IMzlCh68Ytg8">
+        <Node Name="Sobel" Bounds="52,1093" Id="HnoDgJ45p8IMzlCh68Ytg8" Summary="Calculates the first, second, third, or mixed image derivatives using an extended Sobel operator." Remarks="Xorder and Yorder must be non-negative, cannot have a value of 0 simultanously and must have a value smaller than KSize (except when KSize is 1, in which case at least one of the inputs must also be 1)." Tags="edgedetection">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -5127,7 +5109,7 @@
             <Canvas Id="RGs3YUb9t5DLN7qtYe4BmC">
               <ControlPoint Id="AN0DfZ8hdlLL4R8t7XtKdL" Bounds="759,241" />
               <ControlPoint Id="JdwWSkqeMvMQc93wpc47jU" Bounds="329,241" />
-              <Node Bounds="327,332,436,135" Id="RJNRIm6rewsMRJ3EWNeyFH">
+              <Node Bounds="327,330,436,138" Id="RJNRIm6rewsMRJ3EWNeyFH">
                 <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCVSharp.vl">
                   <Choice Kind="RegionFlag" Name="Region (Stateless)" Fixed="true" />
                   <Choice Kind="ProcessAppFlag" Name="Filter (1-&gt;1)" />
@@ -5149,9 +5131,17 @@
                     <Pin Id="QWrZogHx9DqOsXAjBmZm1W" Name="Src" Kind="InputPin" />
                     <Pin Id="HAFzDCG5NrQPZYVjA9qNZG" Name="Dst" Kind="InputPin" />
                     <Pin Id="JX4LzNH80VtN2P3HBizyHB" Name="Ddepth" Kind="InputPin" />
-                    <Pin Id="JLp5oglDTJWNPy6vHqIeRp" Name="Xorder" Kind="InputPin" />
+                    <Pin Id="JLp5oglDTJWNPy6vHqIeRp" Name="Xorder" Kind="InputPin" DefaultValue="1">
+                      <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                        <Choice Kind="TypeFlag" Name="Integer32" />
+                      </p:TypeAnnotation>
+                    </Pin>
                     <Pin Id="T1EZbJjDQkTP4s8ijxKxBQ" Name="Yorder" Kind="InputPin" />
-                    <Pin Id="DMwNKNthnOnN1Xr0Cz9cOn" Name="Ksize" Kind="InputPin" />
+                    <Pin Id="DMwNKNthnOnN1Xr0Cz9cOn" Name="Ksize" Kind="InputPin" DefaultValue="1">
+                      <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                        <Choice Kind="TypeFlag" Name="Integer32" />
+                      </p:TypeAnnotation>
+                    </Pin>
                     <Pin Id="RMAHSgomyp7K9rKfA1gMln" Name="Scale" Kind="InputPin" />
                     <Pin Id="PRggln6xwZHNxY4kHfAxOP" Name="Delta" Kind="InputPin" />
                     <Pin Id="AG7vCVivbkYNCh24ATu6gl" Name="Border Type" Kind="InputPin" DefaultValue="&quot;Reflect&quot;">
@@ -5168,37 +5158,6 @@
                     </p:NodeReference>
                     <Pin Id="PPQBo9PtytvNdZ8isLePbM" Name="CV_32FC1" Kind="OutputPin" />
                   </Node>
-                  <Node Bounds="492,399,45,13" Id="RsOt1ZlyavWP5eNAdxyJFh">
-                    <p:NodeReference LastCategoryFullName="Adaptive" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
-                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationCallFlag" Name="Clamp" />
-                      <CategoryReference Kind="Category" Name="Adaptive" NeedsToBeDirectParent="true" />
-                    </p:NodeReference>
-                    <Pin Id="Usv3oeH6qVuLfLAIjqobr9" Name="Input" Kind="InputPin" />
-                    <Pin Id="BkgwGOOjxUqLdyyOO74krA" Name="Minimum" Kind="InputPin" />
-                    <Pin Id="EeEmGl0hmbQNGauts98mEk" Name="Maximum" Kind="InputPin" />
-                    <Pin Id="IHh0U2QURJxNLyIL0t3xXg" Name="Output" Kind="OutputPin" />
-                  </Node>
-                  <Node Bounds="550,356,43,22" Id="UOxLnSZsRPzLd1iQe8QX2x">
-                    <p:NodeReference LastCategoryFullName="Primitive.Integer32" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
-                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationCallFlag" Name="Dec" />
-                      <CategoryReference Kind="Int32Type" Name="Integer32" NeedsToBeDirectParent="true" />
-                    </p:NodeReference>
-                    <Pin Id="JtIzmduXW3SLiR7wVJ6fq1" Name="Input" Kind="StateInputPin" />
-                    <Pin Id="HvffbKmS3XOOGnywVbesFD" Name="Output" Kind="StateOutputPin" />
-                  </Node>
-                  <Node Bounds="543,398,45,13" Id="PVxlPdrmM1nO6kwEb54fvZ">
-                    <p:NodeReference LastCategoryFullName="Adaptive" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
-                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationCallFlag" Name="Clamp" />
-                      <CategoryReference Kind="Category" Name="Adaptive" NeedsToBeDirectParent="true" />
-                    </p:NodeReference>
-                    <Pin Id="NAgidGfpKQdOVXoL3eWmok" Name="Input" Kind="InputPin" />
-                    <Pin Id="JoeV2UNWxs9LkEVNabZMRE" Name="Minimum" Kind="InputPin" />
-                    <Pin Id="Lcl74l8OJk5Oa460Mu96GO" Name="Maximum" Kind="InputPin" />
-                    <Pin Id="CD9rN2PCzO3MQzc8ugr0gP" Name="Output" Kind="OutputPin" />
-                  </Node>
                 </Patch>
               </Node>
               <ControlPoint Id="Dz37TWeKQtYLVPlLOaiYtt" Bounds="492,241" />
@@ -5206,22 +5165,6 @@
               <ControlPoint Id="NjdpknB2GuIObNBfyz07Ha" Bounds="696,241" />
               <ControlPoint Id="VCDygltMHJmLTdIwQLET6x" Bounds="646,241" />
               <ControlPoint Id="PY6vKCcb8PGQAjM6q99OUP" Bounds="597,241" />
-              <Pad Id="FpHjF1xrfpKLv9vGg8EouV" Comment="" Bounds="785,274,112,20" ShowValueBox="true" isIOBox="true" Value="&quot;BGR2GRAY&quot;">
-                <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
-                  <Choice Kind="TypeFlag" Name="ColorConversionCodes" />
-                </p:TypeAnnotation>
-              </Pad>
-              <Node Bounds="758,296,78,13" Id="GPyEIOXaaIWMNyQqKCqvku">
-                <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="ProcessAppFlag" Name="ConvertFormat" />
-                </p:NodeReference>
-                <Pin Id="POHvBHir0HcOrfGFarvAJ4" Name="Input" Kind="StateInputPin" />
-                <Pin Id="VTin03DycCbMwldGaVNYFR" Name="Output" Kind="StateOutputPin" />
-                <Pin Id="NB9d7tELf67MvA0Vjb03jz" Name="Code" Kind="InputPin" />
-                <Pin Id="BgXpkRT1tjzORBjJ2EUc0E" Name="Destination Channels" Kind="InputPin" />
-                <Pin Id="HQv4MDiLxyCNmQchnwvgpZ" Name="Apply" Kind="InputPin" />
-              </Node>
               <ControlPoint Id="IpZISIE2WYRNwf8rgStOkC" Bounds="314,662" />
               <Node Bounds="313,622,463,20" Id="KJpegxgdMIqQDU3KVK2aHZ">
                 <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
@@ -5248,23 +5191,23 @@
             <Patch Id="OA781sUjapFOPLOh3DBb4a" Name="Create" />
             <Patch Id="EjDhP1268EzN5PZNUyyVl2" Name="Update" ManuallySortedPins="true">
               <Pin Id="So39C1iU2jaPwOEYEU6Riy" Name="Input" Kind="InputPin" Bounds="171,247" />
-              <Pin Id="DOYQvNkFwWCMqAcwMLtoXg" Name="Xorder" Kind="InputPin" Bounds="628,296" DefaultValue="1">
+              <Pin Id="DOYQvNkFwWCMqAcwMLtoXg" Comment="Order of the derivative x." Name="Xorder" Kind="InputPin" Bounds="628,296" DefaultValue="1">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Integer32" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="BZPKmFP5aYEQLQfAgSeghi" Name="Yorder" Kind="InputPin" Bounds="678,298" />
-              <Pin Id="A27K9hBFDl8LhpXrbnlj6G" Name="Scale" Kind="InputPin" Bounds="734,348" DefaultValue="0.03">
+              <Pin Id="BZPKmFP5aYEQLQfAgSeghi" Comment="Order of the derivative y." Name="Yorder" Kind="InputPin" Bounds="678,298" />
+              <Pin Id="A27K9hBFDl8LhpXrbnlj6G" Comment="Optional scale factor for the computed derivative values." Name="Scale" Kind="InputPin" Bounds="734,348" DefaultValue="0.03">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="VSJ0aViOYWBMy2AKAZwSK2" Name="KSize" Kind="InputPin" DefaultValue="&quot;Three&quot;">
+              <Pin Id="VSJ0aViOYWBMy2AKAZwSK2" Comment="Size of the extended Sobel kernel; it must be 1, 3, 5, or 7." Name="KSize" Kind="InputPin" DefaultValue="&quot;Three&quot;">
                 <p:TypeAnnotation LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.Dev.vl">
                   <Choice Kind="TypeFlag" Name="SobelKSize" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="Q7L8bEV087YLNejd4Xnv7v" Name="Delta" Kind="InputPin" Bounds="716,319">
+              <Pin Id="Q7L8bEV087YLNejd4Xnv7v" Comment="Optional delta value that is added to the results prior to" Name="Delta" Kind="InputPin" Bounds="716,319">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
@@ -5295,23 +5238,16 @@
             <Link Id="EHRqXhGMah6O9zmrDNQqbT" Ids="A27K9hBFDl8LhpXrbnlj6G,VCDygltMHJmLTdIwQLET6x" IsHidden="true" />
             <Link Id="Nu5X95jLkqQMPurQY4PrP8" Ids="PPQBo9PtytvNdZ8isLePbM,JX4LzNH80VtN2P3HBizyHB" />
             <Link Id="SeBLb7J0kHuObW9qyhXETd" Ids="VSJ0aViOYWBMy2AKAZwSK2,PY6vKCcb8PGQAjM6q99OUP" IsHidden="true" />
-            <Link Id="FrlTolxKSeVNQSG3LcvlhW" Ids="PY6vKCcb8PGQAjM6q99OUP,DMwNKNthnOnN1Xr0Cz9cOn" />
-            <Link Id="RWYphZ8vhHrPgRutsKCZDD" Ids="PY6vKCcb8PGQAjM6q99OUP,JtIzmduXW3SLiR7wVJ6fq1" />
-            <Link Id="UED2kNEjD4nO7YakNNbNHU" Ids="Dz37TWeKQtYLVPlLOaiYtt,Usv3oeH6qVuLfLAIjqobr9" />
-            <Link Id="V4muAW4JlmDPRkV6Ew59PZ" Ids="IHh0U2QURJxNLyIL0t3xXg,JLp5oglDTJWNPy6vHqIeRp" />
-            <Link Id="F0eCbELejHFOdbMEWoVQ2u" Ids="U3chr9KOLqgNrHU5s4urLO,NAgidGfpKQdOVXoL3eWmok" />
-            <Link Id="Ak7ksrHdjSxMPocKKDH0XA" Ids="CD9rN2PCzO3MQzc8ugr0gP,T1EZbJjDQkTP4s8ijxKxBQ" />
-            <Link Id="H5FSZV6KxKgMSgD5l8sC3j" Ids="HvffbKmS3XOOGnywVbesFD,EeEmGl0hmbQNGauts98mEk" />
-            <Link Id="Jn2oPAL9eeELE4osQFZqw5" Ids="HvffbKmS3XOOGnywVbesFD,Lcl74l8OJk5Oa460Mu96GO" />
-            <Link Id="GxfmKGqNZ5bPw41IPqqqQb" Ids="FpHjF1xrfpKLv9vGg8EouV,NB9d7tELf67MvA0Vjb03jz" />
-            <Link Id="OAyhtWU6MXRPlhj2jxk1Gm" Ids="AN0DfZ8hdlLL4R8t7XtKdL,POHvBHir0HcOrfGFarvAJ4" />
-            <Link Id="UknuUECmcmvL0W4drQhi2L" Ids="VTin03DycCbMwldGaVNYFR,EclR81TCwbBPgYn35yO6Rl" />
             <Link Id="Oq2Vtv6jL8vN338t7NcU3X" Ids="IpZISIE2WYRNwf8rgStOkC,CJ3OdlGUUCdLjktINZi2MX" IsHidden="true" />
             <Link Id="NJnVbcDc0vIM3kuJTq9z60" Ids="RoJHhpKMSuDLOBvAWuCoJR,IpZISIE2WYRNwf8rgStOkC" />
             <Link Id="OIJZHdL0COoP0EzRzRfONu" Ids="AByET0yCjzSNf9FIStioes,GzEWaal6iY3NvbGJgCqmq3" />
             <Link Id="EvL4VQsYkOPL1QXs5NMxuV" Ids="Cthj0kqE3YbOan7Ntjv4Rg,Rj9ocg9s5QSPA2sUmVmhFa" />
             <Link Id="R1tcWPGPWWMLEpWnUsGgTw" Ids="AN0DfZ8hdlLL4R8t7XtKdL,AmKtnsKbGjuODPv25uqFSg,PVoBX9ewL2HNDEvo3oByoY" />
             <Link Id="Dv4Ey093HtrOm4n2TiP6fN" Ids="JdwWSkqeMvMQc93wpc47jU,Eymyt19nBMiO8r6fzsJRJJ,Ot8G0zUrLCaLYGy5CV3CJn" />
+            <Link Id="DrfsHYMHgnKMB6GenPym6s" Ids="AN0DfZ8hdlLL4R8t7XtKdL,EclR81TCwbBPgYn35yO6Rl" />
+            <Link Id="EEKMRVmyQv7O26pOB8BmnI" Ids="Dz37TWeKQtYLVPlLOaiYtt,JLp5oglDTJWNPy6vHqIeRp" />
+            <Link Id="FummaForJlmLvMcJmFxzMV" Ids="U3chr9KOLqgNrHU5s4urLO,T1EZbJjDQkTP4s8ijxKxBQ" />
+            <Link Id="FuTeY7Aag5wPmKfewuU2G2" Ids="PY6vKCcb8PGQAjM6q99OUP,DMwNKNthnOnN1Xr0Cz9cOn" />
           </Patch>
         </Node>
         <!--
@@ -5319,7 +5255,7 @@
     ************************ < ************************
 
 -->
-        <Node Name="&lt;" Bounds="439,266" Id="H2thMfghgmDOnYBOD0ngoX">
+        <Node Name="&lt;" Bounds="429,266" Id="H2thMfghgmDOnYBOD0ngoX" Summary="Performs the per-element comparison of two Mats." Remarks="When the comparison result is true, the corresponding element of output Mat is set to 255.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -5366,8 +5302,8 @@
             </Canvas>
             <Patch Id="UrQrN5oLTRdOnIv4xY9sBU" Name="Create" />
             <Patch Id="Rxvj0A6JVlqMqmVjZwlfnq" Name="Update" ManuallySortedPins="true">
-              <Pin Id="JhsSQISOJWZQDWr8m4hwxe" Name="Input" Kind="InputPin" Bounds="171,247" />
-              <Pin Id="PYcJITli7QdMr4xQ6g4cXF" Name="Input 2" Kind="InputPin" Bounds="420,273" />
+              <Pin Id="JhsSQISOJWZQDWr8m4hwxe" Comment="Mat must have a single channel." Name="Input" Kind="InputPin" Bounds="171,247" />
+              <Pin Id="PYcJITli7QdMr4xQ6g4cXF" Comment="Mat must have a single channel." Name="Input 2" Kind="InputPin" Bounds="420,273" />
               <Pin Id="UUHPFCpXeCBLtXc2y9FNWV" Name="Apply" Kind="InputPin" Bounds="136,367" DefaultValue="true">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
@@ -5401,7 +5337,7 @@
     ************************ > ************************
 
 -->
-        <Node Name="&gt;" Bounds="439,313" Id="GsKGqDT5NrgL9cVqzrVeMu">
+        <Node Name="&gt;" Bounds="429,313" Id="GsKGqDT5NrgL9cVqzrVeMu" Summary="Performs the per-element comparison of two Mats." Remarks="When the comparison result is true, the corresponding element of output Mat is set to 255.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -5448,8 +5384,8 @@
             </Canvas>
             <Patch Id="LhKFQZlHX7nQLHrb31NKtG" Name="Create" />
             <Patch Id="FoBfVUaTvJWNHbBUlHzZHl" Name="Update" ManuallySortedPins="true">
-              <Pin Id="Kan6SsqfAS9OHWFabMUOsA" Name="Input" Kind="InputPin" Bounds="171,247" />
-              <Pin Id="OJ343UV3Nd1LCAsUfM8diO" Name="Input 2" Kind="InputPin" Bounds="420,273" />
+              <Pin Id="Kan6SsqfAS9OHWFabMUOsA" Comment="Mat must have a single channel." Name="Input" Kind="InputPin" Bounds="171,247" />
+              <Pin Id="OJ343UV3Nd1LCAsUfM8diO" Comment="Mat must have a single channel." Name="Input 2" Kind="InputPin" Bounds="420,273" />
               <Pin Id="T0KWk3gFgwuN2Tjqm1irij" Name="Apply" Kind="InputPin" Bounds="136,367" DefaultValue="true">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
@@ -5483,7 +5419,7 @@
     ************************ = ************************
 
 -->
-        <Node Name="=" Bounds="439,360" Id="DQ8PsY8x4HBQR1DTGP9x93">
+        <Node Name="=" Bounds="429,360" Id="DQ8PsY8x4HBQR1DTGP9x93" Summary="Performs the per-element comparison of two Mats." Remarks="When the comparison result is true, the corresponding element of output Mat is set to 255.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -5530,8 +5466,8 @@
             </Canvas>
             <Patch Id="KtL6hTiPq2AO87si9XLVvn" Name="Create" />
             <Patch Id="JUDDqxpNnO7PF4b8ET1yJw" Name="Update" ManuallySortedPins="true">
-              <Pin Id="H8qlNwHzUmnOckiqzWROdi" Name="Input" Kind="InputPin" Bounds="171,247" />
-              <Pin Id="TJY4y2vwsN6LL6FUZtGJBU" Name="Input 2" Kind="InputPin" Bounds="420,273" />
+              <Pin Id="H8qlNwHzUmnOckiqzWROdi" Comment="Mat must have a single channel." Name="Input" Kind="InputPin" Bounds="171,247" />
+              <Pin Id="TJY4y2vwsN6LL6FUZtGJBU" Comment="Mat must have a single channel." Name="Input 2" Kind="InputPin" Bounds="420,273" />
               <Pin Id="VbvE4JD53yNQUckyk3Wj5l" Name="Apply" Kind="InputPin" Bounds="136,367" DefaultValue="true">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
@@ -5565,7 +5501,7 @@
     ************************ NOT ************************
 
 -->
-        <Node Name="NOT" Bounds="62,1018" Id="KTDbVswpbtEQYIZek5deYw">
+        <Node Name="NOT" Bounds="51,1001" Id="KTDbVswpbtEQYIZek5deYw" Summary="Calculates per-element bit-wise inversion of the input Mat." Remarks="In case of a floating-point input Mat, its machine-specific bit representation (usually IEEE754-compliant) is used for the operation. In case of multi-channel Mats, each channel is processed independently.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -5631,7 +5567,7 @@
     ************************ AND ************************
 
 -->
-        <Node Name="AND" Bounds="439,407" Id="F0GD3yKz4mxO7BUru2fDwL">
+        <Node Name="AND" Bounds="429,407" Id="F0GD3yKz4mxO7BUru2fDwL" Summary="Calculates the per-element bit-wise conjunction of two Mats." Remarks="In case of floating-point Mats, their machine-specific bit representations (usually IEEE754-compliant) are used for the operation. In case of multi-channel Mats, each channel is processed independently.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -5707,7 +5643,7 @@
     ************************ OR ************************
 
 -->
-        <Node Name="OR" Bounds="439,454" Id="RnZVTcPsWO5PGPlk8fbBHr">
+        <Node Name="OR" Bounds="429,454" Id="RnZVTcPsWO5PGPlk8fbBHr" Summary="Calculates the per-element bit-wise disjunction of two Mats." Remarks="In case of floating-point Mats, their machine-specific bit representations (usually IEEE754-compliant) are used for the operation. In case of multi-channel Mats, each channel is processed independently.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -5783,7 +5719,7 @@
     ************************ XOR ************************
 
 -->
-        <Node Name="XOR" Bounds="439,501" Id="BhHrpJDvzI2NJ94FxnGRRT">
+        <Node Name="XOR" Bounds="429,501" Id="BhHrpJDvzI2NJ94FxnGRRT" Summary="Calculates the per-element bit-wise &quot;exclusive or&quot; operation on two Mats." Remarks="In case of floating-point Mats, their machine-specific bit representations (usually IEEE754-compliant) are used for the operation. In case of multi-channel Mats, each channel is processed independently.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -5859,7 +5795,7 @@
     ************************ Blur ************************
 
 -->
-        <Node Name="Blur" Bounds="62,595" Id="GauFekTu4pyPO2eQnPR83e">
+        <Node Name="Blur" Bounds="52,587" Id="GauFekTu4pyPO2eQnPR83e" Summary="Blurs an image using the normalized box filter.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -5957,13 +5893,13 @@
             </Canvas>
             <Patch Id="EMqDlDn3KhKOLPAMZHGzZo" Name="Create" />
             <Patch Id="LXHksboE0jCLVzDZLubLEf" Name="Update" ManuallySortedPins="true">
-              <Pin Id="B2X2ucYXow9LfEcSKiiQ5x" Name="Input" Kind="InputPin" Bounds="171,247" />
-              <Pin Id="RRlc2sp1QAmOExoXjnlijL" Name="Width" Kind="InputPin" Bounds="472,204" DefaultValue="10">
+              <Pin Id="B2X2ucYXow9LfEcSKiiQ5x" Comment="Input Mat; it can have any number of channels, which are processed independently, but the depth should be CV_8U, CV_16U, CV_16S, CV_32F or CV_64F." Name="Input" Kind="InputPin" Bounds="171,247" />
+              <Pin Id="RRlc2sp1QAmOExoXjnlijL" Comment="Blurring kernel width." Name="Width" Kind="InputPin" Bounds="472,204" DefaultValue="10">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Integer32" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="O1qIeBpEjxNQUBGdi5zHBy" Name="Height" Kind="InputPin" Bounds="552,194" DefaultValue="10">
+              <Pin Id="O1qIeBpEjxNQUBGdi5zHBy" Comment="Blurring kernel height." Name="Height" Kind="InputPin" Bounds="552,194" DefaultValue="10">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Integer32" />
                 </p:TypeAnnotation>
@@ -6005,7 +5941,7 @@
     ************************ Flip ************************
 
 -->
-        <Node Name="Flip" Bounds="62,877" Id="NPZNBBurffmMsFVywOE0hk">
+        <Node Name="Flip" Bounds="62,863" Id="NPZNBBurffmMsFVywOE0hk">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -6075,7 +6011,7 @@
     ************************ MedianBlur ************************
 
 -->
-        <Node Name="MedianBlur" Bounds="62,971" Id="OqHF12usrx5OsXkfuzlKkL">
+        <Node Name="MedianBlur" Bounds="62,955" Id="OqHF12usrx5OsXkfuzlKkL">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -6239,7 +6175,7 @@
     ************************ PencilSketch ************************
 
 -->
-        <Node Name="PencilSketch" Bounds="62,1065" Id="PV8sW7Gcs1kLv4199CfDUI">
+        <Node Name="PencilSketch" Bounds="62,1047" Id="PV8sW7Gcs1kLv4199CfDUI">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -6386,7 +6322,7 @@
     ************************ BackgroundSubtractor (MOG) ************************
 
 -->
-        <Node Name="BackgroundSubtractor (MOG)" Bounds="62,407" Id="AvWWcinRYuUMmrIv0eT0Ys">
+        <Node Name="BackgroundSubtractor (MOG)" Bounds="62,403" Id="AvWWcinRYuUMmrIv0eT0Ys">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -6564,7 +6500,7 @@
     ************************ BackgroundSubtractor (MOG2) ************************
 
 -->
-        <Node Name="BackgroundSubtractor (MOG2)" Bounds="62,454" Id="STudUpEopd7QTdzlsxbWgD">
+        <Node Name="BackgroundSubtractor (MOG2)" Bounds="62,449" Id="STudUpEopd7QTdzlsxbWgD">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -6731,7 +6667,7 @@
     ************************ BackgroundSubtractor (GMG) ************************
 
 -->
-        <Node Name="BackgroundSubtractor (GMG)" Bounds="62,501" Id="Dw2sY4uSBMEOzfvJrAbVnw">
+        <Node Name="BackgroundSubtractor (GMG)" Bounds="62,495" Id="Dw2sY4uSBMEOzfvJrAbVnw">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -6887,7 +6823,7 @@
     ************************ BackgroundSubtractor (KNN) ************************
 
 -->
-        <Node Name="BackgroundSubtractor (KNN)" Bounds="62,548" Id="RAO6QEKUbBiMC4sldxieHb">
+        <Node Name="BackgroundSubtractor (KNN)" Bounds="62,541" Id="RAO6QEKUbBiMC4sldxieHb">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -7054,7 +6990,7 @@
     ************************ AdaptiveThreshold ************************
 
 -->
-        <Node Name="AdaptiveThreshold" Bounds="62,360" Id="JX97bFqLooWMTuVWhf4Dw6">
+        <Node Name="AdaptiveThreshold" Bounds="49,357" Id="JX97bFqLooWMTuVWhf4Dw6" Summary="Applies an adaptive threshold to a Mat.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -7200,7 +7136,7 @@
               <ControlPoint Id="B1a17oUQWk5PyBr2eGQ0Yv" Bounds="726,185" />
               <ControlPoint Id="Nf9FXWstjHxLNq0i6ErKQL" Bounds="582,185" />
               <ControlPoint Id="AKHXwZazm7COueZSzAcoYW" Bounds="470,185" />
-              <Pad Id="F2x9t8x5xtQPIiDDZpDfwy" Comment="" Bounds="900,220,112,20" ShowValueBox="true" isIOBox="true" Value="&quot;BGR2GRAY&quot;">
+              <Pad Id="F2x9t8x5xtQPIiDDZpDfwy" Comment="" Bounds="905,220,112,20" ShowValueBox="true" isIOBox="true" Value="&quot;BGR2GRAY&quot;">
                 <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
                   <Choice Kind="TypeFlag" Name="ColorConversionCodes" />
                 </p:TypeAnnotation>
@@ -7242,22 +7178,22 @@
             <Patch Id="LbuEFmZioO8Oa9ucgg4JJy" Name="Create" />
             <Patch Id="KGw6FI5Wc8oNOPotw1YaWO" Name="Update" ManuallySortedPins="true">
               <Pin Id="SVp0T0SKuvfMY18nrVSJbx" Name="Input" Kind="InputPin" Bounds="365,236" />
-              <Pin Id="AdU7HCsg6r3QXCF99T9QQ3" Name="Max Value" Kind="InputPin" Bounds="530,239" DefaultValue="1.0">
+              <Pin Id="AdU7HCsg6r3QXCF99T9QQ3" Comment="Non-zero value assigned to the pixels for which the condition is satisfied." Name="Max Value" Kind="InputPin" Bounds="530,239" DefaultValue="1.0">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float64" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="Kc2SgGsSkZ1NPkWo2E8etq" Name="Block Size" Kind="InputPin" Bounds="575,341" DefaultValue="11">
+              <Pin Id="Kc2SgGsSkZ1NPkWo2E8etq" Comment="Size of a pixel neighborhood that is used to calculate a threshold value for the pixel: 3, 5, 7, and so on." Name="Block Size" Kind="InputPin" Bounds="575,341" DefaultValue="11">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Integer32" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="UN2XbTadgVbL2JK5tgRBNh" Name="C" Kind="InputPin" Bounds="633,344" DefaultValue="5.0">
+              <Pin Id="UN2XbTadgVbL2JK5tgRBNh" Comment="Constant subtracted from the mean or weighted mean. Normally, it is positive but may be zero or negative as well." Name="C" Kind="InputPin" Bounds="633,344" DefaultValue="5.0">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float64" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="KowfIIg1IqjPA9cRfOt2D4" Name="Adaptive Method" Kind="InputPin" Bounds="565,260" />
+              <Pin Id="KowfIIg1IqjPA9cRfOt2D4" Comment="Adaptive thresholding algorithm to use." Name="Adaptive Method" Kind="InputPin" Bounds="565,260" />
               <Pin Id="DjKzVSTXxSrLJI3lktCnwG" Name="Apply" Kind="InputPin" Bounds="136,367" DefaultValue="true">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
@@ -7576,7 +7512,7 @@
     ************************ > (Scalar) ************************
 
 -->
-        <Node Name="&gt; (Scalar)" Bounds="62,266" Id="L0K8mJzTqTUP4YRePfqLGP">
+        <Node Name="&gt; (Scalar)" Bounds="50,265" Id="L0K8mJzTqTUP4YRePfqLGP" Summary="Performs the per-element comparison of a Mat and a scalar value." Remarks="When the comparison result is true, the corresponding element of output Mat is set to 255.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -7684,8 +7620,8 @@
             <Patch Id="IHAX1YMxzCBLKTVN2Dt8f0" Name="Create" />
             <Patch Id="Oy6sTOlv3v4MIMt4lOwDwf" Name="Update" ManuallySortedPins="true">
               <Pin Id="CVOBRW7tXK9N0JiCuqiAXn" Name="Output" Kind="OutputPin" Bounds="476,342" />
-              <Pin Id="DFwrXhCh1A7MC5GkiP1DVR" Name="Input" Kind="InputPin" Bounds="327,219" />
-              <Pin Id="IRzoI0aE9NnOphFyNfkxIB" Name="Threshold" Kind="InputPin" Bounds="430,225" DefaultValue="0.5">
+              <Pin Id="DFwrXhCh1A7MC5GkiP1DVR" Comment="Mat must have a single channel." Name="Input" Kind="InputPin" Bounds="327,219" />
+              <Pin Id="IRzoI0aE9NnOphFyNfkxIB" Comment="Use values between 0 and 255." Name="Threshold" Kind="InputPin" Bounds="430,225" DefaultValue="0.5">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
@@ -7729,7 +7665,7 @@
     ************************ < (Scalar) ************************
 
 -->
-        <Node Name="&lt; (Scalar)" Bounds="62,219" Id="Q0SivW7lZ7XPfgu61bsxar">
+        <Node Name="&lt; (Scalar)" Bounds="50,219" Id="Q0SivW7lZ7XPfgu61bsxar" Summary="Performs the per-element comparison of a Mat and a scalar value." Remarks="When the comparison result is true, the corresponding element of output Mat is set to 255.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -7836,8 +7772,8 @@
             </Canvas>
             <Patch Id="PHQreKhWdXnO8zLtm9Jbcz" Name="Create" />
             <Patch Id="IxmYxTsbxTfPi9VfyX5FzO" Name="Update" ManuallySortedPins="true">
-              <Pin Id="D0kRv5nq3ZdNJuZcdw1Akm" Name="Input" Kind="InputPin" Bounds="327,219" />
-              <Pin Id="VlHCWt4CQboO6Op5m4ukoF" Name="Threshold" Kind="InputPin" Bounds="430,225" DefaultValue="0.5">
+              <Pin Id="D0kRv5nq3ZdNJuZcdw1Akm" Comment="Mat must have a single channel." Name="Input" Kind="InputPin" Bounds="327,219" />
+              <Pin Id="VlHCWt4CQboO6Op5m4ukoF" Comment="Use values between 0 and 255." Name="Threshold" Kind="InputPin" Bounds="430,225" DefaultValue="0.5">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
@@ -7882,7 +7818,7 @@
     ************************ = (Scalar) ************************
 
 -->
-        <Node Name="= (Scalar)" Bounds="62,313" Id="CxdVqjRLHofPVwLgLvhnqn">
+        <Node Name="= (Scalar)" Bounds="50,311" Id="CxdVqjRLHofPVwLgLvhnqn" Summary="Performs the per-element comparison of a Mat and a scalar value." Remarks="When the comparison result is true, the corresponding element of output Mat is set to 255.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -7999,8 +7935,8 @@
             <Patch Id="OO9T9ZIfK9vNgVP6hQXq2B" Name="Create" />
             <Patch Id="DgkaqcxRNW1Pc4PEolDkSF" Name="Update" ManuallySortedPins="true">
               <Pin Id="SQHuSKYgZdiNr0WwXpwpUQ" Name="Output" Kind="OutputPin" Bounds="476,342" />
-              <Pin Id="FH1XGB1coaTM4cEtc6TgNF" Name="Input" Kind="InputPin" Bounds="327,219" />
-              <Pin Id="P78z9H5g5EDPCP2cgCGKmv" Name="Threshold" Kind="InputPin" Bounds="430,225" DefaultValue="0.5">
+              <Pin Id="FH1XGB1coaTM4cEtc6TgNF" Comment="Mat must have a single channel." Name="Input" Kind="InputPin" Bounds="327,219" />
+              <Pin Id="P78z9H5g5EDPCP2cgCGKmv" Comment="Use values between 0 and 255." Name="Threshold" Kind="InputPin" Bounds="430,225" DefaultValue="0.5">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
@@ -8264,7 +8200,7 @@
     ************************ Within (Scalar) ************************
 
 -->
-        <Node Name="Within (Scalar)" Bounds="489,683" Id="KUAFWyTY2JXLvCkvyWOBHN">
+        <Node Name="Within (Scalar)" Bounds="50,1185" Id="KUAFWyTY2JXLvCkvyWOBHN" Summary="Performs the per-element comparison of a Mat and two scalar values." Remarks="When the pixel value is between Min Threshold and Max Threshold, the corresponding element of output Mat is set to 255.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -8322,13 +8258,13 @@
             </Canvas>
             <Patch Id="DY1wjNZh6LNOxeQyW77SV7" Name="Create" />
             <Patch Id="NQ8fGWpYSxQOV4KNjIz9Wu" Name="Update" ManuallySortedPins="true">
-              <Pin Id="B8ynxOKNG92MSdv7RlD5yZ" Name="Input" Kind="InputPin" Bounds="255,220" />
-              <Pin Id="H5xIOYDh0sqP4CEG5luEjw" Name="Min Threshold" Kind="InputPin" Bounds="315,224" DefaultValue="0.25">
+              <Pin Id="B8ynxOKNG92MSdv7RlD5yZ" Comment="Mat must have a single channel." Name="Input" Kind="InputPin" Bounds="255,220" />
+              <Pin Id="H5xIOYDh0sqP4CEG5luEjw" Comment="Use values between 0 and 255." Name="Min Threshold" Kind="InputPin" Bounds="315,224" DefaultValue="0.25">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="PqvmCIrVZq1LmgQqPZLbsk" Name="Max Threshold" Kind="InputPin" Bounds="413,232" DefaultValue="0.75">
+              <Pin Id="PqvmCIrVZq1LmgQqPZLbsk" Comment="Use values between 0 and 255." Name="Max Threshold" Kind="InputPin" Bounds="413,232" DefaultValue="0.75">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
