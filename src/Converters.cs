@@ -62,7 +62,7 @@ namespace VL.OpenCV
         public static unsafe Mat ToMat(this IImage input)
         {
             var info = input.Info;
-            var type = info.Format.ToMatType();
+            var type = info.Format.ToMatType(info.OriginalFormat);
             using (var srcData = input.GetData())
             {
                 var size = srcData.Size;
@@ -71,6 +71,19 @@ namespace VL.OpenCV
                 fixed (byte* dst = dstData)
                     Unsafe.CopyBlock(dst, src, (uint)size);
                 return new Mat(info.Height, info.Width, type, dstData, srcData.ScanSize);
+            }
+        }
+
+        public static unsafe void ToMat(this IImage input, Mat dstMat)
+        {
+            var info = input.Info;
+            var type = info.Format.ToMatType(info.OriginalFormat);
+            using (var srcData = input.GetData())
+            {
+                var size = srcData.Size;
+                var src = srcData.Pointer.ToPointer();
+                dstMat.Create(info.Height, info.Width, type);
+                Unsafe.CopyBlock(dstMat.DataPointer, src, (uint)size);
             }
         }
 
@@ -98,7 +111,7 @@ namespace VL.OpenCV
             throw new UnsupportedMatTypeException(type);
         }
 
-        public static MatType ToMatType(this PixelFormat format)
+        public static MatType ToMatType(this PixelFormat format, string originalFormat)
         {
             switch (format)
             {
@@ -108,9 +121,12 @@ namespace VL.OpenCV
                     return MatType.CV_32FC1;
                 case PixelFormat.B8G8R8A8:
                     return MatType.CV_8UC4;
-                default:
-                    throw new UnsupportedPixelFormatException(format);
+                case PixelFormat.Unknown:
+                    if (originalFormat.Equals("bgr", StringComparison.OrdinalIgnoreCase)) // HACK
+                        return MatType.CV_8UC3;
+                    break;
             }
+            throw new UnsupportedPixelFormatException(format);
         }
     }
 }
