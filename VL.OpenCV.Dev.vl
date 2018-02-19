@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="LGV517r6AxsOHSoBmdkQc7" Version="0.75">
+<Document xmlns:p="property" Id="LGV517r6AxsOHSoBmdkQc7" Version="0.76">
   <Patch Id="CkBzcZgN1GNNzEpsuVL3on">
     <Canvas Id="IHcZx8tU5D1NFG2aPfS6K6" DefaultCategory="OpenCV">
       <!--
@@ -687,6 +687,86 @@
           <Pin Id="BRNwflTHZLlMK3HWBrXDPe" Name="Found Pattern Count" Kind="OutputPin" />
         </Patch>
       </Node>
+      <!--
+
+    ************************ HAARCascadeFile ************************
+
+-->
+      <Node Name="HAARCascadeFile" Bounds="781,230" Id="HxT8YLKbxZKNrVCnNWCjYn">
+        <p:NodeReference>
+          <Choice Kind="ForwardDefinition" Name="Forward" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <p:TypeAnnotation LastCategoryFullName="VL.OpenCV" LastSymbolSource="VL.OpenCV.dll">
+          <Choice Kind="TypeFlag" Name="HAARCascadeFile" />
+        </p:TypeAnnotation>
+        <Patch Id="REjp5DaX1E6OGAdAXB8Sy2">
+          <Canvas Id="LiPf9wAColJQbA1vznJ1LU" BordersChecked="false" />
+          <ProcessDefinition Id="J8yPPab9LFaL1rVbU4mFvV" IsHidden="true" />
+        </Patch>
+      </Node>
+      <Canvas Id="VJE0O2nxCTELssZeKSIqcs" Name="Trackers" Position="616,573">
+        <!--
+
+    ************************ GenericTracker ************************
+
+-->
+        <Node Name="GenericTracker" Bounds="420,365" Id="PaIo53xqOlAOTForRy2beq">
+          <p:NodeReference>
+            <Choice Kind="ContainerDefinition" Name="Process" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <Patch Id="IRvURN2X8ppL6lhZFVXPNs" IsGeneric="true">
+            <Canvas Id="R1XsgWkgkqNPQKGNL1YrBk">
+              <Pad Id="NXDawUuxHupOqw0g3tGesm" SlotId="PVo3uG9vXJqL7FnwELEW63" Bounds="357,242">
+                <p:ValueBoxSettings />
+              </Pad>
+              <ControlPoint Id="MJN4bhYWcBiLT07gBvDk2w" Bounds="302,292" />
+              <Node Bounds="409,288" Id="OpvjuYZ9p1rQSop7pqOciX">
+                <p:NodeReference LastCategoryFullName="OpenCvSharp.DisposableObject" LastSymbolSource="OpenCvSharp.dll" LastDependency="VL.OpenCV.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="Destroy" />
+                  <CategoryReference Kind="AssemblyCategory" Name="DisposableObject" NeedsToBeDirectParent="true" />
+                </p:NodeReference>
+                <Pin Id="CGbgU64yHjAOCnDvkhZnDa" Name="Input" Kind="StateInputPin" />
+                <Pin Id="FEvxhIK0VqGNGDWQcC3c8t" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <Node Bounds="357,189,72,22" Id="T9lLgJ8BRk0OVEFgLL2zv6">
+                <p:NodeReference LastCategoryFullName="Primitive.Delegate (0 -&gt; 1)" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="FuncType" Name="Delegate (0 -&gt; 1)" />
+                  <Choice Kind="OperationCallFlag" Name="Invoke" />
+                </p:NodeReference>
+                <Pin Id="MGlNioQ7taiQKxgF6nld9X" Name="Input" Kind="StateInputPin" />
+                <Pin Id="HaCF5ZgUsr0P3lB9kP9qIb" Name="Result" Kind="OutputPin" />
+              </Node>
+              <ControlPoint Id="PzvolsBWIIQQIBi4pNkuUk" Bounds="360,159" />
+            </Canvas>
+            <Patch Id="ULfDhHtw5mALUl4DeAhSIq" Name="Create">
+              <Pin Id="C7BvUVSSUnPNMlptb1WyTB" Name="Creator Call" Kind="InputPin" Bounds="360,159" />
+            </Patch>
+            <ProcessDefinition Id="J99vDv48tCbNoYy8rCebpZ">
+              <Fragment Id="UWVEW8MBVqWNs7shmpXnIv" Patch="ULfDhHtw5mALUl4DeAhSIq" Enabled="true" />
+              <Fragment Id="LXwmUaAajcEM0n3zs16dq2" Patch="HsvYjxIW3tTQPSNA5eRhWN" Enabled="true" />
+            </ProcessDefinition>
+            <Slot Id="PVo3uG9vXJqL7FnwELEW63" Name="Tracker">
+              <p:TypeAnnotation LastCategoryFullName="OpenCvSharp.Tracking" LastSymbolSource="OpenCvSharp.dll">
+                <Choice Kind="TypeFlag" Name="Tracker" />
+              </p:TypeAnnotation>
+            </Slot>
+            <Link Id="BGPb3cZDCENM5ugSeNLHZk" Ids="NXDawUuxHupOqw0g3tGesm,MJN4bhYWcBiLT07gBvDk2w" />
+            <Link Id="USClbpbKxxkLZ9dWMAV9Rf" Ids="MJN4bhYWcBiLT07gBvDk2w,D1b8e6q8fb9MswC8LZxgZu" IsHidden="true" />
+            <Patch Id="HsvYjxIW3tTQPSNA5eRhWN" Name="GetTracker">
+              <Pin Id="D1b8e6q8fb9MswC8LZxgZu" Name="Tracker" Kind="OutputPin" />
+            </Patch>
+            <Patch Id="Ht4Xw74ij6hNa7DiJXKxp7" Name="Destroy" ParticipatingElements="OpvjuYZ9p1rQSop7pqOciX" />
+            <Link Id="IeCZTZziQoYO515Nds2H8F" Ids="HaCF5ZgUsr0P3lB9kP9qIb,NXDawUuxHupOqw0g3tGesm" />
+            <Link Id="SOK9dfjeTULMf9eTUCSk0s" Ids="PzvolsBWIIQQIBi4pNkuUk,MGlNioQ7taiQKxgF6nld9X" />
+            <Link Id="G2dcw8EJ2lFPdMBoTITTu5" Ids="C7BvUVSSUnPNMlptb1WyTB,PzvolsBWIIQQIBi4pNkuUk" IsHidden="true" />
+            <Link Id="CKlSs6NEy2ANMCS6DG89h4" Ids="NXDawUuxHupOqw0g3tGesm,CGbgU64yHjAOCnDvkhZnDa" />
+          </Patch>
+        </Node>
+      </Canvas>
     </Canvas>
   </Patch>
   <NugetDependency Id="PsMa87TQKDdLW5CG2dyX8Q" Location="VL.Core" Version="0.73.27-g0625d71dbb" />
