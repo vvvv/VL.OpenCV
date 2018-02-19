@@ -1,36 +1,42 @@
 # VL.OpenCV
-A [VL](https://vvvv.org/documentation/vl) wrapper for [OpenCVSharp3-AnyCPU](https://github.com/shimat/opencvsharp)
+A [VL](https://vvvv.org/documentation/vl) wrapper for [OpenCV](https://opencv.org) based on [OpenCVSharp3-AnyCPU](https://github.com/shimat/opencvsharp).
 
-## Users
-In order to use this library with vl you'll have to install the nuget that will be available on nuget.org
+## Using the library
+In order to use this library with vl you have to install the nuget that is available via nuget.org. For information on how to use nugets with vl, see [Managing Nugets](https://vvvv.gitbooks.io/the-gray-book/content/en/reference/libraries/dependencies.html#_manage_nugets) in the vl documentation. 
 
-See ... on how to install and use nugets.
+Once the VL.OpenCV nuget is installed and referenced in your vl document you'll see the category "OpenCV" in the nodebrowser. From there explore the nodes in its main sub-categories:
 
-## Developers
+- Source (VideoIn, ImageFile,...)
+- Sink (Renderer, VideoFile,...)
+- Filter (Blur, Dilate, Sobel,...)
+- Tracker (Contours, ObjectDetector, MedianFlow,...)
+
+## Contributing to the development
 If you want to contribute to this repository, clone it into a directory like:
  
     X:\vl-libs\VL.OpenCV
- 
-then start vvvv with the commandline parameter:
 
-    /package-repositories "X:\vl-libs\"
-    
-which will make all packs found in that directory available as dependencies in vl documents. Note that it is possible to have both the nuget and the sources available. If both are found, the one in the "package-repositories" path is used. Like this you can easily switch between your local development version and the nuget by simply including the local version in that search path or not.
-
-### Build C# Project
+### Build the C# Project
 Open
 
-    \src\VL.OpenCV.sln
+    X:\vl-libs\VL.OpenCV\src\VL.OpenCV.sln
     
 in VisualStudio and build it. This is necessary for a few things that cannot yet be expressed in vl directly, like dynamic enums and static readonly instances of things. 
 
 ### Get Nuget Dependency
-Go to your vvvvs
+This wrapper is depending on the thirdparty nuget [OpenCVSharp3-AnyCPU](https://github.com/shimat/opencvsharp). When installing the VL.OpenCV nuget as mentioned under "Using the library" above, this dependency will be installed automatically. To install it otherwise, go to your vvvvs
 
     \lib\packs 
     
 on a commandline and run
 
     nuget.exe install OpenCVSharp3-AnyCPU
+
+### Start vvvv
+Then start vvvv with the commandline parameter:
+
+    /package-repositories "X:\vl-libs\"
     
-to get this necessary dependency.
+which will make all packs found in that directory available as dependencies in vl documents. Note that it is possible to have both the nuget (binary) and the sources available. If both are found, the one in the "package-repositories" path is used. Like this you can easily switch between your local development version and the "official" nuget by simply including your local version in that search path or not.
+
+VL.OpenCV will now show up as Nuget among a documents dependencies as shown [here](https://vvvv.gitbooks.io/the-gray-book/content/en/reference/libraries/dependencies.html#_nugets).
