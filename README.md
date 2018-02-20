@@ -11,6 +11,10 @@ Once the VL.OpenCV nuget is installed and referenced in your vl document you'll 
 - Filter (Blur, Dilate, Sobel,...)
 - Tracker (Contours, ObjectDetector, MedianFlow,...)
 
+There is also a demo-patch coming with this package that is a bit hidden in:
+
+    "\lib\packs\VL.OpenCV...\vvvv\girlpower\demo.v4p"
+
 ## Contributing to the development
 If you want to contribute to this repository, clone it into a directory like:
  
