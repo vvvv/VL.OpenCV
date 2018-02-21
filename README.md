@@ -1,5 +1,5 @@
 # VL.OpenCV
-A [VL](https://vvvv.org/documentation/vl) wrapper for [OpenCV](https://opencv.org) based on [OpenCVSharp3-AnyCPU](https://github.com/shimat/opencvsharp).
+A [VL](https://vvvv.org/documentation/vl) wrapper for [OpenCV](https://opencv.org) based on [OpenCVSharp3-AnyCPU](https://github.com/shimat/opencvsharp) and also using [DirectShowLib](https://github.com/larrybeall/DirectShowLib).
 
 ## Using the library
 In order to use this library with vl you have to install the nuget that is available via nuget.org. For information on how to use nugets with vl, see [Managing Nugets](https://vvvv.gitbooks.io/the-gray-book/content/en/reference/libraries/dependencies.html#_manage_nugets) in the vl documentation. 
@@ -10,6 +10,10 @@ Once the VL.OpenCV nuget is installed and referenced in your vl document you'll 
 - Sink (Renderer, VideoFile,...)
 - Filter (Blur, Dilate, Sobel,...)
 - Tracker (Contours, ObjectDetector, MedianFlow,...)
+
+There is also a demo-patch coming with this package that is a bit hidden in:
+
+    "\lib\packs\VL.OpenCV...\vvvv\girlpower\demo.v4p"
 
 ## Contributing to the development
 If you want to contribute to this repository, clone it into a directory like:
