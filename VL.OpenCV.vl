@@ -1601,6 +1601,79 @@
             <Link Id="SfozvLo6ulKQOWWK5a5Oqy" Ids="D7bY9moXO9FNXh3UcsiJDQ,PmQEENgyp09O5eQQZ0Tjm6" IsHidden="true" />
           </Patch>
         </Node>
+        <!--
+
+    ************************ Normalize ************************
+
+-->
+        <Node Name="Normalize" Bounds="90,319" Id="BMEwZIkxFuXP68Oz8UMdG3">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
+            <Choice Kind="ContainerDefinition" Name="Process" />
+          </p:NodeReference>
+          <Patch Id="BNWbfKQ6F11Nrh4wZtQvJB" IsGeneric="true">
+            <Canvas Id="JAhwZwECG0hMwsrT4VrA87">
+              <Node Bounds="314,272" Id="D8eMqMlRv41NMnnRzKzwBf">
+                <p:NodeReference LastCategoryFullName="OpenCV.Mat" LastSymbolSource="VL.OpenCV.Dev.vl" LastDependency="VL.OpenCV.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="Normalize" />
+                  <FullNameCategoryReference ID="OpenCV.Mat" />
+                </p:NodeReference>
+                <Pin Id="NTg3XQIEnZFLa5RRROpFbt" Name="Input" Kind="StateInputPin" />
+                <Pin Id="QRtnmuMpUBELCUzTUzA8X5" Name="Alpha" Kind="InputPin" />
+                <Pin Id="T0sSRryqvDbQON3xV5Mlmk" Name="Beta" Kind="InputPin" />
+                <Pin Id="CxL5YZS3QFLPfpOLAh5OdI" Name="Norm Type" Kind="InputPin" />
+                <Pin Id="MTgg0vY6R2cPhIWzFSjjCw" Name="Dtype" Kind="InputPin" />
+                <Pin Id="HNpq5yemLWXMdplkPJ5DCr" Name="Mask" Kind="InputPin" />
+                <Pin Id="CjdvQHprvjzQFVzlXleeOe" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="Qa7Y9nOMblMMzpJcI194wD" Name="Result" Kind="OutputPin" />
+              </Node>
+              <ControlPoint Id="VfgdP284e21Opdcc8o9Wor" Bounds="416,349" />
+              <ControlPoint Id="IfF00WmgrMaPyw6BFsOmvW" Bounds="261,193" />
+              <ControlPoint Id="IvOIerswafBN0OhBglzLt8" Bounds="305,193" />
+              <ControlPoint Id="NbfdvJVak6POYP3YtAq4Kl" Bounds="363,193" />
+              <ControlPoint Id="ArcV72EupmcMXYoUepcAwr" Bounds="409,193" />
+              <ControlPoint Id="BSTEyqZTmSeP2lDBDwygTJ" Bounds="478,193" />
+            </Canvas>
+            <Patch Id="VawK9aXzYhSNZzFIEz7ztm" Name="Create" />
+            <Patch Id="LgKfirPg3L1QYa8tKnZckb" Name="Update">
+              <Pin Id="K8WWR7xXSsaPYT2Aaxss76" Name="Result" Kind="OutputPin" Bounds="416,349" />
+              <Pin Id="HHw5WXhDUtAOWi0cFKN0TR" Name="Input" Kind="InputPin" Bounds="261,193" />
+              <Pin Id="FiAWpgDipiGP0eS90zC795" Name="Alpha" Kind="InputPin" Bounds="337,195">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Float32" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="Bx4sLlxHpwONX6jdfAxUXB" Name="Beta" Kind="InputPin" Bounds="394,197">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Float32" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="LLnRvcWXdm1NgIJpqdBFjU" Name="Norm Type" Kind="InputPin" Bounds="410,197" />
+              <Pin Id="UMhCMXsmqxQM7NrRSi0vMR" Name="Dtype" Kind="InputPin" Bounds="478,200" />
+            </Patch>
+            <!--
+
+    ************************  ************************
+
+-->
+            <ProcessDefinition Id="NgpdFgR81W2O5PBC4lqTS2">
+              <Fragment Id="LdhoYtzgoEZMwiLeXTNYcG" Patch="VawK9aXzYhSNZzFIEz7ztm" Enabled="true" />
+              <Fragment Id="M30Rl9k3SNqQcn5AdkmiX4" Patch="LgKfirPg3L1QYa8tKnZckb" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="UNd8CY0RB58Qd08W8fhWKq" Ids="Qa7Y9nOMblMMzpJcI194wD,VfgdP284e21Opdcc8o9Wor" />
+            <Link Id="Vx9nhhhsTG9ObUVUU6v3t9" Ids="VfgdP284e21Opdcc8o9Wor,K8WWR7xXSsaPYT2Aaxss76" IsHidden="true" />
+            <Link Id="DFZcs68YOePMye5QXIZG0e" Ids="IfF00WmgrMaPyw6BFsOmvW,NTg3XQIEnZFLa5RRROpFbt" />
+            <Link Id="Tf2Gjo1k6F2NidJrbFWhJn" Ids="HHw5WXhDUtAOWi0cFKN0TR,IfF00WmgrMaPyw6BFsOmvW" IsHidden="true" />
+            <Link Id="QXUUWcMooEuOerTy02o9xM" Ids="IvOIerswafBN0OhBglzLt8,QRtnmuMpUBELCUzTUzA8X5" />
+            <Link Id="OnIJ2Xo1xzxLVZjxqJCWLy" Ids="FiAWpgDipiGP0eS90zC795,IvOIerswafBN0OhBglzLt8" IsHidden="true" />
+            <Link Id="OjqItbnAIDYOpNgiHhHhYY" Ids="NbfdvJVak6POYP3YtAq4Kl,T0sSRryqvDbQON3xV5Mlmk" />
+            <Link Id="Fh3xTFenl7mPOzuiEMKmO9" Ids="Bx4sLlxHpwONX6jdfAxUXB,NbfdvJVak6POYP3YtAq4Kl" IsHidden="true" />
+            <Link Id="J7U914XXPngL9ok43yA2AB" Ids="ArcV72EupmcMXYoUepcAwr,CxL5YZS3QFLPfpOLAh5OdI" />
+            <Link Id="PLO3LA90sNFQcvOfnbsEwE" Ids="LLnRvcWXdm1NgIJpqdBFjU,ArcV72EupmcMXYoUepcAwr" IsHidden="true" />
+            <Link Id="To2ubwwnBwZLCD8Q1qxWxu" Ids="BSTEyqZTmSeP2lDBDwygTJ,MTgg0vY6R2cPhIWzFSjjCw" />
+            <Link Id="ROahPpxeBYzNakLAgyXMZN" Ids="UMhCMXsmqxQM7NrRSi0vMR,BSTEyqZTmSeP2lDBDwygTJ" IsHidden="true" />
+          </Patch>
+        </Node>
       </Canvas>
       <Canvas Id="QRRvtFujAWEQEef6aTLHGP" Name="Filter" Position="196,213">
         <!--
