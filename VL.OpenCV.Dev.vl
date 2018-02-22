@@ -1198,7 +1198,7 @@
     ************************ TrackerTemplate ************************
 
 -->
-      <Node Name="TrackerTemplate" Bounds="-91,665" Id="OcDrcfS55WVNNDZQd3ThAh">
+      <Node Name="TrackerTemplate" Bounds="-85,699" Id="OcDrcfS55WVNNDZQd3ThAh">
         <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
           <Choice Kind="ContainerDefinition" Name="Process" />
         </p:NodeReference>
@@ -2645,7 +2645,7 @@
     ************************ GenericTracker ************************
 
 -->
-      <Node Name="GenericTracker" Bounds="-91,707" Id="OtA6DYt1SljNQzapr5OIPm">
+      <Node Name="GenericTracker" Bounds="-85,657" Id="OtA6DYt1SljNQzapr5OIPm">
         <p:NodeReference>
           <Choice Kind="ContainerDefinition" Name="Process" />
           <FullNameCategoryReference ID="Primitive" />
@@ -2933,6 +2933,251 @@
           <Pin Id="OzTEkHR1azBLAMaz2O4pxF" Name="Source Code" Kind="InputPin" />
           <Pin Id="VkRwV3kGaSZLNElQIR98Fn" Name="Target Code" Kind="InputPin" />
           <Pin Id="MVLS2hqU3dLLpuctvkZYzE" Name="Channels" Kind="InputPin" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ FaceRecognizerTemplate ************************
+
+-->
+      <Node Name="FaceRecognizerTemplate" Bounds="-103,813" Id="QQ17pvq9fNTP1hN2JJsNi5">
+        <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.Dev.vl">
+          <Choice Kind="ContainerDefinition" Name="Process" />
+        </p:NodeReference>
+        <Patch Id="E9a0bgD1cnXQMoaFqlMRJ3">
+          <Canvas Id="HI4UmBtaUGdMRGbL4Xy8BR">
+            <Pad Id="OfULZk64aHILEh9X4H6OZX" SlotId="KWHTeP1kF9WNs5spFfcrHw" Bounds="295,302">
+              <p:ValueBoxSettings />
+            </Pad>
+            <ControlPoint Id="AnC9nbvmiM0QGYQ5VayBNk" Bounds="374,227" />
+            <ControlPoint Id="FmZxpkv8rqiMmSYTzUhdRD" Bounds="476,237" />
+            <ControlPoint Id="HfHjO4kIh0rOYUgDAGH4ZH" Bounds="241,372" />
+            <Node Bounds="563,366,135,100" Id="ReB67RjNSCcOxKO3mK42cH">
+              <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
+                <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                <Choice Kind="ApplicationStatefulRegion" Name="If" />
+                <CategoryReference Kind="Category" Name="Primitive" />
+              </p:NodeReference>
+              <Pin Id="QC4j4F8dtHqLnDF9OsSDdQ" Name="Condition" Kind="InputPin" />
+              <Patch Id="Ib98JXNHcHxNKQjG7qr2pr" ManuallySortedPins="true">
+                <Patch Id="M7GvjlSJ8DtNzzGNRfUPCF" Name="Create" ManuallySortedPins="true" />
+                <Patch Id="BjnqzHsley1NuxC2s2CBGl" Name="Then" ManuallySortedPins="true" />
+                <Node Bounds="575,424,65,13" Id="EJ57fqyRPGFOl5CQO39wq7">
+                  <p:NodeReference LastCategoryFullName="OpenCvSharp.Face.FaceRecognizer" LastSymbolSource="OpenCvSharp.dll" LastDependency="VL.OpenCV.vl">
+                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                    <Choice Kind="OperationCallFlag" Name="Predict" />
+                    <CategoryReference Kind="AssemblyCategory" Name="FaceRecognizer" NeedsToBeDirectParent="true" />
+                    <PinReference Kind="OutputPin" Name="Confidence" ParameterModifier="ref" />
+                  </p:NodeReference>
+                  <Pin Id="Sx8nD6xNstQMTPDZUhZwCt" Name="Input" Kind="StateInputPin" />
+                  <Pin Id="REXw96UuoDkMNgsyTwrxam" Name="Src" Kind="InputPin" />
+                  <Pin Id="T4Pzpl1ozuqPHbdIsdW6Ee" Name="Output" Kind="StateOutputPin" />
+                  <Pin Id="CH74s3YMxysLn0LoSWLan2" Name="Label" Kind="OutputPin" />
+                  <Pin Id="IepBLrdgdZOPcJcAlyk7fu" Name="Confidence" Kind="OutputPin" />
+                </Node>
+                <Node Bounds="636,389,50,13" Id="JzYHtihWDFoPy3Acpha0zq">
+                  <p:NodeReference LastCategoryFullName="OpenCvSharp.InputArray" LastSymbolSource="OpenCvSharp.dll" LastDependency="VL.OpenCV.vl">
+                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                    <Choice Kind="OperationCallFlag" Name="FromMat" />
+                    <CategoryReference Kind="AssemblyCategory" Name="InputArray" NeedsToBeDirectParent="true" />
+                  </p:NodeReference>
+                  <Pin Id="Dml5MQJvBj3N8t9WfmzgQ8" Name="Input" Kind="InputPin" />
+                  <Pin Id="Cm5LmE7PqH3MQyMjmzQMdr" Name="Result" Kind="OutputPin" />
+                </Node>
+              </Patch>
+              <ControlPoint Id="S4VOyo9qzKJLTaKuBj6Gb5" Bounds="637,460" Alignment="Bottom" />
+              <ControlPoint Id="NlhZJ7AX9C2MElUzLZU2Wt" Bounds="637,372" Alignment="Top" />
+              <ControlPoint Id="UqzT54IDdXdNoXiEI3VU5q" Bounds="599,460" Alignment="Bottom" />
+              <ControlPoint Id="RsNVZs8zSrsOJM3BIwWY0u" Bounds="599,372" Alignment="Top" />
+            </Node>
+            <ControlPoint Id="HFrXpKVEfZNNyrBTzrwLUw" Bounds="522,341" />
+            <ControlPoint Id="CicF3IoncV9NvDaj1lDKw3" Bounds="639,316" />
+            <ControlPoint Id="Q60K5RIalQIM57BOgob9zw" Bounds="646,497" />
+            <ControlPoint Id="GWLxncEK2wYPaUZ6Zcr3Am" Bounds="585,494" />
+            <Pad Id="HD3sYdHBfACOfOn82yr9Z0" Comment="" Bounds="595,344,20,17" ShowValueBox="true" isIOBox="true" Value="-1">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="Integer32" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Node Bounds="325,396,89,93" Id="SIP9QhxWaZSPdBrLOEaVXn">
+              <p:NodeReference LastCategoryFullName="Reactive" LastSymbolSource="VL.Reactive.vl" LastDependency="VL.OpenCV.vl">
+                <Choice Kind="ProcessAppFlag" Name="AsyncTask" />
+                <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+              </p:NodeReference>
+              <Pin Id="Pmrit0d6TE9PxEnQb9gUJv" Name="Trigger" Kind="InputPin" />
+              <Pin Id="HuJDRMD7VmsM4P7zIDRxqX" Name="Abort" Kind="InputPin" />
+              <Pin Id="VqxgQybLDyKN0Pmazclaf7" Name="Result" Kind="OutputPin" />
+              <Pin Id="RgjyKd7EJ8vPwKTdhsFesO" Name="In Progress" Kind="OutputPin" />
+              <Patch Id="Ivp4ZERtmNdO0cxJ4S8qb1" ManuallySortedPins="true">
+                <Patch Id="AdjJu0euf08Pi38w01JP69" Name="Create" ManuallySortedPins="true" />
+                <Patch Id="MWxnPFo1i22PKqahAcTS0w" Name="Update" ManuallySortedPins="true">
+                  <Pin Id="BtxasutMYqRNgYRhp6kZVU" Name="Input 1" Kind="InputPin" />
+                  <Pin Id="RzzDoEGwKiEPMFe6OMxBUI" Name="Output" Kind="OutputPin" />
+                </Patch>
+                <ControlPoint Id="BSM0dOtsNExLkv8tT7H6xs" Bounds="335,402" />
+                <ControlPoint Id="AcsqjYeCOrTN3XZISdagHw" Bounds="335,482" />
+                <Node Bounds="337,437,65,13" Id="ImDgnsLTT4UNIK3qub8MHq">
+                  <p:NodeReference LastCategoryFullName="OpenCvSharp.Face.FaceRecognizer" LastSymbolSource="OpenCvSharp.dll" LastDependency="VL.OpenCV.vl">
+                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                    <CategoryReference Kind="AssemblyCategory" Name="FaceRecognizer" />
+                    <Choice Kind="OperationCallFlag" Name="Train" />
+                  </p:NodeReference>
+                  <Pin Id="L0CwgU6hTP8O7NcJDSRz3p" Name="Input" Kind="StateInputPin" />
+                  <Pin Id="Og2w9G3cwGLNYTHEDdtNV1" Name="Src" Kind="InputPin" />
+                  <Pin Id="L6yZVhjLAoeOtrGZR0tkuw" Name="Labels" Kind="InputPin" />
+                  <Pin Id="PDTnAawPSmKMaeZHRtBntr" Name="Output" Kind="StateOutputPin" />
+                </Node>
+              </Patch>
+            </Node>
+            <Node Bounds="286,608,62,13" Id="BNRrBvOXoCcL0qpboXB9Zw">
+              <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="ProcessAppFlag" Name="FlipFlop" />
+              </p:NodeReference>
+              <Pin Id="ETqdWeKg1OrMvVwaxL5v9J" Name="Set" Kind="ApplyPin" />
+              <Pin Id="KcsB2FuV5wuMTmYZZ53hrf" Name="Reset" Kind="ApplyPin" />
+              <Pin Id="FLZ3bon4SY8QEYeTbw4fhv" Name="State" Kind="OutputPin" />
+            </Node>
+            <Node Bounds="415,559,66,13" Id="De6y2WdubTcPB5nWMze5Vy">
+              <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="ProcessAppFlag" Name="TogEdge" />
+              </p:NodeReference>
+              <Pin Id="MZtc0meZn3BO8bwNmGlgD5" Name="Value" Kind="InputPin" />
+              <Pin Id="UY0rmhUjg9BPKHKD7Mc5Iz" Name="Up Edge" Kind="OutputPin" />
+              <Pin Id="LLquw4iak7kODUE5oUgYkE" Name="Down Edge" Kind="OutputPin" />
+            </Node>
+            <ControlPoint Id="QqmonypldQONfiqODEZoNi" Bounds="288,642" />
+            <Node Bounds="182,221,116,13" Id="LMoBmFJOxALPrL2OUlixbb">
+              <p:NodeReference LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.Dev.vl">
+                <Choice Kind="ProcessAppFlag" Name="GenericFaceRecognizer" />
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              </p:NodeReference>
+              <Pin Id="ULPrEQmuZSTNWNUWK0CoWh" Name="Creator Call" Kind="InputPin" />
+              <Pin Id="SfxMXObNn7fQPTELVSwJIX" Name="FaceRecognizer" Kind="OutputPin" />
+            </Node>
+            <ControlPoint Id="JuLHBbi6KvHMzLi4HE8gaw" Bounds="184,181" />
+          </Canvas>
+          <Patch Id="TR3RkqOYgitN2W4LIUZC1s" Name="Create">
+            <Pin Id="GK2oMpjYsiKPEqLVQs4qi3" Name="Creator Call" Kind="InputPin" />
+          </Patch>
+          <Patch Id="FDuQjclnsFPMgimGCap2hd" Name="Update" ParticipatingElements="RJjOVRMY3JgLHPNhRfdlDu" ManuallySortedPins="true">
+            <Pin Id="CIrkRZEAmaDNvobxCBJstq" Name="Label" Kind="OutputPin" Bounds="557,560" />
+            <Pin Id="I1hGNE0XRXjP748mXi1LaP" Name="Confidence" Kind="OutputPin" Bounds="618,563" />
+            <Pin Id="Thi2lkGZj7XLPMpGa3CXNl" Name="Is Trained" Kind="OutputPin" Bounds="333,721" />
+            <Pin Id="InSS6aCTvPfMm7juRMFUqF" Name="Training Images" Kind="InputPin" Bounds="346,293" />
+            <Pin Id="HvCjbG2TFxIL8ebGRoVOjP" Name="Training Labels" Kind="InputPin" Bounds="448,303" />
+            <Pin Id="BeulnlHGqoUPS4KtZeWkUC" Name="Train" Kind="InputPin" Bounds="108,411" />
+            <Pin Id="QRc3djfeQG7OU03oM9Q8Zz" Name="Predict Image" Kind="InputPin" Bounds="611,382" />
+            <Pin Id="BcMiRsNAzk4OcjLwmSvDkQ" Name="Predict" Kind="InputPin" Bounds="647,417" />
+          </Patch>
+          <!--
+
+    ************************  ************************
+
+-->
+          <ProcessDefinition Id="JAK4O06fNm0O70R3OkhkwN">
+            <Fragment Id="NLjMAvqfpDgOcW7AcJ2PbP" Patch="TR3RkqOYgitN2W4LIUZC1s" Enabled="true" />
+            <Fragment Id="OAKgZOUNkieLjYoQSE6ZvP" Patch="FDuQjclnsFPMgimGCap2hd" Enabled="true" />
+          </ProcessDefinition>
+          <Slot Id="KWHTeP1kF9WNs5spFfcrHw" Name="FaceRecognizer" />
+          <Link Id="Qjh8hudrHqAOJW3lu5Hs1Y" Ids="OfULZk64aHILEh9X4H6OZX,L0CwgU6hTP8O7NcJDSRz3p" />
+          <Link Id="ELSHErDaOvvPTOt1xSI9OW" Ids="AnC9nbvmiM0QGYQ5VayBNk,Og2w9G3cwGLNYTHEDdtNV1" />
+          <Link Id="Te1DNVm5UykPx16AQwfqll" Ids="InSS6aCTvPfMm7juRMFUqF,AnC9nbvmiM0QGYQ5VayBNk" IsHidden="true" />
+          <Link Id="MgtgZu4zw2NLRriHbvjWrT" Ids="FmZxpkv8rqiMmSYTzUhdRD,L6yZVhjLAoeOtrGZR0tkuw" />
+          <Link Id="EMpZxmh3pmZOMiCm3rcGjt" Ids="HvCjbG2TFxIL8ebGRoVOjP,FmZxpkv8rqiMmSYTzUhdRD" IsHidden="true" />
+          <Link Id="UkB2KQcl0J0LHeHySqiASm" Ids="BeulnlHGqoUPS4KtZeWkUC,HfHjO4kIh0rOYUgDAGH4ZH" IsHidden="true" />
+          <Link Id="K681MKxMXMXLhAvRHnHWyf" Ids="HFrXpKVEfZNNyrBTzrwLUw,QC4j4F8dtHqLnDF9OsSDdQ" />
+          <Link Id="A26qI5jFDmgLQq4qRR8ydj" Ids="BcMiRsNAzk4OcjLwmSvDkQ,HFrXpKVEfZNNyrBTzrwLUw" IsHidden="true" />
+          <Link Id="US6RNqrpMI6PhAxphqJLop" Ids="OfULZk64aHILEh9X4H6OZX,Sx8nD6xNstQMTPDZUhZwCt" />
+          <Link Id="Qsvc1VkKKS4MJDbeHUSb6R" Ids="Cm5LmE7PqH3MQyMjmzQMdr,REXw96UuoDkMNgsyTwrxam" />
+          <Link Id="E9J7KADK1bFNHaWTVtMK3p" Ids="CicF3IoncV9NvDaj1lDKw3,Dml5MQJvBj3N8t9WfmzgQ8" />
+          <Link Id="ON9rKW09wtPPpdDJCQdEnw" Ids="QRc3djfeQG7OU03oM9Q8Zz,CicF3IoncV9NvDaj1lDKw3" IsHidden="true" />
+          <Link Id="KzTxOKBLgeMPTTa75p0bmY" Ids="NlhZJ7AX9C2MElUzLZU2Wt,S4VOyo9qzKJLTaKuBj6Gb5" IsFeedback="true" />
+          <Link Id="HH913eKZsiAMaKsfJJa2KM" Ids="S4VOyo9qzKJLTaKuBj6Gb5,Q60K5RIalQIM57BOgob9zw" />
+          <Link Id="IWWoUrhGuIdMpmCgNmcTKB" Ids="Q60K5RIalQIM57BOgob9zw,I1hGNE0XRXjP748mXi1LaP" IsHidden="true" />
+          <Link Id="TopezMuH8WdM1pdLuZgN6c" Ids="IepBLrdgdZOPcJcAlyk7fu,S4VOyo9qzKJLTaKuBj6Gb5" />
+          <Link Id="QQltADexJn5LGPhR70R4Gn" Ids="RsNVZs8zSrsOJM3BIwWY0u,UqzT54IDdXdNoXiEI3VU5q" IsFeedback="true" />
+          <Link Id="SVjmsHFbfFFMfJwWvICKkc" Ids="CH74s3YMxysLn0LoSWLan2,UqzT54IDdXdNoXiEI3VU5q" />
+          <Link Id="Ngalt1q9RdsQZ9VKMCjCBA" Ids="UqzT54IDdXdNoXiEI3VU5q,GWLxncEK2wYPaUZ6Zcr3Am" />
+          <Link Id="AaLod3sIUtyMoJAcr2CAYd" Ids="GWLxncEK2wYPaUZ6Zcr3Am,CIrkRZEAmaDNvobxCBJstq" IsHidden="true" />
+          <Link Id="FNnxqGKGuglMYXgnJnYoJf" Ids="HD3sYdHBfACOfOn82yr9Z0,RsNVZs8zSrsOJM3BIwWY0u" />
+          <Link Id="DBPrpmyBLc0OkcQ84EOeTR" Ids="BtxasutMYqRNgYRhp6kZVU,BSM0dOtsNExLkv8tT7H6xs" IsHidden="true" />
+          <Link Id="DY46XqiERa1NmyN30aA27d" Ids="AcsqjYeCOrTN3XZISdagHw,RzzDoEGwKiEPMFe6OMxBUI" IsHidden="true" />
+          <Link Id="GOtdaayuypgNdkmtp0uboZ" Ids="HfHjO4kIh0rOYUgDAGH4ZH,Pmrit0d6TE9PxEnQb9gUJv" />
+          <Link Id="APqObaEZUQdMK41wZwZlLq" Ids="PDTnAawPSmKMaeZHRtBntr,AcsqjYeCOrTN3XZISdagHw" />
+          <Link Id="TZ29YSq3V41M3LPna555PG" Ids="RgjyKd7EJ8vPwKTdhsFesO,MZtc0meZn3BO8bwNmGlgD5" />
+          <Link Id="TlO5RuHfTzwOAwtXb5bYGh" Ids="LLquw4iak7kODUE5oUgYkE,ETqdWeKg1OrMvVwaxL5v9J" />
+          <Link Id="PWEa7vkpJRsMYUOPsoioF7" Ids="HfHjO4kIh0rOYUgDAGH4ZH,KcsB2FuV5wuMTmYZZ53hrf" />
+          <Link Id="Bc5CX4qazQKQW0XPbfAZLr" Ids="FLZ3bon4SY8QEYeTbw4fhv,QqmonypldQONfiqODEZoNi" />
+          <Link Id="B0vgWAyVyGMN0BLzonLJXP" Ids="QqmonypldQONfiqODEZoNi,Thi2lkGZj7XLPMpGa3CXNl" IsHidden="true" />
+          <Link Id="RJjOVRMY3JgLHPNhRfdlDu" Ids="SfxMXObNn7fQPTELVSwJIX,OfULZk64aHILEh9X4H6OZX" />
+          <Link Id="GfxTMLvs9K1PnFscQ2aJZL" Ids="JuLHBbi6KvHMzLi4HE8gaw,ULPrEQmuZSTNWNUWK0CoWh" />
+          <Link Id="N4OZdtccNhPLBuivGHOvXJ" Ids="GK2oMpjYsiKPEqLVQs4qi3,JuLHBbi6KvHMzLi4HE8gaw" IsHidden="true" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ GenericFaceRecognizer ************************
+
+-->
+      <Node Name="GenericFaceRecognizer" Bounds="-94,754" Id="K6bYxdyYiLVOpaRrlTHkCI">
+        <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.Dev.vl">
+          <Choice Kind="ContainerDefinition" Name="Process" />
+        </p:NodeReference>
+        <Patch Id="B9C27vFoREgPOwKs2OSSTo" IsGeneric="true">
+          <Canvas Id="GPALn406YZtNahMg8REJpZ">
+            <Pad Id="MTLd8gvKJpRMdqm2ofT7S6" SlotId="OWt5JVIVkwnN0ZC96EIWrb" Bounds="338,532">
+              <p:ValueBoxSettings />
+            </Pad>
+            <ControlPoint Id="MN6grZpnSAKNh1Grk3amG9" Bounds="283,582" />
+            <Node Bounds="390,578" Id="JsHFGxrsvNwM6kxmRXJpk5">
+              <p:NodeReference LastCategoryFullName="OpenCvSharp.DisposableObject" LastSymbolSource="OpenCvSharp.dll" LastDependency="VL.OpenCV.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="Destroy" />
+                <CategoryReference Kind="AssemblyCategory" Name="DisposableObject" NeedsToBeDirectParent="true" />
+              </p:NodeReference>
+              <Pin Id="PBo3C58PKUaQTJOCzQ86Zo" Name="Input" Kind="StateInputPin" />
+              <Pin Id="AiuaDHQ5eLTN3TqaiiANY4" Name="Output" Kind="StateOutputPin" />
+            </Node>
+            <Node Bounds="338,479,72,22" Id="TUhUmliI5n0QQfUWT5MWJG">
+              <p:NodeReference LastCategoryFullName="Primitive.Delegate (0 -&gt; 1)" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <CategoryReference Kind="FuncType" Name="Delegate (0 -&gt; 1)" />
+                <Choice Kind="OperationCallFlag" Name="Invoke" />
+              </p:NodeReference>
+              <Pin Id="D3goD3Vi9ZoOlLE5PIb1vp" Name="Input" Kind="StateInputPin" />
+              <Pin Id="BeJSGVaYX6iOilhe80LGOe" Name="Result" Kind="OutputPin" />
+            </Node>
+            <ControlPoint Id="SKdaQ4F8If1N7DlAcHkqAd" Bounds="340,446" />
+          </Canvas>
+          <Patch Id="IwUAXQxpZNvMfBKJvOTZxD" Name="Create">
+            <Pin Id="QxCT1to00e4MJExvnP6Sc9" Name="Creator Call" Kind="InputPin" Bounds="360,159" />
+          </Patch>
+          <Patch Id="BIOVIx6HDKOMzpIOUzJRyo" Name="Update">
+            <Pin Id="GH5e3F6QUXkO34CdmuzKoI" Name="FaceRecognizer" Kind="OutputPin" />
+          </Patch>
+          <!--
+
+    ************************  ************************
+
+-->
+          <ProcessDefinition Id="OXr0QYn7MB9LTxioYq4WGP">
+            <Fragment Id="UyAVZCOx6fKPNay7Sqc9js" Patch="IwUAXQxpZNvMfBKJvOTZxD" Enabled="true" />
+            <Fragment Id="AKjuu1KQVxdLnXwYRV2iKF" Patch="BIOVIx6HDKOMzpIOUzJRyo" Enabled="true" />
+          </ProcessDefinition>
+          <Slot Id="OWt5JVIVkwnN0ZC96EIWrb" Name="FaceRecognizer">
+            <p:TypeAnnotation LastCategoryFullName="OpenCvSharp.Face" LastSymbolSource="OpenCvSharp.dll">
+              <Choice Kind="TypeFlag" Name="FaceRecognizer" />
+            </p:TypeAnnotation>
+          </Slot>
+          <Patch Id="MSI0P8cuG4WOMETfcFKcWc" Name="Destroy" ParticipatingElements="JsHFGxrsvNwM6kxmRXJpk5" />
+          <Link Id="U46iI17JZEgMwfNFsN0rDb" Ids="MN6grZpnSAKNh1Grk3amG9,GH5e3F6QUXkO34CdmuzKoI" IsHidden="true" />
+          <Link Id="VrWczBa1wURQaI5XX7SHe8" Ids="SKdaQ4F8If1N7DlAcHkqAd,D3goD3Vi9ZoOlLE5PIb1vp" />
+          <Link Id="UJWIrTa2bGfLUkHY2v8A1m" Ids="QxCT1to00e4MJExvnP6Sc9,SKdaQ4F8If1N7DlAcHkqAd" IsHidden="true" />
+          <Link Id="UsJjwdIChF3NcH8wZ7fcw2" Ids="BeJSGVaYX6iOilhe80LGOe,MTLd8gvKJpRMdqm2ofT7S6" />
+          <Link Id="FJkCB1heKWIOF9OnYFH9ex" Ids="MTLd8gvKJpRMdqm2ofT7S6,MN6grZpnSAKNh1Grk3amG9" />
+          <Link Id="P3qeWigI7mmO57YFgcZvKu" Ids="MTLd8gvKJpRMdqm2ofT7S6,PBo3C58PKUaQTJOCzQ86Zo" />
         </Patch>
       </Node>
     </Canvas>
