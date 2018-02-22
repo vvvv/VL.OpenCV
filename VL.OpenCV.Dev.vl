@@ -663,17 +663,27 @@
         </p:NodeReference>
         <Patch Id="NKGUkg3TV6LLwZnmgGgYAa">
           <Canvas Id="CRadvnd0juDNchswrDb7IW">
-            <Node Bounds="387,204,39,22" Id="BWXbWs5jpn8OjtezX7bDML">
-              <p:NodeReference LastCategoryFullName="VL.OpenCV.DefaultMat" LastSymbolSource="VL.OpenCV.dll" LastDependency="VL.OpenCV.Dev.vl">
-                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="OperationCallFlag" Name="Damon" />
-              </p:NodeReference>
-              <Pin Id="CHeLJ4b4HvgMJ1eEorf39L" Name="Damon" Kind="OutputPin" />
-            </Node>
             <Pad Id="MXyUKeTlaAYLNsuiHIAl68" SlotId="L0ZFMHF9m0SMEE5ZMBtW8X" Bounds="389,254" />
             <ControlPoint Id="LKVebikmvUkLaeSSbioh6C" Bounds="390,318" />
+            <Node Bounds="391,188" Id="PGTLK1ZrLSlQZk7kJYVH3S">
+              <p:NodeReference LastCategoryFullName="OpenCV.Mat" LastSymbolSource="VL.OpenCV.Dev.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="Create" />
+                <CategoryReference Kind="ClassType" Name="Mat" NeedsToBeDirectParent="true" />
+              </p:NodeReference>
+              <Pin Id="GTlTQNO693TPtV6TjRCgPP" Name="Output" Kind="StateOutputPin" />
+            </Node>
+            <Node Bounds="276,297" Id="K2dx0uZkB6FN5wAu8swuYm">
+              <p:NodeReference LastCategoryFullName="Primitive.Disposable" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.Dev.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="Destroy" />
+                <CategoryReference Kind="MutableInterfaceType" Name="Disposable" NeedsToBeDirectParent="true" />
+              </p:NodeReference>
+              <Pin Id="KG7CfVbQiJ8Luu3w2X5aUT" Name="Input" Kind="StateInputPin" />
+              <Pin Id="QOahy61omgcMXpImFk3QSN" Name="Output" Kind="StateOutputPin" />
+            </Node>
           </Canvas>
-          <Patch Id="C05bqMRXSdhNhknq6l9jDT" Name="Create" ParticipatingElements="BWXbWs5jpn8OjtezX7bDML" IsExplicitlyHidden="true" />
+          <Patch Id="C05bqMRXSdhNhknq6l9jDT" Name="Create" ParticipatingElements="PGTLK1ZrLSlQZk7kJYVH3S" IsExplicitlyHidden="true" />
           <Patch Id="BURnLEq8e3APUToUPZ7Mh7" Name="Update">
             <Pin Id="R9QaikC77lfNepagPH9Dg3" Name="Output" Kind="OutputPin" />
           </Patch>
@@ -682,10 +692,11 @@
             <Fragment Id="P9fW5sGjwGMPv8XFOhns6T" Patch="BURnLEq8e3APUToUPZ7Mh7" Enabled="true" />
           </ProcessDefinition>
           <Slot Id="L0ZFMHF9m0SMEE5ZMBtW8X" Name="Mat" />
-          <Patch Id="O9yJxSUYLpmLyY4QFkZ5ms" Name="Destroy" IsExplicitlyHidden="true" />
+          <Patch Id="O9yJxSUYLpmLyY4QFkZ5ms" Name="Destroy" ParticipatingElements="K2dx0uZkB6FN5wAu8swuYm" IsExplicitlyHidden="true" />
           <Link Id="QLbn8NHXZuuNOgAHMqNpNx" Ids="MXyUKeTlaAYLNsuiHIAl68,LKVebikmvUkLaeSSbioh6C" />
           <Link Id="JCZMPb6rMOINq2cxaeiiAE" Ids="LKVebikmvUkLaeSSbioh6C,R9QaikC77lfNepagPH9Dg3" IsHidden="true" />
-          <Link Id="C6pPR9qBqULNc95uUME310" Ids="CHeLJ4b4HvgMJ1eEorf39L,MXyUKeTlaAYLNsuiHIAl68" />
+          <Link Id="To3l1HeZ0CFORsg97VjkuT" Ids="GTlTQNO693TPtV6TjRCgPP,MXyUKeTlaAYLNsuiHIAl68" />
+          <Link Id="C9tqSZwtNlsMWKS50wkhgB" Ids="MXyUKeTlaAYLNsuiHIAl68,KG7CfVbQiJ8Luu3w2X5aUT" />
         </Patch>
       </Node>
       <!--
@@ -2812,6 +2823,116 @@
           <Link Id="AMcoftVeuMmMvxPU5XLFP5" Ids="KA6LKvQSBbqPM0SfDRfGQ9,THFMYnNeRMfL5p1uum0xMg" />
           <Link Id="DnkREceSVCqPe8dWu1xeiW" Ids="NacWEaecWqKPwGg2AoLLss,SYgFn992LzIO8FbdDR2zGy" />
           <Link Id="FSvdRqrf2mDLw4UlDVNZQ0" Ids="K91iheQpz2tOSbS9KCzsxB,N38mGyBOUdUOmZWWIfaa6b" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ ToImage ************************
+
+-->
+      <Node Name="ToImage" Bounds="-550,303,100,50" Id="LVOz9TTy4FwOsGwvjdQcYN">
+        <p:NodeReference>
+          <Choice Kind="OperationDefinition" Name="Operation" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <Patch Id="G8p1fidwKYENmWLn9syWKG">
+          <Node Bounds="-550,303,10,10" AutoConnect="true" Id="UBhpBcry256LHci4Qzfi3V">
+            <p:NodeReference LastCategoryFullName="VL.OpenCV.Converters" LastSymbolSource="VL.OpenCV.dll">
+              <Choice Kind="OperationNode" Name="ToImage" />
+              <FullNameCategoryReference ID="VL.OpenCV.Converters" />
+            </p:NodeReference>
+            <Pin Id="NfJ09gJ9G27PjWf0iupkyC" Name="Input" Kind="StateInputPin" />
+            <Pin Id="GyIBNcQuC3hN5BiCV2WEdU" Name="Take Ownership" Kind="InputPin" />
+            <Pin Id="Sd6hmGvCljdLjonsQKtGRt" Name="Result" Kind="OutputPin" />
+          </Node>
+          <Pin Id="D0hX4LN07Y0PckqaE9VEeU" Name="Input" Kind="InputPin" />
+          <Pin Id="D9sKfLF7Oh9P99zYi5PmbG" Name="Take Ownership" Kind="InputPin" />
+          <Pin Id="FM8GJ3rfa0rOfr7nv8tibi" Name="Result" Kind="OutputPin" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ ToMat ************************
+
+-->
+      <Node Name="ToMat" Bounds="-546,438,100,50" Id="EbVhHEEJt1BQWRdGLrtnDG">
+        <p:NodeReference>
+          <Choice Kind="OperationDefinition" Name="Operation" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <Patch Id="Ej5UPrCF2EnLGiFSZJzb39">
+          <Node Bounds="-546,438,10,10" AutoConnect="true" Id="EcZfeT9DfzUPZ07Qelxfar">
+            <p:NodeReference LastCategoryFullName="VL.OpenCV.Converters" LastSymbolSource="VL.OpenCV.dll">
+              <Choice Kind="OperationNode" Name="ToMat" />
+              <FullNameCategoryReference ID="VL.OpenCV.Converters" />
+              <PinReference Kind="InputPin" Name="Input">
+                <p:DataTypeReference p:Type="TypeReference" LastCategoryFullName="VL.Lib.Basics.Imaging" LastSymbolSource="VL.Core.dll">
+                  <Choice Kind="TypeFlag" Name="IImage" />
+                </p:DataTypeReference>
+              </PinReference>
+              <PinReference Kind="InputPin" Name="Dst Mat">
+                <p:DataTypeReference p:Type="TypeReference" LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
+                  <Choice Kind="TypeFlag" Name="Mat" />
+                </p:DataTypeReference>
+              </PinReference>
+            </p:NodeReference>
+            <Pin Id="K0IYOHWXD9yLNIeoxbwcKH" Name="Input" Kind="StateInputPin" />
+            <Pin Id="VlUbffVZ4CJN0GM13ro9C3" Name="Dst Mat" Kind="InputPin" />
+          </Node>
+          <Pin Id="J4CPDC4gztWLM6nbuMHCHF" Name="Input" Kind="InputPin" />
+          <Pin Id="QbedfPOC6EzNSXlOIMCTiR" Name="Dst Mat" Kind="InputPin" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ GetVideoFormats ************************
+
+-->
+      <Node Name="GetVideoFormats" Bounds="-549,573,100,50" Id="NPYF4mwcp0yOwjhTemBOhC">
+        <p:NodeReference>
+          <Choice Kind="OperationDefinition" Name="Operation" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <Patch Id="PPCy7kVR2adL2VQGzJCXIE">
+          <Node Bounds="-549,573,10,10" AutoConnect="true" Id="PMUF5M7xxt8OPbuN0ZRaQe">
+            <p:NodeReference LastCategoryFullName="VL.OpenCV.VideoInInfo" LastSymbolSource="VL.OpenCV.dll">
+              <Choice Kind="OperationNode" Name="GetVideoFormats" />
+              <FullNameCategoryReference ID="VL.OpenCV.VideoInInfo" />
+            </p:NodeReference>
+            <Pin Id="V02lgLuslAPMFpSwcyvLoI" Name="Device Id" Kind="InputPin" />
+            <Pin Id="DlJT8REnV4ALHbR7Z6DreO" Name="Result" Kind="OutputPin" />
+          </Node>
+          <Pin Id="VxNWs77iPLmOIvCElcaT81" Name="Device Id" Kind="InputPin" />
+          <Pin Id="EI524378UpXNQLXbcFGeup" Name="Result" Kind="OutputPin" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ ConvertColorFormat ************************
+
+-->
+      <Node Name="ConvertColorFormat" Bounds="-746,302,100,50" Id="GiH7sj1d3HzMNJVtkCbl9C">
+        <p:NodeReference>
+          <Choice Kind="OperationDefinition" Name="Operation" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <Patch Id="EuXvAIRD2QbOZQe7LZ389f">
+          <Node Bounds="-746,302,10,10" AutoConnect="true" Id="ENjyYx9dkIDPIo5vIZCMm9">
+            <p:NodeReference LastCategoryFullName="VL.OpenCV.Converters" LastSymbolSource="VL.OpenCV.dll">
+              <Choice Kind="OperationNode" Name="ConvertColorFormat" />
+              <FullNameCategoryReference ID="VL.OpenCV.Converters" />
+            </p:NodeReference>
+            <Pin Id="OKe9ADynHp4QBmkygRIKGu" Name="Input" Kind="InputPin" />
+            <Pin Id="ELhCrghuq2mQUVz2q6SCdB" Name="Output" Kind="InputPin" />
+            <Pin Id="PlzaQzOHKklNo6R2dRTzl0" Name="Source Code" Kind="InputPin" />
+            <Pin Id="DpRerHsRbwhLNWijQsAnUv" Name="Target Code" Kind="InputPin" />
+            <Pin Id="GpRK8fx9QLPMVJ2vrcedo9" Name="Channels" Kind="InputPin" />
+          </Node>
+          <Pin Id="HRMvkLusEKvLoeKXtK1adr" Name="Input" Kind="InputPin" />
+          <Pin Id="GKhNUlROXOALL6bRMoFmSZ" Name="Output" Kind="InputPin" />
+          <Pin Id="OzTEkHR1azBLAMaz2O4pxF" Name="Source Code" Kind="InputPin" />
+          <Pin Id="VkRwV3kGaSZLNElQIR98Fn" Name="Target Code" Kind="InputPin" />
+          <Pin Id="MVLS2hqU3dLLpuctvkZYzE" Name="Channels" Kind="InputPin" />
         </Patch>
       </Node>
     </Canvas>
