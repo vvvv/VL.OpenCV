@@ -1,7 +1,6 @@
 ﻿using OpenCvSharp;
 using System;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using VL.Lib.Basics.Imaging;
 
 namespace VL.OpenCV
@@ -127,6 +126,24 @@ namespace VL.OpenCV
                     break;
             }
             throw new UnsupportedPixelFormatException(format);
+        }
+
+        /// <summary>
+        /// Wraps the Cv2.CvtColor in order to simplify the enums presented to the end user.
+        /// </summary>
+        /// <param name="input">Orignal image</param>
+        /// <param name="output">Destination image</param>
+        /// <param name="sourceCode">ColorConversionSourceCodes corresponding to the original image</param>
+        /// <param name="targetCode">ColorConversionTargetCodes in which the resulting image should be</param>
+        /// <param name="channels"></param>
+        public static void ConvertColorFormat(InputArray input, OutputArray output, ColorConversionSourceCodes sourceCode, ColorConversionTargetCodes targetCode, int channels)
+        {
+            var code = sourceCode + "2" + targetCode;
+            ColorConversionCodes result;
+            if (Enum.TryParse(code, out result))
+                Cv2.CvtColor(input, output, result, channels);
+            else
+                throw new Exception("Specified conversion code does not exist: " + code);
         }
     }
 }
