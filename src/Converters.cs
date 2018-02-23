@@ -136,7 +136,7 @@ namespace VL.OpenCV
         /// <param name="sourceCode">ColorConversionSourceCodes corresponding to the original image</param>
         /// <param name="targetCode">ColorConversionTargetCodes in which the resulting image should be</param>
         /// <param name="channels"></param>
-        public static void ConvertColorFormat(InputArray input, OutputArray output, ColorConversionSourceCodes sourceCode, ColorConversionTargetCodes targetCode, int channels)
+        public static void ConvertColor(InputArray input, OutputArray output, ColorConversionSourceCodes sourceCode, ColorConversionTargetCodes targetCode, int channels)
         {
             var code = sourceCode + "2" + targetCode;
             ColorConversionCodes result;
