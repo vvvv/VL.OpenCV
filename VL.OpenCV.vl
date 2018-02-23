@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="ChQfHh6ToKXLR8ZB0RCtyF" Version="0.77">
+<Document xmlns:p="property" Id="ChQfHh6ToKXLR8ZB0RCtyF" Version="0.76">
   <Patch Id="C8nwPmC7mFvNATECRj2wt9">
     <Canvas Id="EatS5Y30OYxLELRQyBVMYE" DefaultCategory="OpenCV">
       <Canvas Id="N9r0bl4Ys0kMbfba5Gfahv" Name="Utils" Position="196,390" DefaultCategory="OpenCV.Utils">
@@ -5004,7 +5004,7 @@
     ************************ BackgroundSubtractor (MOG) ************************
 
 -->
-        <Node Name="BackgroundSubtractor (MOG)" Bounds="44,399" Id="AvWWcinRYuUMmrIv0eT0Ys" Summary="Creates mixture-of-gaussian background subtractor.">
+        <Node Name="BackgroundSubtractor (MOG)" Bounds="44,399" Id="AvWWcinRYuUMmrIv0eT0Ys" Summary="Provides a mixture-of-gaussian background subtractor.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -5182,7 +5182,7 @@
     ************************ BackgroundSubtractor (MOG2) ************************
 
 -->
-        <Node Name="BackgroundSubtractor (MOG2)" Bounds="44,444" Id="STudUpEopd7QTdzlsxbWgD" Summary="Creates MOG2 Background Subtractor.">
+        <Node Name="BackgroundSubtractor (MOG2)" Bounds="44,444" Id="STudUpEopd7QTdzlsxbWgD" Summary="Provides a mixture-of-gaussian (version 2) Background Subtractor.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -5353,7 +5353,7 @@
     ************************ BackgroundSubtractor (GMG) ************************
 
 -->
-        <Node Name="BackgroundSubtractor (GMG)" Bounds="44,489" Id="Dw2sY4uSBMEOzfvJrAbVnw" Summary="Creates a GMG Background Subtractor.">
+        <Node Name="BackgroundSubtractor (GMG)" Bounds="44,489" Id="Dw2sY4uSBMEOzfvJrAbVnw" Summary="Provides a GMG (Godbehere, Matsukawa, Goldberg) Background Subtractor.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -5513,7 +5513,7 @@
     ************************ BackgroundSubtractor (KNN) ************************
 
 -->
-        <Node Name="BackgroundSubtractor (KNN)" Bounds="44,534" Id="RAO6QEKUbBiMC4sldxieHb" Summary="Creates KNN Background Subtractor.">
+        <Node Name="BackgroundSubtractor (KNN)" Bounds="44,534" Id="RAO6QEKUbBiMC4sldxieHb" Summary="Provides a K Nearest Neighbor Background Subtractor.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -7335,7 +7335,7 @@
     ************************ Normalize ************************
 
 -->
-        <Node Name="Normalize" Bounds="44,1074" Id="Neqzf9oYlR4L664Guhha4K">
+        <Node Name="Normalize" Bounds="44,1074" Id="Neqzf9oYlR4L664Guhha4K" Summary="Normalizes the norm or value range of an image.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -7367,12 +7367,12 @@
             <Patch Id="AzefQgTjlt5NUr4s6TCoPe" Name="Update">
               <Pin Id="SkAXRJioL4KPl3H9l6WzTP" Name="Result" Kind="OutputPin" Bounds="416,349" />
               <Pin Id="VmXxOEkRuuzOvuISdsRMJ8" Name="Input" Kind="InputPin" Bounds="261,193" />
-              <Pin Id="VdYffaQxGPcNOrjkMy514t" Name="Alpha" Kind="InputPin" Bounds="337,195">
+              <Pin Id="VdYffaQxGPcNOrjkMy514t" Comment="Norm value to normalize to or the lower range boundary in case of the range normalization." Name="Alpha" Kind="InputPin" Bounds="337,195">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="TTrq6J7metILKuw3NlquXI" Name="Beta" Kind="InputPin" Bounds="394,197" DefaultValue="255.0">
+              <Pin Id="TTrq6J7metILKuw3NlquXI" Comment="Upper range boundary in case of the range normalization; it is not used for the norm normalization." Name="Beta" Kind="InputPin" Bounds="394,197" DefaultValue="255.0">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
@@ -7382,7 +7382,7 @@
                   <Choice Kind="TypeFlag" Name="NormTypes" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="NHGTefJ0PMbN3a3aSBknJV" Name="Dtype" Kind="InputPin" Bounds="478,200" />
+              <Pin Id="NHGTefJ0PMbN3a3aSBknJV" Comment="When negative, the output image has the same type as Input; otherwise, it has the same number of channels as Input and the depth equal to Dtype." Name="Dtype" Kind="InputPin" Bounds="478,200" />
             </Patch>
             <ProcessDefinition Id="HwecmMzpcxLMlDaDJmSWrQ">
               <Fragment Id="UGrIKWOhNKWL8gyrclkdY8" Patch="DimkGLG1w4ZL57UYYXnGQM" Enabled="true" />
@@ -7409,7 +7409,7 @@
     ************************ ImageFile ************************
 
 -->
-        <Node Name="ImageFile" Bounds="234,136" Id="Ptss68WOLROMSGGzXE0kyA">
+        <Node Name="ImageFile" Bounds="234,136" Id="Ptss68WOLROMSGGzXE0kyA" Summary="Loads an image file from the specified path.">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Process" />
             <FullNameCategoryReference ID="Primitive" />
@@ -7417,8 +7417,8 @@
           <Patch Id="KU8KI0MC8uKMOQ5xi0WRzo" IsGeneric="true">
             <Canvas Id="HktjkkNzsFiNd1zWD3rzPp">
               <ControlPoint Id="IzEFtQjznBSL0KQWX7nCsx" Bounds="422,100" />
-              <ControlPoint Id="T4hCfaG08EjQV8xokiKpYl" Bounds="370,100" />
-              <ControlPoint Id="PasqGWKaU3cMmvxyC8Jxth" Bounds="458,100" />
+              <ControlPoint Id="T4hCfaG08EjQV8xokiKpYl" Bounds="324,100" />
+              <ControlPoint Id="PasqGWKaU3cMmvxyC8Jxth" Bounds="468,100" />
               <Node Bounds="310,165,151,295" Id="Nq4bTKDHjoZP1MuirYTAno">
                 <p:NodeReference>
                   <Choice Kind="ProcessAppFlag" Name="ManageProcess" />
@@ -7441,7 +7441,7 @@
                     <Pin Id="B8IRti80148MvroHM2wHtd" Name="Input" Kind="StateInputPin" />
                     <Pin Id="Vks1FRoFFVgPlaRJysP8qS" Name="Exists" Kind="OutputPin" />
                   </Node>
-                  <Node Bounds="354,270,95,152" Id="DwT2E5f26BJPHfdFbl9vOc">
+                  <Node Bounds="354,268,78,154" Id="DwT2E5f26BJPHfdFbl9vOc">
                     <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
                       <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                       <Choice Kind="ApplicationStatefulRegion" Name="If" />
@@ -7473,7 +7473,7 @@
                       </Node>
                     </Patch>
                     <ControlPoint Id="V0UQjPRxTXINlMR2ZZhSOE" Bounds="369,416" Alignment="Bottom" />
-                    <ControlPoint Id="CMH2NJbGHbGPyNdPiOkE2n" Bounds="369,276" Alignment="Top" />
+                    <ControlPoint Id="CMH2NJbGHbGPyNdPiOkE2n" Bounds="381,274" Alignment="Top" />
                   </Node>
                 </Patch>
               </Node>
@@ -7516,7 +7516,7 @@
                 <Pin Id="SZ5G3YvvYj2O1xJ6BcIfbU" Name="Reset" Kind="ApplyPin" />
                 <Pin Id="RfPqRNzB6bVO1PaIa8YxR2" Name="State" Kind="OutputPin" />
               </Node>
-              <ControlPoint Id="M98k6BoeIJIPsw6xU7qQFP" Bounds="469,164" />
+              <ControlPoint Id="HfdiQAA96NeN7vS2xywodI" Bounds="371,146" />
             </Canvas>
             <Patch Id="BC4qGsW4TFjMOSkiECLCoI" Name="Create" />
             <Patch Id="MtwPgioy7yNNLtjstPISHX" Name="Update">
@@ -7538,7 +7538,7 @@
             <Link Id="RGMIAEfBo2rNqUnOyo2XVe" Ids="N7bSZIUxdL5QVDcAWfngNO,PasqGWKaU3cMmvxyC8Jxth" IsHidden="true" />
             <Link Id="KILEsE3GrcYQWmyzYBClkC" Ids="IzEFtQjznBSL0KQWX7nCsx,LKbnbs1AGddNrllfEIwMo9" />
             <Link Id="Rsnqm78mgAcLhpyHVjvzMH" Ids="T4hCfaG08EjQV8xokiKpYl,B8IRti80148MvroHM2wHtd" />
-            <Link Id="Mb8DjkqJkwGNLtKUGAEuOZ" Ids="T4hCfaG08EjQV8xokiKpYl,LnCssinoc9aPp9OQgBo7Ni" />
+            <Link Id="Mb8DjkqJkwGNLtKUGAEuOZ" Ids="T4hCfaG08EjQV8xokiKpYl,HfdiQAA96NeN7vS2xywodI,LnCssinoc9aPp9OQgBo7Ni" />
             <Link Id="KZX1oj7yw67K90VKq1C84J" Ids="HEPYo5hJPF0Pio8yjjvQFs,IrDNNrsqxwZPAC2dRbKeza" IsHidden="true" />
             <Link Id="TTF64hiCatOOjaGMCPUjSB" Ids="SJaHkc9Xpa7QKs8LdCzewc,Ku13l3rUd9lOBSQsLfB0EB" />
             <Link Id="FhbHfw64uzXPSYwYn1giBE" Ids="CMH2NJbGHbGPyNdPiOkE2n,V0UQjPRxTXINlMR2ZZhSOE" IsFeedback="true" />
@@ -7550,7 +7550,7 @@
             <Link Id="HIdFLUMtRYjN35Y6QALF7b" Ids="EvQ2lTiP2owNm16RVa1dHF,AIC9ujEb1BxPQOU8RcfzHJ" />
             <Link Id="KfRzkE9moZBOTF8YbTdLbE" Ids="MA2GfU9sp9sLphWKfpMTG7,AwqseXgbvf8N0SIERrZDGY" />
             <Link Id="ScYpdISgYlOQdDw7iaGuDi" Ids="Ibr34waLUEyLS4grmOQvJL,Lh0saPgkXBqM3UMGMVucVF,Rw6CM6h1NxVM5Tw1wHrAGZ,VFGd4spJoq2OXBEKtEZK7K" />
-            <Link Id="BumJoOUMfRPPTKLFI1Bzzm" Ids="PasqGWKaU3cMmvxyC8Jxth,M98k6BoeIJIPsw6xU7qQFP,IlDGttjZBVtMbuzLqnYC7t" />
+            <Link Id="BumJoOUMfRPPTKLFI1Bzzm" Ids="PasqGWKaU3cMmvxyC8Jxth,IlDGttjZBVtMbuzLqnYC7t" />
             <Link Id="QZqvFtFIiCRMK3dROeqDtE" Ids="P8db6QhaIktNZR9vWSVLxO,V4cn3kbarQVP310J8Njhft" />
             <Link Id="MRfYpqxgJZKMloRM94TMB8" Ids="RfPqRNzB6bVO1PaIa8YxR2,VPbLZ2r4NlsOd6uXbr7f2u" />
           </Patch>
@@ -7560,7 +7560,7 @@
     ************************ VideoIn ************************
 
 -->
-        <Node Name="VideoIn" Bounds="234,240" Id="GA3EnW9tZSeMF0kRmTVPso">
+        <Node Name="VideoIn" Bounds="234,240" Id="GA3EnW9tZSeMF0kRmTVPso" Summary="Loads video content from a connected video input device." Remarks="If unsupported values are specified for Width, Height or FPS are provided, the values will be ignored and the closes supported value will be used by default.  For a list of supported configurations check the Supported Formats output pin.">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Process" />
             <FullNameCategoryReference ID="Primitive" />
@@ -7885,7 +7885,7 @@
                   <Choice Kind="TypeFlag" Name="Integer32" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="FHQo8A3UBB1PuoT4B129KL" Name="Show Properties" Kind="InputPin" Bounds="608,261" DefaultValue="false">
+              <Pin Id="FHQo8A3UBB1PuoT4B129KL" Comment="Opens a configuration window with advanced options." Name="Show Properties" Kind="InputPin" Bounds="608,261" DefaultValue="false">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
@@ -7955,7 +7955,7 @@
     ************************ VideoFile ************************
 
 -->
-        <Node Name="VideoFile" Bounds="234,188" Id="CM1uj5iMXjMMvLLrVQHNQn">
+        <Node Name="VideoFile" Bounds="234,188" Id="CM1uj5iMXjMMvLLrVQHNQn" Summary="Plays the specified video file." Remarks="This node is not optimized and may suffer from poor performance on high resolution videos.  For performance demanding scenarios please use the GStreamer video player.">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Process" />
             <FullNameCategoryReference ID="Primitive" />
@@ -7981,7 +7981,7 @@
                 <Pin Id="OJQSFat4S1VO1IbyiMEVGd" Name="Output" Kind="StateOutputPin" />
               </Node>
               <Pad Id="H6CcFErOVIKL0lwGk25cl8" SlotId="BoieB7JIf4GMG4BoDBUBJ4" Bounds="360,162" />
-              <Node Bounds="495,150,36,22" Id="Q7RRZZP8o92N8U8QvCAWbV">
+              <Node Bounds="504,150,36,22" Id="Q7RRZZP8o92N8U8QvCAWbV">
                 <p:NodeReference LastCategoryFullName="IO.Path" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCVSharp.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="OperationCallFlag" Name="Exists" />
@@ -7989,7 +7989,7 @@
                 <Pin Id="CqeJb8BANA9OY6miGDylv1" Name="Input" Kind="StateInputPin" />
                 <Pin Id="BsVvPpwBdDINc4lLvcxAAc" Name="Exists" Kind="OutputPin" />
               </Node>
-              <ControlPoint Id="GHYdjlTVgKsPx0IrAeQi5X" Bounds="536,94" />
+              <ControlPoint Id="GHYdjlTVgKsPx0IrAeQi5X" Bounds="554,94" />
               <Node Bounds="462,222,291,133" Id="B07x5rqalW2Lj8bEvy0p2V">
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="ApplicationStatefulRegion" Name="If" />
@@ -8207,7 +8207,7 @@
               <ControlPoint Id="E12nn18oJpdPVUNtrJQPYZ" Bounds="828,448" />
               <ControlPoint Id="J3HUtIdHSluPQuqbmAcC78" Bounds="928,448" />
               <ControlPoint Id="L45e5IsJfMsLfGqCrjhcKA" Bounds="432,94" />
-              <Node Bounds="462,186,38,13" Id="NNs6MvUDyyhO0asgVXHKy9">
+              <Node Bounds="462,186,46,13" Id="NNs6MvUDyyhO0asgVXHKy9">
                 <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="OperationCallFlag" Name="AND" />
@@ -8225,9 +8225,9 @@
                 <Pin Id="LBstJwU5ymMLAeVbr0K8X7" Name="Up Edge" Kind="OutputPin" />
                 <Pin Id="UdhlBzOegm8PerL7OrECw1" Name="Down Edge" Kind="OutputPin" />
               </Node>
-              <ControlPoint Id="RprNezFGcAcPyMP4t8ks6V" Bounds="537,200" />
-              <ControlPoint Id="LdSBc9tDndINcHUy0Jk6WH" Bounds="504,200" />
-              <Pad Id="G24yEh2nkXgPPVqHSipIkL" Comment="" Bounds="668,377,28,17" ShowValueBox="true" isIOBox="true" Value="1.0">
+              <ControlPoint Id="RprNezFGcAcPyMP4t8ks6V" Bounds="555,208" />
+              <ControlPoint Id="LdSBc9tDndINcHUy0Jk6WH" Bounds="504,208" />
+              <Pad Id="G24yEh2nkXgPPVqHSipIkL" Comment="" Bounds="661,377,33,19" ShowValueBox="true" isIOBox="true" Value="1.0">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float64" />
                 </p:TypeAnnotation>
@@ -9448,8 +9448,8 @@
             <Canvas Id="ODUaaK1visHLtGyjK6PnWQ">
               <Pad Id="Jqe1DCTpWtfNHOJ3n97LLw" Bounds="298,317,618,110" ShowValueBox="true" isIOBox="true" Value="&quot;For this algorithm you need CNN training files which can be found here:\r\nhttps://github.com/opencv/opencv_extra/tree/c4219d5eb3105ed8e634278fad312a1a8d2c182d/testdata/tracking\r\nSTEPS:\r\n1. Download files\r\n2. Unzip the goturn.caffemodel.zip multipart file\r\n3. Copy both goturn.caffemodel and goturn.prototxt on your vvvv root folder&quot;">
                 <p:ValueBoxSettings>
-                  <p:fontsize p:Type="Int32">9</p:fontsize>
                   <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+                  <p:fontsize p:Type="Int32">9</p:fontsize>
                 </p:ValueBoxSettings>
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="String" />
@@ -10464,7 +10464,7 @@
     ************************ ImageFile ************************
 
 -->
-        <Node Name="ImageFile" Bounds="127,334,336,218" Id="GqurjBpgJGGL3l0xmBCONd">
+        <Node Name="ImageFile" Bounds="127,334,337,221" Id="GqurjBpgJGGL3l0xmBCONd" Summary="Writes an image into the specified image file.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="OperationDefinition" Name="Operation" />
           </p:NodeReference>
@@ -10565,7 +10565,7 @@
     ************************ VideoFile ************************
 
 -->
-        <Node Name="VideoFile" Bounds="127,264" Id="PIY9OLTkaqBMwqSDn3dlaD">
+        <Node Name="VideoFile" Bounds="127,264" Id="PIY9OLTkaqBMwqSDn3dlaD" Summary="Writes a video file on the specified path.">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Process" />
             <FullNameCategoryReference ID="Primitive" />
@@ -10606,7 +10606,7 @@
                   </Node>
                 </Patch>
               </Node>
-              <Node Bounds="363,271,270,109" Id="PMVWDZQdus2PqrkUHxtnI4">
+              <Node Bounds="363,251,270,129" Id="PMVWDZQdus2PqrkUHxtnI4">
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="ApplicationStatefulRegion" Name="If" />
                   <FullNameCategoryReference ID="Primitive" />
@@ -10669,13 +10669,22 @@
                     <Pin Id="O2ipHFPvTs6M3EJNXPwINv" Name="Input" Kind="InputPin" />
                     <Pin Id="CZm9jT6eaqkQDEaqJwMTOt" Name="Result" Kind="OutputPin" />
                   </Node>
+                  <Node Bounds="453,274,48,13" Id="IuRLiAKDcV8NjYIcFnymea">
+                    <p:NodeReference LastCategoryFullName="Primitive.Object" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="ToString" />
+                      <CategoryReference Kind="ClassType" Name="Object" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="JS1gl0wBHvRLFL2GIDVGu3" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="PlAj1WHXuknOzH20Jm66yS" Name="Result" Kind="OutputPin" />
+                  </Node>
                 </Patch>
               </Node>
               <ControlPoint Id="OlBXOqj6ZDKNuclx20JxEN" Bounds="362,437" />
               <Pad Id="IUPPVFz6hBCOYFOmrAjnkJ" Bounds="181,583,293,20" ShowValueBox="true" isIOBox="true" Value="&quot;release needs to be called to save the avi file&quot;">
                 <p:ValueBoxSettings>
-                  <p:fontsize p:Type="Int32">9</p:fontsize>
                   <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+                  <p:fontsize p:Type="Int32">9</p:fontsize>
                 </p:ValueBoxSettings>
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="String" />
@@ -10796,6 +10805,8 @@
             <Link Id="IZEAvTZSLf9OoCge36vjOx" Ids="CZm9jT6eaqkQDEaqJwMTOt,IQcTI4x6GWbOZ6HsibiB5A" />
             <Link Id="JpVuoN5VxFEOAnWlajxVEX" Ids="Tjo8E5R2UXoPur6R0DgK9H,TMhsiU8IoAoOVwfxKjqg7z" />
             <Link Id="JJlOXe4uJ6OOv6RUlNflQm" Ids="Rh1zCFb6IDnNXToY9ji6cZ,VI1sQUEt4poM6E7TLYUN06" />
+            <Link Id="PkiRCsCUIl5N71vLnopMFt" Ids="PAz7cCxFaTePY6857wa6ha,JS1gl0wBHvRLFL2GIDVGu3" />
+            <Link Id="D2UzlAcaYd5OVzSxnAHiSG" Ids="PlAj1WHXuknOzH20Jm66yS,Af1QBwdKWRULw4Mo9fqSlg" />
           </Patch>
         </Node>
         <!--
@@ -10803,7 +10814,7 @@
     ************************ Renderer ************************
 
 -->
-        <Node Name="Renderer" Bounds="488,261" Id="K5ovdnYyi5jMjS8TLJYE4D">
+        <Node Name="Renderer" Bounds="391,211" Id="K5ovdnYyi5jMjS8TLJYE4D" Summary="Creates a window that renders the passed in images." Remarks="Whenever the name of the Renderer is changed, a new window is opened and the previous window is left behind.  This behaviour is a known issue and will be corrected in the future.">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Process" />
             <FullNameCategoryReference ID="Primitive" />
@@ -10996,7 +11007,7 @@
     ************************ VideoFile (Append) ************************
 
 -->
-        <Node Name="VideoFile (Append)" Bounds="128,211" Id="LWQWQWQSVJYLVvNQl0xZeF">
+        <Node Name="VideoFile (Append)" Bounds="127,211" Id="LWQWQWQSVJYLVvNQl0xZeF" Summary="Writes a video file on the specified path." Remarks="Content can be appended to the end of the destination file using the Append input pin.">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Process" />
             <FullNameCategoryReference ID="Primitive" />
@@ -11109,8 +11120,8 @@
               <ControlPoint Id="AU6PEloi7IfL8hjoUSf1nf" Bounds="362,437" />
               <Pad Id="AMqDAhxGuNnNKwWN0lglRy" Bounds="181,583,293,20" ShowValueBox="true" isIOBox="true" Value="&quot;release needs to be called to save the avi file&quot;">
                 <p:ValueBoxSettings>
-                  <p:fontsize p:Type="Int32">9</p:fontsize>
                   <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+                  <p:fontsize p:Type="Int32">9</p:fontsize>
                 </p:ValueBoxSettings>
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="String" />
@@ -11616,10 +11627,10 @@
           </Patch>
         </Node>
       </Canvas>
-      <Pad Id="Ookz1QKvQdbOzoqxbRMvm4" Bounds="376,150,186,20" ShowValueBox="true" isIOBox="true" Value="&quot;https://docs.opencv.org/3.3.1/&quot;">
+      <Pad Id="Ookz1QKvQdbOzoqxbRMvm4" Bounds="376,150,219,20" ShowValueBox="true" isIOBox="true" Value="&quot;https://docs.opencv.org/3.3.1/&quot;">
         <p:ValueBoxSettings>
-          <p:fontsize p:Type="Int32">9</p:fontsize>
           <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+          <p:fontsize p:Type="Int32">9</p:fontsize>
         </p:ValueBoxSettings>
         <p:TypeAnnotation>
           <Choice Kind="TypeFlag" Name="String" />
@@ -11627,26 +11638,26 @@
       </Pad>
       <Pad Id="DGtgQ3bVyBhK9Y3xziqpw6" Bounds="376,122,186,20" ShowValueBox="true" isIOBox="true" Value="&quot;RESOURCES&quot;">
         <p:ValueBoxSettings>
-          <p:fontsize p:Type="Int32">9</p:fontsize>
           <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+          <p:fontsize p:Type="Int32">9</p:fontsize>
         </p:ValueBoxSettings>
         <p:TypeAnnotation>
           <Choice Kind="TypeFlag" Name="String" />
         </p:TypeAnnotation>
       </Pad>
-      <Pad Id="VLlvGzVTXvuOz9YhxqAnh6" Bounds="376,178,186,20" ShowValueBox="true" isIOBox="true" Value="&quot;http://www.learnopencv.com/&quot;">
+      <Pad Id="VLlvGzVTXvuOz9YhxqAnh6" Bounds="376,178,238,20" ShowValueBox="true" isIOBox="true" Value="&quot;http://www.learnopencv.com/&quot;">
         <p:ValueBoxSettings>
-          <p:fontsize p:Type="Int32">9</p:fontsize>
           <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+          <p:fontsize p:Type="Int32">9</p:fontsize>
         </p:ValueBoxSettings>
         <p:TypeAnnotation>
           <Choice Kind="TypeFlag" Name="String" />
         </p:TypeAnnotation>
       </Pad>
-      <Pad Id="R9VCClH8fqoNFiVmOoCc80" Bounds="376,206,430,20" ShowValueBox="true" isIOBox="true" Value="&quot;https://www.pyimagesearch.com/opencv-tutorials-resources-guides/&quot;">
+      <Pad Id="R9VCClH8fqoNFiVmOoCc80" Bounds="376,206,473,20" ShowValueBox="true" isIOBox="true" Value="&quot;https://www.pyimagesearch.com/opencv-tutorials-resources-guides/&quot;">
         <p:ValueBoxSettings>
-          <p:fontsize p:Type="Int32">9</p:fontsize>
           <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+          <p:fontsize p:Type="Int32">9</p:fontsize>
         </p:ValueBoxSettings>
         <p:TypeAnnotation>
           <Choice Kind="TypeFlag" Name="String" />
@@ -11657,7 +11668,7 @@
     ************************ FromImage ************************
 
 -->
-      <Node Name="FromImage" Bounds="196,508" Id="K8qW9lm9qOoQcpkKzGFOcO">
+      <Node Name="FromImage" Bounds="196,508" Id="K8qW9lm9qOoQcpkKzGFOcO" Summary="Converts and Image into a Mat to be used inside the OpenCV universe.">
         <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
           <Choice Kind="ContainerDefinition" Name="Process" />
         </p:NodeReference>
@@ -11703,7 +11714,7 @@
     ************************ ToImage ************************
 
 -->
-      <Node Name="ToImage" Bounds="196,565" Id="TployIBVjYHMYMq3JUszvX">
+      <Node Name="ToImage" Bounds="196,565" Id="TployIBVjYHMYMq3JUszvX" Summary="Converts an OpenCV Mat into an Image to be used in non-OpenCV universes." Remarks="Expects the passed in image to have an RGBA format.">
         <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
           <Choice Kind="ContainerDefinition" Name="Process" />
         </p:NodeReference>
@@ -11743,7 +11754,7 @@
     ************************ FindChessboardCorners ************************
 
 -->
-        <Node Name="FindChessboardCorners" Bounds="187,264" Id="Gb1t9SKXO4YNILwhYTTZs9">
+        <Node Name="FindChessboardCorners" Bounds="187,264" Id="Gb1t9SKXO4YNILwhYTTZs9" Summary="Finds the positions of internal corners of the chessboard." Remarks="The function requires white space around the board to make the detection more robust in various environments. Otherwise, if there is no border and the background is dark, the outer black squares cannot be segmented properly and so the square grouping and ordering algorithm fails.">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Process" />
             <FullNameCategoryReference ID="Primitive" />
@@ -11921,7 +11932,7 @@
             <Patch Id="FotQ0Ls1kQfOW8XZnAoUVu" Name="Create" />
             <Patch Id="NVr0JN4UcSCNWxUlADL1Wc" Name="Update" ManuallySortedPins="true">
               <Pin Id="A2bjD97SLN0MdOcZVcfMfq" Name="Image" Kind="InputPin" Bounds="285,217" />
-              <Pin Id="DhWk49yGNTrN433raF1zGM" Name="Pattern Size" Kind="InputPin" Bounds="386,211" />
+              <Pin Id="DhWk49yGNTrN433raF1zGM" Comment="Number of inner corners per a chessboard row and column." Name="Pattern Size" Kind="InputPin" Bounds="386,211" />
               <Pin Id="PZuQgh4nIdBNzUgTUF1C2o" Name="Flags" Kind="InputPin" Bounds="445,174" />
               <Pin Id="LrU5zBVzWheOgIDVA2R5aB" Name="Enabled" Kind="InputPin" Bounds="184,179" DefaultValue="false">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
@@ -11975,7 +11986,7 @@
     ************************ CornerSubPix ************************
 
 -->
-        <Node Name="CornerSubPix" Bounds="187,305" Id="BxuiBOcZ51WOsNqawRxp7X">
+        <Node Name="CornerSubPix" Bounds="187,305" Id="BxuiBOcZ51WOsNqawRxp7X" Summary="Refines the corner locations." Remarks="Used in conjunction with FindChessboardCorners.  Improves the accuracy of the detected corner positions.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -12140,7 +12151,7 @@
               <Pin Id="ExEMPmSJ2O6MpOHs7YNkU2" Name="Input Corners" Kind="InputPin" Bounds="352,261" />
               <Pin Id="OWLZ65WILlkQGwQ1xg0HHw" Name="Output" Kind="OutputPin" Bounds="405,426" />
               <Pin Id="Li2esRw8gwoLl9GIoP12vz" Name="Enabled" Kind="InputPin" Bounds="118,171" />
-              <Pin Id="F1cecqthVmxNW5TtePVH0m" Name="WindowSize" Kind="InputPin" Bounds="426,147" DefaultValue="3">
+              <Pin Id="F1cecqthVmxNW5TtePVH0m" Comment="Half of the side length of the search window. For example, if winSize=Size(5,5) , then a 5∗2+1×5∗2+1=11×11 search window is used." Name="WindowSize" Kind="InputPin" Bounds="426,147" DefaultValue="3">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Integer32" />
                 </p:TypeAnnotation>
@@ -12183,7 +12194,7 @@
     ************************ CalibrateCamera ************************
 
 -->
-        <Node Name="CalibrateCamera" Bounds="187,346" Id="A6eVF2XXchhMI7Nki9BhIC">
+        <Node Name="CalibrateCamera" Bounds="187,346" Id="A6eVF2XXchhMI7Nki9BhIC" Summary="Finds the camera intrinsic and extrinsic parameters from several views of a calibration pattern." Remarks="If you use a non-square grid and findChessboardCorners for calibration, and calibrateCamera returns bad values, then you have probably used rows,cols instead of using cols,rows in findChessboardCorners.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -12192,10 +12203,10 @@
               <ControlPoint Id="Tfq056NFRefMZ8yPF34wlf" Bounds="456,176" />
               <ControlPoint Id="HmgUW8ARnE5PxYwQ6F8nGG" Bounds="510,176" />
               <ControlPoint Id="TdywqNjmmX4LAcZybrUNpQ" Bounds="553,176" />
-              <ControlPoint Id="JBoqn7ymdjRM5bDj2JpBp8" Bounds="425,350" />
-              <ControlPoint Id="PsRGNPQcsxzMZhvG3jSqgg" Bounds="467,356" />
-              <ControlPoint Id="IKTPdPfHzP6NHqdDfkr41u" Bounds="518,354" />
-              <ControlPoint Id="CanR4c964m6PJyMi1KYvh9" Bounds="580,356" />
+              <ControlPoint Id="JBoqn7ymdjRM5bDj2JpBp8" Bounds="407,350" />
+              <ControlPoint Id="PsRGNPQcsxzMZhvG3jSqgg" Bounds="451,350" />
+              <ControlPoint Id="IKTPdPfHzP6NHqdDfkr41u" Bounds="518,350" />
+              <ControlPoint Id="CanR4c964m6PJyMi1KYvh9" Bounds="592,350" />
               <ControlPoint Id="CGKARAS9AstPwFi2uujJge" Bounds="397,176" />
               <Node Bounds="405,209,162,120" Id="QBE6m6ZbGA3MGWXSQ6s1jO">
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
@@ -12258,9 +12269,9 @@
               <Pin Id="ENZUuXJKVEhP5LnfRI0Nx7" Name="Images" Kind="InputPin" Bounds="433,187" />
               <Pin Id="MtZr94LiOXdQLlRIWX7np8" Name="Rows" Kind="InputPin" Bounds="507,189" />
               <Pin Id="C9I1nkM8hIyOXlJnABX88x" Name="Cols" Kind="InputPin" Bounds="578,195" />
-              <Pin Id="OG8lGHZJvyFMZhnA37sfWb" Name="Error" Kind="OutputPin" Bounds="436,315" />
-              <Pin Id="AevoU5s4NydNHU7jlqn9RB" Name="Intrinsics" Kind="OutputPin" Bounds="477,337" />
-              <Pin Id="H97r0suOX3mMQYK3uqYdmF" Name="Extrinsics" Kind="OutputPin" Bounds="535,335" />
+              <Pin Id="OG8lGHZJvyFMZhnA37sfWb" Comment="The overall RMS re-projection error." Name="Error" Kind="OutputPin" Bounds="436,315" />
+              <Pin Id="AevoU5s4NydNHU7jlqn9RB" Comment="Output 3x3 floating-point camera matrix." Name="Intrinsics" Kind="OutputPin" Bounds="477,337" />
+              <Pin Id="H97r0suOX3mMQYK3uqYdmF" Comment="Output vector of distortion coefficients." Name="Extrinsics" Kind="OutputPin" Bounds="535,335" />
               <Pin Id="NDwxIGh0yRxOtOscXcdsDH" Name="Found Pattern Count" Kind="OutputPin" Bounds="599,318" />
               <Pin Id="GkBaFvkc3CrLoc5oBThRTm" Name="Enabled" Kind="InputPin" Bounds="322,167" />
             </Patch>
