@@ -2,6 +2,7 @@
 using System;
 using System.Runtime.CompilerServices;
 using VL.Lib.Basics.Imaging;
+using SharpDX;
 
 namespace VL.OpenCV
 {
@@ -144,6 +145,55 @@ namespace VL.OpenCV
                 Cv2.CvtColor(input, output, result, channels);
             else
                 throw new Exception("Specified conversion code does not exist: " + code);
+        }
+
+        public unsafe static Matrix ToTransformationMatrix(Mat rotationMatrix, Mat translationVector, float[] specials)
+        {
+            Matrix result = new Matrix();
+            float[] matrix = new float[16];
+            if (rotationMatrix != null && translationVector != null)
+            {
+                if ((rotationMatrix.Width == 3 && rotationMatrix.Height == 3) 
+                    && (translationVector.Width == 1 && translationVector.Height == 3))
+                {
+                    //clone matrix and vector to avoid modifying the originals
+                    Mat rm = rotationMatrix.Clone();
+                    Mat tv = translationVector.Clone();
+                    rm.ConvertTo(rm, MatType.CV_32FC1);
+                    tv.ConvertTo(tv, MatType.CV_32FC1);
+                    //transpose to change into VL's row,col format
+                    rm = rm.Transpose();
+                    //copy translation vector at the end of the rotation matrix
+                    rm.Add(tv.Transpose()); //4x3 matrix
+                    rm = rm.Transpose();
+                    //Add new row with all 0's
+                    rm.Add(Mat.Zeros(1, 4, MatType.CV_32FC1)); //4x4 matrix
+                    IntPtr pointer = rm.Data;
+                    var src = pointer.ToPointer();
+                    fixed (float* dst = matrix)
+                        Unsafe.CopyBlock(dst, src, (uint)sizeof(float)*16);
+                    matrix[12] = specials[0];
+                    matrix[13] = specials[1];
+                    matrix[14] = specials[2];
+                    matrix[15] = specials[3];
+                    result = new Matrix(matrix);
+                    result.Transpose();
+                }
+            }
+            return result;
+        }
+
+        public unsafe static Matrix ToTransformationMatrix(Mat rotationMatrix, Mat translationVector)
+        {
+            float[] specials = new float[4] { 0, 0, 0, 1 };
+            return ToTransformationMatrix(rotationMatrix, translationVector, specials);
+        }
+
+        public unsafe static Matrix ToTransformationMatrix(Mat rotationMatrix)
+        {
+            Mat translationVector = Mat.Zeros(3, 1, MatType.CV_64FC1);
+            float[] specials = new float[4] { 0, 0, 1, 0 };
+            return ToTransformationMatrix(rotationMatrix, translationVector, specials);
         }
     }
 }
