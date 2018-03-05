@@ -73,57 +73,5 @@ namespace VL.OpenCV
             extrinsics = distortion;
             return error;
         }
-
-        public static double CalibrateCamera(IEnumerable<IEnumerable<Point3f>> objectPoints,
-            IEnumerable<IEnumerable<Point2f>> imagePoints,
-            Size imageSize,
-            double fx,
-            double fy,
-            double cx,
-            double cy,
-            double[] distCoeffs,
-            out Vec3d[] rvecs,
-            out Vec3d[] tvecs,
-            out double[,] cameraMatrix,
-            CalibrationFlags flags = CalibrationFlags.None,
-            TermCriteria? criteria = null)
-        {
-            var error = 0.0;
-            cameraMatrix = new double[3, 3] { { fx, 0, cx }, { 0, fy, cy }, { 0, 0, 1 } };
-            error = Cv2.CalibrateCamera(objectPoints, imagePoints, imageSize, cameraMatrix, distCoeffs, out rvecs, out tvecs, flags, criteria);
-            return error;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="objectPoints"></param>
-        /// <param name="imagePoints"></param>
-        /// <param name="fx"></param>
-        /// <param name="fy"></param>
-        /// <param name="cx"></param>
-        /// <param name="cy"></param>
-        /// <param name="distCoeffs"></param>
-        /// <param name="rvec"></param>
-        /// <param name="tvec"></param>
-        /// <param name="useExtrinsicGuess"></param>
-        /// <param name="flags"></param>
-        public static void SolvePnP(
-            IEnumerable<Point3f> objectPoints,
-            IEnumerable<Point2f> imagePoints,
-            double fx,
-            double fy,
-            double cx,
-            double cy,
-            IEnumerable<double> distCoeffs,
-            out double[] rvec, out double[] tvec,
-            bool useExtrinsicGuess = false,
-            SolvePnPFlags flags = SolvePnPFlags.Iterative)
-        {
-            rvec = new double[3];
-            tvec = new double[3];
-            double[,] cameraMatrix = new double[3, 3] { { fx, 0, cx }, { 0, fy, cy }, { 0, 0, 1 } };
-            Cv2.SolvePnP(objectPoints, imagePoints, cameraMatrix, distCoeffs, out tvec, out rvec, useExtrinsicGuess, flags);
-        }
     }
 }

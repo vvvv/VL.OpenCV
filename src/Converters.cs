@@ -1,8 +1,8 @@
 ﻿using OpenCvSharp;
+using SharpDX;
 using System;
 using System.Runtime.CompilerServices;
 using VL.Lib.Basics.Imaging;
-using SharpDX;
 
 namespace VL.OpenCV
 {
@@ -147,6 +147,13 @@ namespace VL.OpenCV
                 throw new Exception("Specified conversion code does not exist: " + code);
         }
 
+        /// <summary>
+        /// Combines a 3x3 rotation matrix output by Rodrigues with a 1x3 translation vector into a 4x4 Transformation matrix
+        /// </summary>
+        /// <param name="rotationMatrix">3x3 rotation matrix resulting from a call to Rodrigues</param>
+        /// <param name="translationVector">1x3 translation vector</param>
+        /// <param name="specials">Set of values to be appended to the last column of the resulting matrix</param>
+        /// <returns>4x4 Transformation matrix in the correct order for vvvv</returns>
         public unsafe static Matrix ToTransformationMatrix(Mat rotationMatrix, Mat translationVector, float[] specials)
         {
             Matrix result = new Matrix();
@@ -168,14 +175,20 @@ namespace VL.OpenCV
                     rm = rm.Transpose();
                     //Add new row with all 0's
                     rm.Add(Mat.Zeros(1, 4, MatType.CV_32FC1)); //4x4 matrix
+
+                    //Perform an unsafe copy of the Mat data into the array
                     IntPtr pointer = rm.Data;
                     var src = pointer.ToPointer();
                     fixed (float* dst = matrix)
                         Unsafe.CopyBlock(dst, src, (uint)sizeof(float)*16);
+
+                    //set values in last row of the matrix (currently all 0)
                     matrix[12] = specials[0];
                     matrix[13] = specials[1];
                     matrix[14] = specials[2];
                     matrix[15] = specials[3];
+
+                    //create new Matrix based on the array
                     result = new Matrix(matrix);
                     result.Transpose();
                 }
@@ -183,12 +196,23 @@ namespace VL.OpenCV
             return result;
         }
 
+        /// <summary>
+        /// Combines a 3x3 rotation matrix output by Rodrigues with a 1x3 translation vector into a 4x4 Transformation matrix
+        /// </summary>
+        /// <param name="rotationMatrix">3x3 rotation matrix resulting from a call to Rodrigues</param>
+        /// <param name="translationVector">1x3 translation vector</param>
+        /// <returns>4x4 Transformation matrix in the correct order for vvvv</returns>
         public unsafe static Matrix ToTransformationMatrix(Mat rotationMatrix, Mat translationVector)
         {
             float[] specials = new float[4] { 0, 0, 0, 1 };
             return ToTransformationMatrix(rotationMatrix, translationVector, specials);
         }
 
+        /// <summary>
+        /// Converts a 3x3 rotation matrix output by Rodrigues into a 4x4 Transformation matrix
+        /// </summary>
+        /// <param name="rotationMatrix">3x3 rotation matrix resulting from a call to Rodrigues</param>
+        /// <returns>4x4 Transformation matrix in the correct order for vvvv</returns>
         public unsafe static Matrix ToTransformationMatrix(Mat rotationMatrix)
         {
             Mat translationVector = Mat.Zeros(3, 1, MatType.CV_64FC1);
