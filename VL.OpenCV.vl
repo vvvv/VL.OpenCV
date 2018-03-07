@@ -8738,7 +8738,7 @@
     ************************ ObjectDetector ************************
 
 -->
-        <Node Name="ObjectDetector" Bounds="269,217" Id="Sv0TBgvphebOdo9k5JLqkG">
+        <Node Name="ObjectDetector" Bounds="269,217" Id="Sv0TBgvphebOdo9k5JLqkG" Summary="Provides a Cascade Classifier based on a specified input cascade file which detects objects of different sizes in the input image. The detected objects are returned as a list of rectangles." Remarks="This version provides an enum of sample cascade files to choose from.">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Process" />
             <FullNameCategoryReference ID="Primitive" />
@@ -8933,17 +8933,17 @@
             <Patch Id="J845vakXqdQNZfbc88VNup" Name="Create" />
             <Patch Id="MMQTXwLItkwPQ6BKGzrBAG" Name="Update" ManuallySortedPins="true">
               <Pin Id="Vv6EpnwlyRtOS4YTvJX5H8" Name="Input" Kind="InputPin" Bounds="367,171" />
-              <Pin Id="Ne61GnEQTZSNjgihoOwL2C" Name="Classifier File" Kind="InputPin" Bounds="307,98">
+              <Pin Id="Ne61GnEQTZSNjgihoOwL2C" Comment="File to use for object detection" Name="Classifier File" Kind="InputPin" Bounds="307,98">
                 <p:TypeAnnotation LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.Dev.vl">
                   <Choice Kind="TypeFlag" Name="HAARCascadeFile" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="VduQlYXSzWOL00mj2vGhnY" Name="Scale Factor" Kind="InputPin" Bounds="500,411" DefaultValue="2.0">
+              <Pin Id="VduQlYXSzWOL00mj2vGhnY" Comment="Parameter specifying how much the image size is reduced at each image scale." Name="Scale Factor" Kind="InputPin" Bounds="500,411" DefaultValue="2.0">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="BjJIKYcEdG5NdZ4lRVI5Yh" Name="Min Neighbors" Kind="InputPin" Bounds="614,415" DefaultValue="1">
+              <Pin Id="BjJIKYcEdG5NdZ4lRVI5Yh" Comment="Parameter specifying how many neighbors each candidate rectangle should have to retain it." Name="Min Neighbors" Kind="InputPin" Bounds="614,415" DefaultValue="1">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Integer32" />
                 </p:TypeAnnotation>
@@ -8953,7 +8953,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="LC3slYh4JOsPZxBASoJA42" Name="Rectangles" Kind="OutputPin" Bounds="466,389" />
+              <Pin Id="LC3slYh4JOsPZxBASoJA42" Comment="Spread of rectangles containing the detected objects." Name="Rectangles" Kind="OutputPin" Bounds="466,389" />
             </Patch>
             <ProcessDefinition Id="Ay5s3kBcuyFOFMI2YSIWiL">
               <Fragment Id="Ra0WahQj4VQM85IRGqurWo" Patch="J845vakXqdQNZfbc88VNup" Enabled="true" />
@@ -9005,7 +9005,7 @@
     ************************ Contours ************************
 
 -->
-        <Node Name="Contours" Bounds="269,358" Id="KJd0VjUEaL1M59uaZq8O7u">
+        <Node Name="Contours" Bounds="269,358" Id="KJd0VjUEaL1M59uaZq8O7u" Summary="Finds contours in a binary image." Remarks="The contours are a useful tool for shape analysis and object detection and recognition.">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Process" />
             <FullNameCategoryReference ID="Primitive" />
@@ -9128,19 +9128,19 @@
             <Patch Id="JA9VlnrnvZpOjwZCYroGBT" Name="Create" />
             <Patch Id="IXigCSGtOYLQDUAadyNRTL" Name="Update" ManuallySortedPins="true">
               <Pin Id="USBtvCcjkU1ONmvPRK1WFg" Name="Input" Kind="InputPin" Bounds="232,129" />
-              <Pin Id="GNmi539LzffMlx7d3ZwecF" Name="Method" Kind="InputPin" Bounds="1037,298" DefaultValue="&quot;ApproxSimple&quot;">
+              <Pin Id="GNmi539LzffMlx7d3ZwecF" Comment="Contour approximation method" Name="Method" Kind="InputPin" Bounds="1037,298" DefaultValue="&quot;ApproxSimple&quot;">
                 <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
                   <Choice Kind="TypeFlag" Name="ContourApproximationModes" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="JWmqWrU3auYO582muSmRb9" Name="Mode" Kind="InputPin" Bounds="728,241" />
+              <Pin Id="JWmqWrU3auYO582muSmRb9" Comment="Contour retrieval mode" Name="Mode" Kind="InputPin" Bounds="728,241" />
               <Pin Id="HnNTWWktU9fOe9GA0vD2q2" Name="Enabled" Kind="InputPin" Bounds="676,258" DefaultValue="true">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
               <Pin Id="JuZBRyFD2oJOgzpd5UUvy2" Name="Output" Kind="OutputPin" Bounds="592,789" />
-              <Pin Id="QETdEoRFMTPPSgxLzvFM9Y" Name="Contours" Kind="OutputPin" Bounds="673,1116" />
+              <Pin Id="QETdEoRFMTPPSgxLzvFM9Y" Comment="Spread of points which make up the detected contours." Name="Contours" Kind="OutputPin" Bounds="673,1116" />
             </Patch>
             <ProcessDefinition Id="FnFcpdcBuRWPRCNrkpOx5i">
               <Fragment Id="JMfktScicp1P1eqyV9Kq33" Patch="JA9VlnrnvZpOjwZCYroGBT" Enabled="true" />
@@ -9181,7 +9181,7 @@
     ************************ MarkerDetector ************************
 
 -->
-        <Node Name="MarkerDetector" Bounds="269,311" Id="P1z4imzSZWwPBEz4wCaht3">
+        <Node Name="MarkerDetector" Bounds="269,311" Id="P1z4imzSZWwPBEz4wCaht3" Summary="Detects Aruco markers in the provided image.">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Process" />
             <FullNameCategoryReference ID="Primitive" />
@@ -9435,15 +9435,15 @@
             <Patch Id="FnCnmwS95qGNQvBYvZdJcW" Name="Create" ParticipatingElements="BX2Nbs0WRLDPNnv0vai758" />
             <Patch Id="GOeFLkVSSnVPFEFgpMQ886" Name="Update" ManuallySortedPins="true">
               <Pin Id="BryA1sH4r6mPWzogy5BwVj" Name="Input" Kind="InputPin" Bounds="232,129" />
-              <Pin Id="U12RrRxnpCzMBGgRUuNSyA" Name="Dictionary" Kind="InputPin" Bounds="1010,235" />
+              <Pin Id="U12RrRxnpCzMBGgRUuNSyA" Comment="Aruco dictionary to be used for Id detection." Name="Dictionary" Kind="InputPin" Bounds="1010,235" />
               <Pin Id="ABK5ZoRrtZPL6KMPQlEdj7" Name="Enabled" Kind="InputPin" Bounds="676,258" DefaultValue="true">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="SLRDzdajqaoOff1prEBrSv" Name="Markers" Kind="OutputPin" Bounds="673,1116" />
-              <Pin Id="KrMRSAOzyVnNWP1c4EIwwq" Name="IDs" Kind="OutputPin" Bounds="757,1119" />
-              <Pin Id="OyWF4s1eOsEPYZuQmf1DEe" Name="Rejected Areas" Kind="OutputPin" Bounds="503,958" />
+              <Pin Id="SLRDzdajqaoOff1prEBrSv" Comment="Spread of corner points for each detected marker." Name="Markers" Kind="OutputPin" Bounds="673,1116" />
+              <Pin Id="KrMRSAOzyVnNWP1c4EIwwq" Comment="Spread of identifiers of the detected markers." Name="IDs" Kind="OutputPin" Bounds="757,1119" />
+              <Pin Id="OyWF4s1eOsEPYZuQmf1DEe" Comment="Contains the Points of those squares whose inner code has not a correct codification. Useful for debugging purposes." Name="Rejected Areas" Kind="OutputPin" Bounds="503,958" />
             </Patch>
             <ProcessDefinition Id="Ek4dom54aJmNC1Dql06LBl">
               <Fragment Id="HkpGZIo5kPZPeyGXMjfB5x" Patch="FnCnmwS95qGNQvBYvZdJcW" Enabled="true" />
@@ -9509,7 +9509,7 @@
     ************************ Tracker (KCF) ************************
 
 -->
-        <Node Name="Tracker (KCF)" Bounds="12,264" Id="IBNRQqujYggMQofcimm57W">
+        <Node Name="Tracker (KCF)" Bounds="12,264" Id="IBNRQqujYggMQofcimm57W" Summary="Provides a real-time KCF (Kernelized Correlation Filters) object tracker which utilizes properties of circulant matrix to enhance the processing speed." Remarks="Accuracy and speed are both better than MIL tracker">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -9549,17 +9549,16 @@
             <Patch Id="NrQGxEUbK9wLSYhxErfHjO" Name="Create" />
             <Patch Id="NrN7S0DjpAJLTEvv9A3SF3" Name="Update" ManuallySortedPins="true">
               <Pin Id="Bvx0uPhu5puPiggVbWnRQu" Name="Input" Kind="InputPin" />
-              <Pin Id="RFZgTa0Yh85Lke4su8ZRPC" Name="ROI" Kind="InputPin" />
-              <Pin Id="DckLBmctD9lM7gBTTCMCsD" Name="Initialize" Kind="InputPin" />
+              <Pin Id="RFZgTa0Yh85Lke4su8ZRPC" Comment="Rectangle specifying the region of interest to track" Name="ROI" Kind="InputPin" />
+              <Pin Id="DckLBmctD9lM7gBTTCMCsD" Comment="Initializes the tracker with the specified ROI (region of interest)" Name="Initialize" Kind="InputPin" />
               <Pin Id="RvapAQRcGWtOQzV4N0rh8t" Name="Enabled" Kind="InputPin" />
-              <Pin Id="Ut4rhwOKNPcMRrZzYQWvZ0" Name="Tracked" Kind="OutputPin" />
-              <Pin Id="PLiFyOl0CiQPjtcD7QL7Ly" Name="Rectangle" Kind="OutputPin" />
+              <Pin Id="Ut4rhwOKNPcMRrZzYQWvZ0" Comment="Boolean value indicating if the object is being tracked or not" Name="Tracked" Kind="OutputPin" />
+              <Pin Id="PLiFyOl0CiQPjtcD7QL7Ly" Comment="Rectangle containing the tracked object" Name="Rectangle" Kind="OutputPin" />
             </Patch>
             <ProcessDefinition Id="HwgYro85X2fLrHWHqhNeAA">
               <Fragment Id="RddYu2QkzkeMSG0r5wO4UN" Patch="NrQGxEUbK9wLSYhxErfHjO" Enabled="true" />
               <Fragment Id="VhqgMleo5zKNirA98OibNg" Patch="NrN7S0DjpAJLTEvv9A3SF3" Enabled="true" />
             </ProcessDefinition>
-            <Patch Id="MIKbkF9jRBoOC4mNQIOyKk" Name="Destroy" />
             <Link Id="ATVa5nkCO3rN1CSq7b5X52" Ids="V4IuwNnFW62N6wUak8ggaX,RhnEpdUuGsZLC25bAMpvnh" IsHidden="true" />
             <Link Id="U5EM3b47qCfOyh3ynI8HTp" Ids="SZNaicRSWi7OuPkbLTA4ce,V4IuwNnFW62N6wUak8ggaX" />
             <Link Id="Rs54D5ue90sOW0U2nFBy14" Ids="Bvx0uPhu5puPiggVbWnRQu,DzlgrtMtlJSLcv54YDwE1B" IsHidden="true" />
@@ -9581,7 +9580,7 @@
     ************************ Tracker (MedianFlow) ************************
 
 -->
-        <Node Name="Tracker (MedianFlow)" Bounds="12,311" Id="Aqy2W0a1hgILwXhpMzVJ6o">
+        <Node Name="Tracker (MedianFlow)" Bounds="12,311" Id="Aqy2W0a1hgILwXhpMzVJ6o" Summary="Provides a real-time MedianFlow object tracker." Remarks="The tracker is suitable for very smooth and predictable movements when object is visible throughout the whole sequence.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -9621,11 +9620,11 @@
             <Patch Id="ElIvJZGB0jCLVuMRpP0TQQ" Name="Create" />
             <Patch Id="RHAMbWLcq5DLn1giZMGlqD" Name="Update">
               <Pin Id="FY9o08xBEXiLJnLfklK2IW" Name="Input" Kind="InputPin" />
-              <Pin Id="S0bZCn3gnhgP1Epq4mbBKg" Name="ROI" Kind="InputPin" />
-              <Pin Id="QbiDuQuth20PPuTF8dEkGe" Name="Initialize" Kind="InputPin" />
+              <Pin Id="S0bZCn3gnhgP1Epq4mbBKg" Comment="Rectangle specifying the region of interest to track" Name="ROI" Kind="InputPin" />
+              <Pin Id="QbiDuQuth20PPuTF8dEkGe" Comment="Initializes the tracker with the specified ROI (region of interest)" Name="Initialize" Kind="InputPin" />
               <Pin Id="JSRPRDGcLRaM2eLZOYAFHU" Name="Enabled" Kind="InputPin" />
-              <Pin Id="D5akmi6EM3DQALWl7WjJ58" Name="Tracked" Kind="OutputPin" />
-              <Pin Id="LLG8nbTFcWbLkyASGhr9bw" Name="Rectangle" Kind="OutputPin" />
+              <Pin Id="D5akmi6EM3DQALWl7WjJ58" Comment="Boolean value indicating if the object is being tracked or not" Name="Tracked" Kind="OutputPin" />
+              <Pin Id="LLG8nbTFcWbLkyASGhr9bw" Comment="Rectangle containing the tracked object" Name="Rectangle" Kind="OutputPin" />
             </Patch>
             <ProcessDefinition Id="FFxu9cOaVuCM9IeOVV9oMH">
               <Fragment Id="NK58cjBhgliLz9eWmoYbCf" Patch="ElIvJZGB0jCLVuMRpP0TQQ" Enabled="true" />
@@ -9652,7 +9651,7 @@
     ************************ Tracker (Boosting) ************************
 
 -->
-        <Node Name="Tracker (Boosting)" Bounds="12,217" Id="NkG0Z4o1ymxNRLRvRsE7Tl">
+        <Node Name="Tracker (Boosting)" Bounds="12,217" Id="NkG0Z4o1ymxNRLRvRsE7Tl" Summary="Provides a real-time object tracker based on a novel on-line version of the AdaBoost algorithm." Remarks="This tracker uses an old algorithm and will probably perform worse than MIL or KCF.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -9692,11 +9691,11 @@
             <Patch Id="RJe9hxCkl6DP0AheeSkxtK" Name="Create" />
             <Patch Id="RMynBzb1anNNJRIkOhUh5E" Name="Update">
               <Pin Id="Q9EW86vYLl4M9spafdrklH" Name="Input" Kind="InputPin" />
-              <Pin Id="B8QO1jE8PLdMoo2t2Qim6X" Name="ROI" Kind="InputPin" />
-              <Pin Id="HblxRSvV2nuOmj2NMrRfFB" Name="Initialize" Kind="InputPin" />
+              <Pin Id="B8QO1jE8PLdMoo2t2Qim6X" Comment="Rectangle specifying the region of interest to track" Name="ROI" Kind="InputPin" />
+              <Pin Id="HblxRSvV2nuOmj2NMrRfFB" Comment="Initializes the tracker with the specified ROI (region of interest)" Name="Initialize" Kind="InputPin" />
               <Pin Id="F8TXsZ5JVRoOiMfNh4tmSm" Name="Enabled" Kind="InputPin" />
-              <Pin Id="RErctLGNc95QEoo9c9TmLA" Name="Tracked" Kind="OutputPin" />
-              <Pin Id="Ee5gUN51AhBQHfqs9DomLZ" Name="Rectangle" Kind="OutputPin" />
+              <Pin Id="RErctLGNc95QEoo9c9TmLA" Comment="Boolean value indicating if the object is being tracked or not" Name="Tracked" Kind="OutputPin" />
+              <Pin Id="Ee5gUN51AhBQHfqs9DomLZ" Comment="Rectangle containing the tracked object" Name="Rectangle" Kind="OutputPin" />
             </Patch>
             <ProcessDefinition Id="APOfuU3GlD4M1xiTrdX0ce">
               <Fragment Id="EJYcFg93KLgMotJoT16LXN" Patch="RJe9hxCkl6DP0AheeSkxtK" Enabled="true" />
@@ -9723,7 +9722,7 @@
     ************************ Tracker (MIL) ************************
 
 -->
-        <Node Name="Tracker (MIL)" Bounds="12,405" Id="Tc7KNkvub4RM5MSuPz6YxE">
+        <Node Name="Tracker (MIL)" Bounds="12,405" Id="Tc7KNkvub4RM5MSuPz6YxE" Summary="Provides a real-time MIL object tracker.  The algorithm trains a classifier in an online manner to separate the object from the background.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -9763,11 +9762,11 @@
             <Patch Id="G16eBNMX54zLgHWCbMy3Tl" Name="Create" />
             <Patch Id="FNnIOWxrJ4iMgwsk2V4pAx" Name="Update">
               <Pin Id="GjoYMZk6yp9NlUuG8vAExl" Name="Input" Kind="InputPin" />
-              <Pin Id="TVUe1EMsvKEMSQUerrWNN2" Name="ROI" Kind="InputPin" />
-              <Pin Id="VQjNeHTPrTkNTqwRCcn5jk" Name="Initialize" Kind="InputPin" />
+              <Pin Id="TVUe1EMsvKEMSQUerrWNN2" Comment="Rectangle specifying the region of interest to track" Name="ROI" Kind="InputPin" />
+              <Pin Id="VQjNeHTPrTkNTqwRCcn5jk" Comment="Initializes the tracker with the specified ROI (region of interest)" Name="Initialize" Kind="InputPin" />
               <Pin Id="NpNkBpuqpIANV8bgJWPg97" Name="Enabled" Kind="InputPin" />
-              <Pin Id="J1ejXiVl5mLQGThpAFJpqH" Name="Tracked" Kind="OutputPin" />
-              <Pin Id="KgzwnRjQkvGOWIhh9kVyBa" Name="Rectangle" Kind="OutputPin" />
+              <Pin Id="J1ejXiVl5mLQGThpAFJpqH" Comment="Boolean value indicating if the object is being tracked or not" Name="Tracked" Kind="OutputPin" />
+              <Pin Id="KgzwnRjQkvGOWIhh9kVyBa" Comment="Rectangle containing the tracked object" Name="Rectangle" Kind="OutputPin" />
             </Patch>
             <ProcessDefinition Id="CtPi13Tb0DCQUMiQYZ7h3I">
               <Fragment Id="GSYF98VRcgLMByy5kt1Muq" Patch="G16eBNMX54zLgHWCbMy3Tl" Enabled="true" />
@@ -9794,7 +9793,7 @@
     ************************ Tracker (GOTURN) ************************
 
 -->
-        <Node Name="Tracker (GOTURN)" Bounds="12,358" Id="UNR5aTFlQuYLM2stVQL1a8">
+        <Node Name="Tracker (GOTURN)" Bounds="12,358" Id="UNR5aTFlQuYLM2stVQL1a8" Summary="Provides a real-time GOTURN object tracker which is based on Convolutional Neural Networks (CNN)." Remarks="Current method of GOTURN does not handle occlusions; however, it is fairly robust to viewpoint changes, lighting changes, and deformations">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -9843,11 +9842,11 @@
             <Patch Id="JbCoArExtqUOnuqEiTAufT" Name="Create" />
             <Patch Id="COAfcdYx3bIPLPOFPdGcVV" Name="Update">
               <Pin Id="NxBpoMUDfGqPeqI946TWRP" Name="Input" Kind="InputPin" />
-              <Pin Id="DZgFOEY5tSEM7n01F86br7" Name="ROI" Kind="InputPin" />
-              <Pin Id="UqCMKfxaI64QcSLgxmODG7" Name="Initialize" Kind="InputPin" />
+              <Pin Id="DZgFOEY5tSEM7n01F86br7" Comment="Rectangle specifying the region of interest to track" Name="ROI" Kind="InputPin" />
+              <Pin Id="UqCMKfxaI64QcSLgxmODG7" Comment="Initializes the tracker with the specified ROI (region of interest)" Name="Initialize" Kind="InputPin" />
               <Pin Id="QOvtstzwcmPM9fDdrJHG5Z" Name="Enabled" Kind="InputPin" />
-              <Pin Id="JViCtICEvNmLGScJg6ZDYh" Name="Tracked" Kind="OutputPin" />
-              <Pin Id="MlhHXZmeD4aMyTp7E7Pzwf" Name="Rectangle" Kind="OutputPin" />
+              <Pin Id="JViCtICEvNmLGScJg6ZDYh" Comment="Boolean value indicating if the object is being tracked or not" Name="Tracked" Kind="OutputPin" />
+              <Pin Id="MlhHXZmeD4aMyTp7E7Pzwf" Comment="Rectangle containing the tracked object" Name="Rectangle" Kind="OutputPin" />
             </Patch>
             <ProcessDefinition Id="Q87XPsjkNJYL5apJjCOsld">
               <Fragment Id="DqFQht0bjwVLPovWaSOjls" Patch="JbCoArExtqUOnuqEiTAufT" Enabled="true" />
@@ -9874,7 +9873,7 @@
     ************************ Tracker (TLD) ************************
 
 -->
-        <Node Name="Tracker (TLD)" Bounds="12,452" Id="CJgCYlL6LorN7LVrsGHAUl">
+        <Node Name="Tracker (TLD)" Bounds="12,452" Id="CJgCYlL6LorN7LVrsGHAUl" Summary="Provides a real-time TLD object tracker which explicitly decomposes the long-term tracking task into tracking, learning and detection." Remarks="This tracker is supposed to be able to handle rapid motions, partial occlusions, object absence etc.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -9914,11 +9913,11 @@
             <Patch Id="V4UlYQfnhvtQW4LX5htJJA" Name="Create" />
             <Patch Id="GKkObjqSpFEMnD1XcH413H" Name="Update">
               <Pin Id="DHXmGe4vmQBLRglrL0e7dZ" Name="Input" Kind="InputPin" />
-              <Pin Id="AsHDtlrDtw6Pns27pssxE9" Name="ROI" Kind="InputPin" />
-              <Pin Id="OQLcyKHqA1UQJTMOheGVD0" Name="Initialize" Kind="InputPin" />
+              <Pin Id="AsHDtlrDtw6Pns27pssxE9" Comment="Rectangle specifying the region of interest to track" Name="ROI" Kind="InputPin" />
+              <Pin Id="OQLcyKHqA1UQJTMOheGVD0" Comment="Initializes the tracker with the specified ROI (region of interest)" Name="Initialize" Kind="InputPin" />
               <Pin Id="TjtWppfjsfaPkslFecdz6p" Name="Enabled" Kind="InputPin" />
-              <Pin Id="MRf0AUXexWqObicQ5IK03I" Name="Tracked" Kind="OutputPin" />
-              <Pin Id="A1WKXlr8iHkLoVkRqtpYuk" Name="Rectangle" Kind="OutputPin" />
+              <Pin Id="MRf0AUXexWqObicQ5IK03I" Comment="Boolean value indicating if the object is being tracked or not" Name="Tracked" Kind="OutputPin" />
+              <Pin Id="A1WKXlr8iHkLoVkRqtpYuk" Comment="Rectangle containing the tracked object" Name="Rectangle" Kind="OutputPin" />
             </Patch>
             <ProcessDefinition Id="SsNV5ai38WZPifL0enQi4E">
               <Fragment Id="UXiy0ATbO8vLkm2aLL7cbv" Patch="V4UlYQfnhvtQW4LX5htJJA" Enabled="true" />
@@ -9945,7 +9944,7 @@
     ************************ ObjectDetector (CustomFile) ************************
 
 -->
-        <Node Name="ObjectDetector (CustomFile)" Bounds="269,264" Id="VX6HqjKppsKMYG9gl6nMT1">
+        <Node Name="ObjectDetector (CustomFile)" Bounds="269,264" Id="VX6HqjKppsKMYG9gl6nMT1" Summary="Provides a Cascade Classifier based on a specified input cascade file which detects objects of different sizes in the input image. The detected objects are returned as a list of rectangles." Remarks="This version allows the user to specify a custom cascade file of their choosing.">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Process" />
             <FullNameCategoryReference ID="Primitive" />
@@ -10109,12 +10108,13 @@
             <Patch Id="Ak4THZtC63mLvLQTOLW7zs" Name="Create" />
             <Patch Id="VUWPNyN3mAaPe2GxzmzMse" Name="Update" ManuallySortedPins="true">
               <Pin Id="BEfAz9cchwgQVEaV5Js9tj" Name="Input" Kind="InputPin" Bounds="367,171" />
-              <Pin Id="OWpIrW6NtSGMh4CQdnJtp8" Name="Scale Factor" Kind="InputPin" Bounds="500,411" DefaultValue="2.0">
+              <Pin Id="QFbglYHRg0HPgmyjWFd320" Comment="File to use for object detection" Name="Classifier File" Kind="InputPin" Bounds="208,52" />
+              <Pin Id="OWpIrW6NtSGMh4CQdnJtp8" Comment="Parameter specifying how much the image size is reduced at each image scale." Name="Scale Factor" Kind="InputPin" Bounds="500,411" DefaultValue="2.0">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="GLqVKYNtsApO6hnmK5STKw" Name="Min Neighbors" Kind="InputPin" Bounds="614,415" DefaultValue="1">
+              <Pin Id="GLqVKYNtsApO6hnmK5STKw" Comment="Parameter specifying how many neighbors each candidate rectangle should have to retain it." Name="Min Neighbors" Kind="InputPin" Bounds="614,415" DefaultValue="1">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Integer32" />
                 </p:TypeAnnotation>
@@ -10124,8 +10124,7 @@
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="BZ9yWwPI8yKO6OuQpZRDLp" Name="Rectangles" Kind="OutputPin" Bounds="466,389" />
-              <Pin Id="QFbglYHRg0HPgmyjWFd320" Name="Classifier File" Kind="InputPin" Bounds="208,52" />
+              <Pin Id="BZ9yWwPI8yKO6OuQpZRDLp" Comment="Spread of rectangles containing the detected objects." Name="Rectangles" Kind="OutputPin" Bounds="466,389" />
             </Patch>
             <ProcessDefinition Id="S1DambWPV5cQMIq3VLwFd3">
               <Fragment Id="Ha1P7ryvSnAPoUMQSZzfSC" Patch="Ak4THZtC63mLvLQTOLW7zs" Enabled="true" />
@@ -10463,7 +10462,7 @@
     ************************ HoughLines ************************
 
 -->
-        <Node Name="HoughLines" Bounds="18,505,414,502" Id="CGsfcJo9JyOLvQANPUcwYD">
+        <Node Name="HoughLines" Bounds="18,505,414,502" Id="CGsfcJo9JyOLvQANPUcwYD" Summary="Finds lines in a binary image using the standard Hough transform.">
           <p:NodeReference>
             <Choice Kind="OperationDefinition" Name="Operation" />
             <FullNameCategoryReference ID="Primitive" />
@@ -10604,19 +10603,19 @@
             <ControlPoint Id="OItufFXgAsWM1mTKOTPPyI" Bounds="392,602" />
             <Link Id="PcF6pDEhpndNzUjJSfTTGb" Ids="TTZ4F7l2xpQP99SPrdkGLU,OItufFXgAsWM1mTKOTPPyI" IsHidden="true" />
             <Pin Id="GlS8kHFr0q3MvTly2SFbfA" Name="Input" Kind="InputPin" />
-            <Pin Id="TABjsUU1JvkOcwCNHri0MW" Name="Rho" Kind="InputPin" Bounds="530,726" DefaultValue="1.0">
+            <Pin Id="TABjsUU1JvkOcwCNHri0MW" Comment="Distance resolution of the accumulator in pixels." Name="Rho" Kind="InputPin" Bounds="530,726" DefaultValue="1.0">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="TypeFlag" Name="Float32" />
               </p:TypeAnnotation>
             </Pin>
-            <Pin Id="SnwB73Oj4yeOe5RN2p9y58" Name="Threshold" Kind="InputPin" Bounds="618,731" DefaultValue="200">
+            <Pin Id="SnwB73Oj4yeOe5RN2p9y58" Comment="Accumulator threshold parameter. Only those lines are returned that get enough votes ( &gt;threshold )." Name="Threshold" Kind="InputPin" Bounds="618,731" DefaultValue="200">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="TypeFlag" Name="Integer32" />
               </p:TypeAnnotation>
             </Pin>
-            <Pin Id="EthExCOfSAWL9QTO8CGdRP" Name="Srn" Kind="InputPin" Bounds="671,726" />
-            <Pin Id="MG8RSthILYeNRU4ERt4eBc" Name="Stn" Kind="InputPin" Bounds="711,727" />
-            <Pin Id="TTZ4F7l2xpQP99SPrdkGLU" Name="Scale" Kind="InputPin" Bounds="736,767" DefaultValue="1000.0">
+            <Pin Id="EthExCOfSAWL9QTO8CGdRP" Comment="For the multi-scale Hough transform, it is a divisor for the distance resolution rho . The coarse accumulator distance resolution is rho and the accurate accumulator resolution is rho/srn . If both srn=0 and stn=0 , the classical Hough transform is used. Otherwise, both these parameters should be positive." Name="Srn" Kind="InputPin" Bounds="671,726" />
+            <Pin Id="MG8RSthILYeNRU4ERt4eBc" Comment="For the multi-scale Hough transform, it is a divisor for the distance resolution theta." Name="Stn" Kind="InputPin" Bounds="711,727" />
+            <Pin Id="TTZ4F7l2xpQP99SPrdkGLU" Comment="The scale of the detected lines." Name="Scale" Kind="InputPin" Bounds="736,767" DefaultValue="1000.0">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="TypeFlag" Name="Float64" />
               </p:TypeAnnotation>
@@ -10636,7 +10635,7 @@
     ************************ HoughLinesP ************************
 
 -->
-        <Node Name="HoughLinesP" Bounds="492,505,429,515" Id="Jh5Gqhq8SH1PbyNVmCejff">
+        <Node Name="HoughLinesP" Bounds="492,505,429,515" Id="Jh5Gqhq8SH1PbyNVmCejff" Summary="Finds line segments in a binary image using the probabilistic Hough transform.">
           <p:NodeReference>
             <Choice Kind="OperationDefinition" Name="Operation" />
             <FullNameCategoryReference ID="Primitive" />
@@ -10773,18 +10772,18 @@
             <Link Id="DCOlSTFmmURPBI8aVIxQQj" Ids="GCeMY79QaDyMan4JWjBMRZ,RjfWjjqJUVsOxQiJV0apvL" />
             <Link Id="MlHtd8rRZ70LOzh7YdbBfq" Ids="RjfWjjqJUVsOxQiJV0apvL,KEsfTjopZHUQRaefzUyc8q" />
             <Pin Id="NkTzIm4YRKdQJzKDoobeeq" Name="Input" Kind="InputPin" />
-            <Pin Id="PxYyHL8dG1jOvrO4NkhomG" Name="Rho" Kind="InputPin" Bounds="530,726" DefaultValue="1.0">
+            <Pin Id="PxYyHL8dG1jOvrO4NkhomG" Comment="Distance resolution of the accumulator in pixels." Name="Rho" Kind="InputPin" Bounds="530,726" DefaultValue="1.0">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="TypeFlag" Name="Float32" />
               </p:TypeAnnotation>
             </Pin>
-            <Pin Id="MwXpl5kE1PMMvMVXJPGZlK" Name="Threshold" Kind="InputPin" Bounds="618,731" DefaultValue="0">
+            <Pin Id="MwXpl5kE1PMMvMVXJPGZlK" Comment="Accumulator threshold parameter. Only those lines are returned that get enough votes ( &gt;threshold )." Name="Threshold" Kind="InputPin" Bounds="618,731" DefaultValue="0">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="TypeFlag" Name="Integer32" />
               </p:TypeAnnotation>
             </Pin>
-            <Pin Id="D6SWQvDkPomORykwiXsEI8" Name="Min Line Length" Kind="InputPin" Bounds="1148,690" />
-            <Pin Id="KfPAvhVjwsOPscJtpmZGTm" Name="Max Line Gap" Kind="InputPin" Bounds="1212,724" />
+            <Pin Id="D6SWQvDkPomORykwiXsEI8" Comment="Minimum line length. Line segments shorter than that are rejected." Name="Min Line Length" Kind="InputPin" Bounds="1148,690" />
+            <Pin Id="KfPAvhVjwsOPscJtpmZGTm" Comment="Maximum allowed gap between points on the same line to link them." Name="Max Line Gap" Kind="InputPin" Bounds="1212,724" />
             <Pin Id="PcnFMHK5WKIMcn02GLzUQc" Name="Apply" Kind="InputPin" Bounds="405,808" DefaultValue="true">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="TypeFlag" Name="Boolean" />
