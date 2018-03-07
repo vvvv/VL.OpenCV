@@ -12618,7 +12618,7 @@
     ************************ CalibrateCamera ************************
 
 -->
-        <Node Name="CalibrateCamera" Bounds="186,384" Id="BzbJcz1gzpjMh7ih9KGHoq">
+        <Node Name="CalibrateCamera" Bounds="186,384" Id="BzbJcz1gzpjMh7ih9KGHoq" Summary="Finds the camera intrinsic and extrinsic parameters from several views of a calibration pattern." Remarks="If you use a non-square grid and findChessboardCorners for calibration, and CalibrateCamera returns bad values (zero distortion coefficients, an image center very far from (w/2-0.5,h/2-0.5), and/or large differences between fx and fy (ratios of 10:1 or more)), then you have probably inverted the values of rows and columns (patternX, patternY) in findChessboardCorners.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -13589,7 +13589,7 @@
             </Canvas>
             <Patch Id="NmJWnK4Oed4LYrp5wIPYVQ" Name="Create" />
             <Patch Id="QY2xr8t8PaJNWHHmDHaxEB" Name="Update" ManuallySortedPins="true">
-              <Pin Id="Fa0v8OWIPAwLAaYXCjTMxf" Name="Object Points" Kind="InputPin" Bounds="209,409">
+              <Pin Id="Fa0v8OWIPAwLAaYXCjTMxf" Comment="Spread of XYZ object points" Name="Object Points" Kind="InputPin" Bounds="209,409">
                 <p:TypeAnnotation LastCategoryFullName="Collections" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Spread" />
                   <p:TypeArguments>
@@ -13599,7 +13599,7 @@
                   </p:TypeArguments>
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="Kc2EIFgWRV7PE99aAqQEGj" Name="Image Points" Kind="InputPin" Bounds="282,471">
+              <Pin Id="Kc2EIFgWRV7PE99aAqQEGj" Comment="Spread of XY image points" Name="Image Points" Kind="InputPin" Bounds="282,471">
                 <p:TypeAnnotation LastCategoryFullName="Collections" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Spread" />
                   <p:TypeArguments>
@@ -13612,11 +13612,11 @@
               <Pin Id="ImiAR5EPkLkMPNrZLu7cs1" Name="Resolution" Kind="InputPin" Bounds="381,515" />
               <Pin Id="NvX2ctZ5nfGPfdTWwrf9mr" Name="Flags" Kind="InputPin" Bounds="662,222" />
               <Pin Id="DEdfchGeVp8MHW8gckeOwD" Name="Do" Kind="InputPin" Bounds="-4,18" />
-              <Pin Id="GpQGTYXIVMjOduKTZLdV4w" Name="View Per Board" Kind="OutputPin" Bounds="66,2006" />
-              <Pin Id="Bbjrx9KyOL9OIZ0ke3wqFr" Name="Projection Transform" Kind="OutputPin" Bounds="1009,1461" />
-              <Pin Id="DRT8eJCA89KMqdplVAm4FB" Name="Camera Matrix" Kind="OutputPin" Bounds="1108,1361" />
-              <Pin Id="UVc5AymY2W1NYWdYxZimtk" Name="Distortion Coefficients" Kind="OutputPin" Bounds="492,1709" />
-              <Pin Id="VxIyFOziEfVMuT0OnqCD5w" Name="Reprojection Error" Kind="OutputPin" Bounds="598,730" />
+              <Pin Id="GpQGTYXIVMjOduKTZLdV4w" Comment="One View transformation matrix for each provided image" Name="View Per Board" Kind="OutputPin" Bounds="66,2006" />
+              <Pin Id="Bbjrx9KyOL9OIZ0ke3wqFr" Comment="General Projection transformation" Name="Projection Transform" Kind="OutputPin" Bounds="1009,1461" />
+              <Pin Id="DRT8eJCA89KMqdplVAm4FB" Comment="The calculated Camera Matrix as a Spread of float.  Contains focal length and focal center information" Name="Camera Matrix" Kind="OutputPin" Bounds="1108,1361" />
+              <Pin Id="UVc5AymY2W1NYWdYxZimtk" Comment="k1, k2, p1, p2 and k3 distortion coefficients as a Spread of float" Name="Distortion Coefficients" Kind="OutputPin" Bounds="492,1709" />
+              <Pin Id="VxIyFOziEfVMuT0OnqCD5w" Comment="Reprojection error in pixels.  For best results this value must be less than 0.5" Name="Reprojection Error" Kind="OutputPin" Bounds="598,730" />
             </Patch>
             <ProcessDefinition Id="TNL8y11C9uJMus3Knn5iU1">
               <Fragment Id="RsdIwcrPNuxO1vENDHgYWK" Patch="NmJWnK4Oed4LYrp5wIPYVQ" Enabled="true" />
@@ -13794,7 +13794,7 @@
     ************************ CalibrateProjector ************************
 
 -->
-        <Node Name="CalibrateProjector" Bounds="186,344" Id="Vjlp8ot4uMTMNfpXeKeRFj">
+        <Node Name="CalibrateProjector" Bounds="186,344" Id="Vjlp8ot4uMTMNfpXeKeRFj" Summary="Performs a non planar camera calibration based on image and object points, outputting the corresponding View and Projection transformation matrixes." Remarks="View and Projection transformation matrixes are compliant with vvvv's Transforms.  For best results, Reprojection Error's value must be less than 0.5.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -13960,15 +13960,15 @@
             </Canvas>
             <Patch Id="Mf4j255thXvLwP2OPqV5Vp" Name="Create" />
             <Patch Id="RGrjPcTuyMQOsJDJlwfdkM" Name="Update" ManuallySortedPins="true">
-              <Pin Id="DwAAK0BC77LO90SL2yximu" Name="Object Points" Kind="InputPin" />
-              <Pin Id="MnmFsTCaJoBPp9cB6fwcc2" Name="Image Points" Kind="InputPin" />
+              <Pin Id="DwAAK0BC77LO90SL2yximu" Comment="Spread of XYZ object points" Name="Object Points" Kind="InputPin" />
+              <Pin Id="MnmFsTCaJoBPp9cB6fwcc2" Comment="Spread of XY image points" Name="Image Points" Kind="InputPin" />
               <Pin Id="U3Mif1i2WifOJGaokVVxhu" Name="Resolution" Kind="InputPin" />
               <Pin Id="OwoEXtcmqtCQdnACeym1fc" Name="Near" Kind="InputPin" Bounds="633,298" />
               <Pin Id="IvAtx0FJOgAOtroVrkVICP" Name="Far" Kind="InputPin" Bounds="691,297" />
               <Pin Id="BJZcKZGpEDAO2Ld7Oz8kMM" Name="Solve" Kind="InputPin" Bounds="673,301" />
               <Pin Id="GAu7JS5xbWCMuBeG4VEEZs" Name="View Transform" Kind="OutputPin" />
               <Pin Id="QoXRqwMRVbrQKhyXqfxgu7" Name="Projection Transform" Kind="OutputPin" Bounds="507,627" />
-              <Pin Id="C0POy90UbzCMzlgUdvyytO" Name="Reprojection Error" Kind="OutputPin" />
+              <Pin Id="C0POy90UbzCMzlgUdvyytO" Comment="Reprojection error value in pixels.  For best results, value must be less than 0.5" Name="Reprojection Error" Kind="OutputPin" />
             </Patch>
             <ProcessDefinition Id="NsquyW3UOi9NUQEWZb3Nl5">
               <Fragment Id="LozQYIAxJTOLUfjYgLVP3B" Patch="Mf4j255thXvLwP2OPqV5Vp" Enabled="true" />
@@ -14016,7 +14016,7 @@
     ************************ Undistort ************************
 
 -->
-        <Node Name="Undistort" Bounds="186,464" Id="OE0W4qU4hfIMfgHOsiocMv">
+        <Node Name="Undistort" Bounds="186,464" Id="OE0W4qU4hfIMfgHOsiocMv" Summary="Undistorts the provided image based on the specified distortion coefficients and camera matrix.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -14081,10 +14081,10 @@
             <Patch Id="TILQxR34uLaPqByMtWpke8" Name="Create" />
             <Patch Id="Amyx9whuELpPUbHdPOkyse" Name="Update" ManuallySortedPins="true">
               <Pin Id="OfML6drwhAsPuNByrtJVk4" Name="Input" Kind="InputPin" Bounds="432,241" />
-              <Pin Id="IPvx3kt9W69OONBL7mQoJC" Name="Camera Matrix" Kind="InputPin" Bounds="503,276" />
-              <Pin Id="LA4a1xlEny4NKzcFUp831m" Name="Distortion Coefficients" Kind="InputPin" Bounds="540,252" />
+              <Pin Id="IPvx3kt9W69OONBL7mQoJC" Comment="3x3 camera matrix.  Usually provided by the CalibrateCamera node" Name="Camera Matrix" Kind="InputPin" Bounds="503,276" />
+              <Pin Id="LA4a1xlEny4NKzcFUp831m" Comment="1x5 ditortion coefficient matrix.  Usualy provided by the CalibrateCamera node" Name="Distortion Coefficients" Kind="InputPin" Bounds="540,252" />
               <Pin Id="BKv0myv0F4WLaXxDPJLPzj" Name="Apply" Kind="InputPin" Bounds="290,254" />
-              <Pin Id="Le4S0Wk83wyNLrE5ugOc2J" Name="Output" Kind="OutputPin" Bounds="284,551" />
+              <Pin Id="Le4S0Wk83wyNLrE5ugOc2J" Comment="Undistorted image" Name="Output" Kind="OutputPin" Bounds="284,551" />
             </Patch>
             <ProcessDefinition Id="BX8IZioGoFcPW289suLm5j">
               <Fragment Id="TccE1IbDUMzMMJ63NgynC1" Patch="TILQxR34uLaPqByMtWpke8" Enabled="true" />
@@ -14117,7 +14117,7 @@
     ************************ CalibrateCameraMat ************************
 
 -->
-        <Node Name="CalibrateCameraMat" Bounds="186,424" Id="EKJ8dLAWtelP8NuHQGvtPZ">
+        <Node Name="CalibrateCameraMat" Bounds="186,424" Id="EKJ8dLAWtelP8NuHQGvtPZ" Summary="Finds the camera intrinsic and extrinsic parameters from several views of a calibration pattern." Remarks="If you use a non-square grid and findChessboardCorners for calibration, and CalibrateCamera returns bad values (zero distortion coefficients, an image center very far from (w/2-0.5,h/2-0.5), and/or large differences between fx and fy (ratios of 10:1 or more)), then you have probably inverted the values of rows and columns (patternX, patternY) in findChessboardCorners.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -14936,7 +14936,7 @@
             </Canvas>
             <Patch Id="DBHOzzNXCHUOkU9DTEnLwp" Name="Create" />
             <Patch Id="G0MHAWf1StZLmNRzvZkbei" Name="Update" ManuallySortedPins="true">
-              <Pin Id="G6sIiZgs1OMLtgq4f6BOPP" Name="Object Points" Kind="InputPin" Bounds="209,409">
+              <Pin Id="G6sIiZgs1OMLtgq4f6BOPP" Comment="Spread of XYZ object points" Name="Object Points" Kind="InputPin" Bounds="209,409">
                 <p:TypeAnnotation LastCategoryFullName="Collections" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Spread" />
                   <p:TypeArguments>
@@ -14946,7 +14946,7 @@
                   </p:TypeArguments>
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="NwTvlhrH6JbLt9lLP5xhxg" Name="Image Points" Kind="InputPin" Bounds="282,471">
+              <Pin Id="NwTvlhrH6JbLt9lLP5xhxg" Comment="Spread of XY image points" Name="Image Points" Kind="InputPin" Bounds="282,471">
                 <p:TypeAnnotation LastCategoryFullName="Collections" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Spread" />
                   <p:TypeArguments>
@@ -14959,11 +14959,11 @@
               <Pin Id="U7uMzbuPLy0Pl1mG6NdosS" Name="Resolution" Kind="InputPin" Bounds="381,515" />
               <Pin Id="N1lDJvPzbjnQHISRunzOkW" Name="Flags" Kind="InputPin" Bounds="662,222" />
               <Pin Id="EebnRNKLnFLOKloEti0HhI" Name="Do" Kind="InputPin" Bounds="-4,18" />
-              <Pin Id="KxbreQZziwpQYipclDUqPq" Name="View Per Board" Kind="OutputPin" Bounds="66,2006" />
-              <Pin Id="KE7NmGlH4xxO7Llymo8oSo" Name="Projection Transform" Kind="OutputPin" Bounds="1009,1461" />
-              <Pin Id="TkxFdpsEjvaPg7LBVuAIBL" Name="Camera Matrix" Kind="OutputPin" Bounds="1108,1361" />
-              <Pin Id="Layg3RlnEKbMv1drlSLWtm" Name="Distortion Coefficients" Kind="OutputPin" Bounds="492,1709" />
-              <Pin Id="TBHOLsoJMKuQQQMdjO3wit" Name="Reprojection Error" Kind="OutputPin" Bounds="598,730" />
+              <Pin Id="KxbreQZziwpQYipclDUqPq" Comment="One View transformation matrix for each provided image" Name="View Per Board" Kind="OutputPin" Bounds="66,2006" />
+              <Pin Id="KE7NmGlH4xxO7Llymo8oSo" Comment="General Projection transformation" Name="Projection Transform" Kind="OutputPin" Bounds="1009,1461" />
+              <Pin Id="TkxFdpsEjvaPg7LBVuAIBL" Comment="The calculated Camera Matrix as a Mat.  Contains focal length and focal center information" Name="Camera Matrix" Kind="OutputPin" Bounds="1108,1361" />
+              <Pin Id="Layg3RlnEKbMv1drlSLWtm" Comment="k1, k2, p1, p2 and k3 distortion coefficients as a Mat" Name="Distortion Coefficients" Kind="OutputPin" Bounds="492,1709" />
+              <Pin Id="TBHOLsoJMKuQQQMdjO3wit" Comment="Reprojection error in pixels.  For best results this value must be less than 0.5" Name="Reprojection Error" Kind="OutputPin" Bounds="598,730" />
             </Patch>
             <ProcessDefinition Id="AwNXf6xbAtjM349d5Xe7hb">
               <Fragment Id="NYokVbOyDQoOxnDIqHTtku" Patch="DBHOzzNXCHUOkU9DTEnLwp" Enabled="true" />
