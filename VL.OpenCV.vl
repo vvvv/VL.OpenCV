@@ -10172,7 +10172,7 @@
     ************************ FaceRecognizer (Eigen) ************************
 
 -->
-        <Node Name="FaceRecognizer (Eigen)" Bounds="-280,217" Id="TiVabnlTXqrLtAnWyfwgOY">
+        <Node Name="FaceRecognizer (Eigen)" Bounds="-280,217" Id="TiVabnlTXqrLtAnWyfwgOY" Summary="Provides an Eigenfaces face recognizer" Remarks="Training and prediction must be done on grayscale images.  The Eigenfaces method assumes all training and test images are of equal size. This model does not support updating.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -10218,18 +10218,18 @@
               </Node>
             </Canvas>
             <Patch Id="VjxbMsSJd5uN7jbrl5Aw9e" Name="Create">
-              <Pin Id="SASph3Ts10sLpA6NsAVFzd" Name="Threshold" Kind="InputPin" Bounds="293,247" />
-              <Pin Id="Fy2mNZ316eyMsFUMRK4Q98" Name="Num Components" Kind="InputPin" Bounds="213,253" />
+              <Pin Id="SASph3Ts10sLpA6NsAVFzd" Comment="The threshold applied in the prediction" Name="Threshold" Kind="InputPin" Bounds="293,247" />
+              <Pin Id="Fy2mNZ316eyMsFUMRK4Q98" Comment="The number of components kept for this Principal Component Analysis. As a hint: There's no rule how many components (read: Eigenfaces) should be kept for good reconstruction capabilities. It is based on your input data, so experiment with the number. Keeping 80 components should almost always be sufficient" Name="Num Components" Kind="InputPin" Bounds="213,253" />
             </Patch>
             <Patch Id="HTshVrca998L8QzTRTyKtE" Name="Update" ManuallySortedPins="true">
-              <Pin Id="Ntj3NlyvIN6MINUxQzntEG" Name="Label" Kind="OutputPin" Bounds="557,560" />
-              <Pin Id="Vh6JrZ4tYwXNTcYmUxxBw7" Name="Confidence" Kind="OutputPin" Bounds="618,563" />
-              <Pin Id="Tv8bc0T0nInN3XDPoOL5OX" Name="Training Images" Kind="InputPin" Bounds="346,293" />
-              <Pin Id="PuOVUApbJUUMLwOqL8CUKj" Name="Training Labels" Kind="InputPin" Bounds="448,303" />
-              <Pin Id="OptYT8ZTzqSMlFvkdOw3AM" Name="Train" Kind="InputPin" Bounds="108,411" />
-              <Pin Id="NJQKDAcpOLrNJVuhqAWOEs" Name="Predict Image" Kind="InputPin" Bounds="611,382" />
-              <Pin Id="Dtw3W7v6OFZMnjDFQRJYoQ" Name="Predict" Kind="InputPin" Bounds="647,417" />
-              <Pin Id="J7Un8JYHtcgQUdlHjxnEXv" Name="Is Trained" Kind="OutputPin" Bounds="333,721" />
+              <Pin Id="Ntj3NlyvIN6MINUxQzntEG" Comment="Predicted label for provided Predict Image" Name="Label" Kind="OutputPin" Bounds="557,560" />
+              <Pin Id="Vh6JrZ4tYwXNTcYmUxxBw7" Comment="Associated confidence (e.g. distance) for the predicted label" Name="Confidence" Kind="OutputPin" Bounds="618,563" />
+              <Pin Id="Tv8bc0T0nInN3XDPoOL5OX" Comment="Spread of images to use for training" Name="Training Images" Kind="InputPin" Bounds="346,293" />
+              <Pin Id="PuOVUApbJUUMLwOqL8CUKj" Comment="Spread of integer labels, each corresponding to the same indexed image in the trainning data" Name="Training Labels" Kind="InputPin" Bounds="448,303" />
+              <Pin Id="OptYT8ZTzqSMlFvkdOw3AM" Comment="Must be called to train the FaceRecognizer before predictions are attempted" Name="Train" Kind="InputPin" Bounds="108,411" />
+              <Pin Id="NJQKDAcpOLrNJVuhqAWOEs" Comment="The image to classify based on the trained model" Name="Predict Image" Kind="InputPin" Bounds="611,382" />
+              <Pin Id="Dtw3W7v6OFZMnjDFQRJYoQ" Comment="Indicates the model that it should predict the label corresponding to the provided Predict Image" Name="Predict" Kind="InputPin" Bounds="647,417" />
+              <Pin Id="J7Un8JYHtcgQUdlHjxnEXv" Comment="Indicates if the model has been trained or not" Name="Is Trained" Kind="OutputPin" Bounds="333,721" />
             </Patch>
             <ProcessDefinition Id="LcotbvQxQNQOyL2Ut7kbi3">
               <Fragment Id="Dms1j05NJNWQSTHt1i2krG" Patch="VjxbMsSJd5uN7jbrl5Aw9e" Enabled="true" />
@@ -10264,7 +10264,7 @@
     ************************ FaceRecognizer (Fisher) ************************
 
 -->
-        <Node Name="FaceRecognizer (Fisher)" Bounds="-280,264" Id="C2V8JOMjBhkNyyrYsuIj1q">
+        <Node Name="FaceRecognizer (Fisher)" Bounds="-280,264" Id="C2V8JOMjBhkNyyrYsuIj1q" Summary="Provides a Fisherfaces face recognizer" Remarks="Training and prediction must be done on grayscale images.  The Fisherfaces method assumes all training and test images are of equal size. This model does not support updating.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -10310,18 +10310,18 @@
               </Node>
             </Canvas>
             <Patch Id="NCw2Z2yG194NQmqLBYoOdR" Name="Create">
-              <Pin Id="Mb4BgDu7efmL6h0mkbdCAj" Name="Threshold" Kind="InputPin" Bounds="293,247" />
-              <Pin Id="E9OC0iGLRmBPXke45FDpxp" Name="Num Components" Kind="InputPin" Bounds="213,253" />
+              <Pin Id="Mb4BgDu7efmL6h0mkbdCAj" Comment="The threshold applied in the prediction" Name="Threshold" Kind="InputPin" Bounds="293,247" />
+              <Pin Id="E9OC0iGLRmBPXke45FDpxp" Comment="The number of components kept for this Principal Component Analysis. As a hint: There's no rule how many components (read: Eigenfaces) should be kept for good reconstruction capabilities. It is based on your input data, so experiment with the number. Keeping 80 components should almost always be sufficient" Name="Num Components" Kind="InputPin" Bounds="213,253" />
             </Patch>
             <Patch Id="AGukPFMlcAiLEB2jB1sa2C" Name="Update" ManuallySortedPins="true">
-              <Pin Id="AzF9n33H985M9V2ZfsYeg6" Name="Label" Kind="OutputPin" Bounds="557,560" />
-              <Pin Id="V2s6qplVqjkP9fk9UJhrET" Name="Confidence" Kind="OutputPin" Bounds="618,563" />
-              <Pin Id="C0tIDbA7kp9MF4GZGNphin" Name="Training Images" Kind="InputPin" Bounds="346,293" />
-              <Pin Id="FKyqW8LjzxDNg8h7tD8Y1i" Name="Training Labels" Kind="InputPin" Bounds="448,303" />
-              <Pin Id="VYF9Y8lJSQQL3ePNbNU5gA" Name="Train" Kind="InputPin" Bounds="108,411" />
-              <Pin Id="NEKV8eyZir9M10JhViJCRe" Name="Predict Image" Kind="InputPin" Bounds="611,382" />
-              <Pin Id="QtjeIIuKvMQPmBV7xnjMTv" Name="Predict" Kind="InputPin" Bounds="647,417" />
-              <Pin Id="QH0EEk0XHVJMViozS1rHnL" Name="Is Trained" Kind="OutputPin" Bounds="333,721" />
+              <Pin Id="AzF9n33H985M9V2ZfsYeg6" Comment="Predicted label for provided Predict Image" Name="Label" Kind="OutputPin" Bounds="557,560" />
+              <Pin Id="V2s6qplVqjkP9fk9UJhrET" Comment="Associated confidence (e.g. distance) for the predicted label" Name="Confidence" Kind="OutputPin" Bounds="618,563" />
+              <Pin Id="C0tIDbA7kp9MF4GZGNphin" Comment="Spread of images to use for training" Name="Training Images" Kind="InputPin" Bounds="346,293" />
+              <Pin Id="FKyqW8LjzxDNg8h7tD8Y1i" Comment="Spread of integer labels, each corresponding to the same indexed image in the trainning data" Name="Training Labels" Kind="InputPin" Bounds="448,303" />
+              <Pin Id="VYF9Y8lJSQQL3ePNbNU5gA" Comment="Must be called to train the FaceRecognizer before predictions are attempted" Name="Train" Kind="InputPin" Bounds="108,411" />
+              <Pin Id="NEKV8eyZir9M10JhViJCRe" Comment="The image to classify based on the trained model" Name="Predict Image" Kind="InputPin" Bounds="611,382" />
+              <Pin Id="QtjeIIuKvMQPmBV7xnjMTv" Comment="Indicates the model that it should predict the label corresponding to the provided Predict Image" Name="Predict" Kind="InputPin" Bounds="647,417" />
+              <Pin Id="QH0EEk0XHVJMViozS1rHnL" Comment="Indicates if the model has been trained or not" Name="Is Trained" Kind="OutputPin" Bounds="333,721" />
             </Patch>
             <ProcessDefinition Id="QaVvxhPhx9vNupxoNBFLRE">
               <Fragment Id="PUFQrocGyVVNCNlbryL7Sz" Patch="NCw2Z2yG194NQmqLBYoOdR" Enabled="true" />
@@ -10356,7 +10356,7 @@
     ************************ FaceRecognizer (LBPH) ************************
 
 -->
-        <Node Name="FaceRecognizer (LBPH)" Bounds="-280,311" Id="QGLm63WQkE6LcHZbdRY4Np">
+        <Node Name="FaceRecognizer (LBPH)" Bounds="-280,311" Id="QGLm63WQkE6LcHZbdRY4Np" Summary="Provides a LBPH (Local Binary Patterns Histograms) face recognizer" Remarks="Training and prediction must be done on grayscale images.  This model supports updating.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
@@ -10408,21 +10408,21 @@
               <ControlPoint Id="LjvrUqnA1kQNtY2xcidugN" Bounds="506,265" />
             </Canvas>
             <Patch Id="I2LYuQA38W7M6IXe8dzzhv" Name="Create">
-              <Pin Id="IkdLWdaoyPaMXZwCsoeDSz" Name="Radius" Kind="InputPin" />
-              <Pin Id="KgBYGba8ESBO09QP5Ygg7P" Name="Neighbors" Kind="InputPin" />
-              <Pin Id="NSVM0rjFeNILWPx887rYMu" Name="Grid X" Kind="InputPin" />
-              <Pin Id="AQ6h9D8AwSQLIVZYmdkrcS" Name="Grid Y" Kind="InputPin" />
-              <Pin Id="Tz75jgklKcANSgFiabIC3B" Name="Threshold" Kind="InputPin" />
+              <Pin Id="IkdLWdaoyPaMXZwCsoeDSz" Comment="The radius used for building the Circular Local Binary Pattern. The greater the radius, the smoother the image but more spatial information you can get" Name="Radius" Kind="InputPin" />
+              <Pin Id="KgBYGba8ESBO09QP5Ygg7P" Comment="The number of sample points to build a Circular Local Binary Pattern from. An appropriate value is to use 8 sample points. Keep in mind: the more sample points you include, the higher the computational cost" Name="Neighbors" Kind="InputPin" />
+              <Pin Id="NSVM0rjFeNILWPx887rYMu" Comment="The number of cells in the horizontal direction, 8 is a common value used in publications. The more cells, the finer the grid, the higher the dimensionality of the resulting feature vector" Name="Grid X" Kind="InputPin" />
+              <Pin Id="AQ6h9D8AwSQLIVZYmdkrcS" Comment="The number of cells in the vertical direction, 8 is a common value used in publications. The more cells, the finer the grid, the higher the dimensionality of the resulting feature vector" Name="Grid Y" Kind="InputPin" />
+              <Pin Id="Tz75jgklKcANSgFiabIC3B" Comment="The threshold applied in the prediction. If the distance to the nearest neighbor is larger than the threshold, this method returns -1" Name="Threshold" Kind="InputPin" />
             </Patch>
             <Patch Id="BL2B2FnhMNvQJwyYG7SWve" Name="Update" ManuallySortedPins="true">
-              <Pin Id="NrpUMW9nLubO80c7YSaEdd" Name="Label" Kind="OutputPin" Bounds="557,560" />
-              <Pin Id="K6TaDv3DnB7O6aALJ2yFAc" Name="Confidence" Kind="OutputPin" Bounds="618,563" />
-              <Pin Id="VbRrGV7Zq7NPpGO2JS6NOl" Name="Training Images" Kind="InputPin" Bounds="346,293" />
-              <Pin Id="ITsKZunkitHP73KKldcehM" Name="Training Labels" Kind="InputPin" Bounds="448,303" />
-              <Pin Id="Rlb4XaDyWsuLjd1r36ZYaF" Name="Train" Kind="InputPin" Bounds="108,411" />
-              <Pin Id="Pe9dvNJxr1XMeKlWWacDDH" Name="Predict Image" Kind="InputPin" Bounds="611,382" />
-              <Pin Id="E3bnUPfTAR5PipbWUgvpGD" Name="Predict" Kind="InputPin" Bounds="647,417" />
-              <Pin Id="Vln19IuqBUcOmzCOkMYpOK" Name="Is Trained" Kind="OutputPin" Bounds="333,721" />
+              <Pin Id="NrpUMW9nLubO80c7YSaEdd" Comment="Predicted label for provided Predict Image" Name="Label" Kind="OutputPin" Bounds="557,560" />
+              <Pin Id="K6TaDv3DnB7O6aALJ2yFAc" Comment="Associated confidence (e.g. distance) for the predicted label" Name="Confidence" Kind="OutputPin" Bounds="618,563" />
+              <Pin Id="VbRrGV7Zq7NPpGO2JS6NOl" Comment="Spread of images to use for training" Name="Training Images" Kind="InputPin" Bounds="346,293" />
+              <Pin Id="ITsKZunkitHP73KKldcehM" Comment="Spread of integer labels, each corresponding to the same indexed image in the trainning data" Name="Training Labels" Kind="InputPin" Bounds="448,303" />
+              <Pin Id="Rlb4XaDyWsuLjd1r36ZYaF" Comment="Must be called to train the FaceRecognizer before predictions are attempted" Name="Train" Kind="InputPin" Bounds="108,411" />
+              <Pin Id="Pe9dvNJxr1XMeKlWWacDDH" Comment="The image to classify based on the trained model" Name="Predict Image" Kind="InputPin" Bounds="611,382" />
+              <Pin Id="E3bnUPfTAR5PipbWUgvpGD" Comment="Indicates the model that it should predict the label corresponding to the provided Predict Image" Name="Predict" Kind="InputPin" Bounds="647,417" />
+              <Pin Id="Vln19IuqBUcOmzCOkMYpOK" Comment="Indicates if the model has been trained or not" Name="Is Trained" Kind="OutputPin" Bounds="333,721" />
             </Patch>
             <ProcessDefinition Id="VdwDxsfCGlTOck9j32LdXu">
               <Fragment Id="C7xrfAEWgIGMjpvbgQe3JK" Patch="I2LYuQA38W7M6IXe8dzzhv" Enabled="true" />
