@@ -149,17 +149,17 @@
             <Node Bounds="846,563,120,13" Id="BUfUAiLgcWYLkgHgloWb9j">
               <p:NodeReference LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl" LastDependency="VVVV.Value.CalibrateCameraDemo.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="ProcessAppFlag" Name="CalibrateCameraMat" />
+                <Choice Kind="ProcessAppFlag" Name="CalibrateCamera" />
               </p:NodeReference>
               <Pin Id="Q5xJh5iezsELQkb1fg7iaZ" Name="Object Points" Kind="InputPin" />
               <Pin Id="CXxK8mlURY9OPlWVaCpzsT" Name="Image Points" Kind="InputPin" />
               <Pin Id="Id3fHzRI4PaO5vOMTNfwyS" Name="Resolution" Kind="InputPin" />
               <Pin Id="G2419bWyQcMOYueFSfuAtB" Name="Flags" Kind="InputPin" />
               <Pin Id="MsXPewE17kFOLAgxsvVgjS" Name="Do" Kind="InputPin" />
-              <Pin Id="JmcAcuITOksLvDVFZzUZEP" Name="View Per Board" Kind="OutputPin" />
-              <Pin Id="KNxOlx5HsyCPHHFYdGDG2S" Name="Projection Transform" Kind="OutputPin" />
-              <Pin Id="FL0fVv2Sj6BOsAIjObcNLG" Name="Camera Matrix" Kind="OutputPin" />
+              <Pin Id="BPrVhszzWRANtTqtSNVLRS" Name="Intrinsics" Kind="OutputPin" />
               <Pin Id="SohUwSPkFwIP9I2qCoSvhs" Name="Distortion Coefficients" Kind="OutputPin" />
+              <Pin Id="VhfYoPe2MkMLAacd0REyjB" Name="Rvecs" Kind="OutputPin" />
+              <Pin Id="TqjXys5rvLwNCWV4hXm5vG" Name="Tvecs" Kind="OutputPin" />
               <Pin Id="PVL2KzLEbAyMFfOUha9l6D" Name="Reprojection Error" Kind="OutputPin" />
             </Node>
             <Pad Id="N1Mpirknc2aLt2lfm6aYKx" Comment="Calibrate" Bounds="1049,548,40,19" ShowValueBox="true" isIOBox="true" Value="false">
@@ -380,7 +380,7 @@
                 <Choice Kind="TypeFlag" Name="Integer32" />
               </p:TypeAnnotation>
             </Pad>
-            <Pad Id="OXqWrjiMWX3QDFdLtFYrXw" Comment="Reprojection Error" Bounds="964,587,39,19" ShowValueBox="true" isIOBox="true" />
+            <Pad Id="OXqWrjiMWX3QDFdLtFYrXw" Comment="Reprojection Error" Bounds="964,591,39,19" ShowValueBox="true" isIOBox="true" />
             <Node Bounds="778,655,69,13" Id="KrHDrcOLvyvP2qNPbGvWUB">
               <p:NodeReference LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl" LastDependency="VVVV.Value.CalibrateCameraDemo.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -392,7 +392,7 @@
               <Pin Id="Lr7HBwVyiyqMCo5du8ntB0" Name="Apply" Kind="InputPin" />
               <Pin Id="JGYPkcywo51PTlKeAVwibN" Name="Output" Kind="OutputPin" />
             </Node>
-            <Pad Id="N8JWDOqAOi7M5qHxShjBww" Comment="Apply" Bounds="1049,640,40,20" ShowValueBox="true" isIOBox="true" Value="false">
+            <Pad Id="N8JWDOqAOi7M5qHxShjBww" Comment="Apply" Bounds="1049,640,40,20" ShowValueBox="true" isIOBox="true" Value="true">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
@@ -666,7 +666,7 @@
                 <Choice Kind="TypeFlag" Name="String" />
               </p:TypeAnnotation>
             </Pad>
-            <Pad Id="MZ3TO1eTPBrQZMvncfhJLS" Bounds="1094,590,176,20" ShowValueBox="true" isIOBox="true" Value="&quot;Should be under 0.5&quot;">
+            <Pad Id="MZ3TO1eTPBrQZMvncfhJLS" Bounds="1094,594,176,22" ShowValueBox="true" isIOBox="true" Value="&quot;Should be under 0.5&quot;">
               <p:ValueBoxSettings>
                 <p:fontsize p:Type="Int32">9</p:fontsize>
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
@@ -675,6 +675,20 @@
                 <Choice Kind="TypeFlag" Name="String" />
               </p:TypeAnnotation>
             </Pad>
+            <Pad Id="E3gNTB2K3qOLiHvxgiBuHR" Comment="Video Input Device" Bounds="785,64,168,19" ShowValueBox="true" isIOBox="true" Value="{&quot;FValue&quot;:&quot;HD Pro Webcam C920&quot;}">
+              <p:TypeAnnotation LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.Dev.vl">
+                <Choice Kind="TypeFlag" Name="VideoInputDevice" />
+              </p:TypeAnnotation>
+            </Pad>
+            <Node Bounds="964,454,30,13" Id="LzbIm2cdXBaPn7vwjh6aHj">
+              <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="VL.CoreLib.vl" LastDependency="VVVV.Value.CalibrateCameraDemo.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="AND" />
+              </p:NodeReference>
+              <Pin Id="QO3rQAmwnBTNPTrnoJP6eX" Name="Input" Kind="StateInputPin" />
+              <Pin Id="S8G7hi1tkeEOBUhlebRznU" Name="Input 2" Kind="InputPin" />
+              <Pin Id="AT0wYSs8e6iOyOWu9d8sGs" Name="Output" Kind="StateOutputPin" />
+            </Node>
           </Canvas>
           <ProcessDefinition Id="FHNLl8GWgcVOJzRkkPI83E">
             <Fragment Id="MRFnVwHDf0WOO7H3jKbCxI" Patch="ESJZDDS0I02LAWDOx9RJVV" Enabled="true" />
@@ -706,12 +720,10 @@
           <Link Id="JFn3ckHz4CaMIPjYcN4NQ6" Ids="VwMtDvBTTVUP35zoAPfifx,J7hl3aQDfgnM1lHinpMrRH" />
           <Link Id="MrVUgyGGKI7NxhBt6q7fsy" Ids="N8JWDOqAOi7M5qHxShjBww,Lr7HBwVyiyqMCo5du8ntB0" />
           <Link Id="SUx3gZ0uj8EQLv46cvZ8a2" Ids="SohUwSPkFwIP9I2qCoSvhs,FNEAmEi3mJeP0I7ixGu1cU" />
-          <Link Id="Ajb1uOMAVIKLoeBo3WuX8y" Ids="FL0fVv2Sj6BOsAIjObcNLG,MZDavdUFh76NV5TyYIpjab" />
           <Link Id="LDIaX2aAH38LuI010NTyOS" Ids="JGYPkcywo51PTlKeAVwibN,EdSibadYXmgLyC2og46wPA" />
           <Link Id="M5tGyK8u0glOuP4vnOsXC6" Ids="Dppg5WVLZacOiDNOvUpJyX,RGyvKWXJpiDOLlsKfTZPtR" />
           <Link Id="RLk4uNHg2ZYQRFh5BM4zVe" Ids="JGYPkcywo51PTlKeAVwibN,LYaN70k0XKjLfGsgbhIwWK" />
           <Link Id="FsDZknTuEHnLmh99dtr9Gi" Ids="KuT6tPuRKKCQLHKJlV5DaQ,KybTt952ynPPgnTw0OydAf" />
-          <Link Id="Vw8Jpb6qDGcMHVIjcoPFGT" Ids="DJrBwdvakHFMZnk3bvyhDz,UlymHUsLvDvPwC09XFSCMc" />
           <Link Id="MW3q0AilTpbMsV9VtaOHN7" Ids="AZckeZgeoFEM94EM8rHg96,VVoHmyDAxvuM88jNGEYtJ8" />
           <Link Id="TEN0bqGB9avQXsitI3NFmG" Ids="KXARsErF6kbOucB9FC62Ru,CXxK8mlURY9OPlWVaCpzsT" />
           <Link Id="LShkSr899FlQTSCMTT6rsP" Ids="PrInus6lQxtLlqUiaJn7c1,GPLrOg9oCfsP5i5SOOTpuV" />
@@ -719,6 +731,11 @@
           <Link Id="VA2BoDQdHD1NolNadlEJJT" Ids="KPl5b6GaUKCOdahiYPEwHq,Ky2Tp8hs5rIPRuH9Cp2V3u" />
           <Link Id="KT7EHzZSYa2OWikOHUylE1" Ids="KPl5b6GaUKCOdahiYPEwHq,ODTllF8hyr5LdIsdJB6z73" />
           <Link Id="O48ebeRxKrtMTMtjFa3CsP" Ids="JzJDqhTRh6vOHB8vcK7Gsq,Cs5mDIWZuqNPwZTor3gIkC" />
+          <Link Id="Vu1LW6YjP1PPUUrWMPujnE" Ids="BPrVhszzWRANtTqtSNVLRS,MZDavdUFh76NV5TyYIpjab" />
+          <Link Id="DPY3xQLT8ObNCeo9xjxVor" Ids="E3gNTB2K3qOLiHvxgiBuHR,AXq4tYTtk4mQVhblIJMxiM" />
+          <Link Id="GfA7c8Nush6Nna2tZGU4JX" Ids="AT0wYSs8e6iOyOWu9d8sGs,UlymHUsLvDvPwC09XFSCMc" />
+          <Link Id="RvKmtpB7rqdMDKhLWndUd9" Ids="DJrBwdvakHFMZnk3bvyhDz,S8G7hi1tkeEOBUhlebRznU" />
+          <Link Id="JV991zZV2NDMXhh6szwoF8" Ids="CGLeFgeIIJXO9uDj7W3w1o,QO3rQAmwnBTNPTrnoJP6eX" />
         </Patch>
       </Node>
       <!--
