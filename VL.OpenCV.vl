@@ -3050,6 +3050,76 @@
             <Link Id="RFBN0lnSPRoQNi4VeXmHYb" Ids="HJEMsZboim0PTLjdPoDNJV,DbPVMEsrJsXMgCBcWp9UQl" />
           </Patch>
         </Node>
+        <!--
+
+    ************************ Merge ************************
+
+-->
+        <Node Name="Merge" Bounds="-135,377" Id="KSOdQaWniNwNv0XNVrq97f" Summary="Merges multiple single-channel images into one multi-channel image.">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
+            <Choice Kind="ContainerDefinition" Name="Process" />
+          </p:NodeReference>
+          <Patch Id="PrDlvVAX8zaMIDhpZcvkvL" IsGeneric="true">
+            <Canvas Id="R4IFxKGVPDYNydXBAbGqIM">
+              <Node Bounds="334,307,38,13" Id="QB1qNSdN6MQMoZ1xqGxlp3">
+                <p:NodeReference LastCategoryFullName="OpenCvSharp.Cv2" LastSymbolSource="OpenCvSharp.dll" LastDependency="VL.OpenCV.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="Merge" />
+                  <CategoryReference Kind="AssemblyCategory" Name="Cv2" NeedsToBeDirectParent="true" />
+                </p:NodeReference>
+                <Pin Id="AHO1hNnPoXBPK9bq0mTJCy" Name="Mv" Kind="InputPin" />
+                <Pin Id="NX7ikvYhTiqMBJOmbKNENT" Name="Dst" Kind="InputPin" />
+              </Node>
+              <Node Bounds="376,270,54,13" Id="AvWdbgjDrRoQbNB35dTVq6">
+                <p:NodeReference LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.Dev.vl" LastDependency="VL.OpenCV.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="ProcessAppFlag" Name="Image" />
+                </p:NodeReference>
+                <Pin Id="U9wapqxZUTbOGJEeUaQwaV" Name="Output" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="335,242,45,13" Id="PkNUZzj3aa4PHbPCY4GvmY">
+                <p:NodeReference LastCategoryFullName="Collections.Sequence" LastSymbolSource="VL.DevLib.vl" LastDependency="VL.OpenCV.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="ToArray" />
+                  <CategoryReference Kind="MutableInterfaceType" Name="Sequence" NeedsToBeDirectParent="true" />
+                </p:NodeReference>
+                <Pin Id="BJ3xM2BZ63NPB1Ys1dJxwa" Name="Input" Kind="InputPin" />
+                <Pin Id="AeAoA47G9YHQa3YkIyJo5b" Name="Result" Kind="OutputPin" />
+              </Node>
+              <ControlPoint Id="OO8fYc9jPNvMjXOTcCPK5j" Bounds="337,208" />
+              <ControlPoint Id="EP1oLNvlIVvLqw1dzW3Izw" Bounds="377,363" />
+            </Canvas>
+            <Patch Id="TAE2uCTE0p1Mr2MvtlxgZ3" Name="Create" />
+            <Patch Id="Ozi3ifKBrgcOXXMOmRsr77" Name="Update">
+              <Pin Id="I0HTTUc17W3NpNqDilD1SC" Comment="Spread of matrices to be merged; all the matrices must have the same size and the same depth." Name="Input" Kind="InputPin" Bounds="337,197">
+                <p:TypeAnnotation LastCategoryFullName="Collections" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Spread" />
+                  <p:TypeArguments>
+                    <TypeReference>
+                      <Choice Kind="TypeFlag" Name="Mat" />
+                    </TypeReference>
+                  </p:TypeArguments>
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="L4Sit88RBqfP82yMsLbsZD" Comment="Output image of the same size and the same depth as Input[0]. The number of channels will be the total number of channels in the Input spread." Name="Output" Kind="OutputPin" Bounds="378,363" />
+            </Patch>
+            <!--
+
+    ************************  ************************
+
+-->
+            <ProcessDefinition Id="IahiqRtcqNuPmOXt0XgD2y">
+              <Fragment Id="Oi76nOYFO0dLH4RJu8fwlU" Patch="TAE2uCTE0p1Mr2MvtlxgZ3" Enabled="true" />
+              <Fragment Id="EuBFTVWbsBwMxiiM5o5iM2" Patch="Ozi3ifKBrgcOXXMOmRsr77" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="BjyApyxEpwXOAQ18gBlJ1a" Ids="U9wapqxZUTbOGJEeUaQwaV,NX7ikvYhTiqMBJOmbKNENT" />
+            <Link Id="JtWWTfXCxZ7ObDJNPYOa9C" Ids="AeAoA47G9YHQa3YkIyJo5b,AHO1hNnPoXBPK9bq0mTJCy" />
+            <Link Id="KeDmm9W3lNDNixwNeMrU2w" Ids="OO8fYc9jPNvMjXOTcCPK5j,BJ3xM2BZ63NPB1Ys1dJxwa" />
+            <Link Id="CYWZniht8C5MjpAP67wUd0" Ids="I0HTTUc17W3NpNqDilD1SC,OO8fYc9jPNvMjXOTcCPK5j" IsHidden="true" />
+            <Link Id="FwpLy37glgdQWZLMLOPWh6" Ids="U9wapqxZUTbOGJEeUaQwaV,EP1oLNvlIVvLqw1dzW3Izw" />
+            <Link Id="R0K2GLp0kPDNJ6JgVy5141" Ids="EP1oLNvlIVvLqw1dzW3Izw,L4Sit88RBqfP82yMsLbsZD" IsHidden="true" />
+          </Patch>
+        </Node>
       </Canvas>
       <Canvas Id="QRRvtFujAWEQEef6aTLHGP" Name="Filter" Position="196,213">
         <!--
