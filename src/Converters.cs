@@ -87,11 +87,11 @@ namespace VL.OpenCV
             }
         }
 
-        public static PixelFormat ToPixelFormat(this MatType type)
+        public static PixelFormat ToPixelFormat(this OpenCvSharp.MatType type)
         {
             switch (type.Depth)
             {
-                case MatType.CV_8U:
+                case OpenCvSharp.MatType.CV_8U:
                     switch (type.Channels)
                     {
                         case 1:
@@ -100,7 +100,7 @@ namespace VL.OpenCV
                             return PixelFormat.B8G8R8A8;
                     }
                     break;
-                case MatType.CV_32F:
+                case OpenCvSharp.MatType.CV_32F:
                     switch (type.Channels)
                     {
                         case 1:
@@ -111,19 +111,19 @@ namespace VL.OpenCV
             throw new UnsupportedMatTypeException(type);
         }
 
-        public static MatType ToMatType(this PixelFormat format, string originalFormat)
+        public static OpenCvSharp.MatType ToMatType(this PixelFormat format, string originalFormat)
         {
             switch (format)
             {
                 case PixelFormat.R8:
-                    return MatType.CV_8UC1;
+                    return OpenCvSharp.MatType.CV_8UC1;
                 case PixelFormat.R32F:
-                    return MatType.CV_32FC1;
+                    return OpenCvSharp.MatType.CV_32FC1;
                 case PixelFormat.B8G8R8A8:
-                    return MatType.CV_8UC4;
+                    return OpenCvSharp.MatType.CV_8UC4;
                 case PixelFormat.Unknown:
                     if (originalFormat.Equals("bgr", StringComparison.OrdinalIgnoreCase)) // HACK
-                        return MatType.CV_8UC3;
+                        return OpenCvSharp.MatType.CV_8UC3;
                     break;
             }
             throw new UnsupportedPixelFormatException(format);
@@ -166,15 +166,15 @@ namespace VL.OpenCV
                     //clone matrix and vector to avoid modifying the originals
                     Mat rm = rotationMatrix.Clone();
                     Mat tv = translationVector.Clone();
-                    rm.ConvertTo(rm, MatType.CV_32FC1);
-                    tv.ConvertTo(tv, MatType.CV_32FC1);
+                    rm.ConvertTo(rm, OpenCvSharp.MatType.CV_32FC1);
+                    tv.ConvertTo(tv, OpenCvSharp.MatType.CV_32FC1);
                     //transpose to change into VL's row,col format
                     rm = rm.Transpose();
                     //copy translation vector at the end of the rotation matrix
                     rm.Add(tv.Transpose()); //4x3 matrix
                     rm = rm.Transpose();
                     //Add new row with all 0's
-                    rm.Add(Mat.Zeros(1, 4, MatType.CV_32FC1)); //4x4 matrix
+                    rm.Add(Mat.Zeros(1, 4, OpenCvSharp.MatType.CV_32FC1)); //4x4 matrix
 
                     //Perform an unsafe copy of the Mat data into the array
                     IntPtr pointer = rm.Data;
@@ -215,7 +215,7 @@ namespace VL.OpenCV
         /// <returns>4x4 Transformation matrix in the correct order for vvvv</returns>
         public unsafe static Matrix ToTransformationMatrix(Mat rotationMatrix)
         {
-            Mat translationVector = Mat.Zeros(3, 1, MatType.CV_64FC1);
+            Mat translationVector = Mat.Zeros(3, 1, OpenCvSharp.MatType.CV_64FC1);
             float[] specials = new float[4] { 0, 0, 1, 0 };
             return ToTransformationMatrix(rotationMatrix, translationVector, specials);
         }

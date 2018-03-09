@@ -5,9 +5,9 @@ namespace VL.OpenCV
 {
     public class UnsupportedMatTypeException : Exception
     {
-        public MatType Type { get; }
+        public OpenCvSharp.MatType Type { get; }
 
-        public UnsupportedMatTypeException(MatType type)
+        public UnsupportedMatTypeException(OpenCvSharp.MatType type)
             : base($"Unsupported mat type {type}")
         {
             Type = type;
