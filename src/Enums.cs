@@ -135,4 +135,10 @@
         YUV_IYUV,
         YUV_YV12
     }
+
+    public enum PedestrianDetectorType
+    {
+        Default,
+        Daimler
+    }
 }
