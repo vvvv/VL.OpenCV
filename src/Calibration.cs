@@ -45,15 +45,15 @@ namespace VL.OpenCV
                 if (found)
                 {
                     //add object to objectPoints
-                    objectPoints[i] = new Mat(1, patternSizeInt, MatType.CV_32FC3, objectPoint.ToArray());
+                    objectPoints[i] = new Mat(1, patternSizeInt, OpenCvSharp.MatType.CV_32FC3, objectPoint.ToArray());
                     //add corners to allCorners
-                    imagePoints[i] = new Mat(1, patternSizeInt, MatType.CV_32FC2, corners);
+                    imagePoints[i] = new Mat(1, patternSizeInt, OpenCvSharp.MatType.CV_32FC2, corners);
                     foundPatternCount++;
                 }
             }
 
-            Mat cameraMatrix = new Mat(3, 3, MatType.CV_64FC1);
-            Mat distortion = new Mat(1, 4, MatType.CV_64FC1);
+            Mat cameraMatrix = new Mat(3, 3, OpenCvSharp.MatType.CV_64FC1);
+            Mat distortion = new Mat(1, 4, OpenCvSharp.MatType.CV_64FC1);
             Mat[] rotations = new Mat[imageCount];
             Mat[] translations = new Mat[imageCount];
 
