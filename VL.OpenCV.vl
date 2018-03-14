@@ -4656,7 +4656,7 @@
             <Canvas Id="RGs3YUb9t5DLN7qtYe4BmC">
               <ControlPoint Id="AN0DfZ8hdlLL4R8t7XtKdL" Bounds="759,241" />
               <ControlPoint Id="JdwWSkqeMvMQc93wpc47jU" Bounds="329,241" />
-              <Node Bounds="327,330,436,138" Id="RJNRIm6rewsMRJ3EWNeyFH">
+              <Node Bounds="327,332,436,136" Id="RJNRIm6rewsMRJ3EWNeyFH">
                 <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCVSharp.vl">
                   <Choice Kind="RegionFlag" Name="Region (Stateless)" Fixed="true" />
                   <Choice Kind="ProcessAppFlag" Name="Filter (1-&gt;1)" />
@@ -4697,13 +4697,18 @@
                       </p:TypeAnnotation>
                     </Pin>
                   </Node>
-                  <Node Bounds="402,398,56,13" Id="H01ADwZtYxeLLmk52h1vpN">
+                  <Node Bounds="441,389,39,22" Id="F1PxMZxCQ8cQKvqCc5Czjs">
                     <p:NodeReference LastCategoryFullName="OpenCvSharp.MatType" LastSymbolSource="OpenCvSharp.dll" LastDependency="VL.OpenCV.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                       <CategoryReference Kind="AssemblyCategory" Name="MatType" />
-                      <Choice Kind="OperationCallFlag" Name="CV_32FC1" />
+                      <Choice Kind="OperationCallFlag" Name="Create" />
                     </p:NodeReference>
-                    <Pin Id="PPQBo9PtytvNdZ8isLePbM" Name="CV_32FC1" Kind="OutputPin" />
+                    <Pin Id="FT09siSMCyrNvdHNSEggeh" Name="Value" Kind="InputPin" DefaultValue="-1">
+                      <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                        <Choice Kind="TypeFlag" Name="Integer32" />
+                      </p:TypeAnnotation>
+                    </Pin>
+                    <Pin Id="FGvu2IjdybyMsZjeQSTZlW" Name="Output" Kind="StateOutputPin" />
                   </Node>
                 </Patch>
               </Node>
@@ -4744,7 +4749,7 @@
                 </p:TypeAnnotation>
               </Pin>
               <Pin Id="BZPKmFP5aYEQLQfAgSeghi" Comment="Order of the derivative y." Name="Yorder" Kind="InputPin" Bounds="678,298" />
-              <Pin Id="A27K9hBFDl8LhpXrbnlj6G" Comment="Optional scale factor for the computed derivative values." Name="Scale" Kind="InputPin" Bounds="734,348" DefaultValue="0.03">
+              <Pin Id="A27K9hBFDl8LhpXrbnlj6G" Comment="Optional scale factor for the computed derivative values." Name="Scale" Kind="InputPin" Bounds="734,348" DefaultValue="2.0">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
@@ -4783,7 +4788,6 @@
             <Link Id="CVMKBUQwyymOD6EIXFs1TM" Ids="Q7L8bEV087YLNejd4Xnv7v,NjdpknB2GuIObNBfyz07Ha" IsHidden="true" />
             <Link Id="LgMJHFudGXHMRprUqeAXGZ" Ids="VCDygltMHJmLTdIwQLET6x,RMAHSgomyp7K9rKfA1gMln" />
             <Link Id="EHRqXhGMah6O9zmrDNQqbT" Ids="A27K9hBFDl8LhpXrbnlj6G,VCDygltMHJmLTdIwQLET6x" IsHidden="true" />
-            <Link Id="Nu5X95jLkqQMPurQY4PrP8" Ids="PPQBo9PtytvNdZ8isLePbM,JX4LzNH80VtN2P3HBizyHB" />
             <Link Id="SeBLb7J0kHuObW9qyhXETd" Ids="VSJ0aViOYWBMy2AKAZwSK2,PY6vKCcb8PGQAjM6q99OUP" IsHidden="true" />
             <Link Id="Oq2Vtv6jL8vN338t7NcU3X" Ids="IpZISIE2WYRNwf8rgStOkC,CJ3OdlGUUCdLjktINZi2MX" IsHidden="true" />
             <Link Id="NJnVbcDc0vIM3kuJTq9z60" Ids="RoJHhpKMSuDLOBvAWuCoJR,IpZISIE2WYRNwf8rgStOkC" />
@@ -4795,6 +4799,7 @@
             <Link Id="EEKMRVmyQv7O26pOB8BmnI" Ids="Dz37TWeKQtYLVPlLOaiYtt,JLp5oglDTJWNPy6vHqIeRp" />
             <Link Id="FummaForJlmLvMcJmFxzMV" Ids="U3chr9KOLqgNrHU5s4urLO,T1EZbJjDQkTP4s8ijxKxBQ" />
             <Link Id="FuTeY7Aag5wPmKfewuU2G2" Ids="PY6vKCcb8PGQAjM6q99OUP,DMwNKNthnOnN1Xr0Cz9cOn" />
+            <Link Id="VjPA4TFMYqrNq5ZREzodVd" Ids="FGvu2IjdybyMsZjeQSTZlW,JX4LzNH80VtN2P3HBizyHB" />
           </Patch>
         </Node>
         <!--
@@ -9477,7 +9482,7 @@
                 <ControlPoint Id="CtObCoo16rgOdKVznwMwzM" Bounds="411,698" Alignment="Bottom" />
                 <ControlPoint Id="RDFtMLoJ4ppOs4n7PsQoOM" Bounds="402,543" Alignment="Top" />
               </Node>
-              <Pad Id="HrRvYSEj51qOq3JIvGQZ6A" Comment="Flags" Bounds="622,478,108,18" ShowValueBox="true" isIOBox="true" Value="&quot;DoCannyPruning&quot;">
+              <Pad Id="HrRvYSEj51qOq3JIvGQZ6A" Comment="Flags" Bounds="458,502,108,19" ShowValueBox="true" isIOBox="true" Value="&quot;DoCannyPruning&quot;">
                 <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
                   <Choice Kind="TypeFlag" Name="HaarDetectionType" />
                 </p:TypeAnnotation>
