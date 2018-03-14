@@ -30,7 +30,7 @@
               </p:TypeAnnotation>
             </Pad>
             <Node Bounds="207,299,105,13" Id="JVY7V2A4GYiL8xSVM6kGqw">
-              <p:NodeReference LastCategoryFullName="OpenCV.Source" LastSymbolSource="VL.OpenCV.vl" LastDependency="VVVV.Value.Demo.vl">
+              <p:NodeReference>
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="VideoIn" />
               </p:NodeReference>
@@ -42,13 +42,17 @@
               <Pin Id="AjzzYy4KwAYPNWOYpt1YMt" Name="Width" Kind="InputPin" />
               <Pin Id="IAICrD4albYPMIODDCHjym" Name="Height" Kind="InputPin" />
               <Pin Id="BrtF7eWH3b5LfxT4C9E3jB" Name="FPS" Kind="InputPin" />
-              <Pin Id="GOHfgH52VSSQXu54TEPRTI" Name="Show Properties" Kind="InputPin" />
+              <Pin Id="GOHfgH52VSSQXu54TEPRTI" Name="Show Properties" Kind="InputPin" DefaultValue="true">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Boolean" />
+                </p:TypeAnnotation>
+              </Pin>
               <Pin Id="GKc5PCsdG29L8dVZiI2T1i" Name="Enabled" Kind="InputPin" />
               <Pin Id="PrInus6lQxtLlqUiaJn7c1" Name="Image" Kind="OutputPin" />
               <Pin Id="IsgDqjohP9zPJE6webllgL" Name="Supported Formats" Kind="OutputPin" />
             </Node>
             <Node Bounds="210,997,67,13" Id="OA2rl1sGeAmPJMrOpQFrm0">
-              <p:NodeReference LastCategoryFullName="OpenCV.Sink" LastSymbolSource="VL.OpenCV.vl" LastDependency="VVVV.Value.Demo.vl">
+              <p:NodeReference>
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Renderer" />
               </p:NodeReference>
@@ -66,20 +70,24 @@
               <Pin Id="IaRph2hXQ0SNzNtTgoDkzy" Name="Enabled" Kind="InputPin" />
             </Node>
             <Node Bounds="241,478,137,13" Id="UolRXjQ9REOLqZKLmTGSE4">
-              <p:NodeReference LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl" LastDependency="VVVV.Value.Demo.vl">
+              <p:NodeReference>
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="FindChessboardCorners" />
               </p:NodeReference>
               <Pin Id="OR1yEayYSggO1CHIUsLtha" Name="Image" Kind="InputPin" />
-              <Pin Id="PuyFzmww2zYOMC7vwNnpQI" Name="Pattern Size" Kind="InputPin" />
+              <Pin Id="I1X50XjI6keQAcrsa7DFaU" Name="Board Size X" Kind="InputPin" />
+              <Pin Id="M6qZ8uCHilkN0837KcXDmG" Name="Board Size Y" Kind="InputPin" />
               <Pin Id="B3qpx4KVCnYNxKiFVt7Q0X" Name="Flags" Kind="InputPin">
                 <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
                   <Choice Kind="TypeFlag" Name="ChessboardFlags" />
                 </p:TypeAnnotation>
               </Pin>
+              <Pin Id="AMaZXq0MMZvPnVgVLmIcYt" Name="CornerSubPix WindowSize" Kind="InputPin" />
+              <Pin Id="NEQvWi9SqnzMyBgbNpsCzm" Name="Use CornerSubPix" Kind="InputPin" />
               <Pin Id="Ae34d4uD9mcMzQ8lBJPFGy" Name="Enabled" Kind="InputPin" />
               <Pin Id="LZqpgXm0JwoNRi9i3V5tdb" Name="Corners" Kind="OutputPin" />
               <Pin Id="KuT6tPuRKKCQLHKJlV5DaQ" Name="Found" Kind="OutputPin" />
+              <Pin Id="PuyFzmww2zYOMC7vwNnpQI" Name="Pattern Size" Kind="InputPin" />
             </Node>
             <Node Bounds="272,418,39,13" Id="LbXzQoZy7cNMCwXKdP7aog">
               <p:NodeReference LastCategoryFullName="2D.Vector2" LastSymbolSource="VL.CoreLib.vl" LastDependency="VVVV.Value.Demo.vl">
@@ -106,13 +114,14 @@
               </p:TypeAnnotation>
             </Pad>
             <Node Bounds="208,553,141,13" Id="L8k1AF5noiyN94YPfiWzoY">
-              <p:NodeReference LastCategoryFullName="OpenCV.Utils.Drawing" LastSymbolSource="VL.OpenCV.vl" LastDependency="VVVV.Value.Demo.vl">
+              <p:NodeReference>
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="DrawChessboardCorners" />
               </p:NodeReference>
               <Pin Id="NGxMU2DGODYQUjcn8HsQnX" Name="Input" Kind="InputPin" />
               <Pin Id="Ky2Tp8hs5rIPRuH9Cp2V3u" Name="Corners" Kind="InputPin" />
-              <Pin Id="LpbdGo7xa0kLG0ovJM5sn9" Name="Pattern Size" Kind="InputPin" />
+              <Pin Id="UmlZs4YewKIOzvyPpRU4JO" Name="Board Size X" Kind="InputPin" />
+              <Pin Id="R7xRjX9ut5GMwPP8ZwAjUz" Name="Board Size Y" Kind="InputPin" />
               <Pin Id="KybTt952ynPPgnTw0OydAf" Name="Pattern Was Found" Kind="InputPin" />
               <Pin Id="Cs5mDIWZuqNPwZTor3gIkC" Name="Enabled" Kind="InputPin" DefaultValue="true">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
@@ -120,15 +129,17 @@
                 </p:TypeAnnotation>
               </Pin>
               <Pin Id="Dppg5WVLZacOiDNOvUpJyX" Name="Output" Kind="OutputPin" />
+              <Pin Id="LpbdGo7xa0kLG0ovJM5sn9" Name="Pattern Size" Kind="InputPin" />
             </Node>
             <Node Bounds="277,753,120,13" Id="BUfUAiLgcWYLkgHgloWb9j">
-              <p:NodeReference LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl" LastDependency="VVVV.Value.CalibrateCameraDemo.vl">
+              <p:NodeReference>
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="CalibrateCamera" />
               </p:NodeReference>
               <Pin Id="Q5xJh5iezsELQkb1fg7iaZ" Name="Object Points" Kind="InputPin" />
               <Pin Id="CXxK8mlURY9OPlWVaCpzsT" Name="Image Points" Kind="InputPin" />
-              <Pin Id="Id3fHzRI4PaO5vOMTNfwyS" Name="Resolution" Kind="InputPin" />
+              <Pin Id="TBmGKrgmStpLyqEll0XrO8" Name="Image Width" Kind="InputPin" />
+              <Pin Id="I561xN5B48yM7GMyjHSf7W" Name="Image Height" Kind="InputPin" />
               <Pin Id="G2419bWyQcMOYueFSfuAtB" Name="Flags" Kind="InputPin" />
               <Pin Id="MsXPewE17kFOLAgxsvVgjS" Name="Do" Kind="InputPin" />
               <Pin Id="TScZBUZ5ccOOJRdXqRhFeQ" Name="Camera Matrix" Kind="OutputPin" />
@@ -136,6 +147,7 @@
               <Pin Id="Pxdokmkez9lQae5uLVGiAY" Name="Rotation Vectors" Kind="OutputPin" />
               <Pin Id="OzAj9Cecld0PvFAMtlxayX" Name="Translation Vectors" Kind="OutputPin" />
               <Pin Id="PVL2KzLEbAyMFfOUha9l6D" Name="Reprojection Error" Kind="OutputPin" />
+              <Pin Id="Id3fHzRI4PaO5vOMTNfwyS" Name="Resolution" Kind="InputPin" />
             </Node>
             <Pad Id="N1Mpirknc2aLt2lfm6aYKx" Comment="Calibrate" Bounds="478,738,40,19" ShowValueBox="true" isIOBox="true" Value="false">
               <p:ValueBoxSettings>
@@ -329,7 +341,7 @@
               </Patch>
             </Node>
             <Node Bounds="331,418,89,13" Id="AisdIgynMbtNq3uZeWuxKh">
-              <p:NodeReference LastCategoryFullName="VVVV.Value.Demo" LastSymbolSource="VVVV.Value.CalibrateCameraDemo.vl">
+              <p:NodeReference>
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="BoardCorners" />
               </p:NodeReference>
@@ -350,7 +362,7 @@
             </Pad>
             <Pad Id="OXqWrjiMWX3QDFdLtFYrXw" Comment="Reprojection Error" Bounds="395,781,39,19" ShowValueBox="true" isIOBox="true" />
             <Node Bounds="210,942,69,13" Id="KrHDrcOLvyvP2qNPbGvWUB">
-              <p:NodeReference LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl" LastDependency="VVVV.Value.CalibrateCameraDemo.vl">
+              <p:NodeReference>
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Undistort" />
               </p:NodeReference>
@@ -542,14 +554,14 @@
               </p:TypeAnnotation>
             </Pad>
             <Node Bounds="242,514,88,13" Id="PFRTkvPwM1tN3oBS7XG2yY">
-              <p:NodeReference LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl" LastDependency="VVVV.Value.CalibrateCameraDemo.vl">
+              <p:NodeReference>
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="CornerSubPix" />
               </p:NodeReference>
               <Pin Id="GPLrOg9oCfsP5i5SOOTpuV" Name="Input" Kind="InputPin" />
               <Pin Id="PJczTmFZegOOm89I92shHK" Name="Input Corners" Kind="InputPin" />
               <Pin Id="EaBOPNE5BsEMWn4uRAZ2Rw" Name="WindowSize" Kind="InputPin" />
-              <Pin Id="SiUqA0tfD1ROEjI1HzNUEU" Name="Enabled" Kind="InputPin" DefaultValue="false">
+              <Pin Id="SiUqA0tfD1ROEjI1HzNUEU" Name="Enabled" Kind="InputPin">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
@@ -602,17 +614,17 @@
               </p:TypeAnnotation>
             </Pad>
             <Node Bounds="274,802,65,13" Id="BesDB8Bw4GqOyyO8nmHBQt">
-              <p:NodeReference LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl" LastDependency="06_CameraCalibration.vl">
+              <p:NodeReference>
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Writer (Intrinsics)" />
               </p:NodeReference>
-              <Pin Id="IJvrPyB6e8GMecncIW3r6u" Name="File Path" Kind="InputPin" />
               <Pin Id="AAYz5OzIME0Orm08MOveQS" Name="Camera Matrix" Kind="InputPin" />
               <Pin Id="EUDVoaLlhtSOJPh5EFYvow" Name="Distortion Coefficients" Kind="InputPin" />
+              <Pin Id="IJvrPyB6e8GMecncIW3r6u" Name="File Path" Kind="InputPin" />
               <Pin Id="A4BT9kYl4cFLd4Hql43z5q" Name="Write" Kind="InputPin" />
             </Node>
             <Node Bounds="232,894,57,13" Id="HmQbU5hgDohLKEie3sbVxs">
-              <p:NodeReference LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl" LastDependency="06_CameraCalibration.vl">
+              <p:NodeReference>
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Reader (Intrinsics)" />
               </p:NodeReference>
@@ -744,5 +756,5 @@
       </Node>
     </Canvas>
   </Patch>
-  <NugetDependency Id="GokQySGxxekMONZ4BbJa4e" Location="VL.OpenCV" Version="0.78" />
+  <NugetDependency Id="BmmECdadQ3ZOyVD18mOOK6" Location="VL.OpenCV" Version="0.0.0.0" />
 </Document>
