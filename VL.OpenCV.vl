@@ -8903,6 +8903,99 @@
             <Link Id="TAc1BSiTcDZPaqgkFj7YCk" Ids="JKzjsncueDiLsN1TvYQD17,CHGlX1WW8c7NWv10Uxkyny" />
           </Patch>
         </Node>
+        <!--
+
+    ************************ ApplyColorMap ************************
+
+-->
+        <Node Name="ApplyColorMap" Bounds="-183,340" Id="Jrk2eYcgCxjN1xSXlrWzZP" Summary="Applies a GNU Octave/MATLAB equivalent colormap on a given image.">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
+            <Choice Kind="ContainerDefinition" Name="Process" />
+          </p:NodeReference>
+          <Patch Id="KblfnZL9ImRNpd1bZH9Kgo">
+            <Canvas Id="TTjl37IliW7Pb7AEJaSqen">
+              <ControlPoint Id="Ro9bKUzpL4fPrPnS0bJJUO" Bounds="304,503" />
+              <ControlPoint Id="J7DrsdwATZSQKEZgNTaWJU" Bounds="329,182" />
+              <Node Bounds="326,332,150,74" Id="TIPoXSOZX29PyZNzfnCQWN">
+                <p:NodeReference LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.Dev.vl">
+                  <Choice Kind="RegionFlag" Name="Region (Stateless)" Fixed="true" />
+                  <Choice Kind="ProcessAppFlag" Name="Filter (1-&gt;1)" />
+                </p:NodeReference>
+                <Pin Id="JE8vVGGwalHOKiOf8GbLmx" Name="Apply" Kind="InputPin" />
+                <Pin Id="O8MJ8w6n7zXPCpL6aynxyn" Name="Input" Kind="InputPin" />
+                <Pin Id="Odj1LvEEJTNPY3k7IxITl7" Name="Output" Kind="OutputPin" />
+                <Patch Id="F3pbuPIkoyLLkJJRn5dT5b" Name="Operation" ManuallySortedPins="true">
+                  <Pin Id="IuLxY5DZY2TNaICR8Mhwhh" Name="Arg 1" Kind="InputPin" />
+                  <ControlPoint Id="NgnmHp2Q9kdNEMX2Zty8FS" Bounds="340,338" />
+                  <Pin Id="BoDdbTCmaphOPbnn2KZ4tX" Name="Arg 2" Kind="InputPin" />
+                  <ControlPoint Id="LFyomqzoIpROHQp2QyrICe" Bounds="400,338" />
+                  <Node Bounds="338,373,126,20" Id="FyqNHIWaxG7NiGKVzMMaHM">
+                    <p:NodeReference LastCategoryFullName="OpenCvSharp.Cv2" LastSymbolSource="OpenCvSharp.dll" LastDependency="VL.OpenCV.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="ApplyColorMap" />
+                    </p:NodeReference>
+                    <Pin Id="FWaIzsIsnRnOqRE7b3QSNT" Name="Src" Kind="InputPin" />
+                    <Pin Id="ACysDYgtsh7Ljvex7pn69j" Name="Dst" Kind="InputPin" />
+                    <Pin Id="E1Okyf5makpLtohpFrVft6" Name="Colormap" Kind="InputPin" />
+                  </Node>
+                </Patch>
+              </Node>
+              <ControlPoint Id="RSBtKCVSmNDNgIO7eDxlS8" Bounds="543,182" />
+              <Node Bounds="304,438,161,13" Id="PrwXJQWjEFANFPk0Tv0uxl">
+                <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="Switch" />
+                  <CategoryReference Kind="Category" Name="Control" NeedsToBeDirectParent="true" />
+                </p:NodeReference>
+                <Pin Id="G3BzVFfu4saN4IZ0ccu6mZ" Name="Condition" Kind="InputPin" />
+                <Pin Id="VOSeihLzr6RMmx9G3xppgk" Name="False" Kind="InputPin" />
+                <Pin Id="MYLQcU3aQYaLia2b24TxTQ" Name="True" Kind="InputPin" />
+                <Pin Id="QhFw0DJIERkP4Il6iJP20f" Name="Output" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="256,410,29,13" Id="AqSNXahCS1xLOWca2g7mF2">
+                <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="NOT" />
+                </p:NodeReference>
+                <Pin Id="NOrwCZC5hhVQY67QUgE0hT" Name="Input" Kind="StateInputPin" />
+                <Pin Id="CL2qr7ZT2AbNy0N6ARpeSl" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <ControlPoint Id="QIv0GS7Q6YgPSJv9uZBVrK" Bounds="258,267" />
+              <ControlPoint Id="VQBBY08AZM3QXNtsgkYEBv" Bounds="461,182" />
+            </Canvas>
+            <Patch Id="KqDc8ag8mwxM3druOJz11S" Name="Create" />
+            <Patch Id="UWQqps6Qu8lMa9QmLMT7Y9" Name="Update" ManuallySortedPins="true">
+              <Pin Id="NMNl51wwEneNE14Y00O308" Name="Input" Kind="InputPin" Bounds="365,236" />
+              <Pin Id="OzHiEjezBBWMWldDmvkooo" Comment="The colormap to apply." Name="Colormap" Kind="InputPin" Bounds="514,221" />
+              <Pin Id="Ngk0CAxMnCHO0Mg2d2eo41" Name="Apply" Kind="InputPin" Bounds="136,367" DefaultValue="true">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Boolean" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="Mgzghz17WruNKcN90g1cf9" Name="Output" Kind="OutputPin" Bounds="476,342" />
+            </Patch>
+            <ProcessDefinition Id="EhB6osMI9uzOxZvqys32z4">
+              <Fragment Id="MJE4uk1brhmOIxuzr2jwo5" Patch="KqDc8ag8mwxM3druOJz11S" Enabled="true" />
+              <Fragment Id="VVjDL9406o2P3outWXrzRL" Patch="UWQqps6Qu8lMa9QmLMT7Y9" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="RevpYiFnIgMOis1TljYuDr" Ids="Ro9bKUzpL4fPrPnS0bJJUO,Mgzghz17WruNKcN90g1cf9" IsHidden="true" />
+            <Link Id="MrLEnTET7NyMC5moLwhFbO" Ids="Ngk0CAxMnCHO0Mg2d2eo41,J7DrsdwATZSQKEZgNTaWJU" IsHidden="true" />
+            <Link Id="RUzcHKQgbeeMkNEkdeqNiy" Ids="IuLxY5DZY2TNaICR8Mhwhh,NgnmHp2Q9kdNEMX2Zty8FS" IsHidden="true" />
+            <Link Id="QbCCLhEeWUjLDO1AAZpohz" Ids="J7DrsdwATZSQKEZgNTaWJU,JE8vVGGwalHOKiOf8GbLmx" />
+            <Link Id="Q9laEZ4D2ZcNMbLzkurMPn" Ids="NMNl51wwEneNE14Y00O308,RSBtKCVSmNDNgIO7eDxlS8" IsHidden="true" />
+            <Link Id="C8u2qP88IjnNbDMdUaUEkc" Ids="CL2qr7ZT2AbNy0N6ARpeSl,G3BzVFfu4saN4IZ0ccu6mZ" />
+            <Link Id="MoGRxPmgOYBOgdN5kUafuR" Ids="QhFw0DJIERkP4Il6iJP20f,Ro9bKUzpL4fPrPnS0bJJUO" />
+            <Link Id="N6Cvks318CZLe5YqZWyucj" Ids="J7DrsdwATZSQKEZgNTaWJU,QIv0GS7Q6YgPSJv9uZBVrK,NOrwCZC5hhVQY67QUgE0hT" />
+            <Link Id="CmVytWHvjiJNebBx1JFLDM" Ids="RSBtKCVSmNDNgIO7eDxlS8,MYLQcU3aQYaLia2b24TxTQ" />
+            <Link Id="OHw9L0vXlTeOPrWruC968A" Ids="Odj1LvEEJTNPY3k7IxITl7,VOSeihLzr6RMmx9G3xppgk" />
+            <Link Id="MYySiMWIzN9P2hcWdedByJ" Ids="RSBtKCVSmNDNgIO7eDxlS8,O8MJ8w6n7zXPCpL6aynxyn" />
+            <Link Id="DBLhpLdDtOcQEitCCaQ5i6" Ids="BoDdbTCmaphOPbnn2KZ4tX,LFyomqzoIpROHQp2QyrICe" IsHidden="true" />
+            <Link Id="OVNG3h352I6LGPqUSyXnxI" Ids="NgnmHp2Q9kdNEMX2Zty8FS,FWaIzsIsnRnOqRE7b3QSNT" />
+            <Link Id="NktASK4rBPyMhPSwWVCeDO" Ids="LFyomqzoIpROHQp2QyrICe,ACysDYgtsh7Ljvex7pn69j" />
+            <Link Id="Ty4XN560dmAN5aKUlEr4gI" Ids="VQBBY08AZM3QXNtsgkYEBv,E1Okyf5makpLtohpFrVft6" />
+            <Link Id="EmcPHVBj80vLAK8RcdBqe0" Ids="OzHiEjezBBWMWldDmvkooo,VQBBY08AZM3QXNtsgkYEBv" IsHidden="true" />
+          </Patch>
+        </Node>
       </Canvas>
       <Canvas Id="MCFxDpvMlxtLNZGiJnFnFG" Name="Source" Position="196,154">
         <!--
