@@ -1,4 +1,7 @@
-﻿namespace VL.OpenCV
+﻿using OpenCvSharp;
+using System.Collections.Generic;
+
+namespace VL.OpenCV
 {
     public static class Utils
     {
@@ -65,6 +68,60 @@
                 default:
                     return -1;
             }
+        }
+
+        public static unsafe IEnumerable<float> GetPixelAsFloats(Mat source, uint column, uint row)
+        {
+            OpenCvSharp.MatType format = source.Type();
+            var depth = format.Depth;
+            
+            uint channelCount = (uint)source.Channels();
+
+            if (channelCount == 0)
+            {
+                return new float[0];
+            }
+
+            uint width = (uint)source.Width;
+            uint height = (uint)source.Height;
+            float[] output = new float[(int)channelCount];
+
+            row %= height;
+            column %= width;
+
+            switch (depth)
+            {
+                case OpenCvSharp.MatType.CV_8U:
+                    {
+                        byte* d = (byte*)source.Data.ToPointer();
+                        for (uint channel = 0; channel < channelCount; channel++)
+                        {
+                            output[(int)channel] = (float)d[(column + row * width) * channelCount + channel];
+                        }
+                        break;
+                    }
+
+                case OpenCvSharp.MatType.CV_32F:
+                    {
+                        float* d = (float*)source.Data.ToPointer();
+                        for (uint channel = 0; channel < channelCount; channel++)
+                        {
+                            output[(int)channel] = (float)d[(column + row * width) * channelCount + channel];
+                        }
+                        break;
+                    }
+
+                case OpenCvSharp.MatType.CV_64F:
+                    {
+                        double* d = (double*)source.Data.ToPointer();
+                        for (uint channel = 0; channel < channelCount; channel++)
+                        {
+                            output[(int)channel] = (float)d[(column + row * width) * channelCount + channel];
+                        }
+                        break;
+                    }
+            }
+            return output;
         }
     }
 }
