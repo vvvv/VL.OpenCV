@@ -120,6 +120,9 @@ namespace VL.OpenCV
                 case PixelFormat.R32F:
                     return OpenCvSharp.MatType.CV_32FC1;
                 case PixelFormat.B8G8R8A8:
+                case PixelFormat.B8G8R8X8:
+                case PixelFormat.R8G8B8A8:
+                case PixelFormat.R8G8B8X8:
                     return OpenCvSharp.MatType.CV_8UC4;
                 case PixelFormat.Unknown:
                     if (originalFormat.Equals("bgr", StringComparison.OrdinalIgnoreCase)) // HACK
