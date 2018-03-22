@@ -157,7 +157,7 @@ namespace VL.OpenCV
         /// <param name="translationVector">1x3 translation vector</param>
         /// <param name="specials">Set of values to be appended to the last column of the resulting matrix</param>
         /// <returns>4x4 Transformation matrix in the correct order for vvvv</returns>
-        public unsafe static Matrix ToTransformationMatrix(Mat rotationMatrix, Mat translationVector, float[] specials)
+        public static Matrix ToTransformationMatrix(Mat rotationMatrix, Mat translationVector, float[] specials)
         {
             Matrix result = new Matrix();
             if (rotationMatrix != null && translationVector != null)
@@ -197,7 +197,7 @@ namespace VL.OpenCV
         /// <param name="rotationMatrix">3x3 rotation matrix resulting from a call to Rodrigues</param>
         /// <param name="translationVector">1x3 translation vector</param>
         /// <returns>4x4 Transformation matrix in the correct order for vvvv</returns>
-        public unsafe static Matrix ToTransformationMatrix(Mat rotationMatrix, Mat translationVector)
+        public static Matrix ToTransformationMatrix(Mat rotationMatrix, Mat translationVector)
         {
             float[] specials = new float[4] { 0, 0, 0, 1 };
             return ToTransformationMatrix(rotationMatrix, translationVector, specials);
@@ -208,7 +208,7 @@ namespace VL.OpenCV
         /// </summary>
         /// <param name="rotationMatrix">3x3 rotation matrix resulting from a call to Rodrigues</param>
         /// <returns>4x4 Transformation matrix in the correct order for vvvv</returns>
-        public unsafe static Matrix ToTransformationMatrix(Mat rotationMatrix)
+        public static Matrix ToTransformationMatrix(Mat rotationMatrix)
         {
             Mat translationVector = Mat.Zeros(3, 1, OpenCvSharp.MatType.CV_64FC1);
             float[] specials = new float[4] { 0, 0, 1, 0 };
