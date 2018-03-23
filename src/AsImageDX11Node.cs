@@ -1,5 +1,5 @@
 ﻿using FeralTic.DX11.Resources;
-using OpenCvSharp;
+using VL.Lib.Basics.Imaging;
 using SlimDX.DXGI;
 using System;
 using System.ComponentModel.Composition;
@@ -10,10 +10,10 @@ using VVVV.PluginInterfaces.V2;
 
 namespace VL.OpenCV
 {
-    [PluginInfo(Name = "AsMat",
+    [PluginInfo(Name = "AsImage",
                 Category = "DX11.Texture2D",
                 Version = "",
-                Help = "Converts DX11.Texture2D to VL.OpenCV Mat",
+                Help = "Converts DX11.Texture2D to VL IImage",
                 Tags = "cv, source")]
     public unsafe class AsImageDX11Node : IPluginEvaluate, IDX11ResourceDataRetriever, IDisposable
     {
@@ -21,7 +21,7 @@ namespace VL.OpenCV
         Pin<DX11Resource<DX11Texture2D>> FInput;
 
         [Output("Output")]
-        ISpread<Mat> FOutput;
+        ISpread<IImage> FOutput;
 
         [Import()]
         protected IPluginHost FHost;
@@ -29,7 +29,7 @@ namespace VL.OpenCV
         [Import()]
         protected ILogger FLogger;
 
-        Spread<AsMatDX11Instance> FInstances = new Spread<AsMatDX11Instance>();
+        Spread<AsImageDX11Instance> FInstances = new Spread<AsImageDX11Instance>();
 
         public void Evaluate(int SpreadMax)
         {
