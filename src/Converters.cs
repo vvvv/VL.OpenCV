@@ -151,21 +151,21 @@ namespace VL.OpenCV
         }
 
         /// <summary>
-        /// Combines a 3x3 rotation matrix output by Rodrigues with a 1x3 translation vector into a 4x4 Transformation matrix
+        /// Combines a 3x3 matrix with a 1x3 translation vector into a 4x4 transformation matrix
         /// </summary>
-        /// <param name="rotationMatrix">3x3 rotation matrix resulting from a call to Rodrigues</param>
+        /// <param name="matrix">3x3 matrix</param>
         /// <param name="translationVector">1x3 translation vector</param>
         /// <param name="specials">Set of values to be appended to the last column of the resulting matrix</param>
-        /// <returns>4x4 Transformation matrix in the correct order for vvvv</returns>
-        public static Matrix ToTransformationMatrix(Mat rotationMatrix, Mat translationVector, float[] specials)
+        /// <returns>4x4 transformation matrix in the correct order for vvvv</returns>
+        private static Matrix ToTransformationMatrix(Mat matrix, Mat translationVector, float[] specials)
         {
             Matrix result = new Matrix();
-            if (rotationMatrix != null && translationVector != null)
+            if (matrix != null && translationVector != null)
             {
-                if ((rotationMatrix.Width == 3 && rotationMatrix.Height == 3)
+                if ((matrix.Width == 3 && matrix.Height == 3)
                     && (translationVector.Width == 1 && translationVector.Height == 3))
                 {
-                    Mat rm = rotationMatrix.Clone();
+                    Mat rm = matrix.Clone();
                     Mat tv = translationVector.Clone();
                     rm.ConvertTo(rm, OpenCvSharp.MatType.CV_32FC1);
                     tv.ConvertTo(tv, OpenCvSharp.MatType.CV_32FC1);
@@ -192,27 +192,29 @@ namespace VL.OpenCV
         }
 
         /// <summary>
-        /// Combines a 3x3 rotation matrix output by Rodrigues with a 1x3 translation vector into a 4x4 Transformation matrix
+        /// Combines a 1x3 rotation vector with a 1x3 translation vector into a 4x4 transformation matrix
         /// </summary>
-        /// <param name="rotationMatrix">3x3 rotation matrix resulting from a call to Rodrigues</param>
+        /// <param name="rotationVector">1x3 rotation vector</param>
         /// <param name="translationVector">1x3 translation vector</param>
-        /// <returns>4x4 Transformation matrix in the correct order for vvvv</returns>
-        public static Matrix ToTransformationMatrix(Mat rotationMatrix, Mat translationVector)
+        /// <returns>4x4 transformation matrix in the correct order for vvvv</returns>
+        public static Matrix ToTransformationMatrix(Mat rotationVector, Mat translationVector)
         {
+            Mat rotationMatrix = new Mat();
+            Cv2.Rodrigues(rotationVector, rotationMatrix);
             float[] specials = new float[4] { 0, 0, 0, 1 };
             return ToTransformationMatrix(rotationMatrix, translationVector, specials);
         }
 
         /// <summary>
-        /// Converts a 3x3 rotation matrix output by Rodrigues into a 4x4 Transformation matrix
+        /// Converts a 3x3 camera matrix into a 4x4 transformation matrix
         /// </summary>
-        /// <param name="rotationMatrix">3x3 rotation matrix resulting from a call to Rodrigues</param>
-        /// <returns>4x4 Transformation matrix in the correct order for vvvv</returns>
-        public static Matrix ToTransformationMatrix(Mat rotationMatrix)
+        /// <param name="cameraMatrix">3x3 camera matrix</param>
+        /// <returns>4x4 transformation matrix in the correct order for vvvv</returns>
+        public static Matrix ToTransformationMatrix(Mat cameraMatrix)
         {
             Mat translationVector = Mat.Zeros(3, 1, OpenCvSharp.MatType.CV_64FC1);
             float[] specials = new float[4] { 0, 0, 1, 0 };
-            return ToTransformationMatrix(rotationMatrix, translationVector, specials);
+            return ToTransformationMatrix(cameraMatrix, translationVector, specials);
         }
     }
 }
