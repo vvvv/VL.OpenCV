@@ -2389,12 +2389,12 @@
             <Patch Id="LaOVm7EgSdYQNVyiXGuuyF" Name="Create" />
             <Patch Id="Mdnwj4e68zqLMqCSMKaufG" Name="Update" ManuallySortedPins="true">
               <Pin Id="TvvvTKaD8X3P1YcMPSwpGi" Comment="Input Mat. The Mat can have any number of channels, which are processed independently, but the depth should be CV_8U, CV_16U, CV_16S, CV_32F or CV_64F." Name="Input" Kind="InputPin" Bounds="171,247" />
-              <Pin Id="FOfYzuzDcHKNZJi92Fn4E4" Comment="Gaussian kernel width." Name="K Width" Kind="InputPin" DefaultValue="1">
+              <Pin Id="FOfYzuzDcHKNZJi92Fn4E4" Comment="Gaussian kernel width." Name="K Width" Kind="InputPin" DefaultValue="11">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Integer32" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="KFGtnh4LWnxOa6KGrHhnZl" Comment="Gaussian kernel height." Name="K Height" Kind="InputPin" DefaultValue="1">
+              <Pin Id="KFGtnh4LWnxOa6KGrHhnZl" Comment="Gaussian kernel height." Name="K Height" Kind="InputPin" DefaultValue="11">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Integer32" />
                 </p:TypeAnnotation>
@@ -2542,7 +2542,7 @@
             <Patch Id="IAQWC4K1Db9Lzwm4A30CQU" Name="Create" />
             <Patch Id="GtrmuyOG2ObMd1piiv20Ag" Name="Update" ManuallySortedPins="true">
               <Pin Id="JwjrhgtoIgfMs3hmGBMq5Y" Comment="Input Mat (multiple-channel, 8-bit or 32-bit floating point)." Name="Input" Kind="InputPin" Bounds="171,247" />
-              <Pin Id="QO1WeSJ3s3oOWsDs49v55i" Comment="Use values between 0 and 255." Name="Threshold" Kind="InputPin" Bounds="463,272" DefaultValue="0.5">
+              <Pin Id="QO1WeSJ3s3oOWsDs49v55i" Comment="Use values between 0 and 1." Name="Threshold" Kind="InputPin" Bounds="463,272" DefaultValue="0.5">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
@@ -4370,7 +4370,11 @@
             <Patch Id="FB1HsU5714zM3K8sQN49uu" Name="Create" />
             <Patch Id="QxgPumR1UR0LJgjm8h6ZVZ" Name="Update" ManuallySortedPins="true">
               <Pin Id="Bux96bi8xjjMMNPP2FRITx" Comment="Input 1-, 3-, or 4-channel Mat. When Ksize is 3 or 5, the image depth should be CV_8U, CV_16U, or CV_32F, for larger aperture sizes, it can only be CV_8U." Name="Input" Kind="InputPin" Bounds="171,247" />
-              <Pin Id="QmQRnuF8GZ1OJS8t7fG3Wl" Comment="Aperture linear size. It must be odd and greater than 1, for example: 3, 5, 7 ..." Name="Ksize" Kind="InputPin" Bounds="537,304" />
+              <Pin Id="QmQRnuF8GZ1OJS8t7fG3Wl" Comment="Aperture linear size. It must be odd and greater than 1, for example: 3, 5, 7 ..." Name="Ksize" Kind="InputPin" Bounds="537,304" DefaultValue="25">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Integer32" />
+                </p:TypeAnnotation>
+              </Pin>
               <Pin Id="FiQt201VwBbK9qgj0amXZ5" Name="Apply" Kind="InputPin" Bounds="136,367" DefaultValue="true">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
@@ -10845,17 +10849,9 @@
                 <Pin Id="NJIrQl5npBpLDHaIJIvJu9" Name="Input" Kind="StateInputPin" />
                 <Pin Id="MiehOLSNwRPLgkAJObOv4i" Name="Input 2" Kind="InputPin" />
                 <Pin Id="MX0qmSREGdBNUQz34bhJLw" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="JVk06TYlTfINdYfl3ytYbh" Name="Input 3" Kind="InputPin" />
               </Node>
               <ControlPoint Id="LsAI4x6VQmANMjckh5Ifoj" Bounds="586,443" />
-              <Node Bounds="278,272,66,13" Id="LqAxaCGxlddNjeT9llYWyj">
-                <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="ProcessAppFlag" Name="TogEdge" />
-                </p:NodeReference>
-                <Pin Id="Ch0i0Un66dyLmD2ntpBmFE" Name="Value" Kind="InputPin" />
-                <Pin Id="SnuylmckgG3MY9wQWyeboO" Name="Up Edge" Kind="OutputPin" />
-                <Pin Id="DMJfCmf5KLJPSAZRKnN30p" Name="Down Edge" Kind="OutputPin" />
-              </Node>
             </Canvas>
             <Patch Id="J845vakXqdQNZfbc88VNup" Name="Create" />
             <Patch Id="MMQTXwLItkwPQ6BKGzrBAG" Name="Update" ManuallySortedPins="true">
@@ -10924,7 +10920,6 @@
             <Link Id="GxTk98HDQtQNKRyvRV5gUC" Ids="EXEvgamUf9EOFO2K9xalHu,Sox0ij6gYqCPKoBq5duWS1" />
             <Link Id="RiKq00LFtbGPW4ouS60WMc" Ids="LztXFh2XlrHNAeQWeNHTZM,VfpB328V1s1OVDv6JwFE0A" />
             <Link Id="Nvvq2Dmt72wNSe6M5YlbWs" Ids="DDL2wSLdhJROlAhkgNAhSQ,MiehOLSNwRPLgkAJObOv4i" />
-            <Link Id="UDoox5n02zeOggDbQGuBbd" Ids="MX0qmSREGdBNUQz34bhJLw,Ch0i0Un66dyLmD2ntpBmFE" />
             <Link Id="SEpT9yfmFtOPsdtFPbmmcQ" Ids="SA6VE3fsvmqQd2crDd7pxy,RE1vmo6dbIyLUvribT4B3r" />
             <Link Id="Gp0bKRoYWmgPvTicCJRTWA" Ids="RE1vmo6dbIyLUvribT4B3r,JThpWm2V4zROXywm7jNQca" />
             <Link Id="DH1aDG5yVk7OEKXxWr6KTW" Ids="OhqbkUdUDIYNMfKf2Bd2Oi,EbvtyCZ4pZLPEppFnKCak6" />
@@ -10933,7 +10928,8 @@
             <Link Id="IqRKSCWON9aL03wMhnUGmw" Ids="JJwyxjORQ9HMPbrj4LnFWg,Cysl0BTIseLLIPpL7HG39W" />
             <Link Id="AExKJnCNnXJMDr9fXv3ACi" Ids="LsAI4x6VQmANMjckh5Ifoj,VUlwbEAEUUFNTWuBQUy4rV" />
             <Link Id="Tnc4pmMpUxhQR8RfdXPfKr" Ids="QfCyOVsICgiMWEnRx3J0SX,LsAI4x6VQmANMjckh5Ifoj" IsHidden="true" />
-            <Link Id="UtWYZ9DFLSTLy2iOrFcWxy" Ids="SnuylmckgG3MY9wQWyeboO,BaSNVWKbCGCOGtKtIg0BDz" />
+            <Link Id="Hb35nUBnW29LmPiwUTn53u" Ids="GI6LkyKKdqRL9W1b0oqG4Z,JVk06TYlTfINdYfl3ytYbh" />
+            <Link Id="IrnO9xFOZkwPYedJct2ygH" Ids="MX0qmSREGdBNUQz34bhJLw,BaSNVWKbCGCOGtKtIg0BDz" />
           </Patch>
         </Node>
         <!--
@@ -11068,7 +11064,11 @@
                   <Choice Kind="TypeFlag" Name="ContourApproximationModes" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="JWmqWrU3auYO582muSmRb9" Comment="Contour retrieval mode." Name="Mode" Kind="InputPin" Bounds="728,241" />
+              <Pin Id="JWmqWrU3auYO582muSmRb9" Comment="Contour retrieval mode." Name="Mode" Kind="InputPin" Bounds="728,241" DefaultValue="&quot;List&quot;">
+                <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
+                  <Choice Kind="TypeFlag" Name="RetrievalModes" />
+                </p:TypeAnnotation>
+              </Pin>
               <Pin Id="HnNTWWktU9fOe9GA0vD2q2" Name="Enabled" Kind="InputPin" Bounds="676,258" DefaultValue="true">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
@@ -14287,7 +14287,11 @@
             <Patch Id="M2IgEDP5GehLO7ByBBmRpe" Name="Update" ManuallySortedPins="true">
               <Pin Id="IvT5eBj7BdGMsImqW8do3w" Name="Input" Kind="InputPin" />
               <Pin Id="Dl1RCq7zJFcPi2Cda3EW4e" Name="Name" Kind="InputPin" Bounds="110,253" />
-              <Pin Id="EsxypkURdWEOSaLClPVAx8" Name="Flags" Kind="InputPin" Bounds="182,262" />
+              <Pin Id="EsxypkURdWEOSaLClPVAx8" Name="Flags" Kind="InputPin" Bounds="182,262" DefaultValue="&quot;KeepRatio, AutoSize&quot;">
+                <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
+                  <Choice Kind="TypeFlag" Name="WindowMode" />
+                </p:TypeAnnotation>
+              </Pin>
               <Pin Id="BfYVvg6s6YJN0xB0Ck9SMR" Name="Enabled" Kind="InputPin" Bounds="870,575" DefaultValue="true">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
