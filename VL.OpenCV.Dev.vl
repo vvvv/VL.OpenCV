@@ -4211,6 +4211,86 @@
           </Patch>
         </Node>
       </Canvas>
+      <!--
+
+    ************************ FaceRecognizerTemplate ************************
+
+-->
+      <Node Name="FaceRecognizerTemplate" Bounds="38,253" Id="QdQmYQZujCZM0IEVbnKP5E" Summary="Provides an Eigenfaces face recognizer prediction node." Remarks="Prediction must be done on grayscale images.  The provided FaceRecognizer must be trained before using this node.">
+        <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
+          <Choice Kind="ContainerDefinition" Name="Process" />
+        </p:NodeReference>
+        <Patch Id="SJe0sQXoC11NuZ6JO1SgYE">
+          <Canvas Id="PLS1QkG1WdsOSxZtsKoxhl">
+            <Node Bounds="352,354,89,81" Id="CMGrgPyt8EBOzbsc2GWbhu">
+              <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
+                <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                <Choice Kind="ApplicationStatefulRegion" Name="If" />
+                <CategoryReference Kind="Category" Name="Primitive" />
+              </p:NodeReference>
+              <Pin Id="JB6uml1SR3NP2aQ3disIxm" Name="Condition" Kind="InputPin" />
+              <Patch Id="CBdwhrQqmpsLXKGY8wxIvS" ManuallySortedPins="true">
+                <Patch Id="IAFEl6TOLu4Of5VUN67q8N" Name="Create" ManuallySortedPins="true" />
+                <Patch Id="PaDxxs5FnMYN6e7skG9AI5" Name="Then" ManuallySortedPins="true" />
+                <Node Bounds="364,385,65,22" Id="CVwj1KppCWiNXatyQzWa5W">
+                  <p:NodeReference LastCategoryFullName="OpenCvSharp.Face.FaceRecognizer" LastSymbolSource="OpenCvSharp.dll" LastDependency="VL.OpenCV.vl">
+                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                    <CategoryReference Kind="AssemblyCategory" Name="FaceRecognizer" />
+                    <PinReference Kind="InputPin" Name="File Name" />
+                    <Choice Kind="OperationCallFlag" Name="Read" />
+                  </p:NodeReference>
+                  <Pin Id="PcFliuybZuyPG1AlnX8cOe" Name="Input" Kind="StateInputPin" />
+                  <Pin Id="Ltgi3698vtzMOcywtEnwHJ" Name="File Name" Kind="InputPin" />
+                  <Pin Id="RuREv8X293FMUUsqZ8usWo" Name="Output" Kind="StateOutputPin" />
+                </Node>
+              </Patch>
+              <ControlPoint Id="H3PHngXTU5NLkTuTNbx4q5" Bounds="367,429" Alignment="Bottom" />
+              <ControlPoint Id="EkVwr4g0ljSPmXuo8nkHx1" Bounds="367,360" Alignment="Top" />
+            </Node>
+            <ControlPoint Id="LaooRFXLgdQOiFOdqNONMJ" Bounds="425,293" />
+            <ControlPoint Id="Kvs2qgvBgBdNuIFbAfPL2F" Bounds="366,498" />
+            <Pad Id="AML1V5x6H69LfaaghmajE7" SlotId="RbUAkya2mlLPMi4enn3WTX" Bounds="367,308">
+              <p:ValueBoxSettings />
+            </Pad>
+            <ControlPoint Id="CM7UnZaABpWLT0fNDkLivM" Bounds="229,314" />
+            <Node Bounds="366,237,133,13" Id="TXYGgFIzJUKMkF9wdBz4Lu">
+              <p:NodeReference LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.Dev.vl">
+                <Choice Kind="ProcessAppFlag" Name="GenericFaceRecognizer" />
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              </p:NodeReference>
+              <Pin Id="J2ieWFFK3W3MEbrTSqZjxm" Name="Creator Call" Kind="InputPin" />
+              <Pin Id="GsafG4DqtbnNj2IiSkmJOP" Name="FaceRecognizer" Kind="OutputPin" />
+            </Node>
+            <ControlPoint Id="RuZBDb0eT5CNbozhXoKvfQ" Bounds="368,197" />
+          </Canvas>
+          <Patch Id="JRPFAptJz8EOhlUypzZOQX" Name="Create">
+            <Pin Id="OC0wLKNBGQHMNUVHkKmqPf" Name="Creator Call" Kind="InputPin" />
+          </Patch>
+          <Patch Id="NKhMbz51J9UPKJXrM1kGCN" Name="Update" ParticipatingElements="NzhAPk0BQbBO6Ll1mQbnUz" ManuallySortedPins="true">
+            <Pin Id="EG28ghRefwpPammxjp4ucJ" Name="File Name" Kind="InputPin" Bounds="361,310" />
+            <Pin Id="VBUu26ISEAJMN4pHqHAquZ" Name="Output" Kind="OutputPin" Bounds="367,469" />
+            <Pin Id="P94iInGCDkaN1GkaBGUP8X" Name="Read" Kind="InputPin" Bounds="229,314" />
+          </Patch>
+          <ProcessDefinition Id="HRRK47owmIkLkaYDsdSOCY">
+            <Fragment Id="BudmYd81XBwNGsfeY0TRi4" Patch="JRPFAptJz8EOhlUypzZOQX" Enabled="true" />
+            <Fragment Id="P6QJUT4M0ZwLnAwzfGnsDg" Patch="NKhMbz51J9UPKJXrM1kGCN" Enabled="true" />
+          </ProcessDefinition>
+          <Link Id="M72fLR4XX11Ov1VbmcLDfM" Ids="LaooRFXLgdQOiFOdqNONMJ,Ltgi3698vtzMOcywtEnwHJ" />
+          <Link Id="Fj3MvIEYYwBOwHLoXOqh0j" Ids="EG28ghRefwpPammxjp4ucJ,LaooRFXLgdQOiFOdqNONMJ" IsHidden="true" />
+          <Link Id="QPytxNrK0IIMgiI76cybOf" Ids="EkVwr4g0ljSPmXuo8nkHx1,H3PHngXTU5NLkTuTNbx4q5" IsFeedback="true" />
+          <Link Id="CrOVEbHgJGbMViQ1OYAkcf" Ids="RuREv8X293FMUUsqZ8usWo,H3PHngXTU5NLkTuTNbx4q5" />
+          <Link Id="KjZcPlQuQJpOHiNQ3QhKpS" Ids="Kvs2qgvBgBdNuIFbAfPL2F,VBUu26ISEAJMN4pHqHAquZ" IsHidden="true" />
+          <Slot Id="RbUAkya2mlLPMi4enn3WTX" Name="FaceRecognizer" />
+          <Link Id="UAsZ6j4xZ22OPDG1rEeCun" Ids="EkVwr4g0ljSPmXuo8nkHx1,PcFliuybZuyPG1AlnX8cOe" />
+          <Link Id="JErcpMiDKSBNEWGPGKcf3H" Ids="AML1V5x6H69LfaaghmajE7,EkVwr4g0ljSPmXuo8nkHx1" />
+          <Link Id="JWUeEofXeKlMPafhkfp4Or" Ids="CM7UnZaABpWLT0fNDkLivM,JB6uml1SR3NP2aQ3disIxm" />
+          <Link Id="DxFsXAcPjsROEF3sNU8bYA" Ids="P94iInGCDkaN1GkaBGUP8X,CM7UnZaABpWLT0fNDkLivM" IsHidden="true" />
+          <Link Id="U3ARXdbge7uPqzYmihhqpH" Ids="RuZBDb0eT5CNbozhXoKvfQ,J2ieWFFK3W3MEbrTSqZjxm" />
+          <Link Id="FFU7B2kElvzPvma1z8jwYE" Ids="OC0wLKNBGQHMNUVHkKmqPf,RuZBDb0eT5CNbozhXoKvfQ" IsHidden="true" />
+          <Link Id="NzhAPk0BQbBO6Ll1mQbnUz" Ids="GsafG4DqtbnNj2IiSkmJOP,AML1V5x6H69LfaaghmajE7" />
+          <Link Id="IXpmKeCjCawPo9BZqkiUQB" Ids="H3PHngXTU5NLkTuTNbx4q5,Kvs2qgvBgBdNuIFbAfPL2F" />
+        </Patch>
+      </Node>
     </Canvas>
   </Patch>
   <NugetDependency Id="PsMa87TQKDdLW5CG2dyX8Q" Location="VL.Core" Version="0.73.27-g0625d71dbb" />
