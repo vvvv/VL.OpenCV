@@ -13,7 +13,7 @@ namespace VL.OpenCV
         /// <returns>4x4 transformation matrix in the correct order for vvvv</returns>
         private static Matrix ToTransformationMatrix(Mat matrix, Mat translationVector, float[] specials)
         {
-            Matrix result = new Matrix();
+            Matrix result = Matrix.Identity;
             if (matrix != null && translationVector != null)
             {
                 if ((matrix.Width == 3 && matrix.Height == 3)
