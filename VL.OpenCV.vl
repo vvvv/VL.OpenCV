@@ -2275,20 +2275,18 @@
               <ControlPoint Id="VojJVdYGPKpMaJEIwX6UYl" Bounds="473,513" />
               <ControlPoint Id="Iy3ll21mfflM7pGmwNFIXh" Bounds="526,513" />
               <ControlPoint Id="VZvYwVXdBu4QWtGEQhQkol" Bounds="315,600" />
-              <ControlPoint Id="CQjKt69XMxeNUw1A0RhzQW" Bounds="366,317" />
+              <ControlPoint Id="CQjKt69XMxeNUw1A0RhzQW" Bounds="367,317" />
               <ControlPoint Id="JlkdKmmpEs1L7FrfmTMsVm" Bounds="450,317" />
-              <Node Bounds="203,474,65,22" Id="C0uGF1XBCdvNN2N4SSaK96">
-                <p:NodeReference LastCategoryFullName="OpenCV.Calibration.Intrinsics" LastSymbolSource="VL.OpenCV.vl">
+              <Node Bounds="233,489,68,13" Id="C0uGF1XBCdvNN2N4SSaK96">
+                <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="Split" />
-                  <CategoryReference Kind="ClassType" Name="Intrinsics" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationCallFlag" Name="Intrinsics (Split)" />
                 </p:NodeReference>
                 <Pin Id="LsVePxEoIKjOCg2ygrOZk1" Name="Input" Kind="InputPin" />
-                <Pin Id="NXCot0ZzLWIPA0uJUjaPXZ" Name="Output" Kind="StateOutputPin" />
                 <Pin Id="TzK1g4LacB3OcSmv1emBBW" Name="Camera Matrix" Kind="OutputPin" />
                 <Pin Id="LbJ63lLesj7MTVkqGBl9ZQ" Name="Distortion Coefficients" Kind="OutputPin" />
               </Node>
-              <ControlPoint Id="EOgO67FVsgSL1oTarVad6i" Bounds="298,317" />
+              <ControlPoint Id="EOgO67FVsgSL1oTarVad6i" Bounds="233,317" />
               <Node Bounds="233,516,122,13" Id="AgdhTczWSTqQMCE4OXrzy0">
                 <p:NodeReference LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.Dev.vl" LastDependency="VL.OpenCV.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -2664,6 +2662,138 @@
             <Link Id="BPS7cbGL7AzOs8cNRPDWvU" Ids="BLCUfRy3DJBPs5UczTV3tY,ECg4XSRRkj3NOLJFwrAU6k" />
             <Link Id="SlU1ROK2hDYLjDU2E6xlCo" Ids="PnI5vdp6iy9NJz5cNtB6oc,MDu4qya8SQnMKqVzzrkBbO" />
             <Link Id="U5M9dG1XGTALsSr2JmwUPC" Ids="C43ids7SG7IMRE1hmao25K,P9Mj5nE42dOPNTesgT6VsI" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ Intrinsics ************************
+
+-->
+        <Node Name="Intrinsics" Bounds="58,863" Id="Gg0BrZBuUJHOOdDVYH7DLL" Summary="Class representing the combination of a Camera Matrix and Distortion Coefficients.">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
+            <Choice Kind="ClassDefinition" Name="Class" />
+          </p:NodeReference>
+          <Patch Id="MA4Jp2BbdbTOCxpasX4Eql">
+            <Canvas Id="LwBkXLzcbEzPoKeiaIoYir">
+              <ControlPoint Id="SL2DaCrhsdjLxaX632ChMc" Bounds="186,443" />
+              <ControlPoint Id="JIOTnWyuW86MxiO1zz4739" Bounds="351,443" />
+              <Pad Id="OcPM0lZi9B0LtWq1uDvbsA" SlotId="T3vZBhc7ylCLcyXZuOD9fl" Bounds="187,514">
+                <p:ValueBoxSettings />
+              </Pad>
+              <Pad Id="VBeKSUsDqMLMeSxvhOZco7" SlotId="P7r9yxS0U4DO1trxgqXiKK" Bounds="353,514">
+                <p:ValueBoxSettings />
+              </Pad>
+              <Pad Id="H5nlm6ISeRFL9I0tMFQNIY" Bounds="51,474,66,22" ShowValueBox="true" isIOBox="true" Value="&quot;Create&quot;">
+                <p:ValueBoxSettings>
+                  <p:fontsize p:Type="Int32">9</p:fontsize>
+                  <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+                </p:ValueBoxSettings>
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="String" />
+                </p:TypeAnnotation>
+              </Pad>
+              <ControlPoint Id="G1Qzp9aHQGFMORQC3aV3Xy" Bounds="186,611" />
+              <ControlPoint Id="IEoIz8q8GRMNYI6OoPccCe" Bounds="351,611" />
+            </Canvas>
+            <Patch Id="GBujX84AoBvMdHgZVAMFvQ" Summary="Combines a CameraMatrix and a set of DistortionCoefficients into an Intrinsics instace." Name="Create">
+              <Pin Id="MByp2RHIijxMi8DpR4O96y" Name="Camera Matrix" Kind="InputPin" />
+              <Pin Id="H72YU5vsDwwQHQaN5f7SRJ" Name="Distortion Coefficients" Kind="InputPin" />
+            </Patch>
+            <ProcessDefinition Id="NKJvS35rIobNoOcykizjWU" IsHidden="true">
+              <Fragment Id="Ihr1AyaFnMSM7CvJCotjdb" Patch="GBujX84AoBvMdHgZVAMFvQ" Enabled="true" />
+              <Fragment Id="QF4kkFJr3ojMEO8GsMjOQe" Patch="NZWlgRnW6JXMLVdZHtnyGU" Enabled="true" />
+            </ProcessDefinition>
+            <Patch Id="NZWlgRnW6JXMLVdZHtnyGU" Summary="Given an Intrinsics instance, outputs  the two inner objects separately." Name="Split">
+              <Pin Id="FMRgHKbg52cMjwS9dxF06j" Name="Camera Matrix" Kind="OutputPin" />
+              <Pin Id="IqYjv4EntmdLtwb0roWS5g" Name="Distortion Coefficients" Kind="OutputPin" />
+            </Patch>
+            <Slot Id="T3vZBhc7ylCLcyXZuOD9fl" Name="Camera Matrix">
+              <p:TypeAnnotation LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.Dev.vl">
+                <Choice Kind="TypeFlag" Name="Mat" />
+              </p:TypeAnnotation>
+            </Slot>
+            <Slot Id="P7r9yxS0U4DO1trxgqXiKK" Name="Distortion Coefficients">
+              <p:TypeAnnotation LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.Dev.vl">
+                <Choice Kind="TypeFlag" Name="Mat" />
+              </p:TypeAnnotation>
+            </Slot>
+            <Link Id="UEdQI0oJNu7NOeyS0eXSjY" Ids="SL2DaCrhsdjLxaX632ChMc,OcPM0lZi9B0LtWq1uDvbsA" />
+            <Link Id="B3B7X7OjmlWNTrRrVBPOgL" Ids="JIOTnWyuW86MxiO1zz4739,VBeKSUsDqMLMeSxvhOZco7" />
+            <Link Id="VCLqnpu8O7rMt0mKOk3bth" Ids="MByp2RHIijxMi8DpR4O96y,SL2DaCrhsdjLxaX632ChMc" IsHidden="true" />
+            <Link Id="ABAkPXsK2ptLAejL695891" Ids="H72YU5vsDwwQHQaN5f7SRJ,JIOTnWyuW86MxiO1zz4739" IsHidden="true" />
+            <Link Id="MKZHmMtKxjJMbkOtlp0qCd" Ids="OcPM0lZi9B0LtWq1uDvbsA,G1Qzp9aHQGFMORQC3aV3Xy" />
+            <Link Id="Sy7l7BPYMwqNzR47G6IwDP" Ids="G1Qzp9aHQGFMORQC3aV3Xy,FMRgHKbg52cMjwS9dxF06j" IsHidden="true" />
+            <Link Id="Q7Uef1si9ayOmSXR3ocyAN" Ids="VBeKSUsDqMLMeSxvhOZco7,IEoIz8q8GRMNYI6OoPccCe" />
+            <Link Id="VRsb4uxsMbXQZje4QOLILc" Ids="IEoIz8q8GRMNYI6OoPccCe,IqYjv4EntmdLtwb0roWS5g" IsHidden="true" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ Intrinsics (Join) ************************
+
+-->
+        <Node Name="Intrinsics (Join)" Bounds="468,609,236,108" Id="OOKTFux0faPQWe0VqJenhD" Summary="Combines a CameraMatrix and a set of DistortionCoefficients into an Intrinsics instace.">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
+            <Choice Kind="OperationDefinition" Name="Operation" />
+          </p:NodeReference>
+          <Patch Id="AuYfAjjODWJQaM4gtbMxT7">
+            <Node Bounds="481,654,55,22" Id="OJcqx6CUNOyNMSG7pxAldQ">
+              <p:NodeReference LastCategoryFullName="OpenCV.Utils.Intrinsics" LastSymbolSource="VL.OpenCV.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <CategoryReference Kind="ClassType" Name="Intrinsics" />
+                <Choice Kind="OperationCallFlag" Name="Create" />
+              </p:NodeReference>
+              <Pin Id="JeFaSPDhYZVNgjJhNKJtKN" Name="Camera Matrix" Kind="InputPin" />
+              <Pin Id="RFA3xBknqlAOSLqtpo2mUV" Name="Distortion Coefficients" Kind="InputPin" />
+              <Pin Id="HuALGhDsECSL9PaGvDkOrC" Name="Output" Kind="StateOutputPin" />
+            </Node>
+            <Pin Id="IGE9WrNaFCYLAI7dz5NsXT" Name="Camera Matrix" Kind="InputPin" />
+            <ControlPoint Id="EDquxGMQi1sLWc20pb6rJi" Bounds="482,624" />
+            <Link Id="PJFx8HBwX4sO8mZfzlPt7D" Ids="IGE9WrNaFCYLAI7dz5NsXT,EDquxGMQi1sLWc20pb6rJi" IsHidden="true" />
+            <Link Id="PimJtp89aF2MHLsqKHHHuE" Ids="EDquxGMQi1sLWc20pb6rJi,JeFaSPDhYZVNgjJhNKJtKN" />
+            <Pin Id="Tq3PDfnAgk4Nt2Vgxiws7F" Name="Distortion Coefficients" Kind="InputPin" />
+            <ControlPoint Id="CeV2fRWBXMRLcSMqVlQ6Od" Bounds="579,624" />
+            <Link Id="MHqnvE66OvZOHvF2JBoLHV" Ids="Tq3PDfnAgk4Nt2Vgxiws7F,CeV2fRWBXMRLcSMqVlQ6Od" IsHidden="true" />
+            <Link Id="EuPuOHs5Uq0MQRDjKd0ofy" Ids="CeV2fRWBXMRLcSMqVlQ6Od,RFA3xBknqlAOSLqtpo2mUV" />
+            <Pin Id="B1wadA7ksDQPirAikR3zD9" Name="Output" Kind="OutputPin" />
+            <ControlPoint Id="QBEMubV6UeYLpJZiH1gHkL" Bounds="482,697" />
+            <Link Id="RbpBOo61fHhOO41iW3uoOj" Ids="QBEMubV6UeYLpJZiH1gHkL,B1wadA7ksDQPirAikR3zD9" IsHidden="true" />
+            <Link Id="S31DSkWbFlwPZh7zOf0eIk" Ids="HuALGhDsECSL9PaGvDkOrC,QBEMubV6UeYLpJZiH1gHkL" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ Intrinsics (Split) ************************
+
+-->
+        <Node Name="Intrinsics (Split)" Bounds="762,608,257,117" Id="Msj3sI3wIPTQFXOjlG2OoR" Summary="Given an Intrinsics instance, outputs  the CameraMatrix and the DistortionCoefficients separately.">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
+            <Choice Kind="OperationDefinition" Name="Operation" />
+          </p:NodeReference>
+          <Patch Id="PGyV8tVMOh7QZG1uHhIdYH">
+            <Node Bounds="774,654,46,22" Id="IbXaHWRtTNwPfWrpaLMo4W">
+              <p:NodeReference LastCategoryFullName="OpenCV.Utils.Intrinsics" LastSymbolSource="VL.OpenCV.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <CategoryReference Kind="ClassType" Name="Intrinsics" />
+                <Choice Kind="OperationCallFlag" Name="Split" />
+              </p:NodeReference>
+              <Pin Id="Sp2crrwfCw3OLeEagAJyGH" Name="Input" Kind="StateInputPin" />
+              <Pin Id="UAbO63m0ObtNIWlyN9pPEn" Name="Output" Kind="StateOutputPin" />
+              <Pin Id="Kc2YctCOBqAPcNktnpuvTh" Name="Camera Matrix" Kind="OutputPin" />
+              <Pin Id="PBMOoiW2Z7tPF2SaVY5sqm" Name="Distortion Coefficients" Kind="OutputPin" />
+            </Node>
+            <Pin Id="SDskpS62uXQLx8sbLhqFsD" Name="Input" Kind="InputPin" />
+            <ControlPoint Id="SJYFOrWDNuLNUnmgOuKy2b" Bounds="775,624" />
+            <Link Id="R8njHgXHop9MMh1jKeOJ62" Ids="SDskpS62uXQLx8sbLhqFsD,SJYFOrWDNuLNUnmgOuKy2b" IsHidden="true" />
+            <Link Id="KOroF35H78iM6MIaJixwXf" Ids="SJYFOrWDNuLNUnmgOuKy2b,Sp2crrwfCw3OLeEagAJyGH" />
+            <Pin Id="AnrZDyFriDKMht6FZ0Zlf4" Name="Camera Matrix" Kind="OutputPin" />
+            <ControlPoint Id="SuO7xuoCPfdOrFTp0jkNi9" Bounds="795,706" />
+            <Link Id="T9LQKrGc1HfPOy6YazHzh9" Ids="SuO7xuoCPfdOrFTp0jkNi9,AnrZDyFriDKMht6FZ0Zlf4" IsHidden="true" />
+            <Link Id="CN0pZB7f5IWOA1KN7f3bgA" Ids="Kc2YctCOBqAPcNktnpuvTh,SuO7xuoCPfdOrFTp0jkNi9" />
+            <Pin Id="LrSNG84vD4oMSIgSztD0oM" Name="Distortion Coefficients" Kind="OutputPin" />
+            <ControlPoint Id="U5EZBGopYPKNkCQQWqb1XT" Bounds="893,706" />
+            <Link Id="Lu0QHX4JKMkMtLr5mKL5ta" Ids="U5EZBGopYPKNkCQQWqb1XT,LrSNG84vD4oMSIgSztD0oM" IsHidden="true" />
+            <Link Id="Cmrn2qOLhziLAKdVHjt9TC" Ids="PBMOoiW2Z7tPF2SaVY5sqm,U5EZBGopYPKNkCQQWqb1XT" />
           </Patch>
         </Node>
       </Canvas>
@@ -14183,13 +14313,11 @@
                 <Pin Id="DlohoF3tUUzPQVOZoJuVhR" Name="Output" Kind="OutputPin" />
               </Node>
               <Node Bounds="364,204,46,22" Id="K8o3MlxHscUPfqHa75N17o">
-                <p:NodeReference LastCategoryFullName="OpenCV.Calibration.Intrinsics" LastSymbolSource="VL.OpenCV.vl">
+                <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="Split" />
-                  <CategoryReference Kind="ClassType" Name="Intrinsics" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationCallFlag" Name="Intrinsics (Split)" />
                 </p:NodeReference>
                 <Pin Id="Q9P8mUIevpOO2VCPAZlPUo" Name="Input" Kind="InputPin" />
-                <Pin Id="CTC3wvjMHf0OM0xIYHY3xe" Name="Output" Kind="StateOutputPin" />
                 <Pin Id="CzqrI1DcC6BMVNxZGmkE4j" Name="Camera Matrix" Kind="OutputPin" />
                 <Pin Id="PTKTPwWhV7YLIcpOG1kQ5c" Name="Distortion Coefficients" Kind="OutputPin" />
               </Node>
@@ -16958,13 +17086,11 @@
                 <Pin Id="DMvmEqGGaH3OdFdzAa41Rn" Name="Result" Kind="OutputPin" />
               </Node>
               <Node Bounds="328,514,46,22" Id="CgwiZy10iZAOW9wTgB2xXe">
-                <p:NodeReference LastCategoryFullName="OpenCV.Calibration.Intrinsics" LastSymbolSource="VL.OpenCV.vl">
+                <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="Split" />
-                  <CategoryReference Kind="ClassType" Name="Intrinsics" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationCallFlag" Name="Intrinsics (Split)" />
                 </p:NodeReference>
                 <Pin Id="SEqBbs274RANGSmHTK7SVp" Name="Input" Kind="StateInputPin" />
-                <Pin Id="GYF0z3RHgIhLO0rzN0p9SU" Name="Output" Kind="StateOutputPin" />
                 <Pin Id="PhQm1ZFcLvxP73bXtK55Sy" Name="Camera Matrix" Kind="OutputPin" />
                 <Pin Id="GngrYhNh5yiMmYVL1cTtgx" Name="Distortion Coefficients" Kind="OutputPin" />
               </Node>
@@ -17111,15 +17237,13 @@
                 <Pin Id="E2yFizrUhlYLTFQT7hTfqw" Name="True" Kind="InputPin" />
                 <Pin Id="Q3Qdu5EcOcHO1zRlfEUMSn" Name="Output" Kind="OutputPin" />
               </Node>
-              <ControlPoint Id="CNXArfLIYXBMxqnrSr8lQ5" Bounds="280,551" />
+              <ControlPoint Id="CNXArfLIYXBMxqnrSr8lQ5" Bounds="279,551" />
               <Node Bounds="531,266,65,22" Id="NXpIBFho9cgPoUVnkjf8mr">
-                <p:NodeReference LastCategoryFullName="OpenCV.Calibration.Intrinsics" LastSymbolSource="VL.OpenCV.vl">
+                <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="Split" />
-                  <CategoryReference Kind="ClassType" Name="Intrinsics" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationCallFlag" Name="Intrinsics (Split)" />
                 </p:NodeReference>
                 <Pin Id="PBLKe7cmGOVL91OVScShqY" Name="Input" Kind="InputPin" />
-                <Pin Id="K0Dh80988STOYCPrsinkTt" Name="Output" Kind="StateOutputPin" />
                 <Pin Id="NPOKzFDfd70OiNfVFXhGsV" Name="Camera Matrix" Kind="OutputPin" />
                 <Pin Id="Klj2qNPBm1KMTgJFOYYdoz" Name="Distortion Coefficients" Kind="OutputPin" />
               </Node>
@@ -17811,10 +17935,9 @@
               <ControlPoint Id="SDlEZGxmkqnLBZx1r6Jaqy" Bounds="525,1373" />
               <ControlPoint Id="Mj0L0wu8TaqNbTpI4Er7Ow" Bounds="815,1172" />
               <Node Bounds="815,1071" Id="MfG8tQZh2K4OjNuYwHAV1s">
-                <p:NodeReference LastCategoryFullName="OpenCV.Calibration.Intrinsics" LastSymbolSource="VL.OpenCV.vl">
+                <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="ClassType" Name="Intrinsics" />
-                  <Choice Kind="OperationCallFlag" Name="Create" />
+                  <Choice Kind="OperationCallFlag" Name="Intrinsics (Join)" />
                 </p:NodeReference>
                 <Pin Id="JG74AnDb6UULQxTpypsFSw" Name="Camera Matrix" Kind="InputPin" />
                 <Pin Id="Oh9941nb4tDMTmZBRBRRLc" Name="Distortion Coefficients" Kind="InputPin" />
@@ -17824,7 +17947,7 @@
             <Patch Id="DBHOzzNXCHUOkU9DTEnLwp" Name="Create" />
             <Patch Id="G0MHAWf1StZLmNRzvZkbei" Name="Update" ManuallySortedPins="true">
               <Pin Id="FeDLMg5SR74Or0fDARFtMb" Name="Intrinsics" Kind="OutputPin">
-                <p:TypeAnnotation LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl">
+                <p:TypeAnnotation LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                   <Choice Kind="TypeFlag" Name="Intrinsics" />
                 </p:TypeAnnotation>
               </Pin>
@@ -18264,12 +18387,12 @@
                 <Pin Id="ObaoTh5X1hFNSWS4QYXOHD" Name="Input 2" Kind="InputPin" />
                 <Pin Id="SL5QDfOyyiYPRBHTP9EpEM" Name="Result" Kind="OutputPin" />
               </Node>
-              <Pad Id="U5PHMwIoDWoOOkdEeqHY0O" Comment="" Bounds="758,299,76,19" ShowValueBox="true" isIOBox="true" Value="&quot;CameraMatrix&quot;">
+              <Pad Id="U5PHMwIoDWoOOkdEeqHY0O" Comment="" Bounds="757,299,76,19" ShowValueBox="true" isIOBox="true" Value="&quot;CameraMatrix&quot;">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="String" />
                 </p:TypeAnnotation>
               </Pad>
-              <Pad Id="Rr3GpisLPXULFGy2opP540" Comment="" Bounds="802,331,119,20" ShowValueBox="true" isIOBox="true" Value="&quot;DistortionCoefficients&quot;">
+              <Pad Id="Rr3GpisLPXULFGy2opP540" Comment="" Bounds="801,331,119,20" ShowValueBox="true" isIOBox="true" Value="&quot;DistortionCoefficients&quot;">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="String" />
                 </p:TypeAnnotation>
@@ -18283,18 +18406,16 @@
                 <Pin Id="DNto7piofeFOyeEvFtd0El" Name="Input 2" Kind="InputPin" />
                 <Pin Id="Nodi9tbnFtwMZuDstra6Sr" Name="Result" Kind="OutputPin" />
               </Node>
-              <Node Bounds="922,254,65,22" Id="TySywZSm0PMNZWuMvNA5MA">
-                <p:NodeReference LastCategoryFullName="OpenCV.Calibration.Intrinsics" LastSymbolSource="VL.OpenCV.vl">
+              <Node Bounds="934,254,68,13" Id="TySywZSm0PMNZWuMvNA5MA">
+                <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="Split" />
-                  <CategoryReference Kind="ClassType" Name="Intrinsics" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationCallFlag" Name="Intrinsics (Split)" />
                 </p:NodeReference>
                 <Pin Id="BvKPjZpsCkyLP20NFFU0sq" Name="Input" Kind="InputPin" />
-                <Pin Id="PPfpfmXsNGRQHKVIPZOK3g" Name="Output" Kind="StateOutputPin" />
                 <Pin Id="BP58goxMG31PKt3TvIZxpS" Name="Camera Matrix" Kind="OutputPin" />
                 <Pin Id="HexO6jVAQv9Lw39L49DlDC" Name="Distortion Coefficients" Kind="OutputPin" />
               </Node>
-              <ControlPoint Id="CadwXpL8Xe8Pv2y9dt165t" Bounds="923,225" />
+              <ControlPoint Id="CadwXpL8Xe8Pv2y9dt165t" Bounds="935,225" />
             </Canvas>
             <Patch Id="QnxQDrwhGwxOcsTdRMkG9R" Name="Create" />
             <Patch Id="DJvmiE84lPVPCp7gNUPEwZ" Name="Update" ManuallySortedPins="true">
@@ -18457,10 +18578,9 @@
                 <p:ValueBoxSettings />
               </Pad>
               <Node Bounds="606,727" Id="PZMl30xj9THPBFJhNHrM8N">
-                <p:NodeReference LastCategoryFullName="OpenCV.Calibration.Intrinsics" LastSymbolSource="VL.OpenCV.vl">
+                <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="ClassType" Name="Intrinsics" NeedsToBeDirectParent="true" />
-                  <Choice Kind="OperationCallFlag" Name="Create" />
+                  <Choice Kind="OperationCallFlag" Name="Intrinsics (Join)" />
                 </p:NodeReference>
                 <Pin Id="Etuuj6lMdOBPNWT4ae1GYX" Name="Camera Matrix" Kind="InputPin" />
                 <Pin Id="SMjQaXsjPPbLJYq0T2UQE6" Name="Distortion Coefficients" Kind="InputPin" />
@@ -18473,7 +18593,7 @@
               <Pin Id="JvtkuCAEE2ENWXsgfGfOCM" Comment="Path to destination file." Name="File Path" Kind="InputPin" Bounds="465,274" />
               <Pin Id="MpZ99USdmJHOCRAkPGkdsk" Name="Read" Kind="InputPin" Bounds="258,396" />
               <Pin Id="Ni8u3fvlE4HLemAQWlrfpq" Name="Intrinsics" Kind="OutputPin" Bounds="647,787">
-                <p:TypeAnnotation LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl">
+                <p:TypeAnnotation LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                   <Choice Kind="TypeFlag" Name="Intrinsics" />
                 </p:TypeAnnotation>
               </Pin>
@@ -19018,13 +19138,11 @@
               </Node>
               <ControlPoint Id="FdVgPZrVnELPrc7n9nrJ2F" Bounds="469,864" />
               <Node Bounds="322,575,65,22" Id="U9hzxQ5t5nOQBZYXI0wws5">
-                <p:NodeReference LastCategoryFullName="OpenCV.Calibration.Intrinsics" LastSymbolSource="VL.OpenCV.vl">
+                <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="Split" />
-                  <CategoryReference Kind="ClassType" Name="Intrinsics" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationCallFlag" Name="Intrinsics (Split)" />
                 </p:NodeReference>
                 <Pin Id="R4bB1tGhoySNvKLjapNx7w" Name="Input" Kind="InputPin" />
-                <Pin Id="H9nheDehYvMQFWg2XYxK1R" Name="Output" Kind="StateOutputPin" />
                 <Pin Id="GvZ8f2Yzt8mLeIxkfQzQZw" Name="Camera Matrix" Kind="OutputPin" />
                 <Pin Id="NhMQwahnSJ0ORBy5pGzEgQ" Name="Distortion Coefficients" Kind="OutputPin" />
               </Node>
@@ -19216,7 +19334,7 @@
                 </p:TypeAnnotation>
               </Pin>
               <Pin Id="NiFGGTDx3KyP5ROUJSEPVb" Name="Instrinsics" Kind="InputPin" Bounds="404,747">
-                <p:TypeAnnotation LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl">
+                <p:TypeAnnotation LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                   <Choice Kind="TypeFlag" Name="Intrinsics" />
                 </p:TypeAnnotation>
               </Pin>
@@ -19298,69 +19416,6 @@
             <Link Id="RnAYT9rW5Z4MO4HqeUIejF" Ids="PxAW3kGVbowO6KAQxtqnZ5,R4bB1tGhoySNvKLjapNx7w" />
             <Link Id="G7CpP5QaxZgMDYcSsqWYGL" Ids="NhMQwahnSJ0ORBy5pGzEgQ,Sid8c9dmyGSO9U01A5zLyN" />
             <Link Id="Nrm17ayD23dN46K26Ag5MF" Ids="NL4Y7CdYJbPLkjajHqfRcX,FdVgPZrVnELPrc7n9nrJ2F" />
-          </Patch>
-        </Node>
-        <!--
-
-    ************************ Intrinsics ************************
-
--->
-        <Node Name="Intrinsics" Bounds="183,676" Id="R6N8gOs1GP4QcHuuW0YmKN" Summary="Class representing the combination of a Camera Matrix and Distortion Coefficients.">
-          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
-            <Choice Kind="ClassDefinition" Name="Class" />
-          </p:NodeReference>
-          <Patch Id="H6VvOhYmmrUNheqsaCkHVk">
-            <Canvas Id="CiotEUmqdsZQXs41J9kIip">
-              <ControlPoint Id="CDa51u607eXOKZ4fadkw4p" Bounds="186,443" />
-              <ControlPoint Id="LiyAldIQfl4NJud56XtoPq" Bounds="351,443" />
-              <Pad Id="QyB4FyLeOaIMOLhdo952tS" SlotId="DqWaFjnqzfBPGyn8obqRiU" Bounds="187,514">
-                <p:ValueBoxSettings />
-              </Pad>
-              <Pad Id="S7SneZMLnzOLopH8Za5yji" SlotId="ORAkwLcwcczNCqg6tISfXv" Bounds="353,514">
-                <p:ValueBoxSettings />
-              </Pad>
-              <Pad Id="EsPCAmHnpyRLMWBjInqPlN" Bounds="51,474,66,22" ShowValueBox="true" isIOBox="true" Value="&quot;Create&quot;">
-                <p:ValueBoxSettings>
-                  <p:fontsize p:Type="Int32">9</p:fontsize>
-                  <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
-                </p:ValueBoxSettings>
-                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
-                  <Choice Kind="TypeFlag" Name="String" />
-                </p:TypeAnnotation>
-              </Pad>
-              <ControlPoint Id="B9PyLwXwLOMNGmMSGWJbcE" Bounds="186,611" />
-              <ControlPoint Id="AKl1ZZSWUYePcYFmBJ7A2R" Bounds="351,611" />
-            </Canvas>
-            <Patch Id="MX5JxHtBLOKLkpPFoyXl7i" Name="Create">
-              <Pin Id="LmWNzYAQqUIM5EAEYgHkPc" Name="Camera Matrix" Kind="InputPin" />
-              <Pin Id="CljW0KiDAjBPoYyRMllJvA" Name="Distortion Coefficients" Kind="InputPin" />
-            </Patch>
-            <ProcessDefinition Id="Anhzm7Z8dGRNVsNaosgjHL" IsHidden="true">
-              <Fragment Id="FoLe4VD0ZMJPUvFi7snVOa" Patch="MX5JxHtBLOKLkpPFoyXl7i" Enabled="true" />
-              <Fragment Id="EB5C88fjS4SP69qTOk4KxA" Patch="HfwWkAo0LZwL3FNmoGyiwP" Enabled="true" />
-            </ProcessDefinition>
-            <Patch Id="HfwWkAo0LZwL3FNmoGyiwP" Summary="Given an Intrinsics instance, outputs  the two inner objects separately." Name="Split">
-              <Pin Id="MTY2uBM7kFyLQgphReZ5UP" Name="Camera Matrix" Kind="OutputPin" />
-              <Pin Id="BpesImAWEjzPoE4fPrYXed" Name="Distortion Coefficients" Kind="OutputPin" />
-            </Patch>
-            <Slot Id="DqWaFjnqzfBPGyn8obqRiU" Name="Camera Matrix">
-              <p:TypeAnnotation LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.Dev.vl">
-                <Choice Kind="TypeFlag" Name="Mat" />
-              </p:TypeAnnotation>
-            </Slot>
-            <Slot Id="ORAkwLcwcczNCqg6tISfXv" Name="Distortion Coefficients">
-              <p:TypeAnnotation LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.Dev.vl">
-                <Choice Kind="TypeFlag" Name="Mat" />
-              </p:TypeAnnotation>
-            </Slot>
-            <Link Id="BcAGB7UJls1P8ylCB145c7" Ids="CDa51u607eXOKZ4fadkw4p,QyB4FyLeOaIMOLhdo952tS" />
-            <Link Id="JoNMkn2csMSMjmkAv2fkqT" Ids="LiyAldIQfl4NJud56XtoPq,S7SneZMLnzOLopH8Za5yji" />
-            <Link Id="BDbOumiPhzCNNjnEPTUKfw" Ids="LmWNzYAQqUIM5EAEYgHkPc,CDa51u607eXOKZ4fadkw4p" IsHidden="true" />
-            <Link Id="U08AC3hfCjGNIeuxZ8e9pS" Ids="CljW0KiDAjBPoYyRMllJvA,LiyAldIQfl4NJud56XtoPq" IsHidden="true" />
-            <Link Id="VHmOCAiZhxQPsm8f3QUwt7" Ids="QyB4FyLeOaIMOLhdo952tS,B9PyLwXwLOMNGmMSGWJbcE" />
-            <Link Id="JWVUO2zALVZLnh5ZPU1EXm" Ids="B9PyLwXwLOMNGmMSGWJbcE,MTY2uBM7kFyLQgphReZ5UP" IsHidden="true" />
-            <Link Id="CrH14uPeTZwLT7Q2EsnirC" Ids="S7SneZMLnzOLopH8Za5yji,AKl1ZZSWUYePcYFmBJ7A2R" />
-            <Link Id="KBspQHxrwAyQVCNMVWbXb1" Ids="AKl1ZZSWUYePcYFmBJ7A2R,BpesImAWEjzPoE4fPrYXed" IsHidden="true" />
           </Patch>
         </Node>
       </Canvas>
