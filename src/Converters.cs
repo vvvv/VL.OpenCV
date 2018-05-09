@@ -201,10 +201,16 @@ namespace VL.OpenCV
         /// <returns>4x4 transformation matrix in the correct order for vvvv</returns>
         public static Matrix VectorsToMatrix(Mat rotationVector, Mat translationVector)
         {
-            Mat rotationMatrix = new Mat();
-            Cv2.Rodrigues(rotationVector, rotationMatrix);
-            float[] specials = new float[4] { 0, 0, 0, 1 };
-            return ToTransformationMatrix(rotationMatrix, translationVector, specials);
+            Matrix result = Matrix.Identity;
+            if ((rotationVector != null && translationVector != null)
+                && (DefaultMat.Damon != rotationVector && DefaultMat.Damon != rotationVector))
+            {
+                Mat rotationMatrix = new Mat();
+                Cv2.Rodrigues(rotationVector, rotationMatrix);
+                float[] specials = new float[4] { 0, 0, 0, 1 };
+                result = ToTransformationMatrix(rotationMatrix, translationVector, specials);
+            }
+            return result;
         }
 
         /// <summary>
