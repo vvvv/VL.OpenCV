@@ -1,17 +1,7 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50debug36.1.dtd" >
-   <PATCH nodename="C:\Users\joreg\Documents\repos\vl-others\VL.OpenCV\vvvv\girlpower\DX11Demo.v4p" systemname="DX11Demo" filename="C:\Users\joreg\Documents\repos\vl-others\VL.OpenCV\vvvv\girlpower\DX11Demo.v4p" scrollx="0" scrolly="0">
-   <BOUNDS type="Window" left="1545" top="1665" width="12630" height="10155">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha36.1.dtd" >
+   <PATCH nodename="C:\VL.libs\VL.OpenCV\vvvv\girlpower\DX11Demo.v4p" systemname="DX11Demo" filename="C:\Users\joreg\Documents\repos\vl-others\VL.OpenCV\vvvv\girlpower\DX11Demo.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="-112" top="1440" width="12624" height="10152">
    </BOUNDS>
-   <NODE systemname="AsImage (DX11.Texture2D)" filename="..\..\..\..\vvvv\public-vl\VL.VVVV.DirectX11\vvvv\nodes\plugins\VL.VVVV.DirectX11.dll" nodename="AsImage (DX11.Texture2D)" componentmode="Hidden" id="0">
-   <BOUNDS type="Node" left="5985" top="3840" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="5985" top="3840" width="3000" height="3000">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="1">
    <BOUNDS type="Node" left="4635" top="2940" width="100" height="100">
    </BOUNDS>
@@ -26,8 +16,6 @@
    <PIN pinname="Actual BackBuffer SizeXY" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="1" srcpinname="Texture Out" dstnodeid="0" dstpinname="Input">
-   </LINK>
    <PACK Name="addonpack" Version="36.0.0">
    </PACK>
    <NODE systemname="Wanderer (Animation 2d)" filename="..\..\..\..\vvvv\public-vl\VL.CoreLib.VVVV\vvvv\nodes\vl\VVVV.Animation.Wanderer.vl" nodename="Wanderer (Animation 2d)" componentmode="Hidden" id="8">
@@ -171,7 +159,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="5775" top="8790" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="14070" top="6720" width="6240" height="5085">
+   <BOUNDS type="Window" left="13864" top="6976" width="6240" height="5080">
    </BOUNDS>
    <PIN pinname="Texture In" visible="1">
    </PIN>
@@ -185,11 +173,9 @@
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="Texture" visible="1">
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <LINK srcnodeid="3" srcpinname="Texture Out" dstnodeid="20" dstpinname="Texture">
-   </LINK>
    <NODE nodename="Group (DX11.Layer)" id="21">
    <BOUNDS type="Node" left="5940" top="8355" width="0" height="0">
    </BOUNDS>
@@ -305,9 +291,9 @@
    <NODE systemname="DX11Demo (2d)" filename="vl\VVVV.2d.DX11Demo.vl" nodename="DX11Demo (2d)" componentmode="Hidden" id="28">
    <BOUNDS type="Node" left="5985" top="4335" width="100" height="100">
    </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="0" srcpinname="Output" dstnodeid="28" dstpinname="Input">
-   </LINK>
    <LINK srcnodeid="28" srcpinname="ContoursXY" dstnodeid="17" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="28" srcpinname="Contours Bin Size" dstnodeid="16" dstpinname="BinSize">
@@ -444,4 +430,24 @@
    <PIN pinname="String Type" slicecount="1" values="Url">
    </PIN>
    </NODE>
+   <NODE systemname="AsImage (DX11.Texture2D)" filename="%VVVV%\lib\packs\VL.VVVV.DirectX11.0.81.15-g2732f67c7b\vvvv\nodes\plugins\VL.VVVV.DirectX11.dll" nodename="AsImage (DX11.Texture2D)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="5985" top="3840" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5985" top="3840" width="3000" height="3000">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Texture Out" dstnodeid="0" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Output" dstnodeid="28" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="3" srcpinname="Texture Out" dstnodeid="20" dstpinname="Texture">
+   </LINK>
+   <PACK Name="dx11" Version="1.2">
+   </PACK>
+   <PACK Name="VVVV.Packs" Version="0.2.0">
+   </PACK>
    </PATCH>
