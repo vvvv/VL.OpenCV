@@ -2320,108 +2320,6 @@
         </Node>
         <!--
 
-    ************************ Join (Extrinsics) ************************
-
--->
-        <Node Name="Join (Extrinsics)" Bounds="60,784" Id="ML3yz2rjYmgPcndGFrLiAP" Summary="Combines a rotation vector and a of translation vector into a 4x4 Extrinsics Transformation matrix.">
-          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
-            <Choice Kind="ContainerDefinition" Name="Process" />
-          </p:NodeReference>
-          <Patch Id="DHufljZoOqxMbED5wAsGUJ">
-            <Canvas Id="Dpg7m75PSBINQRvpibxM3I">
-              <ControlPoint Id="Kcknb228XxVNBs8JHEj5BK" Bounds="413,584,20,20" />
-              <ControlPoint Id="BKIPrNZ585mLC9JsAN14Mc" Bounds="412,480" />
-              <ControlPoint Id="Bjg4bOc9ZQnM1xHfwUgIGs" Bounds="547,480" />
-              <Node Bounds="411,522,139,13" Id="A0TWwHDv58LM0ZSMz2RJ9J">
-                <p:NodeReference LastCategoryFullName="OpenCV.Extrinsics" LastSymbolSource="VL.OpenCV.Dev.vl" LastDependency="VL.OpenCV.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="VectorsToMatrix" />
-                </p:NodeReference>
-                <Pin Id="B2Us5bnU5ftOOyt1ASQW2B" Name="Rotation Vector" Kind="InputPin" />
-                <Pin Id="EDZ9mYAGPJSLGb3FoVo76t" Name="Translation Vector" Kind="InputPin" />
-                <Pin Id="LH0g3dy8YzsN7jmWoZAEt2" Name="Result" Kind="OutputPin" />
-              </Node>
-            </Canvas>
-            <Patch Id="SkenC5gNnI8PJdshmSBwhI" Name="Create" />
-            <Patch Id="SDn9QlFuE3qN8hTdJixJ9r" Name="Update">
-              <Pin Id="QFgStxNictQL2oN9fYWW4k" Comment="One View transformation matrix for each provided image." Name="Transform" Kind="OutputPin" Bounds="66,2006" />
-              <Pin Id="KNeKMNr1i7RNqYdJOahzxn" Name="Rotation Vector" Kind="InputPin" Bounds="341,327" />
-              <Pin Id="K7kMk0w8tgtNI7EGS3tbns" Name="Translation Vector" Kind="InputPin" Bounds="530,343" />
-            </Patch>
-            <ProcessDefinition Id="OuvwVGPc4P9NJpbTZPpuLC">
-              <Fragment Id="Hcjev2z3wEZOn7okzWDYPO" Patch="SkenC5gNnI8PJdshmSBwhI" Enabled="true" />
-              <Fragment Id="KVwcYTwQRcdPIkRpAYzt2S" Patch="SDn9QlFuE3qN8hTdJixJ9r" Enabled="true" />
-            </ProcessDefinition>
-            <Link Id="IyWdTlYyS3cOcOU48TQjUc" Ids="Kcknb228XxVNBs8JHEj5BK,QFgStxNictQL2oN9fYWW4k" IsHidden="true" />
-            <Link Id="Sys3rVOC79qLJfrLb91bhe" Ids="KNeKMNr1i7RNqYdJOahzxn,BKIPrNZ585mLC9JsAN14Mc" IsHidden="true" />
-            <Link Id="AVBPeP7moZAOutl1oLeUPR" Ids="K7kMk0w8tgtNI7EGS3tbns,Bjg4bOc9ZQnM1xHfwUgIGs" IsHidden="true" />
-            <Link Id="IS7q3KOJlK1PoDS8PbXLGL" Ids="BKIPrNZ585mLC9JsAN14Mc,B2Us5bnU5ftOOyt1ASQW2B" />
-            <Link Id="OdAKhvzKbjaLVayTwHUEIL" Ids="Bjg4bOc9ZQnM1xHfwUgIGs,EDZ9mYAGPJSLGb3FoVo76t" />
-            <Link Id="J82bi2WkqIvNSSzXWxJyWG" Ids="LH0g3dy8YzsN7jmWoZAEt2,Kcknb228XxVNBs8JHEj5BK" />
-          </Patch>
-        </Node>
-        <!--
-
-    ************************ Split (Extrinsics) ************************
-
--->
-        <Node Name="Split (Extrinsics)" Bounds="59,825" Id="C3HUz57AjivL91VlXhiGYU" Summary="Splits an Extrinsics Transformation Matrix into its Rotation and Translation vectors as Mats.">
-          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
-            <Choice Kind="ContainerDefinition" Name="Process" />
-          </p:NodeReference>
-          <Patch Id="LGg0oMhUun1QSZ4Iu709D6">
-            <Canvas Id="B5dFNQKJqnUN1QMHSEbtzh">
-              <ControlPoint Id="PeAc2Jo0CpLQdcL19ZUvLc" Bounds="391,428" />
-              <ControlPoint Id="VEVwDsRJeX6OlDQ2ujCPSr" Bounds="393,582" />
-              <ControlPoint Id="Rmm6Kh7gxB6N35YCVkV9qp" Bounds="482,582" />
-              <Node Bounds="379,466,128,86" Id="P3g3wgp2K88NcBRe9OblB9">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="ProcessStatefulRegion" Name="Cache" />
-                  <FullNameCategoryReference ID="Primitive" />
-                </p:NodeReference>
-                <Pin Id="LkP7FgX6Mj2M3KsEBN7KIu" Name="Force" Kind="InputPin" />
-                <Pin Id="Bm6Fe8R00vsOiIZqXR7BEI" Name="Has Changed" Kind="OutputPin" />
-                <Patch Id="OidOBAAZ0ACMGkUDxitRJe" ManuallySortedPins="true">
-                  <Patch Id="I43lnaf1b8EMXlRG7aKhtR" Name="Create" ManuallySortedPins="true" />
-                  <Patch Id="Qtt3wT6v9lXLB1uSy4QnGa" Name="Then" ManuallySortedPins="true" />
-                  <Node Bounds="391,501,94,20" Id="E3tNJKEe34HOM19Tbg2irJ">
-                    <p:NodeReference LastCategoryFullName="OpenCV.Transform" LastSymbolSource="VL.OpenCV.Dev.vl" LastDependency="VL.OpenCV.vl">
-                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationCallFlag" Name="MatrixToVectors" />
-                    </p:NodeReference>
-                    <Pin Id="KdPXtkvsJqnMJJoQhH6lRN" Name="Transform" Kind="InputPin" />
-                    <Pin Id="IRdujBFo68gOiXOQmRwrlr" Name="Rotation Vector" Kind="OutputPin" />
-                    <Pin Id="RgPFQxkq811MP9Qy7Scgmo" Name="Translation Vector" Kind="OutputPin" />
-                  </Node>
-                </Patch>
-                <ControlPoint Id="U5pvi8ZWnBLLVaaxMcRNmP" Bounds="394,472" Alignment="Top" />
-                <ControlPoint Id="ArnkLFOiLNHP2AWXxh0pDx" Bounds="395,546" Alignment="Bottom" />
-                <ControlPoint Id="FOKdkZIdQhXLdUcB6R2cpd" Bounds="484,546" Alignment="Bottom" />
-              </Node>
-            </Canvas>
-            <Patch Id="RDbxhxbiIxHM30TEe5HXMN" Name="Create" />
-            <Patch Id="DHpKK1O6BzBOUNh0C28XGy" Name="Update">
-              <Pin Id="RAKp3dfPWP8PTMTGX8wVlU" Name="Transform" Kind="InputPin" />
-              <Pin Id="SKvFUEjFaw0LiuQW5mLTcO" Name="Rotation Vector" Kind="OutputPin" />
-              <Pin Id="C1DeH1VgDgON6iSsm9Om94" Name="Translation Vector" Kind="OutputPin" />
-            </Patch>
-            <ProcessDefinition Id="HhTlwQUCUiJQG3fi6vb6oI">
-              <Fragment Id="F5yWAwrd7rvPV93qeOBDHw" Patch="RDbxhxbiIxHM30TEe5HXMN" Enabled="true" />
-              <Fragment Id="MZkgAkRyvOrNVB74iHEVl5" Patch="DHpKK1O6BzBOUNh0C28XGy" Enabled="true" />
-            </ProcessDefinition>
-            <Link Id="A4knD1w50bXLeos8RRWlEn" Ids="RAKp3dfPWP8PTMTGX8wVlU,PeAc2Jo0CpLQdcL19ZUvLc" IsHidden="true" />
-            <Link Id="MI3bWWSq5R8Od0cjNVKuHz" Ids="VEVwDsRJeX6OlDQ2ujCPSr,SKvFUEjFaw0LiuQW5mLTcO" IsHidden="true" />
-            <Link Id="ClRe3BMlrFsMIJp33Y1IAr" Ids="Rmm6Kh7gxB6N35YCVkV9qp,C1DeH1VgDgON6iSsm9Om94" IsHidden="true" />
-            <Link Id="BkCw1Og13OsNf8vRjdGw2f" Ids="PeAc2Jo0CpLQdcL19ZUvLc,U5pvi8ZWnBLLVaaxMcRNmP" />
-            <Link Id="V8VTwSe1shaOxjWhoJu5ye" Ids="U5pvi8ZWnBLLVaaxMcRNmP,KdPXtkvsJqnMJJoQhH6lRN" />
-            <Link Id="FgKoL6KuDncNTflMt97XdV" Ids="IRdujBFo68gOiXOQmRwrlr,ArnkLFOiLNHP2AWXxh0pDx" />
-            <Link Id="QJmRcXw1EypLDf4Ds0fefv" Ids="ArnkLFOiLNHP2AWXxh0pDx,VEVwDsRJeX6OlDQ2ujCPSr" />
-            <Link Id="JhsFvt4822gNNiYOWI8opy" Ids="RgPFQxkq811MP9Qy7Scgmo,FOKdkZIdQhXLdUcB6R2cpd" />
-            <Link Id="VnvrFB34Y8ROKRROnPq32p" Ids="FOKdkZIdQhXLdUcB6R2cpd,Rmm6Kh7gxB6N35YCVkV9qp" />
-          </Patch>
-        </Node>
-        <!--
-
     ************************ MinMaxLoc ************************
 
 -->
@@ -2726,7 +2624,7 @@
             <Link Id="Cmrn2qOLhziLAKdVHjt9TC" Ids="PBMOoiW2Z7tPF2SaVY5sqm,U5EZBGopYPKNkCQQWqb1XT" />
           </Patch>
         </Node>
-        <Canvas Id="DPjbdbmaKuGLorvmYS12my" Name="Internal" Position="55,879">
+        <Canvas Id="DPjbdbmaKuGLorvmYS12my" Name="Internal" Position="59,797">
           <!--
 
     ************************ Intrinsics ************************
@@ -2791,6 +2689,72 @@
             </Patch>
           </Node>
         </Canvas>
+        <!--
+
+    ************************ Extrinsics (Split) ************************
+
+-->
+        <Node Name="Extrinsics (Split)" Bounds="764,772,209,113" Id="Tw2oPfmgy6yLz4va1ZL1A4" Summary="Splits an Extrinsics Transformation Matrix into its Rotation and Translation vectors as Mats.">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+            <Choice Kind="OperationDefinition" Name="Operation" />
+          </p:NodeReference>
+          <Patch Id="NGewh9m9tWlQYKh3CtaRHg" IsGeneric="true">
+            <ControlPoint Id="V13GV6GWkxjLyFV4h3uUmb" Bounds="777,787" />
+            <ControlPoint Id="VsJRuYD2hNWLkwcW6rV4q3" Bounds="777,865" />
+            <ControlPoint Id="KLLFApxHcXHMUQcPF3617K" Bounds="866,865" />
+            <Node Bounds="776,821,94,13" Id="GJlWk0wkt6oLeYVcslZTll">
+              <p:NodeReference LastCategoryFullName="OpenCV.Transform" LastSymbolSource="VL.OpenCV.Dev.vl" LastDependency="VL.OpenCV.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="MatrixToVectors" />
+              </p:NodeReference>
+              <Pin Id="CZ9YE61MjY9P2G8Vvj5AFU" Name="Transform" Kind="InputPin" />
+              <Pin Id="EUmAJgnVi4uQSasMJZwjIK" Name="Rotation Vector" Kind="OutputPin" />
+              <Pin Id="CqeAlXAszOYODLvOgNTiCM" Name="Translation Vector" Kind="OutputPin" />
+            </Node>
+            <Pin Id="Lu8kIEL3UvXPyhSPwFnykU" Name="Transform" Kind="InputPin" />
+            <Pin Id="QrvKM6flWWaONh8We6WxtG" Name="Rotation Vector" Kind="OutputPin" />
+            <Pin Id="UJuZCz1dzKFPHAT99J0T0a" Name="Translation Vector" Kind="OutputPin" />
+            <Link Id="P7CFEpZ98R3QWdgLuihYlj" Ids="Lu8kIEL3UvXPyhSPwFnykU,V13GV6GWkxjLyFV4h3uUmb" IsHidden="true" />
+            <Link Id="Kvf1o2fZAzFPJm8yRfw95L" Ids="VsJRuYD2hNWLkwcW6rV4q3,QrvKM6flWWaONh8We6WxtG" IsHidden="true" />
+            <Link Id="TkdTcgtFFtnPWgYPhThYWc" Ids="KLLFApxHcXHMUQcPF3617K,UJuZCz1dzKFPHAT99J0T0a" IsHidden="true" />
+            <Link Id="Phahd7JpHa3Lm5xGUr3jKO" Ids="V13GV6GWkxjLyFV4h3uUmb,CZ9YE61MjY9P2G8Vvj5AFU" />
+            <Link Id="FYy7QJECCj1NT8UACxic8Z" Ids="EUmAJgnVi4uQSasMJZwjIK,VsJRuYD2hNWLkwcW6rV4q3" />
+            <Link Id="MMWRxvo7F0SMUR3CL7TBHn" Ids="CqeAlXAszOYODLvOgNTiCM,KLLFApxHcXHMUQcPF3617K" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ Extrinsics (Join) ************************
+
+-->
+        <Node Name="Extrinsics (Join)" Bounds="469,768,254,117" Id="HjApmarGNskN3XiuYUinMw" Summary="Combines a rotation vector and a of translation vector into a 4x4 Extrinsics Transformation matrix.">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+            <Choice Kind="OperationDefinition" Name="Operation" />
+          </p:NodeReference>
+          <Patch Id="FhsKRM2yqpcPJ2J4cBxpFY" IsGeneric="true">
+            <ControlPoint Id="JsqKwekgrAZNq4egtCpWch" Bounds="483,866,20,20" />
+            <ControlPoint Id="Ls7TodhXoKEPPrXeyJG3V3" Bounds="483,784" />
+            <ControlPoint Id="CxuZKYcgsswMio3raXxfvC" Bounds="617,784" />
+            <Node Bounds="482,816,139,13" Id="CzpOFpNDJy2NsbG6An5DVn">
+              <p:NodeReference LastCategoryFullName="OpenCV.Extrinsics" LastSymbolSource="VL.OpenCV.Dev.vl" LastDependency="VL.OpenCV.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="VectorsToMatrix" />
+              </p:NodeReference>
+              <Pin Id="Vwhv4o6EQhLNSWByg1SZNN" Name="Rotation Vector" Kind="InputPin" />
+              <Pin Id="SiV9vRBU5ssMqLscxTrQ8t" Name="Translation Vector" Kind="InputPin" />
+              <Pin Id="FlYniOs1XbFPjcj8hsfluI" Name="Result" Kind="OutputPin" />
+            </Node>
+            <Pin Id="LDdRL4hmnz4ObEgKc8T5a1" Name="Transform" Kind="OutputPin" Bounds="66,2006" />
+            <Pin Id="QvQDkJ8kv30NXGw7fdM689" Name="Rotation Vector" Kind="InputPin" Bounds="341,327" />
+            <Pin Id="TfKXPsaBAo4Mee3qgYq8fW" Name="Translation Vector" Kind="InputPin" Bounds="530,343" />
+            <Link Id="GEVNS2dXX4LQZzO4aVzWno" Ids="JsqKwekgrAZNq4egtCpWch,LDdRL4hmnz4ObEgKc8T5a1" IsHidden="true" />
+            <Link Id="V3bijklWlT8OgcMsu4Yzmf" Ids="QvQDkJ8kv30NXGw7fdM689,Ls7TodhXoKEPPrXeyJG3V3" IsHidden="true" />
+            <Link Id="DIiYvCzmyITNDyOiJxfo8A" Ids="TfKXPsaBAo4Mee3qgYq8fW,CxuZKYcgsswMio3raXxfvC" IsHidden="true" />
+            <Link Id="B2xFbEKuagqPmzaiSJxpYg" Ids="Ls7TodhXoKEPPrXeyJG3V3,Vwhv4o6EQhLNSWByg1SZNN" />
+            <Link Id="LgIHALaBilZPe2IEK2kBp5" Ids="CxuZKYcgsswMio3raXxfvC,SiV9vRBU5ssMqLscxTrQ8t" />
+            <Link Id="NXDBkyDrAVfNYN2ruNFxt0" Ids="FlYniOs1XbFPjcj8hsfluI,JsqKwekgrAZNq4egtCpWch" />
+          </Patch>
+        </Node>
       </Canvas>
       <Canvas Id="QRRvtFujAWEQEef6aTLHGP" Name="Filter" Position="196,226">
         <!--
@@ -14185,7 +14149,7 @@
               </Node>
               <ControlPoint Id="C7guNqe9WQZNjcw75e1Sqr" Bounds="380,781" />
               <Node Bounds="311,625,148,121" Id="SiHslujVWYaOvjags7PV0r">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="ApplicationStatefulRegion" Name="If" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
@@ -14194,7 +14158,7 @@
                   <Patch Id="LMgZVS1dxz8QJjyF2ICqVs" Name="Create" ManuallySortedPins="true" />
                   <Patch Id="PmRsFypOW49LIxJXVcolAY" Name="Then" ManuallySortedPins="true" />
                   <Node Bounds="367,645,80,81" Id="Kql6nYGo3OqOIXRNQp6dcM">
-                    <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+                    <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                       <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
                       <FullNameCategoryReference ID="Primitive" />
                     </p:NodeReference>
@@ -14206,7 +14170,7 @@
                       <Node Bounds="379,672,45,20" Id="S4D40VwwCy8LsOp6LpFy1p">
                         <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                           <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                          <Choice Kind="ProcessAppFlag" Name="Join (Extrinsics)" />
+                          <Choice Kind="OperationCallFlag" Name="Extrinsics (Join)" />
                         </p:NodeReference>
                         <Pin Id="Uy23lLEfNF7P382Ns3KpLB" Name="Rotation Vector" Kind="InputPin" />
                         <Pin Id="Hn7FiOwt6KVNf2ESult57s" Name="Translation Vector" Kind="InputPin" />
@@ -17765,7 +17729,7 @@
                   <Patch Id="FhKDncoDRgePp0sEJz45sN" Name="Create" ManuallySortedPins="true" />
                   <Patch Id="VywI09mEH34PyknEB1r3Vv" Name="Then" ManuallySortedPins="true" />
                   <Node Bounds="514,1062,102,70" Id="DIvcLz1jEnmOJxRcUJ36Hd">
-                    <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl" LastDependency="VL.OpenCV.vl">
+                    <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                       <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                       <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
                       <CategoryReference Kind="Category" Name="Primitive" />
@@ -17778,7 +17742,7 @@
                       <Node Bounds="526,1090,67,22" Id="SbUlbAk7kEWNIjyXhPQY8j">
                         <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                           <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                          <Choice Kind="ProcessAppFlag" Name="Join (Extrinsics)" />
+                          <Choice Kind="OperationCallFlag" Name="Extrinsics (Join)" />
                         </p:NodeReference>
                         <Pin Id="Fv2U41tjqWyM8zgzjXu1Qz" Name="Rotation Vector" Kind="InputPin" />
                         <Pin Id="Tych1UWFquDNF61qCqs6Q2" Name="Translation Vector" Kind="InputPin" />
@@ -19038,7 +19002,7 @@
               <Node Bounds="468,814,83,22" Id="Ob5cWRbOnpdM0nYDy1viwd">
                 <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="ProcessAppFlag" Name="Join (Extrinsics)" />
+                  <Choice Kind="OperationCallFlag" Name="Extrinsics (Join)" />
                 </p:NodeReference>
                 <Pin Id="O6m9IOCfkwqMe7RhSfdGup" Name="Rotation Vector" Kind="InputPin" />
                 <Pin Id="TzcaF2FU7uLQCtmtsMOJYn" Name="Translation Vector" Kind="InputPin" />
