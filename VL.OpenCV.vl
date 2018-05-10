@@ -15466,6 +15466,116 @@
             <Link Id="T09XNLYfPp9LAir8cj9VnF" Ids="Rt25U3qMU2HLBzZRTFutXB,OSUG4qhge5qNAqWVr4Ic9m" />
           </Patch>
         </Node>
+        <!--
+
+    ************************ Update (FaceRecognizer) ************************
+
+-->
+        <Node Name="Update (FaceRecognizer)" Bounds="-287,647" Id="VOPVZctWxM3PlWC5E461R5" Summary="Updates a FaceRecognizer with given data and associated labels." Remarks="Currently only supported by the LBPH FaceRecognizer.">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
+            <Choice Kind="ContainerDefinition" Name="Process" />
+          </p:NodeReference>
+          <Patch Id="OI8MXWSvjU5MvcCkqOgFv0">
+            <Canvas Id="TFg5kGawEV7NOezqPxNjkF">
+              <ControlPoint Id="UbJWmBCWaxvM5ZxWXTnFwz" Bounds="305,545" />
+              <ControlPoint Id="Oz4BcYxhH0IMrNrMTeFtGh" Bounds="250,315" />
+              <ControlPoint Id="AmJs1ly1xWdOMAJw7ihBHe" Bounds="348,311" />
+              <ControlPoint Id="HsE1Z20pkb4LVkMjHeLfwT" Bounds="405,312" />
+              <ControlPoint Id="HHbxfZUlzJUL7Rx4blribT" Bounds="504,312" />
+              <Node Bounds="330,368,95,95" Id="Mltqb1mbsckNmWTFcgqvj0">
+                <p:NodeReference LastCategoryFullName="Reactive" LastSymbolSource="VL.Reactive.vl">
+                  <Choice Kind="ProcessAppFlag" Name="AsyncTask" />
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                </p:NodeReference>
+                <Pin Id="NDzGCVJTOl8O20X7vM165B" Name="Trigger" Kind="InputPin" />
+                <Pin Id="G0lVpvLqwukMJDrMr0n6ON" Name="Abort" Kind="InputPin" />
+                <Pin Id="FRKUoxx9vjRPbmUPQpiHCX" Name="Result" Kind="OutputPin" />
+                <Pin Id="SHUWlB5dZMxQM1ihrZpMC1" Name="In Progress" Kind="OutputPin" />
+                <Patch Id="IvN4HhT8Au7Nb1lUojtGQf" ManuallySortedPins="true">
+                  <Patch Id="M7gCllcceBNOkijAefLuj9" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="ULIAcEVyQgGQO5uxVZHJz6" Name="Update" ManuallySortedPins="true">
+                    <Pin Id="L66HXo0zsC2O2oc1pr5lP8" Name="Input 1" Kind="InputPin" />
+                    <Pin Id="SMnBULJwxR1PMnv1BynVba" Name="Output" Kind="OutputPin" />
+                  </Patch>
+                  <ControlPoint Id="HZStJ73ZJdRL02UJxcWUyQ" Bounds="334,374" />
+                  <ControlPoint Id="LWtyK3hYwGqNtY0ZzolUkD" Bounds="334,454" />
+                  <Node Bounds="348,399,65,22" Id="TUtdUFAqgFEPY9LFJhDbzd">
+                    <p:NodeReference LastCategoryFullName="OpenCvSharp.Face.FaceRecognizer" LastSymbolSource="OpenCvSharp.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="Update" />
+                      <CategoryReference Kind="AssemblyCategory" Name="FaceRecognizer" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="OtYfiIr7T6XON6bZpEPQlO" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="KFT12dQTtcEMJzbeuao7cu" Name="Src" Kind="InputPin" />
+                    <Pin Id="T4l1hT7IY6NOev34ec4lCE" Name="Labels" Kind="InputPin" />
+                    <Pin Id="AV40tFANG90LncwfMQnAHK" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                </Patch>
+              </Node>
+              <Node Bounds="481,514,62,13" Id="Exv7wF6HrV4M6SWWalCZWC">
+                <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="ProcessAppFlag" Name="FlipFlop" />
+                </p:NodeReference>
+                <Pin Id="CTKJKLkp0DmQExHSKkJUvx" Name="Set" Kind="ApplyPin" />
+                <Pin Id="ElLCGeX3yhENJgPcNFYVYi" Name="Reset" Kind="ApplyPin" />
+                <Pin Id="JiRwavHvf6mMwMLyB4feZe" Name="State" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="420,482,66,13" Id="UBpAl3kOxurQWAbdHvhg0J">
+                <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="ProcessAppFlag" Name="TogEdge" />
+                </p:NodeReference>
+                <Pin Id="RQGg1DdPvBYLzzM4NjrNhq" Name="Value" Kind="InputPin" />
+                <Pin Id="G8cRzSNxseNMAkKgFTTUhw" Name="Up Edge" Kind="OutputPin" />
+                <Pin Id="NzmOmnEv3hKLBvB0iPRWLF" Name="Down Edge" Kind="OutputPin" />
+              </Node>
+              <ControlPoint Id="AQdFdMCVoYeP6nkZJgbKxT" Bounds="482,545" />
+              <Node Bounds="304,482,58,13" Id="U9jmURkx5LfL1Cc31xPkFc">
+                <p:NodeReference LastCategoryFullName="Reactive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="ProcessAppFlag" Name="HoldLatest" />
+                </p:NodeReference>
+                <Pin Id="UVrb7KzLF7UP8QbPZZiXWf" Name="Initial Result" Kind="InputPin" />
+                <Pin Id="Phed9XndX74O8vjarWiFy7" Name="Async Notifications" Kind="InputPin" />
+                <Pin Id="JRcqc7anVgyQJfkuWr2ZOc" Name="Reset" Kind="InputPin" />
+                <Pin Id="DmCHvjxm6bTMX7aXyeLWhl" Name="Value" Kind="OutputPin" />
+                <Pin Id="QeKBAQySDh1L0nBD5rz0Ku" Name="On Data" Kind="OutputPin" />
+              </Node>
+            </Canvas>
+            <Patch Id="V7PDnKkjPo7Nx7HmkfnfD8" Name="Create" />
+            <Patch Id="F3p0ZjrcLm3NHocNdshruB" Name="Update" ManuallySortedPins="true">
+              <Pin Id="N53KIKpK5WRO8hhdPNWoNS" Name="Input" Kind="InputPin" Bounds="387,318" />
+              <Pin Id="JHAfLsJ8tErM9TrJiYkubW" Comment="Spread of images to use for updating the model." Name="Training Images" Kind="InputPin" Bounds="346,293" />
+              <Pin Id="Pi3P5pHxI4UMK1NPAJMo3r" Comment="Spread of integer labels, each corresponding to the same indexed image in the updating data." Name="Training Labels" Kind="InputPin" Bounds="448,303" />
+              <Pin Id="Pz1crpasalILktm5yMhOL4" Name="Update" Kind="InputPin" Bounds="250,315" />
+              <Pin Id="JjCuOjpHZvFMGDBBVUtFMU" Name="Output" Kind="OutputPin" Bounds="390,464" />
+              <Pin Id="SEHqNhnvQYlN8ZnyRFgpLB" Name="Updated" Kind="OutputPin" Bounds="333,721" />
+            </Patch>
+            <ProcessDefinition Id="U9Ib0aOfd0QP8cdM6k45rm">
+              <Fragment Id="DzlX3OV4DE0OO45usrKqRp" Patch="V7PDnKkjPo7Nx7HmkfnfD8" Enabled="true" />
+              <Fragment Id="VVShNlmeLraMp430cc6NAY" Patch="F3p0ZjrcLm3NHocNdshruB" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="Oypq7cvDmOtNEEr6H05M7q" Ids="UbJWmBCWaxvM5ZxWXTnFwz,JjCuOjpHZvFMGDBBVUtFMU" IsHidden="true" />
+            <Link Id="TXF91SdxGeiOcfo4PpR9Bx" Ids="Pz1crpasalILktm5yMhOL4,Oz4BcYxhH0IMrNrMTeFtGh" IsHidden="true" />
+            <Link Id="MF0OWwLWJwINfoxLBwkTFJ" Ids="AmJs1ly1xWdOMAJw7ihBHe,OtYfiIr7T6XON6bZpEPQlO" />
+            <Link Id="KBuqdRhVvxoO9rmS5RouU6" Ids="N53KIKpK5WRO8hhdPNWoNS,AmJs1ly1xWdOMAJw7ihBHe" IsHidden="true" />
+            <Link Id="Ece4jazeO7FLQmYzRX2l3m" Ids="JHAfLsJ8tErM9TrJiYkubW,HsE1Z20pkb4LVkMjHeLfwT" IsHidden="true" />
+            <Link Id="FHaxQxhfVnOMCzlTzwT2k7" Ids="Pi3P5pHxI4UMK1NPAJMo3r,HHbxfZUlzJUL7Rx4blribT" IsHidden="true" />
+            <Link Id="Iun2xWDY77dL4F8hrdDoMe" Ids="HsE1Z20pkb4LVkMjHeLfwT,KFT12dQTtcEMJzbeuao7cu" />
+            <Link Id="AhnQ4xDqklBMO5tTHdaNeM" Ids="HHbxfZUlzJUL7Rx4blribT,T4l1hT7IY6NOev34ec4lCE" />
+            <Link Id="I0do5IOpFR3PA44BGAweEX" Ids="L66HXo0zsC2O2oc1pr5lP8,HZStJ73ZJdRL02UJxcWUyQ" IsHidden="true" />
+            <Link Id="VV8oBtgns2iMSS5rzxHkFO" Ids="LWtyK3hYwGqNtY0ZzolUkD,SMnBULJwxR1PMnv1BynVba" IsHidden="true" />
+            <Link Id="Iw8Wy82xRRGNjEartUBsAI" Ids="Oz4BcYxhH0IMrNrMTeFtGh,NDzGCVJTOl8O20X7vM165B" />
+            <Link Id="Vbnq0Z9myMfPnb2ZRHeRB3" Ids="NzmOmnEv3hKLBvB0iPRWLF,CTKJKLkp0DmQExHSKkJUvx" />
+            <Link Id="KN2VLVhMgziPu1bF23CjdM" Ids="JiRwavHvf6mMwMLyB4feZe,AQdFdMCVoYeP6nkZJgbKxT" />
+            <Link Id="L7jnVzcq5rwLl7UsvwWfkN" Ids="AQdFdMCVoYeP6nkZJgbKxT,SEHqNhnvQYlN8ZnyRFgpLB" IsHidden="true" />
+            <Link Id="Oo43NG15A81OItqNDKJan0" Ids="SHUWlB5dZMxQM1ihrZpMC1,RQGg1DdPvBYLzzM4NjrNhq" />
+            <Link Id="Ifov5zJ5rixN3ee8GUd2M8" Ids="FRKUoxx9vjRPbmUPQpiHCX,Phed9XndX74O8vjarWiFy7" />
+            <Link Id="VLkoNb3zGrSPMFMLQdZcH0" Ids="AV40tFANG90LncwfMQnAHK,LWtyK3hYwGqNtY0ZzolUkD" />
+            <Link Id="FMF3UWACtgmNbjpAbWmeZo" Ids="DmCHvjxm6bTMX7aXyeLWhl,UbJWmBCWaxvM5ZxWXTnFwz" />
+          </Patch>
+        </Node>
       </Canvas>
       <Canvas Id="PiWrpp2ecwsL8HTK58Yz1T" Name="Sink" Position="196,336">
         <!--
