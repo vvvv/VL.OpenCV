@@ -19517,74 +19517,6 @@
           </Patch>
         </Node>
       </Canvas>
-      <!--
-
-    ************************ ToImage (Custom) ************************
-
--->
-      <Node Name="ToImage (Custom)" Bounds="196,595" Id="RYVrM55kGq4M64tav9oiaR" Summary="Converts an OpenCV Mat into an Image to be used in non-OpenCV universes using the specified Source and Target formats.">
-        <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
-          <Choice Kind="ContainerDefinition" Name="Process" />
-        </p:NodeReference>
-        <Patch Id="NUBtZR8rEE2Paw1wMEjFLD">
-          <Canvas Id="Q0FJLKWtn0cLxkuSaJ675q">
-            <ControlPoint Id="THwLLIJhf55O6XFeQjpnbn" Bounds="307,322" />
-            <ControlPoint Id="EAHJcHWfzm5NlCSl58xA7y" Bounds="334,471" />
-            <Node Bounds="333,416,49,22" Id="GJ1nglD02cxLL1MfZQmWDn">
-              <p:NodeReference LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.vl">
-                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="OperationCallFlag" Name="ToImage" />
-                <CategoryReference Kind="Category" Name="OpenCV" NeedsToBeDirectParent="true" />
-              </p:NodeReference>
-              <Pin Id="MkXbhlPMQieN2rqJ9R9QhV" Name="Input" Kind="InputPin" />
-              <Pin Id="OtPK0f2TKVlNo0vWmq35kF" Name="Take Ownership" Kind="InputPin" />
-              <Pin Id="S0UvaEYHYMxLVjLsvdaIa0" Name="Result" Kind="OutputPin" />
-            </Node>
-            <Node Bounds="333,380" Id="NmNiJp6nu50LO5PCoVrx9C">
-              <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
-                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="ProcessAppFlag" Name="ConvertColor" />
-              </p:NodeReference>
-              <Pin Id="MnGNlBtDQ4kPIymBFWkkrv" Name="Input" Kind="InputPin" />
-              <Pin Id="VemHJQoUZRjO88Yz0E5qkE" Name="Source Format" Kind="InputPin" />
-              <Pin Id="LmIrDpT5ELBLTLQhoYo4UM" Name="Target Format" Kind="InputPin" />
-              <Pin Id="PXeYw2YcUyCN5xvEE2HMmT" Name="Destination Channels" Kind="InputPin" DefaultValue="4">
-                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
-                  <Choice Kind="TypeFlag" Name="Integer32" />
-                </p:TypeAnnotation>
-              </Pin>
-              <Pin Id="BAwPNUsK5wOPUewZd3jBEr" Name="Apply" Kind="InputPin" />
-              <Pin Id="Nbc5zvAYd6iMvbupxjTZ0L" Name="Output" Kind="OutputPin" />
-            </Node>
-            <ControlPoint Id="BBpyjCKUUGKLfo07Ph2y1f" Bounds="355,322" />
-            <ControlPoint Id="Ahhl1yigSFiPemuDl0Ajhp" Bounds="435,322" />
-          </Canvas>
-          <Patch Id="C55OmjWjsFBLpeKJhxy0xK" Name="Create" />
-          <Patch Id="MjYC1hs9VYkNg2M7hXv3ht" Name="Update">
-            <Pin Id="KQkRb56CcyEQFHcQF9qYTc" Name="Input" Kind="InputPin" Bounds="327,155" />
-            <Pin Id="JUIVa24HDbsOMJu4vrS4rx" Name="Output" Kind="OutputPin" Bounds="323,281" />
-            <Pin Id="LR5kG0XASGUMqijdYXFOuM" Comment="Original image format to convert from." Name="Source Format" Kind="InputPin" Bounds="364,327" />
-            <Pin Id="N74G9ZzLpG4OzzDd4Z87Rm" Comment="Target image format to convert to." Name="Target Format" Kind="InputPin" Bounds="444,330" DefaultValue="&quot;BGRA&quot;">
-              <p:TypeAnnotation LastCategoryFullName="VL.OpenCV" LastSymbolSource="VL.OpenCV.dll">
-                <Choice Kind="TypeFlag" Name="ColorConversionTargetCodes" />
-              </p:TypeAnnotation>
-            </Pin>
-          </Patch>
-          <ProcessDefinition Id="Vpo1QJ0CkhkMQPtI0WBTba">
-            <Fragment Id="GxLoNSuw2IeOULuNCiFYDr" Patch="C55OmjWjsFBLpeKJhxy0xK" Enabled="true" />
-            <Fragment Id="ODLTICTfytgQCRQ0OaFrq6" Patch="MjYC1hs9VYkNg2M7hXv3ht" Enabled="true" />
-          </ProcessDefinition>
-          <Link Id="EvMHZncRBEsOIQRgkn8jzk" Ids="KQkRb56CcyEQFHcQF9qYTc,THwLLIJhf55O6XFeQjpnbn" IsHidden="true" />
-          <Link Id="BuyJz25Eh9QPkPPpCcU4Ir" Ids="EAHJcHWfzm5NlCSl58xA7y,JUIVa24HDbsOMJu4vrS4rx" IsHidden="true" />
-          <Link Id="IxQX2Iyi1u9MSHLH67qDCs" Ids="S0UvaEYHYMxLVjLsvdaIa0,EAHJcHWfzm5NlCSl58xA7y" />
-          <Link Id="FLx60hKeaNvQFUUu2S29yz" Ids="Nbc5zvAYd6iMvbupxjTZ0L,MkXbhlPMQieN2rqJ9R9QhV" />
-          <Link Id="QxRRYVFWo6WMHH6sIXUVnu" Ids="THwLLIJhf55O6XFeQjpnbn,MnGNlBtDQ4kPIymBFWkkrv" />
-          <Link Id="KSRmNqXwHVmNaYn6RWhQFA" Ids="BBpyjCKUUGKLfo07Ph2y1f,VemHJQoUZRjO88Yz0E5qkE" />
-          <Link Id="JjRH0Af5qYoN74Sf1zwke2" Ids="LR5kG0XASGUMqijdYXFOuM,BBpyjCKUUGKLfo07Ph2y1f" IsHidden="true" />
-          <Link Id="PrMQB43tuFNNZS11pKBLoP" Ids="Ahhl1yigSFiPemuDl0Ajhp,LmIrDpT5ELBLTLQhoYo4UM" />
-          <Link Id="QzUleGjMuGGNypOw7oh2lP" Ids="N74G9ZzLpG4OzzDd4Z87Rm,Ahhl1yigSFiPemuDl0Ajhp" IsHidden="true" />
-        </Patch>
-      </Node>
       <Canvas Id="Owfbo3vbS63MnE4kXiS8gg" Name="Drawing" Position="196,434">
         <!--
 
@@ -21690,7 +21622,7 @@
     ************************ HoldLatestCopy ************************
 
 -->
-      <Node Name="HoldLatestCopy" Bounds="196,649" Id="PsNzGcFY5zBNPayWX3VN3a" Summary="Extracts the mos recent value out of an Observable using a double buffer to prevent flickering.">
+      <Node Name="HoldLatestCopy" Bounds="196,596" Id="PsNzGcFY5zBNPayWX3VN3a" Summary="Extracts the mos recent value out of an Observable using a double buffer to prevent flickering.">
         <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
           <Choice Kind="ContainerDefinition" Name="Process" />
         </p:NodeReference>
