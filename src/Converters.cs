@@ -49,12 +49,11 @@ namespace VL.OpenCV
             public IImageData GetData() => new Data(FMat, Info);
         }
 
-        public static IImage ToImage(this Mat input, bool takeOwnership)
+        public static IImage ToImage(this Mat input, PixelFormat pixelFormat, bool takeOwnership)
         {
             if (input == DefaultMat.Damon)
                 takeOwnership = false;
-            var format = input.Type().ToPixelFormat();
-            return new MatImage(input, format, takeOwnership);
+            return new MatImage(input, pixelFormat, takeOwnership);
         }
 
         public static unsafe Mat ToMat(this IImage input)
@@ -95,30 +94,6 @@ namespace VL.OpenCV
                 for (int i = 0; i < info.Height; i++)
                     Unsafe.CopyBlock(dst + (dstScanSize * i), src + (srcScanSize * i), dstScanSize);
             }
-        }
-
-        public static PixelFormat ToPixelFormat(this OpenCvSharp.MatType type)
-        {
-            switch (type.Depth)
-            {
-                case OpenCvSharp.MatType.CV_8U:
-                    switch (type.Channels)
-                    {
-                        case 1:
-                            return PixelFormat.R8;
-                        case 4:
-                            return PixelFormat.B8G8R8A8;
-                    }
-                    break;
-                case OpenCvSharp.MatType.CV_32F:
-                    switch (type.Channels)
-                    {
-                        case 1:
-                            return PixelFormat.R32F;
-                    }
-                    break;
-            }
-            throw new UnsupportedMatTypeException(type);
         }
 
         public static OpenCvSharp.MatType ToMatType(this PixelFormat format, string originalFormat)
