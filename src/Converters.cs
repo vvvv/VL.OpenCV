@@ -12,18 +12,16 @@ namespace VL.OpenCV
         {
             class Data : IImageData
             {
-                readonly Mat FMat;
-                readonly ImageInfo FInfo;
-
                 public Data(Mat mat, ImageInfo info)
                 {
-                    FMat = mat;
-                    FInfo = info;
+                    Pointer = mat.Ptr(0);
+                    ScanSize = (int)(mat.Ptr(1).ToInt64() - Pointer.ToInt64());
+                    Size = info.ImageSize;
                 }
 
-                public IntPtr Pointer => FMat.Data;
-                public int ScanSize => FInfo.ScanSize;
-                public int Size => FInfo.ImageSize;
+                public IntPtr Pointer { get; }
+                public int ScanSize { get; }
+                public int Size { get; }
                 public void Dispose() { }
             }
 
@@ -65,11 +63,9 @@ namespace VL.OpenCV
             var type = info.Format.ToMatType(info.OriginalFormat);
             using (var srcData = input.GetData())
             {
-                var size = srcData.Size;
-                var dstData = new byte[size];
-                var src = srcData.Pointer.ToPointer();
+                var dstData = new byte[srcData.Size];
                 fixed (byte* dst = dstData)
-                    Unsafe.CopyBlock(dst, src, (uint)size);
+                    CopyData(srcData, info, dst);
                 return new Mat(info.Height, info.Width, type, dstData, srcData.ScanSize);
             }
         }
@@ -80,10 +76,24 @@ namespace VL.OpenCV
             var type = info.Format.ToMatType(info.OriginalFormat);
             using (var srcData = input.GetData())
             {
-                var size = srcData.Size;
-                var src = srcData.Pointer.ToPointer();
                 dstMat.Create(info.Height, info.Width, type);
-                Unsafe.CopyBlock(dstMat.DataPointer, src, (uint)size);
+                CopyData(srcData, info, (byte*)dstMat.Data.ToPointer());
+            }
+        }
+
+        // TODO: This function will be part of VL.Core in beta36.1 (ImageExtensions.CopyTo)
+        static unsafe void CopyData(IImageData srcData, ImageInfo info, byte*dst)
+        {
+            var src = (byte*)srcData.Pointer.ToPointer();
+            var srcSize = (uint)srcData.Size;
+            var srcScanSize = srcData.ScanSize;
+            if (srcScanSize * info.Height == srcSize)
+                Unsafe.CopyBlock(dst, src, srcSize);
+            else
+            {
+                var dstScanSize = (uint)(info.PixelSize * info.Width);
+                for (int i = 0; i < info.Height; i++)
+                    Unsafe.CopyBlock(dst + (dstScanSize * i), src + (srcScanSize * i), dstScanSize);
             }
         }
 
