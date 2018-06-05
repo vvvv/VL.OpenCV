@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.81">
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.85">
   <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
   <NugetDependency Id="U2JwHqMJLyGLDs97lM6eZ6" Location="VL.CoreLib.VVVV" Version="0.35.21" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
@@ -43,7 +43,7 @@
               <Pin Id="IaRph2hXQ0SNzNtTgoDkzy" Name="Enabled" Kind="InputPin" />
             </Node>
             <Node Bounds="279,291,95,13" Id="HVMP3pAJtsNOgoqryOfISq">
-              <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="CoreLibBasics.vl">
+              <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Collections.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="RandomSpread (2D)" />
               </p:NodeReference>
@@ -234,7 +234,7 @@
               <Patch Id="Sak3FdQ6w2lORLC934u5FO" ManuallySortedPins="true">
                 <Patch Id="V2BkfHLUbcdNZhYU2ipVJk" Name="Create" ManuallySortedPins="true" />
                 <Patch Id="NpdU9FOctMEQcovLiIpiB0" Name="Update" ManuallySortedPins="true" />
-                <Patch Id="KiOokXrjXAwMXltx1VMv5l" Name="Destroy" ManuallySortedPins="true" />
+                <Patch Id="KiOokXrjXAwMXltx1VMv5l" Name="Dispose" ManuallySortedPins="true" />
                 <Node Bounds="280,377,185,13" Id="JVMDkrbD8wENMWpBMRoDeP">
                   <p:NodeReference LastCategoryFullName="Animation.FrameBased" LastSymbolSource="CoreLibBasics.vl">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -318,8 +318,8 @@
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="OnOpen" />
               </p:NodeReference>
-              <Pin Id="KRuHLgxxpxCMmrwHsSWYvM" Name="Output" Kind="OutputPin" />
               <Pin Id="PYOPEdVsLuoLXx9E1bJeW7" Name="Simulate" Kind="InputPin" />
+              <Pin Id="KRuHLgxxpxCMmrwHsSWYvM" Name="Output" Kind="OutputPin" />
             </Node>
             <Node Bounds="429,201,25,13" Id="U32GwbentaAOB77llzJfx8">
               <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="CoreLibBasics.vl">
@@ -331,12 +331,12 @@
               <Pin Id="ITRg7yMitaaPmSuOFTGR3S" Name="Output" Kind="StateOutputPin" />
             </Node>
             <Pad Id="IeHF2nFGVG4P2dW5nSqlZN" Comment="Add more points" Bounds="432,152,40,19" ShowValueBox="true" isIOBox="true" Value="false">
-              <p:ValueBoxSettings>
-                <p:buttonmode p:Assembly="VL.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
-              </p:ValueBoxSettings>
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
+              <p:ValueBoxSettings>
+                <p:buttonmode p:Assembly="VL.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+              </p:ValueBoxSettings>
             </Pad>
             <Pad Id="SLWPwF90EI4NCsx5iYOcUW" SlotId="QgsfCoUxtgYLfbtWkRajSo" Bounds="379,142">
               <p:ValueBoxSettings />
@@ -345,16 +345,16 @@
               <p:ValueBoxSettings />
             </Pad>
             <Pad Id="Lwui5o74tijOSmZzsFJT6N" Bounds="379,119,30,20" ShowValueBox="true" isIOBox="true" Value="480">
-              <p:ValueBoxSettings />
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Integer32" />
               </p:TypeAnnotation>
+              <p:ValueBoxSettings />
             </Pad>
             <Pad Id="NvM0HU1EuNBMgYKWDrcoGh" Bounds="300,119,30,20" ShowValueBox="true" isIOBox="true" Value="640">
-              <p:ValueBoxSettings />
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Integer32" />
               </p:TypeAnnotation>
+              <p:ValueBoxSettings />
             </Pad>
             <Pad Id="DryIL8BJAqQL2OHpkSqJ3G" SlotId="IFksv0llDUCNjLzKRN7qjO" Bounds="300,142">
               <p:ValueBoxSettings />
@@ -410,26 +410,6 @@
           <Link Id="GHCSzCbCGlSMqZsbUHHO69" Ids="KVO3frebl0yPxCmAEXi24E,QHdXQYnFP61OqxBykR5HiL" />
           <Link Id="Po43muytQZINEfsUnRRUvL" Ids="Fxn7I0cOC1SNZRtNKgv3ib,C1fAfkabmwFM39uwjC9YMM" />
           <Link Id="PPXGb0QW19ePk7l18eKICP" Ids="CNscOGfQMDyPgvVZwA0Pax,Kq5tbGZrlMYPw5QMqKnG46" />
-        </Patch>
-      </Node>
-      <!--
-
-    ************************ Patch ************************
-
--->
-      <Node Name="Patch" Category="VVVV.Value" Bounds="153,139" Id="U1lKR8i49ZtPhaK6lTsScN">
-        <p:NodeReference>
-          <Choice Kind="ContainerDefinition" Name="Process" />
-          <FullNameCategoryReference ID="Primitive" />
-        </p:NodeReference>
-        <Patch Id="LeWiynyaegZORmRWsTtzEl" IsGeneric="true">
-          <Canvas Id="PFX9BOh0vtwORcN1X0rJkI" />
-          <Patch Id="QI7zgZ10GZTOaBOmGOgO2Q" Name="Create" />
-          <Patch Id="TulIMcmTnBkNbA9PSSgoYb" Name="Update" />
-          <ProcessDefinition Id="OH0xgXf1IeDOqCNTdehWOz">
-            <Fragment Id="Uxth2Ik7VfMOrKHBnzExqX" Patch="QI7zgZ10GZTOaBOmGOgO2Q" Enabled="true" />
-            <Fragment Id="RzTT4M1lXDGL1WOkK1bB90" Patch="TulIMcmTnBkNbA9PSSgoYb" Enabled="true" />
-          </ProcessDefinition>
         </Patch>
       </Node>
     </Canvas>
