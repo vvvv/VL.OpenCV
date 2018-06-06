@@ -136,6 +136,13 @@
         YUV_YV12
     }
 
+    public enum BoardCornersAxes
+    {
+        XY,
+        XZ,
+        ZY
+    }
+
     public enum PedestrianDetectorType
     {
         Default,
