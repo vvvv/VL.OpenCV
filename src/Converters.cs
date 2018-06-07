@@ -102,8 +102,13 @@ namespace VL.OpenCV
             {
                 case PixelFormat.R8:
                     return OpenCvSharp.MatType.CV_8UC1;
+                case PixelFormat.R16:
+                    return OpenCvSharp.MatType.CV_8UC2;
                 case PixelFormat.R32F:
                     return OpenCvSharp.MatType.CV_32FC1;
+                case PixelFormat.R8G8B8:
+                case PixelFormat.B8G8R8:
+                    return OpenCvSharp.MatType.CV_8UC3;
                 case PixelFormat.B8G8R8A8:
                 case PixelFormat.B8G8R8X8:
                 case PixelFormat.R8G8B8A8:
