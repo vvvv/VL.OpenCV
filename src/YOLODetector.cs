@@ -1,8 +1,6 @@
-﻿using System;
-using System.Diagnostics;
-using System.Linq;
-using OpenCvSharp;
+﻿using OpenCvSharp;
 using OpenCvSharp.Dnn;
+using System.Linq;
 using VL.Lib.Collections;
 
 namespace VL.OpenCV
@@ -10,27 +8,28 @@ namespace VL.OpenCV
     public static class YOLODetector
     {
         private static readonly string[] Labels = { "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor" };
-        private static readonly Scalar[] Colors = Enumerable.Repeat(false, 20).Select(x => Scalar.RandomColor()).ToArray();
 
-        public static Spread<Rect> Detect(Mat image, out Spread<float> confidence, out Spread<int> detectedClass, out Spread <float> classProbability, out Spread<string> label, bool enabled)
+        private static Net net;
+        // https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov2-voc.cfg
+        private static string cfg = "yolov2-voc.cfg";
+        // https://pjreddie.com/media/files/yolov2-voc.weights
+        private static string model = "yolov2-voc.weights"; //YOLOv2 544x544
+
+        public static YOLODescriptor Detect(Mat image, float threshold, bool enabled)
         {
             SpreadBuilder<Rect> rectSB = Spread.CreateBuilder<Rect>();
             SpreadBuilder<float> confidenceSB = Spread.CreateBuilder<float>();
             SpreadBuilder<int> detectedClassSB = Spread.CreateBuilder<int>();
             SpreadBuilder<float> classProbabilitySB = Spread.CreateBuilder<float>();
             SpreadBuilder<string> labelSB = Spread.CreateBuilder<string>();
-            if (enabled)
+            if (enabled && image != DefaultMat.Damon)
             {
-                // https://pjreddie.com/darknet/yolo/
-                var cfg = "yolo-voc.cfg";
-                var model = "yolov2-voc.weights"; //YOLOv2 544x544
-                var threshold = 0.3;
-
                 var w = image.Width;
                 var h = image.Height;
                 //setting blob, parameter are important
                 var blob = CvDnn.BlobFromImage(image, 1 / 255.0, new Size(544, 544), new Scalar(), true, false);
-                var net = CvDnn.ReadNetFromDarknet(cfg, model);
+                if (net == null || net.IsDisposed)
+                    net = CvDnn.ReadNetFromDarknet(cfg, model);
                 net.SetInput(blob, "data");
 
                 //forward model
@@ -70,11 +69,16 @@ namespace VL.OpenCV
                     }
                 }
             }
-            confidence = confidenceSB.ToSpread();
-            detectedClass = detectedClassSB.ToSpread();
-            classProbability = classProbabilitySB.ToSpread();
-            label = labelSB.ToSpread();
-            return rectSB.ToSpread<Rect>();
+
+            YOLODescriptor result = new YOLODescriptor();
+
+            result.confidence = confidenceSB.ToSpread();
+            result.detectedClass = detectedClassSB.ToSpread();
+            result.classProbability = classProbabilitySB.ToSpread();
+            result.classLabel = labelSB.ToSpread();
+            result.rectangles = rectSB.ToSpread<Rect>();
+
+            return result;
         }
     }
 }
