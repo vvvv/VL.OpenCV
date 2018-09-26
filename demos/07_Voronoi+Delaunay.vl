@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.85">
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.93">
   <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
-  <NugetDependency Id="U2JwHqMJLyGLDs97lM6eZ6" Location="VL.CoreLib.VVVV" Version="0.35.21" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
-    <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VVVV.Value">
+    <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VVVV.Value" CanvasType="FullCategory">
       <!--
 
     ************************ VoronoiDelaunayDemo ************************
@@ -17,7 +16,7 @@
         <Patch Id="CzjSvRY5dvXQDxmAOA8mZj">
           <Patch Id="ESJZDDS0I02LAWDOx9RJVV" Name="Create" />
           <Patch Id="OkqGvJfa3PDOppp4PFQghD" Name="Update" ParticipatingElements="VJNo3DpNqU6QHdwxgUNIFG,PJX96ZMJjSKN1UWIaqvfuw" />
-          <Canvas Id="C4yd3S6BFv9NWqJ2WO3OFi">
+          <Canvas Id="C4yd3S6BFv9NWqJ2WO3OFi" CanvasType="Group">
             <Pad Id="CQfrMUaEMnoNVTrpHtX3Rp" Comment="Enabled" Bounds="320,788,40,19" ShowValueBox="true" isIOBox="true" Value="true">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Boolean" />
@@ -29,7 +28,7 @@
               </p:TypeAnnotation>
             </Pad>
             <Node Bounds="256,810,67,13" Id="OA2rl1sGeAmPJMrOpQFrm0">
-              <p:NodeReference>
+              <p:NodeReference LastCategoryFullName="OpenCV.Sink" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Renderer" />
               </p:NodeReference>
@@ -45,7 +44,8 @@
             <Node Bounds="279,291,95,13" Id="HVMP3pAJtsNOgoqryOfISq">
               <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Collections.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="OperationCallFlag" Name="RandomSpread (2D)" />
+                <Choice Kind="OperationNode" Name="CreateRandomSpread (2D)" />
+                <FullNameCategoryReference ID="Collections.Spread" />
               </p:NodeReference>
               <Pin Id="CRvFV2LeJ7gPCzdjI3ID8K" Name="Center" Kind="InputPin" />
               <Pin Id="CoZVDLH6J4RPrC7hrm0lGj" Name="Size" Kind="InputPin" />
@@ -63,7 +63,7 @@
               </p:TypeAnnotation>
             </Pad>
             <Node Bounds="302,655,65,13" Id="TWMDwdLkzlYPPdt1J4Kbzr">
-              <p:NodeReference>
+              <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessNode" Name="Voronoi" />
               </p:NodeReference>
@@ -80,7 +80,8 @@
             <Node Bounds="364,484,65,22" Id="OabwvWWgKPdPjAsUjEiFeD">
               <p:NodeReference LastCategoryFullName="2D.Rectangle" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="OperationCallFlag" Name="Rectangle (Join)" />
+                <Choice Kind="OperationNode" Name="Rectangle (Join 1)" />
+                <FullNameCategoryReference ID="2D.Rectangle" />
               </p:NodeReference>
               <Pin Id="KZYXUvAYpwkOQqA6jkaeJ5" Name="Left" Kind="InputPin" />
               <Pin Id="PFty42wZmA4MmpvXAsXlwS" Name="Top" Kind="InputPin" />
@@ -89,7 +90,7 @@
               <Pin Id="IkLZ6jUt9caQYv0kFBuBdH" Name="Output" Kind="StateOutputPin" />
             </Node>
             <Node Bounds="256,586,125,13" Id="OauG9VwXCFoMQYeuAqQKoA">
-              <p:NodeReference>
+              <p:NodeReference LastCategoryFullName="OpenCV.Drawing" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessNode" Name="DrawPolygons" />
               </p:NodeReference>
@@ -106,7 +107,7 @@
               <Pin Id="AKG2tjmBSPoQWtneI5q8Fn" Name="Output" Kind="OutputPin" />
             </Node>
             <Node Bounds="280,520,68,13" Id="UjhePodjnE8QTWmORI3Yek">
-              <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl" LastDependency="07_Voronoi+Delaunay.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Delaunay" />
               </p:NodeReference>
@@ -120,7 +121,7 @@
               <Pin Id="Fxn7I0cOC1SNZRtNKgv3ib" Name="Triangles" Kind="OutputPin" />
             </Node>
             <Node Bounds="256,717,125,13" Id="KUChKY8mB8wOkhnmnEYydi">
-              <p:NodeReference>
+              <p:NodeReference LastCategoryFullName="OpenCV.Drawing" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessNode" Name="DrawPolygons" />
               </p:NodeReference>
@@ -183,7 +184,7 @@
               <Pin Id="Ti0vYDABg0cK90qWOHnV6u" Name="Result" Kind="OutputPin" />
             </Node>
             <Node Bounds="204,557,65,13" Id="H5mZtLRRBaMMT6GEUNOq8Q">
-              <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl" LastDependency="VVVV.Value.Demo.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Mat (Rows Cols)" />
               </p:NodeReference>
@@ -198,8 +199,8 @@
                 </p:TypeAnnotation>
               </Pin>
               <Pin Id="VDSaRvCbfIuMY9f5NhBtJC" Name="Type" Kind="InputPin" />
-              <Pin Id="QQaqkedujx8MZTYUb9W7lu" Name="Image" Kind="OutputPin" />
               <Pin Id="KFytiz5D1mtPNVHwC8QDob" Name="Color" Kind="InputPin" />
+              <Pin Id="QQaqkedujx8MZTYUb9W7lu" Name="Image" Kind="OutputPin" />
             </Node>
             <Node Bounds="318,178,39,13" Id="F8ztQNLWcQTL3rK2Kuz4gf">
               <p:NodeReference LastCategoryFullName="2D.Vector2" LastSymbolSource="CoreLibBasics.vl">
