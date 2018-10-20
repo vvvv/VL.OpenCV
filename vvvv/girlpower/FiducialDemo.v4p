@@ -1,33 +1,27 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta37.dtd" >
-   <PATCH nodename="C:\Users\joreg\Documents\repos\vl-others\VL.OpenCV\vvvv\girlpower\FiducialDemo.v4p" systemname="FiducialDemo" filename="C:\Users\joreg\Documents\repos\vl-others\VL.OpenCV\vvvv\girlpower\FiducialDemo.v4p" scrollx="240" scrolly="0">
-   <BOUNDS type="Window" left="2400" top="8355" width="5775" height="6000">
+   <PATCH nodename="C:\Users\joreg\Documents\repos\vl-libs\VL.OpenCV\vvvv\girlpower\FiducialDemo.v4p" systemname="FiducialDemo" filename="C:\Users\joreg\Documents\repos\vl-others\VL.OpenCV\vvvv\girlpower\FiducialDemo.v4p" scrollx="0" scrolly="0">
+   <BOUNDS type="Window" left="88" top="7816" width="8832" height="8800">
    </BOUNDS>
    <PACK Name="dx11" Version="1.3.1">
    </PACK>
    <PACK Name="addonpack" Version="36.0.0">
    </PACK>
-   <NODE systemname="FiducialTracker (2d)" filename="vl\VVVV.2d.FiducialTracker.vl" nodename="FiducialTracker (2d)" componentmode="Hidden" id="0">
-   <BOUNDS type="Node" left="1290" top="3780" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="Quad (DX11.Layer)" nodename="Quad (DX11.Layer)" componentmode="Hidden" id="1" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll">
-   <BOUNDS type="Node" left="1230" top="1425" width="100" height="100">
+   <BOUNDS type="Node" left="526" top="3393" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
    <PIN pinname="Texture" visible="1">
    </PIN>
-   <PIN pinname="Transform" visible="1">
+   <PIN pinname="Transform" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="2">
-   <BOUNDS type="Node" left="1110" top="2475" width="100" height="100">
+   <BOUNDS type="Node" left="406" top="4443" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="1110" top="2475" width="6000" height="4500">
+   <BOUNDS type="Box" left="406" top="4443" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="705" top="2550" width="3240" height="3585">
+   <BOUNDS type="Window" left="104" top="416" width="4984" height="5312">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -35,23 +29,25 @@
    </PIN>
    <PIN pinname="Background Color" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Source">
+   </PIN>
    </NODE>
    <NODE systemname="FileTexture (DX11 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 2d)" componentmode="Hidden" id="3">
-   <BOUNDS type="Node" left="1230" top="795" width="100" height="100">
+   <BOUNDS type="Node" left="2248" top="768" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="1230" top="795" width="3000" height="3000">
+   <BOUNDS type="Box" left="2248" top="768" width="3000" height="3000">
    </BOUNDS>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
-   <PIN pinname="Filename" slicecount="1" values="..\..\..\..\..\..\Desktop\sandbox\amoeba-marker.png">
+   <PIN pinname="Filename" slicecount="2" values="..\..\content\fiducials\amoeba-0.png,..\..\content\fiducials\amoeba-1.png">
    </PIN>
    </NODE>
    <LINK srcnodeid="3" srcpinname="Texture Out" dstnodeid="1" dstpinname="Texture">
    </LINK>
    <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="4">
-   <BOUNDS type="Node" left="1275" top="1890" width="100" height="100">
+   <BOUNDS type="Node" left="571" top="3858" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="1275" top="1890" width="3000" height="3000">
+   <BOUNDS type="Box" left="571" top="3858" width="3000" height="3000">
    </BOUNDS>
    <PIN pinname="Layer In" visible="1">
    </PIN>
@@ -65,9 +61,9 @@
    <LINK srcnodeid="4" srcpinname="Layer Out" dstnodeid="2" dstpinname="Layers">
    </LINK>
    <NODE systemname="AsImage (DX11.Texture2D)" filename="%VVVV%\lib\packs\VL.VVVV.DirectX11.0.93.21-g99c25bebaf\vvvv\nodes\plugins\VL.VVVV.DirectX11.dll" nodename="AsImage (DX11.Texture2D)" componentmode="Hidden" id="5">
-   <BOUNDS type="Node" left="2040" top="2970" width="100" height="100">
+   <BOUNDS type="Node" left="5208" top="3234" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="2040" top="2970" width="3000" height="3000">
+   <BOUNDS type="Box" left="5208" top="3234" width="3000" height="3000">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
@@ -76,82 +72,184 @@
    </NODE>
    <LINK srcnodeid="2" srcpinname="Texture Out" dstnodeid="5" dstpinname="Input">
    </LINK>
-   <LINK srcnodeid="5" srcpinname="Output" dstnodeid="0" dstpinname="Input">
-   </LINK>
-   <NODE systemname="Transform (Transform 2d)" nodename="Transform (Transform 2d)" componentmode="Hidden" id="6">
-   <BOUNDS type="Node" left="2685" top="870" width="100" height="100">
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="8">
+   <BOUNDS type="Node" left="1489" top="2504" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="3">
+   </PIN>
+   </NODE>
+   <NODE systemname="Transform (Transform 2d Vector)" nodename="Transform (Transform 2d Vector)" componentmode="Hidden" id="6">
+   <BOUNDS type="Node" left="685" top="2878" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
-   <PIN pinname="Rotate" visible="1" slicecount="1" values="-0.77">
+   <PIN pinname="Rotate" visible="1" slicecount="1" values="-1.19">
+   </PIN>
+   <PIN pinname="TranslateX" slicecount="1" values="0.02">
+   </PIN>
+   <PIN pinname="TranslateXY" visible="1">
+   </PIN>
+   <PIN pinname="ScaleXY" slicecount="2" values="0.3,0.3">
    </PIN>
    </NODE>
    <LINK srcnodeid="6" srcpinname="Transform Out" dstnodeid="1" dstpinname="Transform">
    </LINK>
-   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="8">
-   <BOUNDS type="Node" left="2745" top="360" width="100" height="100">
+   <NODE systemname="Text (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\text\VVVV.DX11.Nodes.Text.dll" nodename="Text (DX11.Layer)" componentmode="Hidden" id="25">
+   <BOUNDS type="Node" left="5680" top="5096" width="100" height="100">
    </BOUNDS>
+   <BOUNDS type="Box" left="5680" top="5096" width="1600" height="1600">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="String" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="200">
+   </PIN>
+   <PIN pinname="Color" slicecount="1" values="|0.93701,0.00000,0.00000,1.00000|">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="27">
+   <BOUNDS type="Node" left="4344" top="6584" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4344" top="6584" width="3200" height="2400">
+   </BOUNDS>
+   <BOUNDS type="Window" left="4968" top="424" width="4992" height="5312">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="AsString (Value)" nodename="AsString (Value)" componentmode="Hidden" id="28">
+   <BOUNDS type="Node" left="5824" top="4552" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Period" slicecount="1" values="5">
+   <PIN pinname="SubType" slicecount="1" values="|Integer (0 .. MaxInt)|">
    </PIN>
    </NODE>
-   <NODE systemname="Rekorder (Windows)" filename="%VVVV%\lib\nodes\modules\Windows\Rekorder (Windows).v4p" nodename="Rekorder (Windows)" componentmode="Hidden" id="9">
-   <BOUNDS type="Node" left="4125" top="705" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Window Caption" slicecount="1" values="ftg">
-   </PIN>
-   <PIN pinname="Show Cursor" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Progress" visible="1">
-   </PIN>
-   <PIN pinname="Frames To Capture" slicecount="1" values="100">
-   </PIN>
-   <PIN pinname="Record" visible="1">
-   </PIN>
-   <PIN pinname="Auto Open" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Last Saved File" visible="1">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="10">
-   <BOUNDS type="Box" left="5280" top="0" width="480" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="5280" top="0" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Press">
-   </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="10" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Record">
+   <LINK srcnodeid="28" srcpinname="Output" dstnodeid="25" dstpinname="String">
    </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="11">
-   <BOUNDS type="Box" left="4350" top="1905" width="795" height="240">
+   <NODE systemname="Transform (Transform 2d Vector)" nodename="Transform (Transform 2d Vector)" componentmode="Hidden" id="29">
+   <BOUNDS type="Node" left="4888" top="4552" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Node" left="4350" top="1905" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Default" slicecount="1" values="||">
+   <PIN pinname="TranslateXY" visible="1">
    </PIN>
-   <PIN pinname="File Mask" slicecount="1" values="|All Files (*.gif)||*.gif|">
+   <PIN pinname="Transform Out" visible="1">
    </PIN>
-   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   <PIN pinname="Rotate" visible="1" slicecount="2" values="0,0">
    </PIN>
-   <PIN pinname="String Type" slicecount="1" values="Filename">
+   <PIN pinname="ScaleXY" slicecount="2" values="1,1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="9" srcpinname="Last Saved File" dstnodeid="11" dstpinname="Input String">
+   <LINK srcnodeid="29" srcpinname="Transform Out" dstnodeid="25" dstpinname="Transform In">
    </LINK>
-   <NODE systemname="RegExpr (String Replace)" filename="%VVVV%\addonpack\lib\nodes\plugins\RegExprNodes.dll" nodename="RegExpr (String Replace)" componentmode="Hidden" id="12">
-   <BOUNDS type="Node" left="3570" top="3945" width="100" height="100">
+   <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="30">
+   <BOUNDS type="Node" left="4504" top="6104" width="100" height="100">
    </BOUNDS>
+   <BOUNDS type="Box" left="4504" top="6104" width="1600" height="1600">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
    </NODE>
+   <LINK srcnodeid="30" srcpinname="Layer Out" dstnodeid="27" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="Wanderer (Animation 2d)" filename="%VVVV%\lib\packs\VL.CoreLib.VVVV.0.93.21-g99c25bebaf\vvvv\nodes\vl\VVVV.Animation.Wanderer.vl" nodename="Wanderer (Animation 2d)" componentmode="Hidden" id="33">
+   <BOUNDS type="Node" left="872" top="2168" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="PositionXY" visible="1">
+   </PIN>
+   <PIN pinname="Speed" slicecount="1" visible="1" values="0.005">
+   </PIN>
+   <PIN pinname="WidthXY" slicecount="2" values="0.98,0.98">
+   </PIN>
+   <PIN pinname="Main Direction" slicecount="1" values="0.3">
+   </PIN>
+   <PIN pinname="Direction Deviation" slicecount="1" values="0.27">
+   </PIN>
+   <PIN pinname="Walk" visible="1">
+   </PIN>
+   <PIN pinname="Main Direction Tendency" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Reset" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="33" srcpinname="PositionXY" dstnodeid="6" dstpinname="TranslateXY">
+   </LINK>
+   <NODE systemname="Count (Node)" nodename="Count (Node)" componentmode="Hidden" id="34">
+   <BOUNDS type="Node" left="2248" top="1264" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Texture Out" dstnodeid="34" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Select (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Select (Value)" componentmode="Hidden" id="35">
+   <BOUNDS type="Node" left="2248" top="1688" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2248" top="1688" width="1600" height="1600">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Select" slicecount="1" visible="1" values="9">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="35" srcpinname="Output" dstnodeid="33" dstpinname="Walk">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Output" dstnodeid="6" dstpinname="Rotate">
+   </LINK>
+   <NODE systemname="FullscreenQuad (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\modules\FullscreenQuad (DX11.Layer).v4p" nodename="FullscreenQuad (DX11.Layer)" componentmode="Hidden" id="38">
+   <BOUNDS type="Node" left="3920" top="5176" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Texture" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="39">
+   <BOUNDS type="Node" left="4976" top="5712" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4976" top="5712" width="1600" height="1600">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="39" srcpinname="Layer Out" dstnodeid="30" dstpinname="Layer In">
+   </LINK>
+   <LINK srcnodeid="38" srcpinname="Layer" dstnodeid="39" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="25" srcpinname="Layer" dstnodeid="39" dstpinname="Layer 2">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Texture Out" dstnodeid="38" dstpinname="Texture">
+   </LINK>
+   <LINK srcnodeid="34" srcpinname="Count" dstnodeid="35" dstpinname="Select">
+   </LINK>
+   <NODE systemname="FiducialTracker (2d)" filename="vl\VVVV.2d.FiducialTracker.vl" nodename="FiducialTracker (2d)" componentmode="Hidden" id="43">
+   <BOUNDS type="Node" left="5202" top="3724" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Threshold" slicecount="1" values="0.5">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Output" dstnodeid="43" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="43" srcpinname="ID" dstnodeid="28" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="43" srcpinname="CenterXY" dstnodeid="29" dstpinname="TranslateXY">
+   </LINK>
+   <LINK srcnodeid="43" srcpinname="Angle" dstnodeid="29" dstpinname="Rotate">
+   </LINK>
    </PATCH>
