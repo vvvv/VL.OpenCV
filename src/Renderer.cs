@@ -14,11 +14,11 @@ namespace VL.OpenCV
 
         public Subject<Rectangle> BoundsChanged { get; }
 
-        private Mat image;
+        private CvImage image;
         private System.Drawing.Size previousSize;
         private bool enabled = true;
 
-        public Mat Image
+        public CvImage Image
         {
             get { return image; }
             set
@@ -26,7 +26,7 @@ namespace VL.OpenCV
                 if (enabled)
                 {
                     image = value;
-                    pictureBox.ImageIpl = image; //this could be a potential bottle neck
+                    pictureBox.ImageIpl = image.Mat; //this could be a potential bottle neck
                     if (previousSize.Width != image.Width || previousSize.Height != image.Height)
                     {
                         previousSize = new System.Drawing.Size(image.Width, image.Height);
@@ -58,7 +58,7 @@ namespace VL.OpenCV
 
         private void Renderer_Load(object sender, EventArgs e)
         {
-            pictureBox.ImageIpl = this.Image;
+            pictureBox.ImageIpl = this.Image.Mat;
             Controls.Add(pictureBox);
         }
 
@@ -70,7 +70,7 @@ namespace VL.OpenCV
 
         private void HandleResize()
         {
-            if (image == DefaultMat.Damon)
+            if (image == CvImage.Damon)
             {
                 pictureBox.SizeMode = PictureBoxSizeMode.Normal;
                 if (ClientSize.Width != 512 || ClientSize.Height != 512)

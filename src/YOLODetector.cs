@@ -15,19 +15,19 @@ namespace VL.OpenCV
         // https://pjreddie.com/media/files/yolov2-voc.weights
         private static string model = "yolov2-voc.weights"; //YOLOv2 544x544
 
-        public static YOLODescriptor Detect(Mat image, float threshold, bool enabled)
+        public static YOLODescriptor Detect(CvImage image, float threshold, bool enabled)
         {
             SpreadBuilder<Rect> rectSB = Spread.CreateBuilder<Rect>();
             SpreadBuilder<float> confidenceSB = Spread.CreateBuilder<float>();
             SpreadBuilder<int> detectedClassSB = Spread.CreateBuilder<int>();
             SpreadBuilder<float> classProbabilitySB = Spread.CreateBuilder<float>();
             SpreadBuilder<string> labelSB = Spread.CreateBuilder<string>();
-            if (enabled && image != DefaultMat.Damon)
+            if (enabled && image != CvImage.Damon)
             {
                 var w = image.Width;
                 var h = image.Height;
                 //setting blob, parameter are important
-                var blob = CvDnn.BlobFromImage(image, 1 / 255.0, new Size(544, 544), new Scalar(), true, false);
+                var blob = CvDnn.BlobFromImage(image.Mat, 1 / 255.0, new Size(544, 544), new Scalar(), true, false);
                 if (net == null || net.IsDisposed)
                     net = CvDnn.ReadNetFromDarknet(cfg, model);
                 net.SetInput(blob, "data");

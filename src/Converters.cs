@@ -49,11 +49,11 @@ namespace VL.OpenCV
             public IImageData GetData() => new Data(FMat, Info);
         }
 
-        public static IImage ToImage(this Mat input, PixelFormat pixelFormat, bool takeOwnership)
+        public static IImage ToImage(this CvImage input, PixelFormat pixelFormat, bool takeOwnership)
         {
-            if (input == DefaultMat.Damon)
+            if (input == CvImage.Damon)
                 takeOwnership = false;
-            return new MatImage(input, pixelFormat, takeOwnership);
+            return new MatImage(input.Mat, pixelFormat, takeOwnership);
         }
 
         public static unsafe Mat ToMat(this IImage input)
@@ -193,7 +193,7 @@ namespace VL.OpenCV
         {
             Matrix result = Matrix.Identity;
             if ((rotationVector != null && translationVector != null)
-                && (DefaultMat.Damon != rotationVector && DefaultMat.Damon != rotationVector))
+                && (CvImage.Damon.Mat != rotationVector && CvImage.Damon.Mat != rotationVector))
             {
                 Mat rotationMatrix = new Mat();
                 Cv2.Rodrigues(rotationVector, rotationMatrix);
