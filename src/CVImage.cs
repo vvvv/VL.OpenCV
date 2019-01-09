@@ -6,10 +6,11 @@ namespace VL.OpenCV
 {
     public class CvImage 
     {
-        public static readonly CvImage Damon = new CvImage(new Mat(new int[] { 1, 1 }, OpenCvSharp.MatType.CV_8UC3, new byte[] { 0xFF, 0xFF, 0xFF }), true);
+        public static readonly CvImage Damon = new CvImage(new Mat(new int[] { 1, 1 }, OpenCvSharp.MatType.CV_8UC3, Scalar.Gray), true);
 
         private readonly Mat _image;
         private readonly bool _readOnly;
+        private static readonly CvImage Gray = new CvImage(new Mat(new int[] { 1, 1 }, OpenCvSharp.MatType.CV_8UC1, Scalar.Gray));
 
         public CvImage(Mat mat)
             : this(mat, false)
@@ -54,5 +55,7 @@ namespace VL.OpenCV
                 throw new InvalidOperationException("Cannot generate OutputArray for readonly Mat.");
             return _image;
         }
+
+        public CvImage EnforceGrayDefault(CvImage img) => img != Damon ? img : Gray;
     }
 }
