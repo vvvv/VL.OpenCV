@@ -1,4 +1,5 @@
 ﻿using OpenCvSharp;
+using OpenCvSharp.Extensions;
 using OpenCvSharp.UserInterface;
 using System;
 using System.Drawing;
@@ -23,17 +24,35 @@ namespace VL.OpenCV
             get { return image; }
             set
             {
-                if (enabled)
+                if (enabled && value != image)
                 {
                     image = value;
-                    pictureBox.ImageIpl = image.Mat; //this could be a potential bottle neck
-                    if (previousSize.Width != image.Width || previousSize.Height != image.Height)
+                    RefreshIplImage(image?.Mat);
+                    if (image != null && (previousSize.Width != image.Width || previousSize.Height != image.Height))
                     {
                         previousSize = new System.Drawing.Size(image.Width, image.Height);
                         HandleResize();
                     }
                 }
             }
+        }
+
+        public void RefreshIplImage(Mat img)
+        {
+            if (img == null || pictureBox.Image == null)
+            {
+                pictureBox.ImageIpl = img;
+            }
+            else if (pictureBox.Image.Width != img.Width || pictureBox.Image.Height != img.Height)
+            {
+                pictureBox.ImageIpl = img;
+            }
+            else
+            {
+                //pictureBox.imageIpl = img;
+                BitmapConverter.ToBitmap(img, (Bitmap)pictureBox.Image);
+            }
+            pictureBox.Invalidate();
         }
 
         private bool sizeFromImage = true;
@@ -49,16 +68,16 @@ namespace VL.OpenCV
 
         public Renderer()
         {
+            pictureBox = new PictureBoxIpl();
             BoundsChanged = new Subject<Rectangle>();
             InitializeComponent();
-            pictureBox = new PictureBoxIpl();
             SetSize(new Rectangle(1200, 50, 512, 512));
             Show();
         }
 
         private void Renderer_Load(object sender, EventArgs e)
         {
-            pictureBox.ImageIpl = this.Image.Mat;
+            pictureBox.ImageIpl = this.Image?.Mat;
             Controls.Add(pictureBox);
         }
 
@@ -115,13 +134,6 @@ namespace VL.OpenCV
         {
             base.OnLocationChanged(e);
             BoundsChanged.OnNext(Settings.DIP(Bounds));
-        }
-
-        public void Dispose()
-        {
-            Close();
-            pictureBox.Dispose();
-            base.Dispose();
         }
     }
 }
