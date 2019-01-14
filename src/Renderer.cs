@@ -43,7 +43,10 @@ namespace VL.OpenCV
             {
                 pictureBox.ImageIpl = img;
             }
-            else if (pictureBox.Image.Width != img.Width || pictureBox.Image.Height != img.Height)
+            else if (pictureBox.Image.Width != img.Width || 
+                     pictureBox.Image.Height != img.Height || 
+                     pictureBox.ImageIpl.Channels() != img.Channels() ||
+                     pictureBox.ImageIpl.Type() != img.Type())
             {
                 pictureBox.ImageIpl = img;
             }
