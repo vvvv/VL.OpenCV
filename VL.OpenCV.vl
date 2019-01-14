@@ -17066,206 +17066,124 @@
     ************************ Renderer ************************
 
 -->
-        <Node Name="Renderer" Bounds="125,271" Id="K5ovdnYyi5jMjS8TLJYE4D" Summary="Creates a window that renders the passed in images." Remarks="Whenever the name of the Renderer is changed, a new window is opened and the previous window is left behind. This node assumes the following color formats for provided input images: 1 channel = GRAY, 3 channels = BGR and 4 channels = BGRA.">
-          <p:NodeReference>
+        <Node Name="Renderer" Bounds="125,272" Id="Vh8Admc1X7JNlT49Zm1ydu">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
-            <FullNameCategoryReference ID="Primitive" />
           </p:NodeReference>
-          <Patch Id="SgsyUfQy8HcQAfVxoaF6xj">
-            <Canvas Id="UJS7AWSGwHeOxvvqbFV1Ag" CanvasType="Group">
-              <ControlPoint Id="CaNsl9WnfABPjOtEmyVVlP" Bounds="761,401" />
-              <Node Bounds="692,494,216,222" Id="LZpA2cyOjU7NL0IcyeIcim">
+          <p:Interfaces>
+            <TypeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="MutableInterfaceType" Name="IDisposable" />
+            </TypeReference>
+          </p:Interfaces>
+          <Patch Id="PPrt5ePZ2ypOig6QdsHeym">
+            <Canvas Id="Kd2rFJpUH4TOuquQKtSMgr" CanvasType="Group">
+              <Node Bounds="243,261" Id="DnKaebqS9t7OlYULwt22kE">
+                <p:NodeReference LastCategoryFullName="OpenCV.Renderer" LastSymbolSource="VL.OpenCV.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="ClassType" Name="Renderer" />
+                  <Choice Kind="OperationCallFlag" Name="Create" />
+                </p:NodeReference>
+                <Pin Id="OzFq8P3DIC2M6TH7Dyxqxv" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <Pad Id="SSDQkB0zRCEOVO58CIZGyC" SlotId="PznQ9Q6wDQDOvqwuAIUGdP" Bounds="246,335">
+                <p:ValueBoxSettings />
+              </Pad>
+              <ControlPoint Id="U3rbmwKBCsHLNzNpzsMS6B" Bounds="360,280" />
+              <ControlPoint Id="B4dZ1hHlcQLOWUUSsvoMPL" Bounds="663,280" />
+              <ControlPoint Id="Jw4rOcX9lPDO3LZDuq28jT" Bounds="533,280" />
+              <Node Bounds="431,360,259,86" Id="NJzhpofEhRYL06srUTDEsk">
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="ApplicationStatefulRegion" Name="If" />
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <Choice Kind="ApplicationStatefulRegion" Name="Cache" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
-                <Pin Id="DDXJn4Pipa0OgZzzcwl6mP" Name="Condition" Kind="InputPin" />
-                <Patch Id="U4eriN0hcqSNB6AvYd2f4L" ManuallySortedPins="true">
-                  <Patch Id="DXDIf904NKFPw7SHjEzQyH" Name="Create" ManuallySortedPins="true" />
-                  <Patch Id="SjD8nQ1T01sOqrfMvAPShY" Name="Then" ManuallySortedPins="true" />
-                  <Node Bounds="704,634,118,22" Id="AM3gtylVlhMLQGxRB5750i">
-                    <p:NodeReference LastCategoryFullName="OpenCvSharp.Window" LastSymbolSource="OpenCvSharp.dll" LastDependency="VVVV.OpenCVSharp.vl">
+                <Pin Id="Gu69MIreueRQElmbEeKNBs" Name="Force" Kind="InputPin" />
+                <Pin Id="PCADFWdiJimNAwpPI51Vr7" Name="Dispose Cached Outputs" Kind="InputPin" />
+                <Pin Id="I0nUPR0ioswMM0bTW8OkwU" Name="Has Changed" Kind="OutputPin" />
+                <Patch Id="NpMKJAdGlT9OADYQ2QEQ11" ManuallySortedPins="true">
+                  <Patch Id="NhDmZqGwlw7L0UR9vpXgxq" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="InXEQDpAXHQPw7eBu1BVxV" Name="Then" ManuallySortedPins="true" />
+                  <Node Bounds="443,389,94,22" Id="G5RwKBDyXD0LDlTD3NqS4B">
+                    <p:NodeReference LastCategoryFullName="VL.OpenCV.Renderer" LastSymbolSource="VL.OpenCV.dll">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <CategoryReference Kind="AssemblyCategory" Name="Window" />
-                      <Choice Kind="OperationCallFlag" Name="ShowImage" />
+                      <CategoryReference Kind="AssemblyCategory" Name="Renderer" />
+                      <Choice Kind="OperationCallFlag" Name="SetSizeFromImage" />
                     </p:NodeReference>
-                    <Pin Id="HlEnqQ4qawSPHoj51um5FM" Name="Input" Kind="StateInputPin" />
-                    <Pin Id="ObtC46kvWiuNzOXSc5GJBn" Name="Img" Kind="InputPin" />
-                    <Pin Id="UUkiVxGeaNiNyljeIilO00" Name="Apply" Kind="InputPin" />
-                    <Pin Id="RmiX3O2Oe7QPdNS4zuH7tC" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="CMPhxgrUYtxNJeOAb1OGZg" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="Pv2x8BL6CxgMdfmA0MOljt" Name="Value" Kind="InputPin" />
+                    <Pin Id="AonQrdw61M0OtjcxgUowvx" Name="Output" Kind="StateOutputPin" />
                   </Node>
-                  <Node Bounds="795,517,31,22" Id="TNNfLaTKkDhPjwTuir3aMs">
-                    <p:NodeReference LastCategoryFullName="OpenCvSharp.Mat" LastSymbolSource="OpenCvSharp.dll" LastDependency="VL.OpenCVSharp.vl">
+                  <Node Bounds="627,385,41,22" Id="OGg2YiqTlMEQGow27rlrLY">
+                    <p:NodeReference LastCategoryFullName="VL.OpenCV.Renderer" LastSymbolSource="VL.OpenCV.dll">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationCallFlag" Name="Type" />
-                      <CategoryReference Kind="AssemblyCategory" Name="Mat" NeedsToBeDirectParent="true" />
+                      <CategoryReference Kind="AssemblyCategory" Name="Renderer" />
+                      <Choice Kind="OperationCallFlag" Name="Enable" />
                     </p:NodeReference>
-                    <Pin Id="J6ScfU0bOWNM2nrW6ynncP" Name="Input" Kind="StateInputPin" />
-                    <Pin Id="DCkhFYhRA1rO4oHLPs2RcJ" Name="Output" Kind="StateOutputPin" />
-                    <Pin Id="IhLv2C8hU30PbP9WoIlWpa" Name="Result" Kind="OutputPin" />
-                  </Node>
-                  <Node Bounds="795,558,27,22" Id="SkqNYvYqgpMQBSQSKIPIdH">
-                    <p:NodeReference LastCategoryFullName="OpenCvSharp.Mat" LastSymbolSource="OpenCvSharp.dll" LastDependency="VL.OpenCVSharp.vl">
-                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationCallFlag" Name="Size" />
-                      <CategoryReference Kind="AssemblyCategory" Name="Mat" NeedsToBeDirectParent="true" />
-                    </p:NodeReference>
-                    <Pin Id="PS3D7s8XvHZQLX8pW9T2Pk" Name="Input" Kind="StateInputPin" />
-                    <Pin Id="K3f8jo1bi3uMSoU08ve2XY" Name="Output" Kind="StateOutputPin" />
-                    <Pin Id="LSB7PnTx77ROfHQIcb79kI" Name="Result" Kind="OutputPin" />
-                  </Node>
-                  <Node Bounds="848,558,30,13" Id="LWoVeBsKA9sLkZRrnkfavG">
-                    <p:NodeReference LastCategoryFullName="OpenCvSharp.Size" LastSymbolSource="OpenCvSharp.dll" LastDependency="VL.OpenCVSharp.vl">
-                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <CategoryReference Kind="AssemblyCategory" Name="Size" />
-                      <Choice Kind="OperationCallFlag" Name="Zero" />
-                    </p:NodeReference>
-                    <Pin Id="UW5X1vUUeFUO3W2T9makDg" Name="Zero" Kind="OutputPin" />
-                  </Node>
-                  <Node Bounds="817,603,36,13" Id="BaGXXoRat2HL1W9Jk7GLE0">
-                    <p:NodeReference LastCategoryFullName="Math" LastSymbolSource="CoreLibBasics.vl">
-                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationCallFlag" Name="!=" />
-                    </p:NodeReference>
-                    <Pin Id="JjGmPN8Mz90N0saNtxQNmk" Name="Input" Kind="InputPin" />
-                    <Pin Id="BMA9JtKpTvlLqiiBljt7YJ" Name="Input 2" Kind="InputPin" />
-                    <Pin Id="Dorfus7LS6aL3blNMbPpqE" Name="Result" Kind="OutputPin" />
+                    <Pin Id="JkDYMtbjTUmN3fQpV7mVs5" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="IJdrS64zHKZPUdNNVncD6Q" Name="Enabled" Kind="InputPin" />
+                    <Pin Id="LcWwGsiQdE5QSvMsdD3aB7" Name="Output" Kind="StateOutputPin" />
                   </Node>
                 </Patch>
+                <ControlPoint Id="KjnDLpIWfknQLF5HfcnEqQ" Bounds="536,366" Alignment="Top" />
+                <ControlPoint Id="TrAnsvAOxibMZy3HNTPYLm" Bounds="667,366" Alignment="Top" />
               </Node>
-              <ControlPoint Id="IEL4LQcnhB9PxFNa1Nf9J0" Bounds="694,451" />
-              <Node Bounds="601,327,123,72" Id="OUmUregHmL5P2hk9Ki3eS1">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.Experimental.vl">
-                  <Choice Kind="ProcessAppFlag" Name="ManageProcess" />
-                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
-                </p:NodeReference>
-                <Pin Id="TvyEAJI73H4LkfcFnxJzjO" Name="Enabled" Kind="InputPin" />
-                <Pin Id="FzVNEy8xIbjN6AgXfqbTQY" Name="Reset" Kind="InputPin" />
-                <Pin Id="Owh9S5tcgctNs9u8ovRJUW" Name="Result" Kind="OutputPin" />
-                <Patch Id="ITrE2J7yRvgMKr46t4BhO7" ManuallySortedPins="true">
-                  <Patch Id="UKMYfzsQXqdPf5QPMsOyqD" Name="Create" ManuallySortedPins="true" />
-                  <Patch Id="GOMEXe7JIHJMgUehYftwqo" Name="Update" ManuallySortedPins="true">
-                    <Pin Id="CwudJg3eoBmLWR7lulmk35" Name="Output" Kind="OutputPin" />
-                  </Patch>
-                  <ControlPoint Id="JPj50ZnMph5Pjf8CAX387J" Bounds="615,391" />
-                  <Node Bounds="613,350,99,13" Id="SiTLDXCbEfJOgdXXDaKue0">
-                    <p:NodeReference LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.vl">
-                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="ProcessAppFlag" Name="Window" />
-                    </p:NodeReference>
-                    <Pin Id="Kxwn6s3qJCDNFBKyw0g7UG" Name="Name" Kind="InputPin" />
-                    <Pin Id="MR3591NpUeTQbdHmTOQYTZ" Name="Flags" Kind="InputPin" />
-                    <Pin Id="FckgMhSN3wzPx3DG4SLHDp" Name="Update" Kind="ApplyPin" />
-                    <Pin Id="BHlDvKWd4UcNYEFzOoCGyU" Name="Window" Kind="OutputPin" />
-                  </Node>
-                </Patch>
-              </Node>
-              <Node Bounds="542,187,67,13" Id="L6G50W1llkMOPNg1JR8HUK">
-                <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
+              <Node Bounds="314,391,51,22" Id="Dh5aValjXC0MgvETkXsvyO">
+                <p:NodeReference LastCategoryFullName="VL.OpenCV.Renderer" LastSymbolSource="VL.OpenCV.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="ProcessAppFlag" Name="Changed" />
+                  <CategoryReference Kind="AssemblyCategory" Name="Renderer" />
+                  <Choice Kind="OperationCallFlag" Name="SetImage" />
                 </p:NodeReference>
-                <Pin Id="TSnnFm7mjNWMDNr95CvFfW" Name="Value" Kind="InputPin" />
-                <Pin Id="G4T5WVQseoiLhu6q5a26St" Name="Result" Kind="OutputPin" />
-                <Pin Id="SL2tLVUIPOBPSfVER4AS43" Name="Unchanged" Kind="OutputPin" />
+                <Pin Id="TRsftK9ebzeLEA4laz4rU0" Name="Input" Kind="StateInputPin" />
+                <Pin Id="H8WWqVbM9IvMmzalpCPWrH" Name="Value" Kind="InputPin" />
+                <Pin Id="BWF6ruDQHjDNSmRhgUoBUT" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <ControlPoint Id="QFMoF22IYqhOtfrSJC0Egn" Bounds="614,153" />
-              <Node Bounds="719,294,25,13" Id="LZxjlv1aoaCMegGUdQDa0N">
-                <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="CoreLibBasics.vl">
+              <Node Bounds="184,391,50,22" Id="DKNKBcmcBpbM2fobYJTG6G">
+                <p:NodeReference LastCategoryFullName="Primitive.IDisposable" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="OR" />
+                  <CategoryReference Kind="MutableInterfaceType" Name="IDisposable" />
+                  <Choice Kind="OperationCallFlag" Name="Dispose" />
                 </p:NodeReference>
-                <Pin Id="S7jOFStf6jKNtslgDE4ilo" Name="Input" Kind="StateInputPin" />
-                <Pin Id="NBe3uBzeC6MOwgIPtrDrGF" Name="Input 2" Kind="InputPin" />
-                <Pin Id="VfrB2YmC6EfLVXDFkOkzDB" Name="Output" Kind="StateOutputPin" />
-              </Node>
-              <Node Bounds="739,266,67,13" Id="GQBP2ZdFh6zMbXqXc4EkWg">
-                <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="ProcessAppFlag" Name="Changed" />
-                </p:NodeReference>
-                <Pin Id="QIQTF345ZRuL2zB6A6d7lv" Name="Value" Kind="InputPin" />
-                <Pin Id="RiePey2SiExNg2FinbD2b1" Name="Result" Kind="OutputPin" />
-                <Pin Id="EZqEAjHBEl4OlhXXRSTurc" Name="Unchanged" Kind="OutputPin" />
-              </Node>
-              <ControlPoint Id="LQM7e2C22oPPLQbas8kKF4" Bounds="662,153" />
-              <Node Bounds="522,217,85,13" Id="KSt2IAMac1QNiFCROvCmwu">
-                <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="ProcessAppFlag" Name="MonoFlop" />
-                </p:NodeReference>
-                <Pin Id="L04zB6Fwr29NdjoPo9yLQs" Name="Clock" Kind="InputPin" />
-                <Pin Id="VNzKSXzn8LZMLVhDV7Tc6L" Name="Set" Kind="InputPin" />
-                <Pin Id="Hp9Zyyl2Es3NDrO24TGrnA" Name="Reset" Kind="InputPin" />
-                <Pin Id="GBJyQxyUZa6NnpvfHT0DKd" Name="Time" Kind="InputPin" />
-                <Pin Id="OLyaLB8zDKPNEE70jIvn11" Name="Retriggerable" Kind="InputPin" />
-                <Pin Id="GxbO6qvKbQaMsFEYn4Zya4" Name="Value" Kind="OutputPin" />
-                <Pin Id="AJPNfbKMTP8NeMYKKpltyH" Name="Inverse Output" Kind="OutputPin" />
-              </Node>
-              <Node Bounds="522,250,66,13" Id="PoGYU9rvVJqNRy08mv21Kw">
-                <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="ProcessAppFlag" Name="TogEdge" />
-                </p:NodeReference>
-                <Pin Id="SBFBl29tXztNKliP884yJh" Name="Value" Kind="InputPin" />
-                <Pin Id="P59t78oZuleO4keg7D6haq" Name="Up Edge" Kind="OutputPin" />
-                <Pin Id="MZOkeTMm98aO2kyUnEbs6s" Name="Down Edge" Kind="OutputPin" />
-              </Node>
-              <Node Bounds="760,435,39,22" Id="SclzXjm3KnsOznhy4GSvAJ">
-                <p:NodeReference LastCategoryFullName="VL.OpenCV.CvImage" LastSymbolSource="VL.OpenCV.dll">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="AssemblyCategory" Name="CvImage" />
-                  <Choice Kind="OperationCallFlag" Name="Mat" />
-                </p:NodeReference>
-                <Pin Id="Ocmf6GYHO78PHzwfSGstEe" Name="Input" Kind="StateInputPin" />
-                <Pin Id="FHzfJCejAELNdwNdCwGREA" Name="Output" Kind="StateOutputPin" />
-                <Pin Id="T7pI7ULDy8YQWOR2oyE8z9" Name="Mat" Kind="OutputPin" />
+                <Pin Id="DV7TyMN044pMLXpxlAOPWH" Name="Input" Kind="StateInputPin" />
+                <Pin Id="C6WduNLozsFPgK1jcCYc9m" Name="Output" Kind="StateOutputPin" />
               </Node>
             </Canvas>
-            <Patch Id="V7ETV5g88rrQHSUcgH02Gv" Name="Create" />
-            <Patch Id="M2IgEDP5GehLO7ByBBmRpe" Name="Update" ManuallySortedPins="true">
-              <Pin Id="IvT5eBj7BdGMsImqW8do3w" Name="Input" Kind="InputPin" />
-              <Pin Id="Dl1RCq7zJFcPi2Cda3EW4e" Name="Name" Kind="InputPin" Bounds="110,253" />
-              <Pin Id="EsxypkURdWEOSaLClPVAx8" Name="Flags" Kind="InputPin" Bounds="182,262" DefaultValue="KeepRatio, AutoSize">
-                <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
-                  <Choice Kind="TypeFlag" Name="WindowMode" />
+            <Patch Id="Gk07noiec3RMbpRDWFWAWT" Name="Create" ParticipatingElements="DnKaebqS9t7OlYULwt22kE" />
+            <Patch Id="GadrKP6hJrHPmmaXZbpNc0" Name="Update">
+              <Pin Id="KUFMFN5cFDqPzXHmeaiSSk" Name="Input" Kind="InputPin" Bounds="357,285">
+                <p:TypeAnnotation>
+                  <Choice Kind="TypeFlag" Name="CvImage" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="BfYVvg6s6YJN0xB0Ck9SMR" Name="Enabled" Kind="InputPin" Bounds="870,575" DefaultValue="True">
-                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+              <Pin Id="AUwYPvUSdmSN639LVRZbbw" Name="Size From Image" Kind="InputPin" Bounds="496,291" DefaultValue="True">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Boolean" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="EJY8lZ3cIzYMPxzONs6j81" Name="Enabled" Kind="InputPin" Bounds="457,297" DefaultValue="True">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
             </Patch>
-            <ProcessDefinition Id="Rz8rhByTsivMBa4G4w5GDO">
-              <Fragment Id="EqfxBdV0Hy4ObcfVl7FX8B" Patch="V7ETV5g88rrQHSUcgH02Gv" Enabled="true" />
-              <Fragment Id="AR8v6pd2N6FON3N4tDo9xt" Patch="M2IgEDP5GehLO7ByBBmRpe" Enabled="true" />
+            <ProcessDefinition Id="BmwFR0Dc41HOdUFpOZ3P5J">
+              <Fragment Id="Jc36yfvNXPlLyqPhK0GVpZ" Patch="Gk07noiec3RMbpRDWFWAWT" Enabled="true" />
+              <Fragment Id="E6EQxNIiofPMbX69GOwN5z" Patch="GadrKP6hJrHPmmaXZbpNc0" Enabled="true" />
             </ProcessDefinition>
-            <Link Id="Uzzo9xlhrVYPzvxq2sojzm" Ids="IvT5eBj7BdGMsImqW8do3w,CaNsl9WnfABPjOtEmyVVlP" IsHidden="true" />
-            <Patch Id="Cys7IuYoDmALqc7owW53Dm" Name="Dispose" />
-            <Link Id="QnKvQyfWRa2L0CjPzzND7e" Ids="BfYVvg6s6YJN0xB0Ck9SMR,IEL4LQcnhB9PxFNa1Nf9J0" IsHidden="true" />
-            <Link Id="RPSs6u4zwQGPBxrlO7yLd8" Ids="DCkhFYhRA1rO4oHLPs2RcJ,PS3D7s8XvHZQLX8pW9T2Pk" />
-            <Link Id="TFPZBhmbu7XN6PGJ0Zp3zq" Ids="LSB7PnTx77ROfHQIcb79kI,JjGmPN8Mz90N0saNtxQNmk" />
-            <Link Id="KEk9z73TCvkQLybSKGSnuC" Ids="UW5X1vUUeFUO3W2T9makDg,BMA9JtKpTvlLqiiBljt7YJ" />
-            <Link Id="J5oW9WBav48L2iewviWeFY" Ids="Dorfus7LS6aL3blNMbPpqE,UUkiVxGeaNiNyljeIilO00" />
-            <Link Id="FbtlGiTCdczNVB4Xl1QNiw" Ids="JPj50ZnMph5Pjf8CAX387J,CwudJg3eoBmLWR7lulmk35" IsHidden="true" />
-            <Link Id="Tt2bGnzfWjkNZXRKsmH5i2" Ids="BHlDvKWd4UcNYEFzOoCGyU,JPj50ZnMph5Pjf8CAX387J" />
-            <Link Id="PSGjartJElfLxuJxRZj0a1" Ids="QFMoF22IYqhOtfrSJC0Egn,TSnnFm7mjNWMDNr95CvFfW" />
-            <Link Id="J299suBACOPLdvwLtkuXCA" Ids="Dl1RCq7zJFcPi2Cda3EW4e,QFMoF22IYqhOtfrSJC0Egn" IsHidden="true" />
-            <Link Id="JYMWPVcEj5oLoPkQDjnXlY" Ids="RiePey2SiExNg2FinbD2b1,NBe3uBzeC6MOwgIPtrDrGF" />
-            <Link Id="HTzRXMFgkwNMZ4umXLJqcY" Ids="LQM7e2C22oPPLQbas8kKF4,QIQTF345ZRuL2zB6A6d7lv" />
-            <Link Id="DoDM4dmuGs6PgvDIGC8gMQ" Ids="EsxypkURdWEOSaLClPVAx8,LQM7e2C22oPPLQbas8kKF4" IsHidden="true" />
-            <Link Id="ARrdpbpEGaMPOFSpbFrp4o" Ids="VfrB2YmC6EfLVXDFkOkzDB,FzVNEy8xIbjN6AgXfqbTQY" />
-            <Link Id="ByOU378GRdJL6tFc0R5iqq" Ids="QFMoF22IYqhOtfrSJC0Egn,Kxwn6s3qJCDNFBKyw0g7UG" />
-            <Link Id="Vd8jJJaUwpAQblIyfpCVJU" Ids="LQM7e2C22oPPLQbas8kKF4,MR3591NpUeTQbdHmTOQYTZ" />
-            <Link Id="Myh8EwDwGKaLZdlujl3y4i" Ids="Owh9S5tcgctNs9u8ovRJUW,HlEnqQ4qawSPHoj51um5FM" />
-            <Link Id="PWgiphXzAFePS1sDiBToDJ" Ids="IEL4LQcnhB9PxFNa1Nf9J0,DDXJn4Pipa0OgZzzcwl6mP" />
-            <Link Id="LxUCBazpZMUOiCGv22wLz8" Ids="G4T5WVQseoiLhu6q5a26St,VNzKSXzn8LZMLVhDV7Tc6L" />
-            <Link Id="Mb3icfLuP0PNw8mfBIF6Ou" Ids="GxbO6qvKbQaMsFEYn4Zya4,SBFBl29tXztNKliP884yJh" />
-            <Link Id="EswcRxnz3eqMDpON5J2zU3" Ids="MZOkeTMm98aO2kyUnEbs6s,S7jOFStf6jKNtslgDE4ilo" />
-            <Link Id="AYxscsnPwIaMtkHjDsWhmo" Ids="T7pI7ULDy8YQWOR2oyE8z9,J6ScfU0bOWNM2nrW6ynncP" />
-            <Link Id="KwVJYH7E3JTLnLfyVbzxSy" Ids="T7pI7ULDy8YQWOR2oyE8z9,ObtC46kvWiuNzOXSc5GJBn" />
-            <Link Id="HwqqqQHdGEtLttZ6mNDuBD" Ids="CaNsl9WnfABPjOtEmyVVlP,Ocmf6GYHO78PHzwfSGstEe" />
+            <Slot Id="PznQ9Q6wDQDOvqwuAIUGdP" Name="Renderer" />
+            <Link Id="Ak7OPUdtgt4QAeJEtZKO0A" Ids="OzFq8P3DIC2M6TH7Dyxqxv,SSDQkB0zRCEOVO58CIZGyC" />
+            <Link Id="VYSewKrJ9uEQTJYsrTFiFo" Ids="SSDQkB0zRCEOVO58CIZGyC,TRsftK9ebzeLEA4laz4rU0" />
+            <Link Id="GJXWY1FSewIPHgP7xTBbgn" Ids="U3rbmwKBCsHLNzNpzsMS6B,H8WWqVbM9IvMmzalpCPWrH" />
+            <Link Id="LvVOxlmWzdpLA92bSYLd8d" Ids="KUFMFN5cFDqPzXHmeaiSSk,U3rbmwKBCsHLNzNpzsMS6B" IsHidden="true" />
+            <Patch Id="QMIYCbKpO8XOUQSCBExB78" Name="Dispose" ParticipatingElements="DKNKBcmcBpbM2fobYJTG6G" />
+            <Link Id="JWPFHLtWrz6OJU5Sgz04iH" Ids="EJY8lZ3cIzYMPxzONs6j81,B4dZ1hHlcQLOWUUSsvoMPL" IsHidden="true" />
+            <Link Id="MASBJlzBOHYOf1SSFcv3nP" Ids="SSDQkB0zRCEOVO58CIZGyC,JkDYMtbjTUmN3fQpV7mVs5" />
+            <Link Id="GTWaUQYnkKAK9hYeqWIQ9i" Ids="SSDQkB0zRCEOVO58CIZGyC,CMPhxgrUYtxNJeOAb1OGZg" />
+            <Link Id="QWLxajpr6zuPv36yLPc9SZ" Ids="AUwYPvUSdmSN639LVRZbbw,Jw4rOcX9lPDO3LZDuq28jT" IsHidden="true" />
+            <Link Id="UQSEOSgMSVDM7h1kuksmHT" Ids="Jw4rOcX9lPDO3LZDuq28jT,KjnDLpIWfknQLF5HfcnEqQ" />
+            <Link Id="EtNyokas7THPmgKUpPpdDg" Ids="KjnDLpIWfknQLF5HfcnEqQ,Pv2x8BL6CxgMdfmA0MOljt" />
+            <Link Id="H24GIDYTeFNNBwj5rU9Rqn" Ids="B4dZ1hHlcQLOWUUSsvoMPL,TrAnsvAOxibMZy3HNTPYLm" />
+            <Link Id="HQIusY2S24NO1SNm4jDSoH" Ids="TrAnsvAOxibMZy3HNTPYLm,IJdrS64zHKZPUdNNVncD6Q" />
+            <Link Id="HAAeJB5ckgvOtYRp9fvN7E" Ids="SSDQkB0zRCEOVO58CIZGyC,DV7TyMN044pMLXpxlAOPWH" />
           </Patch>
         </Node>
       </Canvas>
@@ -17652,135 +17570,10 @@
         </Node>
         <!--
 
-    ************************ Renderer2 ************************
-
--->
-        <Node Name="Renderer2" Bounds="337,376" Id="LrpmwvsdY1XOxqGsOxizrL">
-          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
-            <Choice Kind="ContainerDefinition" Name="Process" />
-          </p:NodeReference>
-          <p:Interfaces>
-            <TypeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-              <Choice Kind="MutableInterfaceType" Name="IDisposable" />
-            </TypeReference>
-          </p:Interfaces>
-          <Patch Id="GO3YdRsySfnNOjI0glwmdm">
-            <Canvas Id="NVNs4IQ7AAmNVUnmh40ugn" CanvasType="Group">
-              <Node Bounds="243,261" Id="NxurfzXkn71NjshfNmQmve">
-                <p:NodeReference LastCategoryFullName="OpenCV.Renderer" LastSymbolSource="VL.OpenCV.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="ClassType" Name="Renderer" />
-                  <Choice Kind="OperationCallFlag" Name="Create" />
-                </p:NodeReference>
-                <Pin Id="MjHW2YBLBIaNQojNclQRgA" Name="Output" Kind="StateOutputPin" />
-              </Node>
-              <Pad Id="P2TvsoNvSE2MLV1jxtW4Zg" SlotId="BDAiDM3jvH8QEFPlPvdjVY" Bounds="246,335">
-                <p:ValueBoxSettings />
-              </Pad>
-              <ControlPoint Id="MhPVKVLRzH6OEfAvRsXxGY" Bounds="360,280" />
-              <ControlPoint Id="IIjchph9vJVOD8qMYXsIc4" Bounds="663,280" />
-              <ControlPoint Id="BCR3phOOVciOCtXipV6PMh" Bounds="533,280" />
-              <Node Bounds="431,360,259,86" Id="EWMMxoHHcmzNM3Dg9DcQOZ">
-                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
-                  <Choice Kind="ApplicationStatefulRegion" Name="Cache" />
-                  <FullNameCategoryReference ID="Primitive" />
-                </p:NodeReference>
-                <Pin Id="Hug9ggmIAGxNQuzgA1c6DH" Name="Force" Kind="InputPin" />
-                <Pin Id="SwqyCOmf7qCP0q6vpoVnv9" Name="Dispose Cached Outputs" Kind="InputPin" />
-                <Pin Id="Q80E6qeQL72PrYxuhSz7nR" Name="Has Changed" Kind="OutputPin" />
-                <Patch Id="AkLc1asauCfNGjczZX3ORk" ManuallySortedPins="true">
-                  <Patch Id="MVGJTayAKczOFWGveCukmQ" Name="Create" ManuallySortedPins="true" />
-                  <Patch Id="QAfy0NbXsuWOn2BdqlYdcw" Name="Then" ManuallySortedPins="true" />
-                  <Node Bounds="443,389,94,22" Id="SJLSlbB0J9PLvaJoTAxUdy">
-                    <p:NodeReference LastCategoryFullName="VL.OpenCV.Renderer" LastSymbolSource="VL.OpenCV.dll">
-                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <CategoryReference Kind="AssemblyCategory" Name="Renderer" />
-                      <Choice Kind="OperationCallFlag" Name="SetSizeFromImage" />
-                    </p:NodeReference>
-                    <Pin Id="BB648AEOHWLMT6tdCG8LNn" Name="Input" Kind="StateInputPin" />
-                    <Pin Id="Eba0N8LJDx4PKU7hBK91qc" Name="Value" Kind="InputPin" />
-                    <Pin Id="OkNms0rIyjQNpJgA4Xz0ws" Name="Output" Kind="StateOutputPin" />
-                  </Node>
-                  <Node Bounds="627,385,41,22" Id="ENfuRxoAXeKMBWdKyXZrX3">
-                    <p:NodeReference LastCategoryFullName="VL.OpenCV.Renderer" LastSymbolSource="VL.OpenCV.dll">
-                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <CategoryReference Kind="AssemblyCategory" Name="Renderer" />
-                      <Choice Kind="OperationCallFlag" Name="Enable" />
-                    </p:NodeReference>
-                    <Pin Id="JHrRnJkP9OCN9MbrTSZsa4" Name="Input" Kind="StateInputPin" />
-                    <Pin Id="DPCjmnNVSsKQZzJDMevD5L" Name="Enabled" Kind="InputPin" />
-                    <Pin Id="E1oHD6Us2GYO1M8SLO2A3D" Name="Output" Kind="StateOutputPin" />
-                  </Node>
-                </Patch>
-                <ControlPoint Id="Gp0cdzeBxT2PxZ7CK5KbZf" Bounds="536,366" Alignment="Top" />
-                <ControlPoint Id="LyIq5n4cGRNNC9kjf414HK" Bounds="667,366" Alignment="Top" />
-              </Node>
-              <Node Bounds="314,391,51,22" Id="GVyXyRcYq4vQbeCVxqvbEo">
-                <p:NodeReference LastCategoryFullName="VL.OpenCV.Renderer" LastSymbolSource="VL.OpenCV.dll">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="AssemblyCategory" Name="Renderer" />
-                  <Choice Kind="OperationCallFlag" Name="SetImage" />
-                </p:NodeReference>
-                <Pin Id="G9aGXDqGd5wLYj663CMlDM" Name="Input" Kind="StateInputPin" />
-                <Pin Id="NgzylCeO3YsQOfFTVVZwXE" Name="Value" Kind="InputPin" />
-                <Pin Id="QIgvbMIqAeXNaLM9XmypIt" Name="Output" Kind="StateOutputPin" />
-              </Node>
-              <Node Bounds="184,391,50,22" Id="F9ovpcFzWpRORZcT1DCJRm">
-                <p:NodeReference LastCategoryFullName="Primitive.IDisposable" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="MutableInterfaceType" Name="IDisposable" />
-                  <Choice Kind="OperationCallFlag" Name="Dispose" />
-                </p:NodeReference>
-                <Pin Id="QwRYU1eXZJqQMeYEON00iL" Name="Input" Kind="StateInputPin" />
-                <Pin Id="MmC90ScBIuJLcZWEA6Icd0" Name="Output" Kind="StateOutputPin" />
-              </Node>
-            </Canvas>
-            <Patch Id="FhIDYl593DlNCVDYirogwa" Name="Create" ParticipatingElements="NxurfzXkn71NjshfNmQmve" />
-            <Patch Id="O57lvBpXZo0NoM21wLToET" Name="Update">
-              <Pin Id="V5P51upFiFlMZk8L3H22u0" Name="Image" Kind="InputPin" Bounds="357,285">
-                <p:TypeAnnotation>
-                  <Choice Kind="TypeFlag" Name="CvImage" />
-                </p:TypeAnnotation>
-              </Pin>
-              <Pin Id="HqwFBqRF2AEMcRnOp1B5rl" Name="Size From Image" Kind="InputPin" Bounds="496,291" DefaultValue="True">
-                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="TypeFlag" Name="Boolean" />
-                </p:TypeAnnotation>
-              </Pin>
-              <Pin Id="CYtzUDU8hJaNRLtImoYg65" Name="Enabled" Kind="InputPin" Bounds="457,297" DefaultValue="True">
-                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="TypeFlag" Name="Boolean" />
-                </p:TypeAnnotation>
-              </Pin>
-            </Patch>
-            <ProcessDefinition Id="AaZc6qSSJicOSAwWfa4Dje">
-              <Fragment Id="N40gursWwWALT3L9UA1hcV" Patch="FhIDYl593DlNCVDYirogwa" Enabled="true" />
-              <Fragment Id="HyGXGqEr3TuOskfcC9Kkf0" Patch="O57lvBpXZo0NoM21wLToET" Enabled="true" />
-            </ProcessDefinition>
-            <Slot Id="BDAiDM3jvH8QEFPlPvdjVY" Name="Renderer" />
-            <Link Id="SVtrHa3EQj4QU8muKyos90" Ids="MjHW2YBLBIaNQojNclQRgA,P2TvsoNvSE2MLV1jxtW4Zg" />
-            <Link Id="NB2mrEC1dIuOrCCVf3hG4E" Ids="P2TvsoNvSE2MLV1jxtW4Zg,G9aGXDqGd5wLYj663CMlDM" />
-            <Link Id="QUlY4smhM2oMARRBFK2JJK" Ids="MhPVKVLRzH6OEfAvRsXxGY,NgzylCeO3YsQOfFTVVZwXE" />
-            <Link Id="KFm9lhKha0IPZTEbtWZHVa" Ids="V5P51upFiFlMZk8L3H22u0,MhPVKVLRzH6OEfAvRsXxGY" IsHidden="true" />
-            <Patch Id="DNimVcMzrC5NYcF6SpnYbU" Name="Dispose" ParticipatingElements="F9ovpcFzWpRORZcT1DCJRm" />
-            <Link Id="QJNbVU1LnvMLD0KbMMosTM" Ids="CYtzUDU8hJaNRLtImoYg65,IIjchph9vJVOD8qMYXsIc4" IsHidden="true" />
-            <Link Id="CxFTzbpLzOFLuRJumq8548" Ids="P2TvsoNvSE2MLV1jxtW4Zg,JHrRnJkP9OCN9MbrTSZsa4" />
-            <Link Id="LFuKzpv6HWWP1i5GD0mfbE" Ids="P2TvsoNvSE2MLV1jxtW4Zg,BB648AEOHWLMT6tdCG8LNn" />
-            <Link Id="RWEZiGadh46N0FUYT3XrRP" Ids="HqwFBqRF2AEMcRnOp1B5rl,BCR3phOOVciOCtXipV6PMh" IsHidden="true" />
-            <Link Id="R0wUDEle6PjMqROuARmZYf" Ids="BCR3phOOVciOCtXipV6PMh,Gp0cdzeBxT2PxZ7CK5KbZf" />
-            <Link Id="JJm3rtVGRqWOK7l0IXiqg3" Ids="Gp0cdzeBxT2PxZ7CK5KbZf,Eba0N8LJDx4PKU7hBK91qc" />
-            <Link Id="Uau7mNHcVERNF9MB8CFe9o" Ids="IIjchph9vJVOD8qMYXsIc4,LyIq5n4cGRNNC9kjf414HK" />
-            <Link Id="FHJ6VldVAfDNsUKvQigmZ1" Ids="LyIq5n4cGRNNC9kjf414HK,DPCjmnNVSsKQZzJDMevD5L" />
-            <Link Id="PRJYahmkqpMOl71HqxmCVt" Ids="P2TvsoNvSE2MLV1jxtW4Zg,QwRYU1eXZJqQMeYEON00iL" />
-          </Patch>
-        </Node>
-        <!--
-
     ************************ VideoFile (Source) ************************
 
 -->
-        <Node Name="VideoFile (Source)" Bounds="336,425" Id="Jttz7UNZfIPMxs4ipFGNCk" Summary="Plays the specified video file." Remarks="This node is not optimized and may suffer from poor performance on high resolution videos.">
+        <Node Name="VideoFile (Source)" Bounds="336,380" Id="Jttz7UNZfIPMxs4ipFGNCk" Summary="Plays the specified video file." Remarks="This node is not optimized and may suffer from poor performance on high resolution videos.">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Process" />
             <FullNameCategoryReference ID="Primitive" />
@@ -18175,7 +17968,7 @@
     ************************ VideoWriter ************************
 
 -->
-        <Node Name="VideoWriter" Bounds="336,528" Id="BJsrYtdznCcN34fKIjDcSw" Summary="Writes a video file on the specified path.">
+        <Node Name="VideoWriter" Bounds="336,483" Id="BJsrYtdznCcN34fKIjDcSw" Summary="Writes a video file on the specified path.">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Process" />
             <FullNameCategoryReference ID="Primitive" />
@@ -18455,7 +18248,7 @@
     ************************ VideoFile (Append) ************************
 
 -->
-        <Node Name="VideoFile (Append)" Bounds="336,475" Id="HJQYxtt8vYtPZbgxUMrnlA" Summary="Writes a video file on the specified path." Remarks="Content can be appended to the end of the destination file using the Append input pin.">
+        <Node Name="VideoFile (Append)" Bounds="336,430" Id="HJQYxtt8vYtPZbgxUMrnlA" Summary="Writes a video file on the specified path." Remarks="Content can be appended to the end of the destination file using the Append input pin.">
           <p:NodeReference>
             <Choice Kind="ContainerDefinition" Name="Process" />
             <FullNameCategoryReference ID="Primitive" />
