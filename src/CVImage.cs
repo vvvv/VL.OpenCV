@@ -4,7 +4,7 @@ using VL.Lib.Basics.Imaging;
 
 namespace VL.OpenCV
 {
-    public class CvImage : IDisposable
+    public class CvImage
     {
         public static readonly CvImage Damon = new CvImage(new Mat(new int[] { 1, 1 }, OpenCvSharp.MatType.CV_8UC3, Scalar.Gray), true);
 
@@ -57,11 +57,5 @@ namespace VL.OpenCV
         }
 
         public CvImage EnforceGrayDefault(CvImage img) => img != Damon ? img : Gray;
-
-        public void Dispose()
-        {
-            if (this != Damon && this != Gray)
-            _image.Dispose();
-        }
     }
 }
