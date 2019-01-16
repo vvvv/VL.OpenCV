@@ -18,6 +18,7 @@ namespace VL.OpenCV
         private CvImage image;
         private System.Drawing.Size previousSize;
         private bool enabled = true;
+        private int imageID = 0;
 
         public CvImage Image
         {
@@ -42,17 +43,15 @@ namespace VL.OpenCV
             if (img == null || pictureBox.Image == null)
             {
                 pictureBox.ImageIpl = img;
+                imageID = img.Width + img.Height + img.Channels() + img.Type().Value;
             }
-            else if (pictureBox.Image.Width != img.Width || 
-                     pictureBox.Image.Height != img.Height || 
-                     pictureBox.ImageIpl.Channels() != img.Channels() ||
-                     pictureBox.ImageIpl.Type() != img.Type())
+            else if (img.Width + img.Height + img.Channels() + img.Type().Value != imageID)
             {
                 pictureBox.ImageIpl = img;
+                imageID = img.Width + img.Height + img.Channels() + img.Type().Value;
             }
             else
             {
-                //pictureBox.imageIpl = img;
                 BitmapConverter.ToBitmap(img, (Bitmap)pictureBox.Image);
             }
             pictureBox.Invalidate();
