@@ -56,6 +56,6 @@ namespace VL.OpenCV
             return _image;
         }
 
-        public CvImage EnforceGrayDefault(CvImage img) => img != Damon ? img : Gray;
+        public static CvImage EnforceGrayDefault(CvImage img) => img != Damon ? img : Gray;
     }
 }
