@@ -122,10 +122,7 @@ namespace VL.OpenCV
         {
             var boundsinPix = Settings.DIPToPixel(bounds);
             if (boundsinPix != Bounds)
-            {
                 Bounds = boundsinPix;
-                HandleResize();
-            }
         }
 
         protected override void OnResize(EventArgs e)
