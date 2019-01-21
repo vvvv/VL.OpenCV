@@ -57,7 +57,7 @@ namespace VL.OpenCV
             pictureBox.Invalidate();
         }
 
-        private bool sizeFromImage = true;
+        private bool sizeFromImage = false;
 
         public bool SizeFromImage
         {
@@ -122,7 +122,10 @@ namespace VL.OpenCV
         {
             var boundsinPix = Settings.DIPToPixel(bounds);
             if (boundsinPix != Bounds)
+            {
                 Bounds = boundsinPix;
+                HandleResize();
+            }
         }
 
         protected override void OnResize(EventArgs e)
