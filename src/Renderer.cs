@@ -1,4 +1,5 @@
 ﻿using OpenCvSharp;
+using OpenCvSharp.Extensions;
 using OpenCvSharp.UserInterface;
 using System;
 using System.Drawing;
@@ -14,20 +15,21 @@ namespace VL.OpenCV
 
         public Subject<Rectangle> BoundsChanged { get; }
 
-        private Mat image;
+        private CvImage image;
         private System.Drawing.Size previousSize;
         private bool enabled = true;
+        private int imageID = 0;
 
-        public Mat Image
+        public CvImage Image
         {
             get { return image; }
             set
             {
-                if (enabled)
+                if (enabled && value != image)
                 {
                     image = value;
-                    pictureBox.ImageIpl = image; //this could be a potential bottle neck
-                    if (previousSize.Width != image.Width || previousSize.Height != image.Height)
+                    RefreshIplImage(image?.Mat);
+                    if (image != null && (previousSize.Width != image.Width || previousSize.Height != image.Height))
                     {
                         previousSize = new System.Drawing.Size(image.Width, image.Height);
                         HandleResize();
@@ -36,7 +38,26 @@ namespace VL.OpenCV
             }
         }
 
-        private bool sizeFromImage = true;
+        public void RefreshIplImage(Mat img)
+        {
+            if (img == null || pictureBox.Image == null)
+            {
+                pictureBox.ImageIpl = img;
+                imageID = img.Width + img.Height + img.Channels() + img.Type().Value;
+            }
+            else if (img.Width + img.Height + img.Channels() + img.Type().Value != imageID)
+            {
+                pictureBox.ImageIpl = img;
+                imageID = img.Width + img.Height + img.Channels() + img.Type().Value;
+            }
+            else
+            {
+                BitmapConverter.ToBitmap(img, (Bitmap)pictureBox.Image);
+            }
+            pictureBox.Invalidate();
+        }
+
+        private bool sizeFromImage = false;
 
         public bool SizeFromImage
         {
@@ -49,16 +70,16 @@ namespace VL.OpenCV
 
         public Renderer()
         {
+            pictureBox = new PictureBoxIpl();
             BoundsChanged = new Subject<Rectangle>();
             InitializeComponent();
-            pictureBox = new PictureBoxIpl();
             SetSize(new Rectangle(1200, 50, 512, 512));
             Show();
         }
 
         private void Renderer_Load(object sender, EventArgs e)
         {
-            pictureBox.ImageIpl = this.Image;
+            pictureBox.ImageIpl = this.Image?.Mat;
             Controls.Add(pictureBox);
         }
 
@@ -70,7 +91,7 @@ namespace VL.OpenCV
 
         private void HandleResize()
         {
-            if (image == DefaultMat.Damon)
+            if (image == CvImage.Damon)
             {
                 pictureBox.SizeMode = PictureBoxSizeMode.Normal;
                 if (ClientSize.Width != 512 || ClientSize.Height != 512)
@@ -115,13 +136,6 @@ namespace VL.OpenCV
         {
             base.OnLocationChanged(e);
             BoundsChanged.OnNext(Settings.DIP(Bounds));
-        }
-
-        public void Dispose()
-        {
-            Close();
-            pictureBox.Dispose();
-            base.Dispose();
         }
     }
 }

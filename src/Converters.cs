@@ -14,8 +14,8 @@ namespace VL.OpenCV
             {
                 public Data(Mat mat, ImageInfo info)
                 {
-                    Pointer = mat.Ptr(0);
-                    ScanSize = (int)(mat.Ptr(1).ToInt64() - Pointer.ToInt64());
+                    Pointer = mat.Data;
+                    ScanSize = (int)mat.Step();
                     Size = info.ImageSize;
                 }
 
@@ -49,11 +49,11 @@ namespace VL.OpenCV
             public IImageData GetData() => new Data(FMat, Info);
         }
 
-        public static IImage ToImage(this Mat input, PixelFormat pixelFormat, bool takeOwnership)
+        public static IImage ToImage(this CvImage input, PixelFormat pixelFormat, bool takeOwnership)
         {
-            if (input == DefaultMat.Damon)
+            if (input == CvImage.Damon)
                 takeOwnership = false;
-            return new MatImage(input, pixelFormat, takeOwnership);
+            return new MatImage(input.Mat, pixelFormat, takeOwnership);
         }
 
         public static unsafe Mat ToMat(this IImage input)
@@ -64,7 +64,7 @@ namespace VL.OpenCV
             {
                 var dstData = new byte[srcData.Size];
                 fixed (byte* dst = dstData)
-                    CopyData(srcData, info, dst);
+                    ImageExtensions.CopyTo(srcData, info, dst);
                 return new Mat(info.Height, info.Width, type, dstData, srcData.ScanSize);
             }
         }
@@ -76,23 +76,7 @@ namespace VL.OpenCV
             using (var srcData = input.GetData())
             {
                 dstMat.Create(info.Height, info.Width, type);
-                CopyData(srcData, info, (byte*)dstMat.Data.ToPointer());
-            }
-        }
-
-        // TODO: This function will be part of VL.Core in beta36.1 (ImageExtensions.CopyTo)
-        static unsafe void CopyData(IImageData srcData, ImageInfo info, byte*dst)
-        {
-            var src = (byte*)srcData.Pointer.ToPointer();
-            var srcSize = (uint)srcData.Size;
-            var srcScanSize = srcData.ScanSize;
-            if (srcScanSize * info.Height == srcSize)
-                Unsafe.CopyBlock(dst, src, srcSize);
-            else
-            {
-                var dstScanSize = (uint)(info.PixelSize * info.Width);
-                for (int i = 0; i < info.Height; i++)
-                    Unsafe.CopyBlock(dst + (dstScanSize * i), src + (srcScanSize * i), dstScanSize);
+                ImageExtensions.CopyTo(srcData, info, (byte*)dstMat.Data.ToPointer());
             }
         }
 
@@ -193,7 +177,7 @@ namespace VL.OpenCV
         {
             Matrix result = Matrix.Identity;
             if ((rotationVector != null && translationVector != null)
-                && (DefaultMat.Damon != rotationVector && DefaultMat.Damon != rotationVector))
+                && (CvImage.Damon.Mat != rotationVector && CvImage.Damon.Mat != rotationVector))
             {
                 Mat rotationMatrix = new Mat();
                 Cv2.Rodrigues(rotationVector, rotationMatrix);
