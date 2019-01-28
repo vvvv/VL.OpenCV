@@ -1,8 +1,9 @@
-﻿using DirectShowLib;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using VL.Lib;
 using VL.Lib.Collections;
+using SharpDX.MediaFoundation;
+using SharpDX.Multimedia;
 
 namespace VL.OpenCV
 {
@@ -14,14 +15,12 @@ namespace VL.OpenCV
         //return the current enum entries
         protected override IReadOnlyDictionary<string, object> GetEntries()
         {
-            DsDevice[] capDevices;
-
             // Get the collection of video devices
-            capDevices = DsDevice.GetDevicesOfCat(FilterCategory.VideoInputDevice);
+            Activate[] capDevices = VideoInInfo.EnumerateVideoDevices();
             Dictionary<string, object> devices = new Dictionary<string, object>(capDevices.Length);
             for (int i = 0; i < capDevices.Length; i++)
             {
-                devices[capDevices[i].Name] = i;
+                devices[capDevices[i].Get(CaptureDeviceAttributeKeys.FriendlyName)] = i;
             }
             return devices;
         }
