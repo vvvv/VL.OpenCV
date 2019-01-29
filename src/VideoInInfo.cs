@@ -39,7 +39,7 @@ namespace VL.OpenCV
                 Console.WriteLine(name);
                 var mediaSource = device.ActivateObject<MediaSource>();
                 mediaSource.CreatePresentationDescriptor(out PresentationDescriptor descriptor);
-                var streamDescriptor = descriptor.GetStreamDescriptorByIndex(0, out SharpDX.Mathematics.Interop.RawBool fuckof);
+                var streamDescriptor = descriptor.GetStreamDescriptorByIndex(0, out SharpDX.Mathematics.Interop.RawBool _);
                 var handler = streamDescriptor.MediaTypeHandler;
                 for (int i = 0; i < handler.MediaTypeCount; i++)
                 {
