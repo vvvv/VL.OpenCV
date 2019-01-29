@@ -383,85 +383,6 @@
         </Node>
         <!--
 
-    ************************ Split ************************
-
--->
-        <Node Name="Split" Bounds="198,92,150,270" Id="PXsiDlgYnaEObxLvXafyFD" Summary="Splits an image into its individual channels.">
-          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCV.vl">
-            <Choice Kind="OperationDefinition" Name="Operation" />
-          </p:NodeReference>
-          <Patch Id="JwZDLLZsEAhL2ZCWTuX2q4">
-            <Node Bounds="261,169,29,22" Id="AY2RlBZgSocLN7Ix116nnV">
-              <p:NodeReference LastCategoryFullName="OpenCvSharp.Mat" LastSymbolSource="OpenCvSharp.dll" LastDependency="VL.OpenCV.vl">
-                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <CategoryReference Kind="AssemblyCategory" Name="OpenCvSharp" />
-                <Choice Kind="OperationCallFlag" Name="Split" />
-                <CategoryReference Kind="AssemblyCategory" Name="Mat" NeedsToBeDirectParent="true" />
-              </p:NodeReference>
-              <Pin Id="SV0FVsAdQ4kPCf4jrVj3N5" Name="Input" Kind="StateInputPin" />
-              <Pin Id="ACdZXBDLhkMLgIdVM63Qks" Name="Output" Kind="StateOutputPin" />
-              <Pin Id="Biwn0aePTaCLeaPckXeQFu" Name="Result" Kind="OutputPin" />
-            </Node>
-            <ControlPoint Id="G0NIMKnaB5bOSAZ2yklDFB" Bounds="263,108" />
-            <Link Id="OnNhLIPYGoTM5UVivX1nQU" Ids="G0NIMKnaB5bOSAZ2yklDFB,T73FqhlpkYFL6sTHJvpCkS" />
-            <Link Id="E9dt91wojw5Ou2H3r5AxPm" Ids="I88gzJuESCeNH55YO2ek9C,G0NIMKnaB5bOSAZ2yklDFB" IsHidden="true" />
-            <ControlPoint Id="A825u4GS08nPxKcFt7hY03" Bounds="260,344" />
-            <Link Id="PqHr0f2a1iFN9Z64TWOP8b" Ids="A825u4GS08nPxKcFt7hY03,Cx9kzdH7dVNNiTZww6S9lY" IsHidden="true" />
-            <Node Bounds="259,215,77,22" Id="GqNT8uzjhDyM7vP2MyFBg2">
-              <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Collections.vl">
-                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="OperationNode" Name="FromSequence" />
-                <FullNameCategoryReference ID="Collections.Spread" />
-              </p:NodeReference>
-              <Pin Id="RsZGA6vxtKGOHwYI0UctcR" Name="Input" Kind="StateInputPin" />
-              <Pin Id="BwLAyHGYnq5PHssBd9rjlu" Name="Result" Kind="OutputPin" />
-            </Node>
-            <Link Id="PnR1Z3jhyKNPGpb2scOUqO" Ids="Biwn0aePTaCLeaPckXeQFu,RsZGA6vxtKGOHwYI0UctcR" />
-            <Pin Id="Cx9kzdH7dVNNiTZww6S9lY" Name="Result" Kind="OutputPin" Bounds="-202,487" />
-            <Pin Id="I88gzJuESCeNH55YO2ek9C" Name="Input" Kind="InputPin" Bounds="-225,392" />
-            <Node Bounds="248,262,63,66" Id="NJP62YbXu6EQVAydQmlik6">
-              <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
-                <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
-                <CategoryReference Kind="Category" Name="Primitive" />
-              </p:NodeReference>
-              <Pin Id="M3Spap2nuOmO0F7FgLyUu8" Name="Break" Kind="OutputPin" />
-              <Patch Id="LfMvODyjLSfLIn6dH5O1L9" ManuallySortedPins="true">
-                <Patch Id="QxPn5EgOp1DPJr0eAqem1b" Name="Create" ManuallySortedPins="true" />
-                <Patch Id="BwOMV7g1l7yMeiTvjKAChY" Name="Update" ManuallySortedPins="true" />
-                <Patch Id="ULZAxZfibHxQFvTxFccZGY" Name="Dispose" ManuallySortedPins="true" />
-                <Node Bounds="260,285,39,22" Id="M5HSaCkQpCsNbWyDvX9cuJ">
-                  <p:NodeReference LastCategoryFullName="VL.OpenCV.CvImage" LastSymbolSource="VL.OpenCV.dll">
-                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                    <CategoryReference Kind="AssemblyCategory" Name="CvImage" />
-                    <Choice Kind="OperationCallFlag" Name="Create" />
-                  </p:NodeReference>
-                  <Pin Id="U5ShFV1Ti9eMjiG0aTuFIG" Name="Mat" Kind="InputPin" />
-                  <Pin Id="BTvQuw5Nf2XOcYUbbWVeRg" Name="Output" Kind="StateOutputPin" />
-                </Node>
-              </Patch>
-              <ControlPoint Id="EA5isiy6gwaQMZMJxd83tO" Bounds="262,268" Alignment="Top" />
-              <ControlPoint Id="DCknAZvmQMHN2C6JJZtxVr" Bounds="262,322" Alignment="Bottom" />
-            </Node>
-            <Link Id="Hgif8qtYn7LPTqw7rqUits" Ids="BwLAyHGYnq5PHssBd9rjlu,EA5isiy6gwaQMZMJxd83tO" />
-            <Link Id="Us1lA9FGQITPY7HERG228c" Ids="EA5isiy6gwaQMZMJxd83tO,U5ShFV1Ti9eMjiG0aTuFIG" />
-            <Link Id="H7uP4cTwzYDNzgmIfD7pMP" Ids="BTvQuw5Nf2XOcYUbbWVeRg,DCknAZvmQMHN2C6JJZtxVr" />
-            <Link Id="VD7asEEa2rQLPiefGKB6fK" Ids="DCknAZvmQMHN2C6JJZtxVr,A825u4GS08nPxKcFt7hY03" />
-            <Node Bounds="262,133,39,22" Id="FvrrAKFJEo6L2p98DpysKS">
-              <p:NodeReference LastCategoryFullName="VL.OpenCV.CvImage" LastSymbolSource="VL.OpenCV.dll">
-                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <CategoryReference Kind="AssemblyCategory" Name="CvImage" />
-                <Choice Kind="OperationCallFlag" Name="Mat" />
-              </p:NodeReference>
-              <Pin Id="T73FqhlpkYFL6sTHJvpCkS" Name="Input" Kind="StateInputPin" />
-              <Pin Id="V8MhRpvf7TpOJREHULiuyg" Name="Output" Kind="StateOutputPin" />
-              <Pin Id="BPsloXDPdzmONeKUqNomK0" Name="Mat" Kind="OutputPin" />
-            </Node>
-            <Link Id="Er728xOGeJKMLE9YXD7pFD" Ids="BPsloXDPdzmONeKUqNomK0,SV0FVsAdQ4kPCf4jrVj3N5" />
-          </Patch>
-        </Node>
-        <!--
-
     ************************ Merge ************************
 
 -->
@@ -1776,8 +1697,8 @@
                   <Node Bounds="548,447,46,13" Id="V3ebPICeazZPQBhNzhzkvw">
                     <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <Choice Kind="OperationCallFlag" Name="Split" />
                       <CategoryReference Kind="Category" Name="Utils" NeedsToBeDirectParent="true" />
+                      <Choice Kind="ProcessAppFlag" Name="Split" />
                     </p:NodeReference>
                     <Pin Id="RjWDmRAquMWO96A396FRDw" Name="Input" Kind="InputPin" />
                     <Pin Id="MAUsOkIr7yXMJJWkyWJ8nt" Name="Result" Kind="OutputPin" />
@@ -3781,6 +3702,118 @@
             <Pin Id="I8B6qq5WJIXOXb5OBKloKD" Name="Input" Kind="InputPin" Bounds="510,-80" />
             <Pin Id="TFwEYAYGl3UO6QRsviFS59" Name="Output" Kind="OutputPin" Bounds="518,31" />
             <Link Id="HfTshdVmUuVMapprkEcdOY" Ids="PFbtSHmZWRWOOvM9yPnftd,G0nAG8QhV5wOtyGuqULXlE" />
+          </Patch>
+        </Node>
+        </Node>
+        <!--
+
+    ************************ Split ************************
+
+-->
+        <Node Name="Split" Bounds="54,166" Id="KHbaaRmBTqYO6zBUhzQ5DR" Summary="Splits an image into its individual channels.">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+            <Choice Kind="ContainerDefinition" Name="Process" />
+          </p:NodeReference>
+          <Patch Id="CbqJQ9VRGSuOhewVuALPSs">
+            <Canvas Id="EqHm2pUgZiHOMOif72NFTI" CanvasType="Group">
+              <ControlPoint Id="Prcbi28D9rELfTmIOapgsZ" Bounds="565,276" />
+              <ControlPoint Id="FZMehaGotvXOuqd9NsnovG" Bounds="562,561" />
+              <Node Bounds="500,298,150,238" Id="Hm2veGTGh74MtQYg9Ce7n1">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <Choice Kind="ApplicationStatefulRegion" Name="Cache" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <Pin Id="DZTdFWJ9wLzPLcEVpzaaUP" Name="Force" Kind="InputPin" />
+                <Pin Id="RbgM6xGMYa4MVBxnwwaofS" Name="Dispose Cached Outputs" Kind="InputPin" />
+                <Pin Id="BjANgi9xqIhMJuTqVo6Sec" Name="Has Changed" Kind="OutputPin" />
+                <Patch Id="JUfJh4Sl10rNL3284UraxA" ManuallySortedPins="true">
+                  <Patch Id="ElAljMibnn5MJrreSpNSg4" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="Ldt9CEDyBdbMxKY2vnLnCk" Name="Then" ManuallySortedPins="true" />
+                  <Node Bounds="563,357,29,22" Id="QyeiQzGYdbHQcjzyUZALoF">
+                    <p:NodeReference LastCategoryFullName="OpenCvSharp.Mat" LastSymbolSource="OpenCvSharp.dll" LastDependency="VL.OpenCV.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="AssemblyCategory" Name="OpenCvSharp" />
+                      <Choice Kind="OperationCallFlag" Name="Split" />
+                      <CategoryReference Kind="AssemblyCategory" Name="Mat" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="VhF7HxOkY15Lti4OpJnioG" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="PjOyVBmWU6iLsvMPNPIUCN" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="FnhRdSNPuwWOC8TUyhEWEy" Name="Result" Kind="OutputPin" />
+                  </Node>
+                  <Node Bounds="561,403,77,22" Id="SyHHaOEhsI2LY3QUq3qe5Q">
+                    <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Collections.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationNode" Name="FromSequence" />
+                      <FullNameCategoryReference ID="Collections.Spread" />
+                    </p:NodeReference>
+                    <Pin Id="OqEWFl7ZADJMEsAzpxz9XM" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="ElGmycnnUsQLLRWIulOEmx" Name="Result" Kind="OutputPin" />
+                  </Node>
+                  <Node Bounds="550,450,63,66" Id="AyqTqwbrRXgNUrm401WBlj">
+                    <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                      <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                      <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
+                      <CategoryReference Kind="Category" Name="Primitive" />
+                    </p:NodeReference>
+                    <Pin Id="SEhA69fsKf0P7yEcXekNOl" Name="Break" Kind="OutputPin" />
+                    <Patch Id="HwL7pVQ2oqRMla9Br3Gfh9" ManuallySortedPins="true">
+                      <Patch Id="AOyTpdBye2VMN0DKQLD7J9" Name="Create" ManuallySortedPins="true" />
+                      <Patch Id="SynmwgC0tVAMkiyFciQHJd" Name="Update" ManuallySortedPins="true" />
+                      <Patch Id="KtYIcVi5v5INwRtcHBg7gZ" Name="Dispose" ManuallySortedPins="true" />
+                      <Node Bounds="562,473,39,22" Id="U9DZdUeJ5W2L3gCPwcmVsf">
+                        <p:NodeReference LastCategoryFullName="VL.OpenCV.CvImage" LastSymbolSource="VL.OpenCV.dll">
+                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                          <CategoryReference Kind="AssemblyCategory" Name="CvImage" />
+                          <Choice Kind="OperationCallFlag" Name="Create" />
+                        </p:NodeReference>
+                        <Pin Id="DAiG0T7ipBkMfFVedVciYL" Name="Mat" Kind="InputPin" />
+                        <Pin Id="Bw8MKSp6e09Pyw2RegU4x9" Name="Output" Kind="StateOutputPin" />
+                      </Node>
+                    </Patch>
+                    <ControlPoint Id="Nc5TrxXc3XvLgUBqE1zCL8" Bounds="564,456" Alignment="Top" />
+                    <ControlPoint Id="EgNmh4NOaFOQH9ru9hEaZB" Bounds="564,510" Alignment="Bottom" />
+                  </Node>
+                  <Node Bounds="564,321,39,22" Id="Nn25lVzkVgGOGQSIiu31nD">
+                    <p:NodeReference LastCategoryFullName="VL.OpenCV.CvImage" LastSymbolSource="VL.OpenCV.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="AssemblyCategory" Name="CvImage" />
+                      <Choice Kind="OperationCallFlag" Name="Mat" />
+                    </p:NodeReference>
+                    <Pin Id="EpzQSKcvpVDOrt4RlrbEXw" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="UzgJzk7gwx8NeV969sUsBD" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="EaImUThNDH9Nc4ZptlfT2v" Name="Mat" Kind="OutputPin" />
+                  </Node>
+                </Patch>
+                <ControlPoint Id="QS6xBfHq7qtPaq6rvlEKPm" Bounds="565,530" Alignment="Bottom" />
+                <ControlPoint Id="RJ95YGVCEl7NK1m2ydw5oR" Bounds="568,304" Alignment="Top" />
+              </Node>
+            </Canvas>
+            <Patch Id="QyvVNdQa2lkMrS9O4O4ce5" Name="Create" />
+            <Patch Id="CfUfUaOVFoHN0nX2hseB6y" Name="Update">
+              <Pin Id="F1m3vCanHoTPY3e30uRayh" Name="Result" Kind="OutputPin" Bounds="-202,487" />
+              <Pin Id="NrVXIMQvzIHNE2tmmvy8QN" Name="Input" Kind="InputPin" Bounds="-225,392" />
+            </Patch>
+            <!--
+
+    ************************  ************************
+
+-->
+            <ProcessDefinition Id="VceqCAJklHYLUIqiYvtFJu">
+              <Fragment Id="EAgTuyoPoYROAMoQhlYxAa" Patch="QyvVNdQa2lkMrS9O4O4ce5" Enabled="true" />
+              <Fragment Id="I7prlomwo6CNg35GaEc0Qh" Patch="CfUfUaOVFoHN0nX2hseB6y" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="FKVCtE1SFbkLLWmzqFIlWs" Ids="NrVXIMQvzIHNE2tmmvy8QN,Prcbi28D9rELfTmIOapgsZ" IsHidden="true" />
+            <Link Id="ObKhsYT7VREOHj6mPXLnc4" Ids="FZMehaGotvXOuqd9NsnovG,F1m3vCanHoTPY3e30uRayh" IsHidden="true" />
+            <Link Id="DSK8Zi3yw8ZM2kfaOeUuBz" Ids="FnhRdSNPuwWOC8TUyhEWEy,OqEWFl7ZADJMEsAzpxz9XM" />
+            <Link Id="MUFwRyirhIOOV6WEp7OGHu" Ids="ElGmycnnUsQLLRWIulOEmx,Nc5TrxXc3XvLgUBqE1zCL8" />
+            <Link Id="HX6nWrcFgnbOBkoANXbZ8g" Ids="Nc5TrxXc3XvLgUBqE1zCL8,DAiG0T7ipBkMfFVedVciYL" />
+            <Link Id="KKIMbpPYr04MKIMBqR9otY" Ids="Bw8MKSp6e09Pyw2RegU4x9,EgNmh4NOaFOQH9ru9hEaZB" />
+            <Link Id="N0Tw662NC12Nu2TiZtoXQ6" Ids="EaImUThNDH9Nc4ZptlfT2v,VhF7HxOkY15Lti4OpJnioG" />
+            <Link Id="NuGtlIayybsNOCjZEj1ME7" Ids="EgNmh4NOaFOQH9ru9hEaZB,QS6xBfHq7qtPaq6rvlEKPm" />
+            <Link Id="LAxvYiiuagtOnVxHyN43WU" Ids="QS6xBfHq7qtPaq6rvlEKPm,FZMehaGotvXOuqd9NsnovG" />
+            <Link Id="PMphkEqTtOjNvd74E8pc5t" Ids="Prcbi28D9rELfTmIOapgsZ,RJ95YGVCEl7NK1m2ydw5oR" />
+            <Link Id="JF55v3xbRvMMMgkTQa1MaP" Ids="RJ95YGVCEl7NK1m2ydw5oR,EpzQSKcvpVDOrt4RlrbEXw" />
           </Patch>
         </Node>
       </Canvas>
