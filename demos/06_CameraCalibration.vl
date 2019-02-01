@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.94">
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.95">
   <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
     <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" CanvasType="FullCategory">
@@ -40,6 +40,7 @@
               <Pin Id="AjzzYy4KwAYPNWOYpt1YMt" Name="Width" Kind="InputPin" />
               <Pin Id="IAICrD4albYPMIODDCHjym" Name="Height" Kind="InputPin" />
               <Pin Id="BrtF7eWH3b5LfxT4C9E3jB" Name="FPS" Kind="InputPin" />
+              <Pin Id="BIsvbJczQkFPAaXxyUe1YD" Name="FourCC" Kind="InputPin" />
               <Pin Id="GOHfgH52VSSQXu54TEPRTI" Name="Show Properties" Kind="InputPin">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
@@ -47,6 +48,7 @@
               </Pin>
               <Pin Id="GKc5PCsdG29L8dVZiI2T1i" Name="Enabled" Kind="InputPin" />
               <Pin Id="PrInus6lQxtLlqUiaJn7c1" Name="Image" Kind="OutputPin" />
+              <Pin Id="INOOzfg4vWbNgVw4KTMtXJ" Name="Supported Formats" Kind="OutputPin" />
             </Node>
             <Node Bounds="210,1042,67,13" Id="OA2rl1sGeAmPJMrOpQFrm0">
               <p:NodeReference LastCategoryFullName="OpenCV.Sink" LastSymbolSource="VL.OpenCV.vl">
@@ -119,7 +121,7 @@
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
               <p:ValueBoxSettings>
-                <p:buttonmode p:Assembly="VL.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+                <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
               </p:ValueBoxSettings>
             </Pad>
             <Node Bounds="203,726,89,13" Id="AisdIgynMbtNq3uZeWuxKh">
@@ -316,7 +318,7 @@
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
               <p:ValueBoxSettings>
-                <p:buttonmode p:Assembly="VL.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+                <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
                 <p:showbutton p:Type="Boolean">true</p:showbutton>
               </p:ValueBoxSettings>
             </Pad>
@@ -325,7 +327,7 @@
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
               <p:ValueBoxSettings>
-                <p:buttonmode p:Assembly="VL.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+                <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
               </p:ValueBoxSettings>
             </Pad>
             <Pad Id="LlsxGE0z46vPnpK3LPUShk" Bounds="464,459,321,22" ShowValueBox="true" isIOBox="true" Value="Expensive operation!  Disable when not in use.">
@@ -423,7 +425,7 @@
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
               <p:ValueBoxSettings>
-                <p:buttonmode p:Assembly="VL.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+                <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
               </p:ValueBoxSettings>
             </Pad>
             <Pad Id="QTKJEHVf4i4OWOknjYuGR1" Comment="Read" Bounds="478,914,40,19" ShowValueBox="true" isIOBox="true" Value="False">
@@ -431,7 +433,7 @@
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
               <p:ValueBoxSettings>
-                <p:buttonmode p:Assembly="VL.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+                <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
               </p:ValueBoxSettings>
             </Pad>
             <Pad Id="LOdSEFIc67TNcoo6ktZGL5" Bounds="571,865,20,30" ShowValueBox="true" isIOBox="true" Value="4">
@@ -470,19 +472,6 @@
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
               </p:ValueBoxSettings>
             </Pad>
-            <Node Bounds="323,720,74,20" Id="ARJHZZ5l8y7LTKLKsFrkws">
-              <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl" LastDependency="06_CameraCalibration.vl">
-                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="OperationCallFlag" Name="Info" />
-                <CategoryReference Kind="Category" Name="Utils" NeedsToBeDirectParent="true" />
-              </p:NodeReference>
-              <Pin Id="Ojn93qc61CMP2cumVWlk5K" Name="Input" Kind="InputPin" />
-              <Pin Id="OPPQJz60DaTNQTu1P7oaMe" Name="Enabled" Kind="InputPin" />
-              <Pin Id="GhA3U7w6lmrMh76xfGBhrP" Name="Width" Kind="OutputPin" />
-              <Pin Id="K2DHi0SODlRLy2gc5ZBZJF" Name="Height" Kind="OutputPin" />
-              <Pin Id="J1di7PQ7fDNMYRxRCIZGI7" Name="Channels" Kind="OutputPin" />
-              <Pin Id="TUt8lpoyC2gP0pA4wOEo8q" Name="Format" Kind="OutputPin" />
-            </Node>
             <Pad Id="VYrlRk8VNwhMytD9ZzocqT" SlotId="A71IVxoVLyKN8JFlyE4dwX" Bounds="367,419">
               <p:ValueBoxSettings />
             </Pad>
@@ -501,6 +490,19 @@
             <Pad Id="GxYwAdO87pVOVpdCV1TnA7" SlotId="IFqoHu1mWcEOjjPMkd30Xa" Bounds="205,703">
               <p:ValueBoxSettings />
             </Pad>
+            <Node Bounds="323,717,74,13" Id="R6z5ZQT7eXiMSad56flRQm">
+              <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="ProcessAppFlag" Name="Info" />
+                <CategoryReference Name="Utils" NeedsToBeDirectParent="true" />
+              </p:NodeReference>
+              <Pin Id="VBXYWUoUmonNpGer1Rx2Jy" Name="Input" Kind="InputPin" />
+              <Pin Id="MBS831CKNp9O7WFVjgnEsU" Name="Enabled" Kind="InputPin" />
+              <Pin Id="AXgCbfzM4HGPcSYGtkMO8s" Name="Width" Kind="OutputPin" />
+              <Pin Id="RDbTHJ8lAbNLHp4SyRPFEm" Name="Height" Kind="OutputPin" />
+              <Pin Id="Os7MVY2kEsXLyRrPFpP1Dn" Name="Channels" Kind="OutputPin" />
+              <Pin Id="EG8OEnTKq0FOx7ZmoKTtFL" Name="Format" Kind="OutputPin" />
+            </Node>
           </Canvas>
           <ProcessDefinition Id="FHNLl8GWgcVOJzRkkPI83E">
             <Fragment Id="MRFnVwHDf0WOO7H3jKbCxI" Patch="ESJZDDS0I02LAWDOx9RJVV" Enabled="true" />
@@ -532,9 +534,6 @@
           <Link Id="LYAX9yeme4TMViULF6yQmW" Ids="MY9wD1JLmqpPrrBC25b60j,GV9jvHzzS6DLCTP9a8CDAB" />
           <Link Id="A1xg1zvnaeGMo9vhl2pF42" Ids="Hczbx4nbhSRQBy8vdUU15e,A4BT9kYl4cFLd4Hql43z5q" />
           <Link Id="B229lkfTdiGM5fGPS1S9bd" Ids="QTKJEHVf4i4OWOknjYuGR1,UjmcupkrNkOP5C2DDF84xo" />
-          <Link Id="LCvz1Cp9zWEPZazY2H9lkh" Ids="GhA3U7w6lmrMh76xfGBhrP,TBmGKrgmStpLyqEll0XrO8" />
-          <Link Id="BFFoFdOXn9cQZqIc9CuV70" Ids="K2DHi0SODlRLy2gc5ZBZJF,I561xN5B48yM7GMyjHSf7W" />
-          <Link Id="UhGVyovc7BVOJ7CSubT6Eh" Ids="Dppg5WVLZacOiDNOvUpJyX,Ojn93qc61CMP2cumVWlk5K" />
           <Link Id="LNiVq8twqocOZbA6Hrihgb" Ids="LZqpgXm0JwoNRi9i3V5tdb,Ky2Tp8hs5rIPRuH9Cp2V3u" />
           <Link Id="LEcNB0zNbkfN21BN6vBSV8" Ids="LZqpgXm0JwoNRi9i3V5tdb,ODTllF8hyr5LdIsdJB6z73" />
           <Link Id="RS8Io00fT6gPX89dFAOK0i" Ids="OSxvaDOqQstM1EWfKA7pd1,AG2nUjZWGI6NmcSL2oa5p4" />
@@ -549,6 +548,9 @@
           <Link Id="NFYvS3gVlRkPnO9Iy1CpB3" Ids="RfWjuMAilVpMAXCBPlIgXW,I1X50XjI6keQAcrsa7DFaU" />
           <Slot Id="IFqoHu1mWcEOjjPMkd30Xa" Name="BoardX" />
           <Slot Id="A71IVxoVLyKN8JFlyE4dwX" Name="BoardY" />
+          <Link Id="SMfTPl6U4DGPPQctQk3eAj" Ids="Dppg5WVLZacOiDNOvUpJyX,VBXYWUoUmonNpGer1Rx2Jy" />
+          <Link Id="LWWjyZIZIOxQTbfyIkuZDz" Ids="AXgCbfzM4HGPcSYGtkMO8s,TBmGKrgmStpLyqEll0XrO8" />
+          <Link Id="CK62rv4qUo8LCZ0WzhgTMw" Ids="RDbTHJ8lAbNLHp4SyRPFEm,I561xN5B48yM7GMyjHSf7W" />
         </Patch>
       </Node>
     </Canvas>
