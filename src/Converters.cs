@@ -145,23 +145,30 @@ namespace VL.OpenCV
                     Mat tv = translationVector.Clone();
                     rm.ConvertTo(rm, OpenCvSharp.MatType.CV_32FC1);
                     tv.ConvertTo(tv, OpenCvSharp.MatType.CV_32FC1);
+
+                    var row0 = rm.Row[0];
+                    var row1 = rm.Row[1];
+                    var row2 = rm.Row[2];
+
+                    // we want to be 100% sure that we do not transpose here.
+
                     result = new Matrix(
-                        rm.At<float>(0, 0),
-                        rm.At<float>(1, 0),
-                        rm.At<float>(2, 0),
-                        specials[0],
-                        rm.At<float>(0, 1),
-                        rm.At<float>(1, 1),
-                        rm.At<float>(2, 1),
-                        specials[1],
-                        rm.At<float>(0, 2),
-                        rm.At<float>(1, 2),
-                        rm.At<float>(2, 2),
-                        specials[2],
-                        tv.At<float>(0),
-                        tv.At<float>(1),
-                        tv.At<float>(2),
-                        specials[3]);
+                        row0.At<float>(0),   //11
+                        row0.At<float>(1),   //12
+                        row0.At<float>(2),   //13
+                        specials[0],         //14
+                        row1.At<float>(0),   //21
+                        row1.At<float>(1),   //22
+                        row1.At<float>(2),   //23
+                        specials[1],         //24
+                        row2.At<float>(0),   //31
+                        row2.At<float>(1),   //32
+                        row2.At<float>(2),   //33
+                        specials[2],         //34
+                        tv.At<float>(0),     //41
+                        tv.At<float>(1),     //42
+                        tv.At<float>(2),     //43
+                        specials[3]);        //44
                 }
             }
             return result;
