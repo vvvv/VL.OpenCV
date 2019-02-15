@@ -24,7 +24,7 @@ namespace VL.OpenCV
         double heightRatio = 1;
         double aspectRatio = 1;
 
-        System.Drawing.Size s;
+        System.Drawing.Size sizeDelta;
 
         const int WM_SIZING = 0x214;
         const int WMSZ_LEFT = 1;
@@ -72,6 +72,15 @@ namespace VL.OpenCV
                         HandleResize();
                     }
                 }
+            }
+        }
+
+        public string Title
+        {
+            set
+            {
+                this.Text = value;
+                sizeDelta = Size - ClientSize;
             }
         }
 
@@ -130,7 +139,7 @@ namespace VL.OpenCV
             InitializeComponent();
             SetSize(new Rectangle(1200, 50, 512, 512));
             Show();
-            s = Size - ClientSize;
+            sizeDelta = Size - ClientSize;
         }
 
         private void Renderer_Load(object sender, EventArgs e)
@@ -192,22 +201,22 @@ namespace VL.OpenCV
                     if (res == WMSZ_LEFT || res == WMSZ_RIGHT)
                     {
                         //Left or right resize -> adjust height (bottom)
-                        rc.Bottom = rc.Top + (int)(heightRatio * (this.Width + s.Width) / widthRatio);
+                        rc.Bottom = rc.Top + (int)(heightRatio * (this.Width + sizeDelta.Width) / widthRatio);
                     }
                     else if (res == WMSZ_TOP || res == WMSZ_BOTTOM)
                     {
                         //Up or down resize -> adjust width (right)
-                        rc.Right = rc.Left + (int)(widthRatio * (this.Height + s.Height) / heightRatio);
+                        rc.Right = rc.Left + (int)(widthRatio * (this.Height + sizeDelta.Height) / heightRatio);
                     }
                     else if (res == WMSZ_RIGHT + WMSZ_BOTTOM)
                     {
                         //Lower-right corner resize -> adjust height (could have been width)
-                        rc.Bottom = rc.Top + (int)(heightRatio * (this.Width + s.Width) / widthRatio);
+                        rc.Bottom = rc.Top + (int)(heightRatio * (this.Width + sizeDelta.Width) / widthRatio);
                     }
                     else if (res == WMSZ_LEFT + WMSZ_TOP)
                     {
                         //Upper-left corner -> adjust width (could have been height)
-                        rc.Left = rc.Right - (int)(widthRatio * (this.Height + s.Height) / heightRatio);
+                        rc.Left = rc.Right - (int)(widthRatio * (this.Height + sizeDelta.Height) / heightRatio);
                     }
                     Marshal.StructureToPtr(rc, m.LParam, true);
                 }
