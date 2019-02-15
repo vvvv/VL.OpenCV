@@ -4,17 +4,17 @@ using OpenCvSharp.UserInterface;
 using System;
 using System.Drawing;
 using System.Reactive.Subjects;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using VL.Core.Properties;
-using System.Runtime.InteropServices;
 
 namespace VL.OpenCV
 {
     public enum RendererMode
     {
-        SizeFromImage,
+        AspectRatioScale,
         FreeTransform,
-        AspectRatioScale
+        SizeFromImage
     }
 
     public partial class Renderer : Form, IDisposable
@@ -22,6 +22,9 @@ namespace VL.OpenCV
         //double so division keeps decimal points
         double widthRatio = 1;
         double heightRatio = 1;
+        double aspectRatio = 1;
+
+        System.Drawing.Size s;
 
         const int WM_SIZING = 0x214;
         const int WMSZ_LEFT = 1;
@@ -36,18 +39,14 @@ namespace VL.OpenCV
             public int Right;
             public int Bottom;
         }
-
-
+        
         PictureBoxIpl pictureBox;
 
         public Subject<Rectangle> BoundsChanged { get; }
 
         private CvImage image;
-        private System.Drawing.Size previousSize;
         private bool enabled = true;
         private int imageID = 0;
-        private int prevWidth = 0;
-        private int prevHeight = 0;
 
         public CvImage Image
         {
@@ -59,10 +58,15 @@ namespace VL.OpenCV
                     image = value;
                     widthRatio = image.Cols;
                     heightRatio = image.Rows;
-                    RefreshIplImage(image?.Mat);
-                    if (image != null && (previousSize.Width != image.Width || previousSize.Height != image.Height))
+                    aspectRatio = widthRatio / heightRatio;
+                    if (image != null)
                     {
-                        previousSize = new System.Drawing.Size(image.Width, image.Height);
+                        if (rendererMode == RendererMode.AspectRatioScale &&
+                            image.Width + image.Height + image.Mat.Channels() + image.Mat.Type().Value != imageID)
+                        {
+                            ClientSize = new System.Drawing.Size(ClientSize.Width, (int)Math.Floor(ClientSize.Width / aspectRatio));
+                        }
+                        RefreshIplImage(image?.Mat);
                         HandleResize();
                     }
                 }
@@ -105,9 +109,8 @@ namespace VL.OpenCV
             BoundsChanged = new Subject<Rectangle>();
             InitializeComponent();
             SetSize(new Rectangle(1200, 50, 512, 512));
-            prevHeight = prevWidth = 0;
             Show();
-            HandleResize();
+            s = Size - ClientSize;
         }
 
         private void Renderer_Load(object sender, EventArgs e)
@@ -129,8 +132,8 @@ namespace VL.OpenCV
                 if (image == CvImage.Damon)
                 {
                     pictureBox.SizeMode = PictureBoxSizeMode.Normal;
-                    if (ClientSize.Width != 512 || ClientSize.Height != 512)
-                        ClientSize = pictureBox.ClientSize = new System.Drawing.Size(512, 512);
+                    if (Size.Width != 613 || Size.Height != 613)
+                        ClientSize = pictureBox.ClientSize = new System.Drawing.Size(ClientSize.Width, (int)Math.Floor(ClientSize.Width / aspectRatio));
                     if (rendererMode == RendererMode.SizeFromImage)
                         MaximumSize = MinimumSize = SizeFromClientSize(ClientSize);
                 }
@@ -140,24 +143,19 @@ namespace VL.OpenCV
                     {
                         if (ClientSize.Width != image.Width || ClientSize.Height != image.Height)
                         {
-                            ClientSize = pictureBox.ClientSize = new System.Drawing.Size(image.Width, image.Height);
-                            MaximumSize = MinimumSize = SizeFromClientSize(ClientSize);
+                            ClientSize = new System.Drawing.Size(image.Width, image.Height);
+                            FormBorderStyle = FormBorderStyle.FixedSingle;
                         }
                     }
                     else if (rendererMode == RendererMode.AspectRatioScale)
                     {
-                        if (rendererMode == RendererMode.AspectRatioScale)
-                        {
-                            ClientSize = pictureBox.ClientSize = new System.Drawing.Size(image.Width, image.Height);
-                        }
-                        MinimumSize = MaximumSize = new System.Drawing.Size(0, 0);
+                        FormBorderStyle = FormBorderStyle.Sizable;
                         pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     }
                     else
                     {
-                        MinimumSize = MaximumSize = new System.Drawing.Size(0, 0);
+                        FormBorderStyle = FormBorderStyle.Sizable;
                         pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                        pictureBox.ClientSize = ClientSize;
                     }
                 }
             }
@@ -174,22 +172,22 @@ namespace VL.OpenCV
                     if (res == WMSZ_LEFT || res == WMSZ_RIGHT)
                     {
                         //Left or right resize -> adjust height (bottom)
-                        rc.Bottom = rc.Top + (int)(heightRatio * this.Width / widthRatio);
+                        rc.Bottom = rc.Top + (int)(heightRatio * (this.Width + s.Width) / widthRatio);
                     }
                     else if (res == WMSZ_TOP || res == WMSZ_BOTTOM)
                     {
                         //Up or down resize -> adjust width (right)
-                        rc.Right = rc.Left + (int)(widthRatio * this.Height / heightRatio);
+                        rc.Right = rc.Left + (int)(widthRatio * (this.Height + s.Height) / heightRatio);
                     }
                     else if (res == WMSZ_RIGHT + WMSZ_BOTTOM)
                     {
                         //Lower-right corner resize -> adjust height (could have been width)
-                        rc.Bottom = rc.Top + (int)(heightRatio * this.Width / widthRatio);
+                        rc.Bottom = rc.Top + (int)(heightRatio * (this.Width + s.Width) / widthRatio);
                     }
                     else if (res == WMSZ_LEFT + WMSZ_TOP)
                     {
                         //Upper-left corner -> adjust width (could have been height)
-                        rc.Left = rc.Right - (int)(widthRatio * this.Height / heightRatio);
+                        rc.Left = rc.Right - (int)(widthRatio * (this.Height + s.Height) / heightRatio);
                     }
                     Marshal.StructureToPtr(rc, m.LParam, true);
                 }
