@@ -37,10 +37,10 @@
             this.InfoLabel.AutoSize = true;
             this.InfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InfoLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.InfoLabel.Location = new System.Drawing.Point(0, 303);
+            this.InfoLabel.Location = new System.Drawing.Point(0, 301);
             this.InfoLabel.Name = "InfoLabel";
-            this.InfoLabel.Padding = new System.Windows.Forms.Padding(1);
-            this.InfoLabel.Size = new System.Drawing.Size(48, 20);
+            this.InfoLabel.Padding = new System.Windows.Forms.Padding(1, 1, 1, 3);
+            this.InfoLabel.Size = new System.Drawing.Size(48, 22);
             this.InfoLabel.TabIndex = 0;
             this.InfoLabel.Text = "label1";
             this.InfoLabel.Visible = false;
