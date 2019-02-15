@@ -47,6 +47,7 @@ namespace VL.OpenCV
         private CvImage image;
         private bool enabled = true;
         private int imageID = 0;
+        private bool showText = false;
 
         public CvImage Image
         {
@@ -62,15 +63,34 @@ namespace VL.OpenCV
                     if (image != null)
                     {
                         if (rendererMode == RendererMode.AspectRatioScale &&
-                            image.Width + image.Height + image.Mat.Channels() + image.Mat.Type().Value != imageID)
+                            image.Width + image.Height + image.Channels + image.Mat.Type().Value != imageID)
                         {
                             ClientSize = new System.Drawing.Size(ClientSize.Width, (int)Math.Floor(ClientSize.Width / aspectRatio));
                         }
+                        AddText();
                         RefreshIplImage(image?.Mat);
                         HandleResize();
                     }
                 }
             }
+        }
+
+        public bool ShowText
+        {
+            set {
+                showText = value;
+                AddText();
+            }
+        }
+
+        private void AddText()
+        {
+            if (showText)
+            {
+                var info = image.Width + "x" + image.Height + "x" + image.Channels;
+                InfoLabel.Text = info;
+            }
+            InfoLabel.Visible = showText;
         }
 
         public void RefreshIplImage(Mat img)
