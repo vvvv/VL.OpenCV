@@ -41,15 +41,15 @@ namespace VL.OpenCV
         }
         
         PictureBoxIpl pictureBox;
-
-        public Subject<Rectangle> BoundsChanged { get; }
-
         private CvImage image;
         private bool enabled = true;
         private int imageID = 0;
         private bool showText = false;
         private string title = "VL.OpenCV Renderer";
         private bool loaded = false;
+        private RendererMode rendererMode = RendererMode.AspectRatioScale;
+
+        public Subject<Rectangle> BoundsChanged { get; }
 
         public CvImage Image
         {
@@ -97,6 +97,29 @@ namespace VL.OpenCV
             }
         }
 
+        public RendererMode RendererMode
+        {
+            get { return rendererMode; }
+            set
+            {
+                rendererMode = value;
+                HandleResize();
+            }
+        }
+
+        public Renderer()
+        {
+            pictureBox = new PictureBoxIpl();
+            this.BackColor = Color.Blue;
+            pictureBox.BackColor = Color.Transparent;
+            BoundsChanged = new Subject<Rectangle>();
+            InitializeComponent();
+            SetSize(new Rectangle(1200, 50, 512, 512));
+            Show();
+            sizeDelta = new System.Drawing.Size(SystemInformation.BorderSize.Width * 2,
+                    SystemInformation.CaptionHeight);
+        }
+
         private void AddText()
         {
             if (showText)
@@ -124,30 +147,6 @@ namespace VL.OpenCV
                 BitmapConverter.ToBitmap(img, (Bitmap)pictureBox.Image);
             }
             pictureBox.Invalidate();
-        }
-
-        private RendererMode rendererMode = RendererMode.AspectRatioScale;
-
-        public RendererMode RendererMode
-        {
-            get { return rendererMode; }
-            set {
-                rendererMode = value;
-                HandleResize();
-            }
-        }
-
-        public Renderer()
-        {
-            pictureBox = new PictureBoxIpl();
-            this.BackColor = Color.Blue;
-            pictureBox.BackColor = Color.Transparent;
-            BoundsChanged = new Subject<Rectangle>();
-            InitializeComponent();
-            SetSize(new Rectangle(1200, 50, 512, 512));
-            Show();
-            sizeDelta = new System.Drawing.Size(SystemInformation.BorderSize.Width * 2,
-                    SystemInformation.CaptionHeight);
         }
 
         private void Renderer_Load(object sender, EventArgs e)
@@ -186,6 +185,7 @@ namespace VL.OpenCV
                     }
                     else if (rendererMode == RendererMode.AspectRatioScale)
                     {
+                        ClientSize = pictureBox.ClientSize = new System.Drawing.Size(ClientSize.Width, (int)(ClientSize.Width / aspectRatio));
                         FormBorderStyle = FormBorderStyle.Sizable;
                         pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     }
