@@ -19,12 +19,13 @@ namespace VL.OpenCV
 
     public partial class Renderer : Form, IDisposable
     {
-        //double so division keeps decimal points
-        double widthRatio = 1;
-        double heightRatio = 1;
-        double aspectRatio = 1;
-
-        System.Drawing.Size sizeDelta;
+        public struct RECT
+        {
+            public int Top;
+            public int Right;
+            public int Bottom;
+            public int Left;
+        }
 
         const int WM_SIZING = 0x214;
         const int WMSZ_LEFT = 1;
@@ -32,23 +33,17 @@ namespace VL.OpenCV
         const int WMSZ_TOP = 3;
         const int WMSZ_BOTTOM = 6;
 
-        public struct RECT
-        {
-            public int Left;
-            public int Top;
-            public int Right;
-            public int Bottom;
-        }
-        
-        PictureBoxIpl pictureBox;
-        private CvImage image;
-        private bool enabled = true;
-        private int imageID = 0;
-        private bool showText = false;
-        private string title = "VL.OpenCV Renderer";
-        private bool loaded = false;
         private RendererMode rendererMode = RendererMode.AspectRatioScale;
+        private string title = "VL.OpenCV Renderer";
+        private PictureBoxIpl pictureBox;
+        private CvImage image;
+        private bool showText = false;
+        private bool enabled = true;
+        private bool loaded = false;
+        private int imageID = 0;
 
+        double aspectRatio = 1;
+        System.Drawing.Size sizeDelta;
         public Subject<Rectangle> BoundsChanged { get; }
 
         public CvImage Image
@@ -60,15 +55,14 @@ namespace VL.OpenCV
                 {
                     loaded = false;
                     image = value;
-                    widthRatio = image.Cols;
-                    heightRatio = image.Cols;
-                    aspectRatio = widthRatio / image.Rows;
+                    aspectRatio = image.Cols / image.Rows;
                     if (image != null)
                     {
                         if (rendererMode == RendererMode.AspectRatioScale &&
                             image.Width + image.Height + image.Channels + image.Mat.Type().Value != imageID)
                         {
                             ClientSize = new System.Drawing.Size(ClientSize.Width, (int)(ClientSize.Width / aspectRatio));
+                            //needed to prevent top-bottom underscaling when in AspectRatioScale mode
                             MinimumSize = new System.Drawing.Size(122 + sizeDelta.Width, (int)((122 + sizeDelta.Width) / aspectRatio) + sizeDelta.Height);
                         }
                         RefreshIplImage(image?.Mat);
@@ -83,7 +77,7 @@ namespace VL.OpenCV
         {
             set
             {
-                this.Text = title = value;
+                Text = title = value;
                 sizeDelta = new System.Drawing.Size(SystemInformation.BorderSize.Width * 2,
                     SystemInformation.CaptionHeight);
             }
@@ -91,7 +85,8 @@ namespace VL.OpenCV
 
         public bool ShowText
         {
-            set {
+            set
+            {
                 showText = value;
                 AddText();
             }
@@ -110,8 +105,6 @@ namespace VL.OpenCV
         public Renderer()
         {
             pictureBox = new PictureBoxIpl();
-            this.BackColor = Color.Blue;
-            pictureBox.BackColor = Color.Transparent;
             BoundsChanged = new Subject<Rectangle>();
             InitializeComponent();
             SetSize(new Rectangle(1200, 50, 512, 512));
@@ -151,7 +144,7 @@ namespace VL.OpenCV
 
         private void Renderer_Load(object sender, EventArgs e)
         {
-            pictureBox.ImageIpl = this.Image?.Mat;
+            pictureBox.ImageIpl = Image?.Mat;
             Controls.Add(pictureBox);
         }
 
@@ -208,28 +201,27 @@ namespace VL.OpenCV
                     int res = m.WParam.ToInt32();
                     if (res == WMSZ_LEFT || res == WMSZ_RIGHT)
                     {
-                        //Left or right resize -> adjust height (bottom)
+                        //Left/Right resize
                         rc.Bottom = rc.Top + (int)((rc.Right - rc.Left) / aspectRatio) + sizeDelta.Height;
                     }
                     else if (res == WMSZ_TOP || res == WMSZ_BOTTOM || res == WMSZ_RIGHT + WMSZ_TOP)
                     {
-                        //Up or down resize -> adjust width (right)
+                        //Top/Bottom/Top-Right resize
                         rc.Right = rc.Left + (int)((rc.Bottom - rc.Top) * aspectRatio) - sizeDelta.Height;
                     }
                     else if (res == WMSZ_RIGHT + WMSZ_BOTTOM || res == WMSZ_LEFT + WMSZ_BOTTOM)
                     {
-                        //Lower-right/Lower-left corner resize -> adjust height (could have been width)
+                        //Bottom-Right/Bottom-Left resize
                         rc.Bottom = rc.Top + (int)((rc.Right - rc.Left) / aspectRatio) + sizeDelta.Height;
                     }
                     else if (res == WMSZ_LEFT + WMSZ_TOP)
                     {
-                        //Upper-left corner -> adjust width (could have been height)
+                        //Top-Left resize
                         rc.Left = rc.Right - (int)((rc.Bottom - rc.Top) * aspectRatio) + sizeDelta.Height;
                     }
                     Marshal.StructureToPtr(rc, m.LParam, true);
                 }
             }
-
             base.WndProc(ref m);
         }
 
@@ -245,7 +237,7 @@ namespace VL.OpenCV
             base.OnResize(e);
             BoundsChanged.OnNext(Settings.DIP(Bounds));
             pictureBox.ClientSize = ClientSize;
-            if (loaded) 
+            if (loaded)
                 Text = "cw: " + pictureBox.ClientSize.Width + "   ch: " + pictureBox.ClientSize.Height;
         }
 
