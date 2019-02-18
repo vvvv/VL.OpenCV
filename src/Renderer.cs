@@ -21,10 +21,10 @@ namespace VL.OpenCV
     {
         public struct RECT
         {
+            public int Left;
             public int Top;
             public int Right;
             public int Bottom;
-            public int Left;
         }
 
         const int WM_SIZING = 0x214;
@@ -55,7 +55,7 @@ namespace VL.OpenCV
                 {
                     loaded = false;
                     image = value;
-                    aspectRatio = image.Cols / image.Rows;
+                    aspectRatio = (double)image.Cols / (double)image.Rows;
                     if (image != null)
                     {
                         if (rendererMode == RendererMode.AspectRatioScale &&
