@@ -188,7 +188,6 @@ namespace VL.OpenCV
                     }
                 }
             }
-            Text = "cw: " + ClientSize.Width + "   ch: " + ClientSize.Height;
         }
 
         protected override void WndProc(ref Message m)
