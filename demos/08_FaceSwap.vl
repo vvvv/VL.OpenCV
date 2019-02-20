@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.94">
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.96">
   <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
   <NugetDependency Id="U2JwHqMJLyGLDs97lM6eZ6" Location="VL.CoreLib.VVVV" Version="0.35.21" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
@@ -23,7 +23,7 @@
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
               <p:ValueBoxSettings>
-                <p:buttonmode p:Assembly="VL.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+                <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
               </p:ValueBoxSettings>
             </Pad>
             <Pad Id="ONahCvmS2e3LePihQwg4AY" Comment="Width" Bounds="141,125,30,19" ShowValueBox="true" isIOBox="true" Value="640">
@@ -50,9 +50,11 @@
               <Pin Id="E95uocMj1iVNBiEsBeVVKq" Name="Width" Kind="InputPin" />
               <Pin Id="F6o9F4YwSiGLNwqQzhSqrb" Name="Height" Kind="InputPin" />
               <Pin Id="RKJTFVZs56CQM43GMAyner" Name="FPS" Kind="InputPin" />
+              <Pin Id="VVtK516jLcqOb3TkNx9hr5" Name="FourCC" Kind="InputPin" />
               <Pin Id="KiztWwzn7FoNcqyO5hQNW5" Name="Show Properties" Kind="InputPin" />
               <Pin Id="GpPaevGZKo8MupPwM4qtNn" Name="Enabled" Kind="InputPin" />
               <Pin Id="FvJir8KL39hOH2QUIn9ulM" Name="Image" Kind="OutputPin" />
+              <Pin Id="DwNdYCFqY0LPgl1p2feOYZ" Name="Supported Formats" Kind="OutputPin" />
             </Node>
             <Node Bounds="181,338,105,13" Id="JssUCNhdpjlOo8WsDnnQzo">
               <p:NodeReference LastCategoryFullName="OpenCV.Tracker" LastSymbolSource="VL.OpenCV.vl">
@@ -83,13 +85,13 @@
               </Pin>
               <Pin Id="IDGd4EPQXB6OqutsFpzbSV" Name="Rectangles" Kind="OutputPin" />
             </Node>
-            <Pad Id="FZNenfD2RnuOHFxq7YOmpZ" Comment="Min Neighbors" Bounds="258,316,18,19" ShowValueBox="true" isIOBox="true" Value="8">
+            <Pad Id="FZNenfD2RnuOHFxq7YOmpZ" Comment="Min Neighbors" Bounds="258,316,18,19" ShowValueBox="true" isIOBox="true" Value="6">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Integer32" />
               </p:TypeAnnotation>
             </Pad>
-            <Pad Id="DXCkBIWpwuOMsf0r32iRQH" Comment="" Bounds="208,270,219,19" ShowValueBox="true" isIOBox="true" Value="haarcascade_frontalface_alt2.xml">
-              <p:TypeAnnotation LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.Dev.vl">
+            <Pad Id="DXCkBIWpwuOMsf0r32iRQH" Comment="" Bounds="208,270,219,19" ShowValueBox="true" isIOBox="true" Value="haarcascade_frontalface_alt.xml">
+              <p:TypeAnnotation LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="TypeFlag" Name="HAARCascadeFile" />
               </p:TypeAnnotation>
             </Pad>
@@ -438,7 +440,7 @@
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
               <p:ValueBoxSettings>
-                <p:buttonmode p:Assembly="VL.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+                <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
               </p:ValueBoxSettings>
             </Pad>
             <Node Bounds="538,279,80,13" Id="SFOY96xuLi8OahrzsvGZWS">
@@ -453,13 +455,20 @@
             </Node>
             <ControlPoint Id="SUxMVpt5jKvLPpOYBuqeEC" Bounds="638,272" />
             <ControlPoint Id="Ul6rqwHYr1bO25B7YHP0jO" Bounds="638,571" />
-            <Node Bounds="94,1165,67,13" Id="CNWoMnGtNACQBb3tT0QZsq">
+            <Node Bounds="75,1165,105,19" Id="CNWoMnGtNACQBb3tT0QZsq">
               <p:NodeReference LastCategoryFullName="OpenCV.Sink" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Renderer" />
               </p:NodeReference>
+              <Pin Id="PdGr3JnLN9TM6kz36tPOMA" Name="Bounds" Kind="InputPin" DefaultValue="49, 49, 510, 409">
+                <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
+                  <Choice Kind="TypeFlag" Name="Rectangle" />
+                </p:TypeAnnotation>
+              </Pin>
               <Pin Id="KbTodTw10h8PTpMSj17Usw" Name="Input" Kind="InputPin" />
-              <Pin Id="OgEAbRtriCwMO8OVeDhSbi" Name="Size From Image" Kind="InputPin" />
+              <Pin Id="BQFAT6e2rxHNT3fQ0dq23A" Name="Title" Kind="InputPin" />
+              <Pin Id="EqfjLuZJfISMAxs1XFOZXF" Name="Renderer Mode" Kind="InputPin" />
+              <Pin Id="IVvmmtyCoTaLdJH7gRCJVj" Name="Show Info" Kind="InputPin" />
               <Pin Id="GXm8kxYtu8NO3qfCxILdzC" Name="Enabled" Kind="InputPin" />
             </Node>
             <Pad Id="NqiWAbpn2ezQLLcMhNTt0E" Bounds="583,237,412,140" ShowValueBox="true" isIOBox="true" Value="This demo needs at least two faces to be visible and facing the camera within the frame.  Hit Swap to trigger the faceswap effect.  Hit Swap again to reset or add in more people.&#xD;&#xA;">
