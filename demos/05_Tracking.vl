@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="AEE6Cfg0i8wOlKpLCt1WJp" Version="0.94">
+<Document xmlns:p="property" Id="AEE6Cfg0i8wOlKpLCt1WJp" Version="0.96">
   <Patch Id="VOJ8Gg4KYVfOa20dp4sCNr">
     <Canvas Id="CRaRwQfSLh7P9Gm953CwLa" DefaultCategory="VVVV" CanvasType="FullCategory">
       <!--
@@ -23,17 +23,26 @@
               <Pin Id="ESkCVYlSfDYNQjlts4wmTd" Name="Width" Kind="InputPin" />
               <Pin Id="MRECJpw4TnlO6xj45yIcBV" Name="Height" Kind="InputPin" />
               <Pin Id="DEDKguCVSupNbaPxb8R8W4" Name="FPS" Kind="InputPin" />
+              <Pin Id="DwGe73vevPPN24wPaPUPgO" Name="FourCC" Kind="InputPin" />
               <Pin Id="UP5S66XUA6mLmByRLtLSTI" Name="Show Properties" Kind="InputPin" />
               <Pin Id="OVDEGhMN9KpOFruqG6ceFL" Name="Enabled" Kind="InputPin" />
               <Pin Id="VzOt7PxblQ4PpqDRaCzdRq" Name="Image" Kind="OutputPin" />
+              <Pin Id="Uleu8fRHr0HQFLh8wtQEa0" Name="Supported Formats" Kind="OutputPin" />
             </Node>
-            <Node Bounds="70,557,67,13" Id="EAJKlCgRg3DNwbQSP9X7NJ">
+            <Node Bounds="51,557,105,19" Id="EAJKlCgRg3DNwbQSP9X7NJ">
               <p:NodeReference LastCategoryFullName="OpenCV.Sink" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Renderer" />
               </p:NodeReference>
+              <Pin Id="TTVWsRhtHCvP0YzyrT2mVP" Name="Bounds" Kind="InputPin" DefaultValue="1778, 175, 511, 409">
+                <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
+                  <Choice Kind="TypeFlag" Name="Rectangle" />
+                </p:TypeAnnotation>
+              </Pin>
               <Pin Id="Al9MMOfnp0OLVFP4qKH4NU" Name="Input" Kind="InputPin" />
-              <Pin Id="MA9DA1vCHq7OnN0V4YyWbM" Name="Size From Image" Kind="InputPin" />
+              <Pin Id="L6xdqs4Wde7MBg43jQLLuW" Name="Title" Kind="InputPin" />
+              <Pin Id="T3Fp2dG3hTcPsOEJPIEco2" Name="Renderer Mode" Kind="InputPin" />
+              <Pin Id="GCEvfwOJ3KhLbUrRgoYH1h" Name="Show Info" Kind="InputPin" />
               <Pin Id="QahUVGXcYUEOySZPREFbl3" Name="Enabled" Kind="InputPin" />
             </Node>
             <Pad Id="Ixz2AkFVbHHLL1TVYVXDp1" Bounds="518,286,521,82" ShowValueBox="true" isIOBox="true" Value="OpenCV &gt; Tracker&#xD;&#xA;&#xD;&#xA;- there are different 2d Trackers in the Tracker category&#xD;&#xA;- they all take a ROI (region of interest, in pixels) that defines the region to track for&#xD;&#xA;">
@@ -59,7 +68,7 @@
               <Pin Id="P5zHtBbvctcOpvCLxDETap" Name="Rectangle" Kind="OutputPin" />
               <Pin Id="UGrnuWRgeOaMz0Lgpit2Wr" Name="Tracked" Kind="OutputPin" />
             </Node>
-            <Node Bounds="71,467,105,13" Id="R0HVhtiOGeXPkSNqHms3zd">
+            <Node Bounds="71,420,105,19" Id="R0HVhtiOGeXPkSNqHms3zd">
               <p:NodeReference LastCategoryFullName="OpenCV.Drawing" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="DrawRectangle" />
@@ -69,14 +78,14 @@
               <Pin Id="BwYRRb0DMrjP6z4pmPIsii" Name="Color" Kind="InputPin" />
               <Pin Id="FyX0rPcAKatQWwDxDRzTFV" Name="Thickness" Kind="InputPin" />
               <Pin Id="Lvd8MfTeFP2OqVCRmLS1Gx" Name="Line Type" Kind="InputPin" />
-              <Pin Id="Lbnbnzea8SPNlzCSD5bZ6J" Name="Enabled" Kind="InputPin" DefaultValue="True">
+              <Pin Id="Lbnbnzea8SPNlzCSD5bZ6J" Name="Enabled" Kind="InputPin">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
               </Pin>
               <Pin Id="UbZXBtEr7V4Pt9Ppzdb1cY" Name="Output" Kind="OutputPin" />
             </Node>
-            <Pad Id="OHMubt4dRRmObfTvRRctgf" Comment="Tracked" Bounds="206,454,40,19" ShowValueBox="true" isIOBox="true" />
+            <Pad Id="OHMubt4dRRmObfTvRRctgf" Comment="Tracked" Bounds="295,456,40,19" ShowValueBox="true" isIOBox="true" />
             <Node Bounds="527,364,65,13" Id="DIIP1MuZWjbMjXWn4IfHrA">
               <p:NodeReference LastCategoryFullName="OpenCV.Tracker" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -137,15 +146,15 @@
               <Pin Id="IubaG2jDRI3NijFJr0tpMo" Name="Rectangle" Kind="OutputPin" />
               <Pin Id="NMGd26dBy1pL4zYHQuIBzk" Name="Tracked" Kind="OutputPin" />
             </Node>
-            <Pad Id="DXcs9JnOsaoLLoWwUxWvgb" Comment="Initialize" Bounds="266,385,40,19" ShowValueBox="true" isIOBox="true" Value="False">
+            <Pad Id="DXcs9JnOsaoLLoWwUxWvgb" Comment="Initialize" Bounds="265,385,40,19" ShowValueBox="true" isIOBox="true" Value="False">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
               <p:ValueBoxSettings>
-                <p:buttonmode p:Assembly="VL.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+                <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
               </p:ValueBoxSettings>
             </Pad>
-            <Node Bounds="94,373,54,13" Id="QOX2oJFz1kfNvNRnEO9n5u">
+            <Node Bounds="91,387,61,19" Id="QOX2oJFz1kfNvNRnEO9n5u">
               <p:NodeReference LastCategoryFullName="2D.Rectangle" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="Rectangle (Join Center Size)" />
@@ -154,12 +163,12 @@
               <Pin Id="M7tIhLJrDpzLlEcqEqEtIQ" Name="Size" Kind="InputPin" />
               <Pin Id="Cmz3WFSKRgSLgmYC6FgO07" Name="Result" Kind="OutputPin" />
             </Node>
-            <Pad Id="C0uDhtHzU5wOtB4Q3oLzVW" Comment="Center" Bounds="89,330,45,38" ShowValueBox="true" isIOBox="true" Value="200, 100">
+            <Pad Id="C0uDhtHzU5wOtB4Q3oLzVW" Comment="Center" Bounds="93,344,45,38" ShowValueBox="true" isIOBox="true" Value="200, 100">
               <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Vector2" />
               </p:TypeAnnotation>
             </Pad>
-            <Pad Id="Dkw3wzBZjBXLoUMuJ0wbrC" Comment="Size" Bounds="192,330,45,38" ShowValueBox="true" isIOBox="true" Value="100, 100">
+            <Pad Id="Dkw3wzBZjBXLoUMuJ0wbrC" Comment="Size" Bounds="190,344,45,38" ShowValueBox="true" isIOBox="true" Value="100, 100">
               <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Vector2" />
               </p:TypeAnnotation>
@@ -178,7 +187,7 @@
               </Pin>
               <Pin Id="DJPBpBFOAshMeT0Tmi7ehq" Name="Thickness" Kind="InputPin" />
               <Pin Id="MJvLljTF3c0LHdQdmHhf83" Name="Line Type" Kind="InputPin" />
-              <Pin Id="QcaVvvHDUiGMKDwv2HrW7S" Name="Enabled" Kind="InputPin" DefaultValue="True">
+              <Pin Id="QcaVvvHDUiGMKDwv2HrW7S" Name="Enabled" Kind="InputPin">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
