@@ -62,13 +62,14 @@ namespace VL.OpenCV
                             image.Width + image.Height + image.Channels + image.Mat.Type().Value != imageID)
                         {
                             ClientSize = new System.Drawing.Size(ClientSize.Width, (int)(ClientSize.Width / aspectRatio));
-                            //needed to prevent top-bottom underscaling when in AspectRatioScale mode
-                            MinimumSize = new System.Drawing.Size(122 + sizeDelta.Width, (int)((122 + sizeDelta.Width) / aspectRatio) + sizeDelta.Height);
+                            //needed to prevent underscaling when in AspectRatioScale mode
+                            MinimumSize = new System.Drawing.Size(2 * sizeDelta.Width, (int)((2 * sizeDelta.Width) / aspectRatio) + sizeDelta.Height);
                         }
                         RefreshIplImage(image?.Mat);
                         HandleResize();
                     }
                     loaded = true;
+                    AddText();
                 }
             }
         }
@@ -78,8 +79,7 @@ namespace VL.OpenCV
             set
             {
                 Text = title = value;
-                sizeDelta = new System.Drawing.Size(SystemInformation.BorderSize.Width * 2,
-                    SystemInformation.CaptionHeight);
+                sizeDelta = Size - ClientSize;
             }
         }
 
@@ -107,10 +107,9 @@ namespace VL.OpenCV
             pictureBox = new PictureBoxIpl();
             BoundsChanged = new Subject<Rectangle>();
             InitializeComponent();
-            SetSize(new Rectangle(1200, 50, 512, 512));
+            SetSize(new Rectangle(1200, 50, 512, 512), true);
             Show();
-            sizeDelta = new System.Drawing.Size(SystemInformation.BorderSize.Width * 2,
-                    SystemInformation.CaptionHeight);
+            sizeDelta = Size - ClientSize;
         }
 
         private void AddText()
@@ -189,6 +188,7 @@ namespace VL.OpenCV
                     }
                 }
             }
+            Text = "cw: " + ClientSize.Width + "   ch: " + ClientSize.Height;
         }
 
         protected override void WndProc(ref Message m)
@@ -199,25 +199,26 @@ namespace VL.OpenCV
                 {
                     RECT rc = (RECT)Marshal.PtrToStructure(m.LParam, typeof(RECT));
                     int res = m.WParam.ToInt32();
-                    if (res == WMSZ_LEFT || res == WMSZ_RIGHT)
+                    if (res == WMSZ_LEFT || res == WMSZ_RIGHT || res == WMSZ_RIGHT + WMSZ_BOTTOM || res == WMSZ_LEFT + WMSZ_BOTTOM)
                     {
                         //Left/Right resize
-                        rc.Bottom = rc.Top + (int)((rc.Right - rc.Left) / aspectRatio) + sizeDelta.Height;
+                        var currentClientWidth = rc.Right - rc.Left - sizeDelta.Width;
+                        var targetClientHeight = Math.Round(currentClientWidth / aspectRatio, MidpointRounding.AwayFromZero);
+                        rc.Bottom = rc.Top + (int)targetClientHeight + sizeDelta.Height;
                     }
                     else if (res == WMSZ_TOP || res == WMSZ_BOTTOM || res == WMSZ_RIGHT + WMSZ_TOP)
                     {
                         //Top/Bottom/Top-Right resize
-                        rc.Right = rc.Left + (int)((rc.Bottom - rc.Top) * aspectRatio) - sizeDelta.Height;
-                    }
-                    else if (res == WMSZ_RIGHT + WMSZ_BOTTOM || res == WMSZ_LEFT + WMSZ_BOTTOM)
-                    {
-                        //Bottom-Right/Bottom-Left resize
-                        rc.Bottom = rc.Top + (int)((rc.Right - rc.Left) / aspectRatio) + sizeDelta.Height;
+                        var currentClientHeight = rc.Bottom - rc.Top - sizeDelta.Height;
+                        var targetClientWidth = Math.Round(currentClientHeight * aspectRatio, MidpointRounding.AwayFromZero);
+                        rc.Right = rc.Left + (int)targetClientWidth + sizeDelta.Width;
                     }
                     else if (res == WMSZ_LEFT + WMSZ_TOP)
                     {
                         //Top-Left resize
-                        rc.Left = rc.Right - (int)((rc.Bottom - rc.Top) * aspectRatio) + sizeDelta.Height;
+                        var currentClientHeight = rc.Bottom - rc.Top - sizeDelta.Height;
+                        var targetClientWidth = Math.Round(currentClientHeight * aspectRatio, MidpointRounding.AwayFromZero);
+                        rc.Left = rc.Right - (int)targetClientWidth - sizeDelta.Width;
                     }
                     Marshal.StructureToPtr(rc, m.LParam, true);
                 }
@@ -225,11 +226,14 @@ namespace VL.OpenCV
             base.WndProc(ref m);
         }
 
-        public void SetSize(Rectangle bounds)
+        public void SetSize(Rectangle bounds, bool apply)
         {
-            var boundsinPix = Settings.DIPToPixel(bounds);
-            if (boundsinPix != Bounds)
-                Bounds = boundsinPix;
+            if (apply)
+            {
+                var boundsinPix = Settings.DIPToPixel(bounds);
+                if (boundsinPix != Bounds)
+                    Bounds = boundsinPix;
+            }
         }
 
         protected override void OnResize(EventArgs e)
@@ -238,7 +242,7 @@ namespace VL.OpenCV
             BoundsChanged.OnNext(Settings.DIP(Bounds));
             pictureBox.ClientSize = ClientSize;
             if (loaded)
-                Text = "cw: " + pictureBox.ClientSize.Width + "   ch: " + pictureBox.ClientSize.Height;
+                Text = "cw: " + ClientSize.Width + "   ch: " + ClientSize.Height;
         }
 
         protected override void OnResizeEnd(EventArgs e)

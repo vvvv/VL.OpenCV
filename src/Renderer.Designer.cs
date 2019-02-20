@@ -54,7 +54,6 @@
             this.ControlBox = false;
             this.Controls.Add(this.InfoLabel);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(140, 140);
             this.Name = "Renderer";
             this.Text = "VL.OpenCV Renderer";
             this.Load += new System.EventHandler(this.Renderer_Load);
