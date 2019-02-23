@@ -51,7 +51,7 @@ namespace VL.OpenCV
             get { return image; }
             set
             {
-                if (enabled && value != image)
+                if (enabled && value != image && value != null && (value.Width > 0 && value.Height > 0))
                 {
                     loaded = false;
                     image = value;
@@ -98,6 +98,20 @@ namespace VL.OpenCV
             set
             {
                 rendererMode = value;
+                switch (rendererMode)
+                {
+                    case RendererMode.SizeFromImage:
+                        FormBorderStyle = FormBorderStyle.FixedSingle;
+                        break;
+                    case RendererMode.AspectRatioScale:
+                        FormBorderStyle = FormBorderStyle.Sizable;
+                        pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                        break;
+                    default:
+                        FormBorderStyle = FormBorderStyle.Sizable;
+                        pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                        break;
+                }
                 HandleResize();
             }
         }
@@ -162,8 +176,8 @@ namespace VL.OpenCV
                     pictureBox.SizeMode = PictureBoxSizeMode.Normal;
                     if (Size.Width != 613 || Size.Height != 613)
                         ClientSize = pictureBox.ClientSize = new System.Drawing.Size(ClientSize.Width, (int)(ClientSize.Width / aspectRatio));
-                    if (rendererMode == RendererMode.SizeFromImage)
-                        MaximumSize = MinimumSize = SizeFromClientSize(ClientSize);
+                    //if (rendererMode == RendererMode.SizeFromImage)
+                        //MaximumSize = MinimumSize = SizeFromClientSize(ClientSize);
                 }
                 else
                 {
@@ -172,19 +186,11 @@ namespace VL.OpenCV
                         if (ClientSize.Width != image.Width || ClientSize.Height != image.Height)
                         {
                             ClientSize = new System.Drawing.Size(image.Width, image.Height);
-                            FormBorderStyle = FormBorderStyle.FixedSingle;
                         }
                     }
                     else if (rendererMode == RendererMode.AspectRatioScale)
                     {
-                        ClientSize = pictureBox.ClientSize = new System.Drawing.Size(ClientSize.Width, (int)(ClientSize.Width / aspectRatio));
-                        FormBorderStyle = FormBorderStyle.Sizable;
-                        pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                    }
-                    else
-                    {
-                        FormBorderStyle = FormBorderStyle.Sizable;
-                        pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                        //ClientSize = new System.Drawing.Size(ClientSize.Width, (int)(ClientSize.Width / aspectRatio));
                     }
                 }
             }
