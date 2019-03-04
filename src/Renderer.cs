@@ -122,6 +122,7 @@ namespace VL.OpenCV
             BoundsChanged = new Subject<Rectangle>();
             InitializeComponent();
             SetSize(new Rectangle(1200, 50, 512, 512), true);
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             Show();
             sizeDelta = Size - ClientSize;
         }
