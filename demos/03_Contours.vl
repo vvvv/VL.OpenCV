@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="AEE6Cfg0i8wOlKpLCt1WJp" Version="0.96">
+<Document xmlns:p="property" Id="AEE6Cfg0i8wOlKpLCt1WJp" Version="0.98">
   <NugetDependency Id="Gw1gnQpkwNqNLQmokm4zvk" Location="VL.CoreLib" Version="0.78.32-g2ad58966d2" />
   <NugetDependency Id="SvX0SMoqGc1OMycshaqtj6" Location="VL.OpenCV" Version="0.0.0.0" />
   <Patch Id="VOJ8Gg4KYVfOa20dp4sCNr">
@@ -36,7 +36,7 @@
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Renderer" />
               </p:NodeReference>
-              <Pin Id="Esb7eqKSH3QNDIhjfINouX" Name="Bounds" Kind="InputPin" DefaultValue="1828, 225, 511, 409">
+              <Pin Id="Esb7eqKSH3QNDIhjfINouX" Name="Bounds" Kind="InputPin" DefaultValue="-1, 6, 510, 409">
                 <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
                   <Choice Kind="TypeFlag" Name="Rectangle" />
                 </p:TypeAnnotation>
@@ -57,10 +57,10 @@
               </p:ValueBoxSettings>
             </Pad>
             <Node Bounds="165,422,129,13" Id="FHmyamZSzLOMEaMLXGMGAM">
-              <p:NodeReference>
+              <p:NodeReference LastCategoryFullName="OpenCV.Detection" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <CategoryReference Kind="Category" Name="OpenCV" />
-                <CategoryReference Kind="Category" Name="Tracker" />
+                <CategoryReference Kind="Category" Name="Detection" />
                 <Choice Kind="ProcessAppFlag" Name="Contours" />
               </p:NodeReference>
               <Pin Id="QVPAbroonIbPWMUZDhtYgo" Name="Input" Kind="InputPin" />
@@ -144,5 +144,30 @@
         </Patch>
       </Node>
     </Canvas>
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="DM9iEBvV5RdMiVrkL7r2S9">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="EXTtmJyn9neNCrJbXCUNZG">
+        <Canvas Id="Fr1UKTShe8RMdAfptLaGp8" BordersChecked="false" CanvasType="Group" />
+        <Patch Id="BTQ5W6oUtMFQRfJUAMqHur" Name="Create" />
+        <Patch Id="DIp5hJDugKDNgvObYHqnwA" Name="Update" />
+        <!--
+
+    ************************  ************************
+
+-->
+        <ProcessDefinition Id="TPWbHWbgEMYMpstRM7xohv">
+          <Fragment Id="HAvR1bZY76mOGemF0HScUX" Patch="BTQ5W6oUtMFQRfJUAMqHur" Enabled="true" />
+          <Fragment Id="CQWQLqdD26xM1bjC4S8UYq" Patch="DIp5hJDugKDNgvObYHqnwA" Enabled="true" />
+        </ProcessDefinition>
+      </Patch>
+    </Node>
   </Patch>
 </Document>

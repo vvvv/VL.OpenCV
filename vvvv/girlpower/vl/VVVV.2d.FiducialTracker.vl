@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.95">
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.98">
   <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
   <NugetDependency Id="U2JwHqMJLyGLDs97lM6eZ6" Location="VL.CoreLib.VVVV" Version="0.35.21" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
     <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VVVV.2d" BordersChecked="false" CanvasType="FullCategory">
       <!--
 
-    ************************ FiducialTracker ************************
+    ************************ FiducialDetector ************************
 
 -->
-      <Node Name="FiducialTracker" Bounds="153,200" Id="TSttkfeJHQSN5gkEF54G9o">
+      <Node Name="FiducialDetector" Bounds="153,200" Id="TSttkfeJHQSN5gkEF54G9o">
         <p:NodeReference>
           <Choice Kind="ContainerDefinition" Name="Patch" />
           <FullNameCategoryReference ID="Primitive" />
@@ -25,10 +25,11 @@
           </Patch>
           <Canvas Id="C4yd3S6BFv9NWqJ2WO3OFi" CanvasType="Group">
             <Node Bounds="323,197,185,13" Id="IvM3DZmt4Z9OBBuoipNcIR">
-              <p:NodeReference LastCategoryFullName="OpenCV.Tracker" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Detection" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="ProcessAppFlag" Name="FiducialTracker" />
-                <CategoryReference Kind="Category" Name="Tracker" NeedsToBeDirectParent="true" />
+                <CategoryReference Kind="Category" Name="OpenCV" />
+                <CategoryReference Kind="Category" Name="Detection" />
+                <Choice Kind="ProcessAppFlag" Name="FiducialDetector" />
               </p:NodeReference>
               <Pin Id="EtbNSRGulHvPyXLCKbgS2H" Name="Input" Kind="InputPin" />
               <Pin Id="QlH3waoEcyUPIrmzz65MuH" Name="Center" Kind="OutputPin" />
@@ -97,7 +98,7 @@
             <ControlPoint Id="GFvgU0nFqUGQXbwtTTtu24" Bounds="520,419" />
             <ControlPoint Id="GzigG1WTUuuQQw3Vdmtq5U" Bounds="534,240" />
             <Node Bounds="323,86,78,13" Id="QUnLb0NG31wLMNCJVm4EU8">
-              <p:NodeReference LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Conversion" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="FromImage" />
               </p:NodeReference>
@@ -180,6 +181,31 @@
         </Patch>
       </Node>
     </Canvas>
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="RdbLO4n2dU1OIOuWb8kyzW">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="FB2M9o9pCB5LeruZOXTQHy">
+        <Canvas Id="IGT7ejB4AmdNBN29oHVHlm" BordersChecked="false" CanvasType="Group" />
+        <Patch Id="MWPt0ecanQeLlsujUMAdzl" Name="Create" />
+        <Patch Id="BSzh0Gipw5fMaPrNyJU18d" Name="Update" />
+        <!--
+
+    ************************  ************************
+
+-->
+        <ProcessDefinition Id="TleGnKQdW7ROl7lgA2MTXs">
+          <Fragment Id="CLT8E3UFNw9QZV2XE8C5Ok" Patch="MWPt0ecanQeLlsujUMAdzl" Enabled="true" />
+          <Fragment Id="NUj96qs5s1QN4ndVA7mcvO" Patch="BSzh0Gipw5fMaPrNyJU18d" Enabled="true" />
+        </ProcessDefinition>
+      </Patch>
+    </Node>
   </Patch>
   <DocumentDependency Id="JtXZ2ou7g4wL3X4HFLgwEd" Location="../../../VL.OpenCV.vl" />
 </Document>

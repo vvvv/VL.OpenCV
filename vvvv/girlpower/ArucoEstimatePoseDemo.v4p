@@ -248,24 +248,6 @@
    </NODE>
    <PACK Name="VVVV.Packs.Image" Version="0.2.0">
    </PACK>
-   <NODE systemname="IntrinsicsToProjectionMatrix (Transform)" filename="..\nodes\vl\VVVV.OpenCV.vl" nodename="IntrinsicsToProjectionMatrix (Transform)" componentmode="Hidden" id="348">
-   <BOUNDS type="Node" left="948" top="4716" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Projection Transform" visible="1">
-   </PIN>
-   <PIN pinname="Image Width" visible="1" slicecount="1" values="640">
-   </PIN>
-   <PIN pinname="Image Height" visible="1" slicecount="1" values="480">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="348" srcpinname="Projection Transform" dstnodeid="333" dstpinname="Projection" linkstyle="VHV">
-   <LINKPOINT x="972" y="6468">
-   </LINKPOINT>
-   <LINKPOINT x="1848" y="6468">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="Info (EX9.Texture)" nodename="Info (EX9.Texture)" componentmode="Hidden" id="351">
    <BOUNDS type="Node" left="1476" top="4176" width="100" height="100">
    </BOUNDS>
@@ -281,14 +263,6 @@
    </LINKPOINT>
    <LINKPOINT x="1500" y="2976">
    </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="351" srcpinname="Height" dstnodeid="348" dstpinname="Image Height" linkstyle="VHV">
-   <LINKPOINT x="1692" y="4584">
-   </LINKPOINT>
-   <LINKPOINT x="2004" y="4584">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="351" srcpinname="Width" dstnodeid="348" dstpinname="Image Width">
    </LINK>
    <NODE id="336" systemname="ArucoEstimatePoseDemo (Value)" filename="vl\VVVV.Value.ArucoEstimatePoseDemo.vl" nodename="Demo (Value)" componentmode="Hidden" hiddenwhenlocked="0" managers="">
    <PIN pinname="Intrinsics" visible="1">
@@ -306,8 +280,6 @@
    <PIN pinname="Marker Side Length" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="336" srcpinname="Intrinsics" dstnodeid="348" dstpinname="Input">
-   </LINK>
    <LINK srcnodeid="336" srcpinname="Marker Side Length" dstnodeid="186" dstpinname="Y Input Value" linkstyle="VHV">
    <LINKPOINT x="3296" y="2448">
    </LINKPOINT>
@@ -382,4 +354,36 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <NODE systemname="IntrinsicsToProjectionMatrix (Transform)" filename="..\nodes\vl\VVVV.OpenCV.vl" nodename="IntrinsicsToProjectionMatrix (Transform)" componentmode="Hidden" id="348">
+   <BOUNDS type="Node" left="948" top="4716" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection Transform" visible="1">
+   </PIN>
+   <PIN pinname="Image Width" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Image Height" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="348" srcpinname="Projection Transform" dstnodeid="333" dstpinname="Projection" linkstyle="VHV">
+   <LINKPOINT x="972" y="6468">
+   </LINKPOINT>
+   <LINKPOINT x="1848" y="6468">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="351" srcpinname="Height" dstnodeid="348" dstpinname="Image Height" linkstyle="VHV">
+   <LINKPOINT x="1692" y="4584">
+   </LINKPOINT>
+   <LINKPOINT x="2004" y="4584">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="351" srcpinname="Width" dstnodeid="348" dstpinname="Image Width" linkstyle="VHV">
+   <LINKPOINT x="1500" y="4656">
+   </LINKPOINT>
+   <LINKPOINT x="2544" y="4656">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="336" srcpinname="Intrinsics" dstnodeid="348" dstpinname="Input">
+   </LINK>
    </PATCH>

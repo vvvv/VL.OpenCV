@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="AEE6Cfg0i8wOlKpLCt1WJp" Version="0.96">
+<Document xmlns:p="property" Id="AEE6Cfg0i8wOlKpLCt1WJp" Version="0.98">
   <Patch Id="VOJ8Gg4KYVfOa20dp4sCNr">
     <Canvas Id="CRaRwQfSLh7P9Gm953CwLa" DefaultCategory="VVVV" CanvasType="FullCategory">
       <!--
@@ -34,7 +34,7 @@
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Renderer" />
               </p:NodeReference>
-              <Pin Id="TTVWsRhtHCvP0YzyrT2mVP" Name="Bounds" Kind="InputPin" DefaultValue="1778, 175, 511, 409">
+              <Pin Id="TTVWsRhtHCvP0YzyrT2mVP" Name="Bounds" Kind="InputPin" DefaultValue="0, 8, 510, 409">
                 <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
                   <Choice Kind="TypeFlag" Name="Rectangle" />
                 </p:TypeAnnotation>
@@ -55,10 +55,10 @@
               </p:ValueBoxSettings>
             </Pad>
             <Node Bounds="203,416,95,13" Id="AP2VhqJV3lGLgfjwzCAHc8">
-              <p:NodeReference>
+              <p:NodeReference LastCategoryFullName="OpenCV.Tracking" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <CategoryReference Kind="Category" Name="OpenCV" />
-                <CategoryReference Kind="Category" Name="Tracker" />
+                <CategoryReference Kind="Category" Name="Tracking" />
                 <Choice Kind="ProcessAppFlag" Name="Tracker (KCF)" />
               </p:NodeReference>
               <Pin Id="H8krUhe75QUPi2xCTnJAWH" Name="Input" Kind="InputPin" />
@@ -87,7 +87,7 @@
             </Node>
             <Pad Id="OHMubt4dRRmObfTvRRctgf" Comment="Tracked" Bounds="295,456,40,19" ShowValueBox="true" isIOBox="true" />
             <Node Bounds="527,364,65,13" Id="DIIP1MuZWjbMjXWn4IfHrA">
-              <p:NodeReference LastCategoryFullName="OpenCV.Tracker" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Tracking" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Tracker (Boosting)" />
               </p:NodeReference>
@@ -99,7 +99,7 @@
               <Pin Id="BrbuxmlD8nvP63um8L31lS" Name="Tracked" Kind="OutputPin" />
             </Node>
             <Node Bounds="527,404,65,13" Id="LY10ALRNCMXNTCurf4sojl">
-              <p:NodeReference LastCategoryFullName="OpenCV.Tracker" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Tracking" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Tracker (GOTURN)" />
               </p:NodeReference>
@@ -111,7 +111,7 @@
               <Pin Id="KEDeT4mNPNpMJXuW1rhMmy" Name="Tracked" Kind="OutputPin" />
             </Node>
             <Node Bounds="527,443,65,13" Id="NTndKFkZqcDOnUOYBj3TR3">
-              <p:NodeReference LastCategoryFullName="OpenCV.Tracker" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Tracking" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Tracker (MedianFlow)" />
               </p:NodeReference>
@@ -123,7 +123,7 @@
               <Pin Id="NGlUXqMZtEqOoqhM16zBJe" Name="Tracked" Kind="OutputPin" />
             </Node>
             <Node Bounds="527,484,65,13" Id="DpRTAFU9gCTQYhrjmtanzg">
-              <p:NodeReference LastCategoryFullName="OpenCV.Tracker" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Tracking" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Tracker (MIL)" />
               </p:NodeReference>
@@ -135,7 +135,7 @@
               <Pin Id="TawTzwXiwMCLAupPb4bM1d" Name="Tracked" Kind="OutputPin" />
             </Node>
             <Node Bounds="527,529,65,13" Id="Dr73oj2XTqCPIOE5hxbuzf">
-              <p:NodeReference LastCategoryFullName="OpenCV.Tracker" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Tracking" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Tracker (TLD)" />
               </p:NodeReference>
@@ -260,6 +260,31 @@
         </Patch>
       </Node>
     </Canvas>
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="M9kD1nwtlRYM4R2JZmdEcM">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="HHz0GF3WBntOcyxXM5ymuB">
+        <Canvas Id="QcpSoYcDtDzPc206rIjFOR" BordersChecked="false" CanvasType="Group" />
+        <Patch Id="UolDQ042oHiP4Hs92CEizn" Name="Create" />
+        <Patch Id="MBZNE58AZPeOxyrPOgYuYC" Name="Update" />
+        <!--
+
+    ************************  ************************
+
+-->
+        <ProcessDefinition Id="OZTG3xRWRhNQJkZTJIIXF1">
+          <Fragment Id="KmxyiGmeLpCOPEu0sXnSrq" Patch="UolDQ042oHiP4Hs92CEizn" Enabled="true" />
+          <Fragment Id="SkU1p75QJG8MByNEjYPSEQ" Patch="MBZNE58AZPeOxyrPOgYuYC" Enabled="true" />
+        </ProcessDefinition>
+      </Patch>
+    </Node>
   </Patch>
   <NugetDependency Id="Gw1gnQpkwNqNLQmokm4zvk" Location="VL.CoreLib" Version="0.78.32-g2ad58966d2" />
   <NugetDependency Id="PyNNKzrTal4LZ7eSxV6Iah" Location="VL.OpenCV" Version="0.0.0.0" />

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.96">
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.98">
   <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
     <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VVVV.Value" CanvasType="FullCategory">
@@ -362,7 +362,7 @@
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Renderer" />
               </p:NodeReference>
-              <Pin Id="H3O4ljJxO2WPUHXEt3CmUN" Name="Bounds" Kind="InputPin" DefaultValue="24, 24, 510, 409">
+              <Pin Id="H3O4ljJxO2WPUHXEt3CmUN" Name="Bounds" Kind="InputPin" DefaultValue="0, 6, 509, 408">
                 <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
                   <Choice Kind="TypeFlag" Name="Rectangle" />
                 </p:TypeAnnotation>
@@ -438,6 +438,31 @@
         </Patch>
       </Node>
     </Canvas>
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="IY2i9Ytq0buLV3hyIf5a7Q">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="VBFsMhCwmVSOIuZnxjoVGv">
+        <Canvas Id="HAVFzDrwqCaPT0c9qx4c1a" BordersChecked="false" CanvasType="Group" />
+        <Patch Id="E84DVoHj1JpOJ7TTiWU7yw" Name="Create" />
+        <Patch Id="BEfe2P3aW8mPj2p3RYN612" Name="Update" />
+        <!--
+
+    ************************  ************************
+
+-->
+        <ProcessDefinition Id="MJ5AXkydF86MfVX2Fci0lb">
+          <Fragment Id="FzSdkjZxwWMNOlqAhngqUT" Patch="E84DVoHj1JpOJ7TTiWU7yw" Enabled="true" />
+          <Fragment Id="ESEXIDrrATvLU2OWgk4JAf" Patch="BEfe2P3aW8mPj2p3RYN612" Enabled="true" />
+        </ProcessDefinition>
+      </Patch>
+    </Node>
   </Patch>
   <NugetDependency Id="MiM6tDLcwkeM7IuBbH3NO2" Location="VL.OpenCV" Version="0.1.77-alpha" />
 </Document>

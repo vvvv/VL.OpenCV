@@ -35,21 +35,12 @@
               <Pin Id="FJJkEZO80fZOjUxzrq2Lyw" Name="Load" Kind="InputPin" />
               <Pin Id="GmNQW9i1sNhPn4xzG03g01" Name="Output" Kind="OutputPin" />
             </Node>
-            <Node Bounds="240,196,60,26" Id="KNl9tf8nH9BOerW5y0X1by">
-              <p:NodeReference LastCategoryFullName="System.Serialization" LastSymbolSource="System.Serialization.vl">
-                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="OperationCallFlag" Name="Serialize" />
-                <CategoryReference Kind="Category" Name="Serialization" NeedsToBeDirectParent="true" />
-              </p:NodeReference>
-              <Pin Id="SYLuNkXkDhqPzx8xIuUjwQ" Name="Value" Kind="InputPin" />
-              <Pin Id="Jf2mHvtTCI9NnQy9hYTWqG" Name="Result" Kind="OutputPin" />
-            </Node>
             <Node Bounds="221,616,105,19" Id="KUJsfAR0LtNLCdqnfqxRlk">
               <p:NodeReference LastCategoryFullName="OpenCV.Sink" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Renderer" />
               </p:NodeReference>
-              <Pin Id="TELbfZLurBEPVpRQ6Evco5" Name="Bounds" Kind="InputPin" DefaultValue="230, 90, 251, 330">
+              <Pin Id="TELbfZLurBEPVpRQ6Evco5" Name="Bounds" Kind="InputPin" DefaultValue="0, 8, 315, 411">
                 <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
                   <Choice Kind="TypeFlag" Name="Rectangle" />
                 </p:TypeAnnotation>
@@ -60,7 +51,7 @@
               <Pin Id="LQpK8ov3zA9M9kdcrByAoS" Name="Show Info" Kind="InputPin" />
               <Pin Id="B84Zcauu4wbPNOE9yu7UjK" Name="Enabled" Kind="InputPin" />
             </Node>
-            <Node Bounds="229,364,57,19" Id="ErG2lEaDqmjOvdXUxjtkZU">
+            <Node Bounds="228,356,57,19" Id="ErG2lEaDqmjOvdXUxjtkZU">
               <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Changed" />
@@ -94,15 +85,6 @@
               <ControlPoint Id="BkSoMp5a4TyP94unaUX6CL" Bounds="243,537" Alignment="Bottom" />
             </Node>
             <Pad Id="MGLPjyT7sBBMtBwrfyaOAO" Bounds="320,496,278,18" ShowValueBox="true" isIOBox="true" Value="&lt; Deserializes the previously serialized data">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                <Choice Kind="TypeFlag" Name="String" />
-              </p:TypeAnnotation>
-              <p:ValueBoxSettings>
-                <p:fontsize p:Type="Int32">9</p:fontsize>
-                <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
-              </p:ValueBoxSettings>
-            </Pad>
-            <Pad Id="JujCbVXdZRkMx4uPt8U7rb" Bounds="332,549,359,76" ShowValueBox="true" isIOBox="true" Value="Note: since this is not smart enough to detect changing input on its own, this Cache region attached to a Changed node connected to your data source should prevent Deserialize from executing every frame">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="String" />
               </p:TypeAnnotation>
@@ -146,18 +128,45 @@
                 <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
               </p:ValueBoxSettings>
             </Pad>
+            <Node Bounds="240,193,60,29" Id="LntJxBdOT95MiGEwuuZeCi">
+              <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                <Choice Kind="ProcessStatefulRegion" Name="Cache" />
+                <FullNameCategoryReference ID="Primitive" />
+              </p:NodeReference>
+              <Pin Id="Ado6A9PKif6LEb1sO6cWjF" Name="Force" Kind="InputPin" />
+              <Pin Id="RJs31zaSXGENwWo8Irn7Q4" Name="Dispose Cached Outputs" Kind="InputPin" />
+              <Pin Id="FMuh9S6JpHbQJoOhVn89OU" Name="Has Changed" Kind="OutputPin" />
+              <Patch Id="Vd4m9vwfA5SPiqslZg7tVZ" ManuallySortedPins="true">
+                <Patch Id="M6mkaEqTgDCPph7PK7xmOx" Name="Create" ManuallySortedPins="true" />
+                <Patch Id="EaadJVNbtzmQFEpDmVpCov" Name="Then" ManuallySortedPins="true" />
+                <Node Bounds="240,196,60,26" Id="KNl9tf8nH9BOerW5y0X1by">
+                  <p:NodeReference LastCategoryFullName="System.Serialization" LastSymbolSource="System.Serialization.vl">
+                    <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                    <Choice Kind="OperationCallFlag" Name="Serialize" />
+                    <CategoryReference Kind="Category" Name="Serialization" NeedsToBeDirectParent="true" />
+                  </p:NodeReference>
+                  <Pin Id="SYLuNkXkDhqPzx8xIuUjwQ" Name="Value" Kind="InputPin" />
+                  <Pin Id="Jf2mHvtTCI9NnQy9hYTWqG" Name="Result" Kind="OutputPin" />
+                </Node>
+              </Patch>
+              <ControlPoint Id="OLoBP9LGUklOwYtzFYhcWI" Bounds="242,174" Alignment="Top" />
+              <ControlPoint Id="BIjfibMaUikPEWcGevzWV7" Bounds="242,248" Alignment="Bottom" />
+            </Node>
           </Canvas>
           <ProcessDefinition Id="FHNLl8GWgcVOJzRkkPI83E">
             <Fragment Id="MRFnVwHDf0WOO7H3jKbCxI" Patch="ESJZDDS0I02LAWDOx9RJVV" Enabled="true" />
             <Fragment Id="PulIQZQ5YLtPp6C2yvbTNE" Patch="OkqGvJfa3PDOppp4PFQghD" Enabled="true" />
           </ProcessDefinition>
-          <Link Id="TaLqRkISj13N8IKtoevBfN" Ids="GmNQW9i1sNhPn4xzG03g01,SYLuNkXkDhqPzx8xIuUjwQ" />
           <Link Id="UyLaDvsgYqUO50laPFfoc9" Ids="GmNQW9i1sNhPn4xzG03g01,SGjpArGWPykOsGTFw39b5j" />
-          <Link Id="Jc0sFTbNKIAQJ0Zx1e3ff2" Ids="Jf2mHvtTCI9NnQy9hYTWqG,FUj52Iw62yiNf5btftUBLE" />
           <Link Id="UeH1ORSrLSVP8iCcyoVJLe" Ids="LgbIg4HGnB1M77SfF2yoD9,JSsDkzRnStdMXlBdtTQAKc" />
           <Link Id="IJPaObLA1KzLN7AbRxn8IA" Ids="BCHSiL6ioIBMH3AL626qYC,BkSoMp5a4TyP94unaUX6CL" />
           <Link Id="RJb4ijBtCzdMfZmWnWPuAT" Ids="BkSoMp5a4TyP94unaUX6CL,NklWpk72Z2OPfw9r43rZVm" />
           <Link Id="Ce5Spka2Q3IMYppeBFSmw0" Ids="LgbIg4HGnB1M77SfF2yoD9,EP9ljHUMzynLIwXith8tvh" />
+          <Link Id="AqfVlTek17QO59rzdcBnwX" Ids="GmNQW9i1sNhPn4xzG03g01,OLoBP9LGUklOwYtzFYhcWI" />
+          <Link Id="MxNCrN4cTh7Mq8Ch3CtE72" Ids="OLoBP9LGUklOwYtzFYhcWI,SYLuNkXkDhqPzx8xIuUjwQ" />
+          <Link Id="OCucsIoTL6tP5M0Hjw1adv" Ids="Jf2mHvtTCI9NnQy9hYTWqG,BIjfibMaUikPEWcGevzWV7" />
+          <Link Id="QTPK7EdUh29NQ3zPCg0IhS" Ids="BIjfibMaUikPEWcGevzWV7,FUj52Iw62yiNf5btftUBLE" />
         </Patch>
       </Node>
     </Canvas>
