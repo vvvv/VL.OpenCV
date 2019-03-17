@@ -376,7 +376,7 @@
    <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <BOUNDS type="Window" left="32472" top="912" width="18312" height="12456">
+   <BOUNDS type="Window" left="540" top="84" width="18312" height="12456">
    </BOUNDS>
    <PACK Name="ImagePack" Version="0.2.0">
    </PACK>
@@ -694,36 +694,6 @@
    </LINK>
    <PACK Name="VVVV.Packs.Image" Version="0.2.0">
    </PACK>
-   <NODE systemname="IntrinsicsToProjectionMatrix (Transform)" filename="..\..\..\nodes\vl\VVVV.OpenCV.vl" nodename="IntrinsicsToProjectionMatrix (Transform)" componentmode="Hidden" id="62">
-   <BOUNDS type="Node" left="14196" top="6960" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Projection Transform" visible="1">
-   </PIN>
-   <PIN pinname="Image Width" visible="1" slicecount="1" values="1024">
-   </PIN>
-   <PIN pinname="Image Height" visible="1">
-   </PIN>
-   <BOUNDS type="Box" left="14196" top="6960">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="62" srcpinname="Projection Transform" dstnodeid="40" dstpinname="Input Node">
-   </LINK>
-   <NODE systemname="ExtrinsicsToViewMatrix (Transform)" filename="..\..\..\nodes\vl\VVVV.OpenCV.vl" nodename="ExtrinsicsToViewMatrix (Transform)" componentmode="Hidden" id="63">
-   <BOUNDS type="Node" left="12240" top="6960" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Not Assigned" visible="1">
-   </PIN>
-   <BOUNDS type="Box" left="12240" top="6960">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="63" srcpinname="View" dstnodeid="39" dstpinname="Input Node">
-   </LINK>
    <NODE id="60" systemname="CalibrateProjector (Value)" filename="vl\VVVV.Value.CalibrateProjector.vl" nodename="CalibrateProjector (Value)" componentmode="Hidden">
    <PIN pinname="Extrinsics" visible="1">
    </PIN>
@@ -748,8 +718,6 @@
    <PIN pinname="Intrinsics" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="60" srcpinname="Intrinsics" dstnodeid="62" dstpinname="Input">
-   </LINK>
    <LINK srcnodeid="60" srcpinname="Reprojection Error" dstnodeid="2" dstpinname="Y Input Value" linkstyle="VHV">
    <LINKPOINT x="14872" y="5984">
    </LINKPOINT>
@@ -757,24 +725,6 @@
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="3" srcpinname="Y Output Value" dstnodeid="60" dstpinname="Solve">
-   </LINK>
-   <LINK srcnodeid="60" srcpinname="Extrinsics" dstnodeid="63" dstpinname="Input" linkstyle="VHV">
-   <LINKPOINT x="12972" y="6466">
-   </LINKPOINT>
-   <LINKPOINT x="12276" y="6386">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="63" srcpinname="View" dstnodeid="11" dstpinname="View" hiddenwhenlocked="1" linkstyle="VHV">
-   <LINKPOINT x="12264" y="8304">
-   </LINKPOINT>
-   <LINKPOINT x="19140" y="8304">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="62" srcpinname="Projection Transform" dstnodeid="11" dstpinname="Projection" hiddenwhenlocked="1" linkstyle="VHV">
-   <LINKPOINT x="14256" y="8004">
-   </LINKPOINT>
-   <LINKPOINT x="19512" y="8004">
-   </LINKPOINT>
    </LINK>
    <NODE nodename="IOBox (String)" systemname="IOBox (String)" componentmode="InABox" id="68">
    <BOUNDS type="Node" left="16404" top="6996" width="4308" height="240">
@@ -946,10 +896,6 @@
    </NODE>
    <LINK srcnodeid="78" srcpinname="Y Output Value" dstnodeid="60" dstpinname="Image Height" hiddenwhenlocked="1" linkstyle="PolyLine">
    </LINK>
-   <LINK srcnodeid="78" srcpinname="Y Output Value" dstnodeid="62" dstpinname="Image Height" hiddenwhenlocked="1" linkstyle="PolyLine">
-   </LINK>
-   <LINK srcnodeid="77" srcpinname="Y Output Value" dstnodeid="62" dstpinname="Image Width" hiddenwhenlocked="1" linkstyle="PolyLine">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="80">
    <BOUNDS type="Box" left="14940" top="4224" width="360" height="420">
    </BOUNDS>
@@ -1034,4 +980,54 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
+   <NODE systemname="ExtrinsicsToViewMatrix (Transform)" filename="%VVVV%\lib\packs\VL.OpenCV.0.2.77-alpha\vvvv\nodes\vl\VVVV.OpenCV.vl" nodename="ExtrinsicsToViewMatrix (Transform)" componentmode="Hidden" id="63">
+   <BOUNDS type="Node" left="12240" top="6960" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Not Assigned" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="12240" top="6960">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="63" srcpinname="View" dstnodeid="39" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="63" srcpinname="View" dstnodeid="11" dstpinname="View" hiddenwhenlocked="1" linkstyle="VHV">
+   <LINKPOINT x="12264" y="8304">
+   </LINKPOINT>
+   <LINKPOINT x="19140" y="8304">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="IntrinsicsToProjectionMatrix (Transform)" filename="%VVVV%\lib\packs\VL.OpenCV.0.2.77-alpha\vvvv\nodes\vl\VVVV.OpenCV.vl" nodename="IntrinsicsToProjectionMatrix (Transform)" componentmode="Hidden" id="62">
+   <BOUNDS type="Node" left="14196" top="6960" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection Transform" visible="1">
+   </PIN>
+   <PIN pinname="Image Width" visible="1" slicecount="1" values="1024">
+   </PIN>
+   <PIN pinname="Image Height" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="14196" top="6960">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="62" srcpinname="Projection Transform" dstnodeid="40" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="62" srcpinname="Projection Transform" dstnodeid="11" dstpinname="Projection" hiddenwhenlocked="1" linkstyle="VHV">
+   <LINKPOINT x="14256" y="8004">
+   </LINKPOINT>
+   <LINKPOINT x="19512" y="8004">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="78" srcpinname="Y Output Value" dstnodeid="62" dstpinname="Image Height" hiddenwhenlocked="1" linkstyle="PolyLine">
+   </LINK>
+   <LINK srcnodeid="77" srcpinname="Y Output Value" dstnodeid="62" dstpinname="Image Width" hiddenwhenlocked="1" linkstyle="PolyLine">
+   </LINK>
+   <LINK srcnodeid="60" srcpinname="Extrinsics" dstnodeid="63" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="60" srcpinname="Intrinsics" dstnodeid="62" dstpinname="Input">
+   </LINK>
    </PATCH>

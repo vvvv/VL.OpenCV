@@ -2,16 +2,6 @@
    <PATCH nodename="C:\libs.VL\VL.OpenCV\vvvv\girlpower\SolvePnPDemo.v4p" systemname="SolvePnPDemo" filename="C:\libs.VL\VL.OpenCV\vvvv\girlpower\SolvePnPDemo.v4p">
    <BOUNDS type="Window" left="0" top="144" width="9192" height="10812">
    </BOUNDS>
-   <NODE systemname="ExtrinsicsToViewMatrix (Transform)" filename="..\nodes\vl\VVVV.OpenCV.vl" nodename="ExtrinsicsToViewMatrix (Transform)" componentmode="Hidden" id="1">
-   <BOUNDS type="Node" left="3516" top="4740" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <BOUNDS type="Box" left="3516" top="4740">
-   </BOUNDS>
-   </NODE>
    <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InAWindow" id="3">
    <BOUNDS type="Node" left="2424" top="9588" width="100" height="100">
    </BOUNDS>
@@ -178,12 +168,6 @@
    </NODE>
    <LINK srcnodeid="0" srcpinname="PointsXYZ" dstnodeid="10" dstpinname="XYZ">
    </LINK>
-   <LINK srcnodeid="0" srcpinname="Extrinsics" dstnodeid="1" dstpinname="Input" linkstyle="VHV">
-   <LINKPOINT x="3048" y="4572">
-   </LINKPOINT>
-   <LINKPOINT x="3540" y="4572">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="CameraCone (EX9)" filename="%VVVV%\lib\nodes\modules\EX9\CameraCone (EX9).v4p" nodename="CameraCone (EX9)" componentmode="Hidden" id="15">
    <BOUNDS type="Node" left="3516" top="7332" width="100" height="100">
    </BOUNDS>
@@ -198,54 +182,10 @@
    <BOUNDS type="Box" left="3516" top="7332">
    </BOUNDS>
    </NODE>
-   <NODE systemname="IntrinsicsToProjectionMatrix (Transform)" filename="..\nodes\vl\VVVV.OpenCV.vl" nodename="IntrinsicsToProjectionMatrix (Transform)" componentmode="Hidden" id="16">
-   <BOUNDS type="Node" left="5604" top="4740" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Projection Transform" visible="1">
-   </PIN>
-   <PIN pinname="Image Width" slicecount="1" visible="1" values="640">
-   </PIN>
-   <PIN pinname="Image Height" slicecount="1" visible="1" values="480">
-   </PIN>
-   <BOUNDS type="Box" left="5604" top="4740">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="0" srcpinname="Intrinsics" dstnodeid="16" dstpinname="Input" linkstyle="VHV">
-   <LINKPOINT x="3336" y="4452">
-   </LINKPOINT>
-   <LINKPOINT x="5580" y="4452">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="1" srcpinname="View" dstnodeid="15" dstpinname="View" linkstyle="VHV">
-   <LINKPOINT x="3004" y="5854">
-   </LINKPOINT>
-   <LINKPOINT x="4088" y="6482">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="16" srcpinname="Projection Transform" dstnodeid="15" dstpinname="Projection" linkstyle="VHV">
-   <LINKPOINT x="5580" y="6772">
-   </LINKPOINT>
-   <LINKPOINT x="3816" y="6932">
-   </LINKPOINT>
-   </LINK>
    <LINK srcnodeid="15" srcpinname="Layer" dstnodeid="4" dstpinname="Layer 3" linkstyle="VHV">
    <LINKPOINT x="3528" y="7890">
    </LINKPOINT>
    <LINKPOINT x="3432" y="7890">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="0" srcpinname="Width" dstnodeid="16" dstpinname="Image Width" linkstyle="VHV">
-   <LINKPOINT x="3588" y="4332">
-   </LINKPOINT>
-   <LINKPOINT x="6108" y="4332">
-   </LINKPOINT>
-   </LINK>
-   <LINK srcnodeid="0" srcpinname="Height" dstnodeid="16" dstpinname="Image Height" linkstyle="VHV">
-   <LINKPOINT x="3828" y="4136">
-   </LINKPOINT>
-   <LINKPOINT x="6636" y="4216">
    </LINKPOINT>
    </LINK>
    <NODE nodename="IOBox (String)" systemname="IOBox (String)" componentmode="InABox" id="21">
@@ -306,4 +246,64 @@
    <PIN pinname="Size" slicecount="1" values="14">
    </PIN>
    </NODE>
+   <NODE systemname="ExtrinsicsToViewMatrix (Transform)" filename="%VVVV%\lib\packs\VL.OpenCV.0.2.77-alpha\vvvv\nodes\vl\VVVV.OpenCV.vl" nodename="ExtrinsicsToViewMatrix (Transform)" componentmode="Hidden" id="1">
+   <BOUNDS type="Node" left="3516" top="4740" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="3516" top="4740">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="View" dstnodeid="15" dstpinname="View" linkstyle="VHV">
+   <LINKPOINT x="3004" y="5854">
+   </LINKPOINT>
+   <LINKPOINT x="4088" y="6482">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="IntrinsicsToProjectionMatrix (Transform)" filename="%VVVV%\lib\packs\VL.OpenCV.0.2.77-alpha\vvvv\nodes\vl\VVVV.OpenCV.vl" nodename="IntrinsicsToProjectionMatrix (Transform)" componentmode="Hidden" id="16">
+   <BOUNDS type="Node" left="5604" top="4740" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Projection Transform" visible="1">
+   </PIN>
+   <PIN pinname="Image Width" slicecount="1" visible="1" values="640">
+   </PIN>
+   <PIN pinname="Image Height" slicecount="1" visible="1" values="480">
+   </PIN>
+   <BOUNDS type="Box" left="5604" top="4740">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Projection Transform" dstnodeid="15" dstpinname="Projection" linkstyle="VHV">
+   <LINKPOINT x="5580" y="6772">
+   </LINKPOINT>
+   <LINKPOINT x="3816" y="6932">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Width" dstnodeid="16" dstpinname="Image Width" linkstyle="VHV">
+   <LINKPOINT x="3588" y="4332">
+   </LINKPOINT>
+   <LINKPOINT x="6108" y="4332">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Height" dstnodeid="16" dstpinname="Image Height" linkstyle="VHV">
+   <LINKPOINT x="3828" y="4136">
+   </LINKPOINT>
+   <LINKPOINT x="6636" y="4216">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Extrinsics" dstnodeid="1" dstpinname="Input" linkstyle="VHV">
+   <LINKPOINT x="3048" y="4608">
+   </LINKPOINT>
+   <LINKPOINT x="3540" y="4608">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Intrinsics" dstnodeid="16" dstpinname="Input" linkstyle="VHV">
+   <LINKPOINT x="3288" y="4476">
+   </LINKPOINT>
+   <LINKPOINT x="5628" y="4476">
+   </LINKPOINT>
+   </LINK>
    </PATCH>
