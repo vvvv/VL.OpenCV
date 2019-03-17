@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.96">
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.98">
   <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
   <NugetDependency Id="U2JwHqMJLyGLDs97lM6eZ6" Location="VL.CoreLib.VVVV" Version="0.35.21" />
   <DocumentDependency Id="EnZHb1DwsNdOUDq087Imvw" Location="../../../VL.OpenCV.vl" />
@@ -63,7 +63,7 @@
               <Pin Id="I7gwFogAB1zN0JAPccycC0" Name="Supported Formats" Kind="OutputPin" />
             </Node>
             <Node Bounds="130,429,98,13" Id="Oa7BEdJRMZjO5nJjqT7vJg">
-              <p:NodeReference LastCategoryFullName="OpenCV.Tracker" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Detection" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="MarkerDetector" />
               </p:NodeReference>
@@ -114,7 +114,7 @@
               <Pin Id="DQ6GWvLBnijO93uG3l8iAT" Name="Output" Kind="OutputPin" />
             </Node>
             <Node Bounds="381,548,86,19" Id="DXBEyFjmpoTLGw01krC6DB">
-              <p:NodeReference LastCategoryFullName="OpenCV.Tracker" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Detection" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="EstimatePose" />
               </p:NodeReference>
@@ -161,7 +161,7 @@
               </Pin>
               <Pin Id="Ip5i0dkzUtNO8Mo4LUBvdE" Name="Output" Kind="OutputPin" />
             </Node>
-            <Pad Id="E6xdu1h1VyUOC0una7x9wr" Comment="Dictionary" Bounds="178,402,75,-27" ShowValueBox="true" isIOBox="true" Value="Dict4X4_100">
+            <Pad Id="E6xdu1h1VyUOC0una7x9wr" Comment="Dictionary" Bounds="178,402,75,-27" ShowValueBox="true" isIOBox="true" Value="Dict5X5_50">
               <p:TypeAnnotation LastCategoryFullName="OpenCvSharp.Aruco" LastSymbolSource="OpenCvSharp.dll">
                 <Choice Kind="TypeFlag" Name="PredefinedDictionaryName" />
               </p:TypeAnnotation>
@@ -469,7 +469,7 @@
               </Patch>
             </Node>
             <Node Bounds="111,674,66,19" Id="VOBfpC87IgGMOZVwjTWSEZ">
-              <p:NodeReference LastCategoryFullName="OpenCV" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Conversion" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="ToImage" />
               </p:NodeReference>
@@ -484,9 +484,11 @@
               </p:TypeAnnotation>
             </Pad>
             <Node Bounds="269,255,57,13" Id="DHDqZZWWrHfM5mlqsMnqFq">
-              <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="ProcessAppFlag" Name="Reader (Intrinsics)" />
+                <CategoryReference Kind="Category" Name="OpenCV" />
+                <CategoryReference Kind="Category" Name="Calibration" />
+                <Choice Kind="ProcessAppFlag" Name="IntrinsicsReader" />
               </p:NodeReference>
               <Pin Id="Bex09UN6y4yLTHqjvpMAFf" Name="File Path" Kind="InputPin" />
               <Pin Id="POWQ0oLHn6kOHP1lZxXa5y" Name="Read" Kind="InputPin" />
@@ -504,7 +506,11 @@
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="OnOpen" />
               </p:NodeReference>
-              <Pin Id="IrPVz4UZ3XjOjFjvV0Bo4I" Name="Simulate" Kind="InputPin" />
+              <Pin Id="IrPVz4UZ3XjOjFjvV0Bo4I" Name="Simulate" Kind="InputPin" DefaultValue="True">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Boolean" />
+                </p:TypeAnnotation>
+              </Pin>
               <Pin Id="OO6BrWH4MglOfVUPfXILTw" Name="Output" Kind="OutputPin" />
             </Node>
             <Node Bounds="187,511,65,19" Id="JId0bsthlsKLyvArdi6FyO">
@@ -594,5 +600,30 @@
         </Patch>
       </Node>
     </Canvas>
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="LENH23g7GH6PKhqRAnhmU8">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="HLz6GMLTvBvNDsc6EKsWcp">
+        <Canvas Id="CHd5T1Vg9m1LTE2iC9adei" BordersChecked="false" CanvasType="Group" />
+        <Patch Id="IbESh9S4RAJQMa7K9qDk6G" Name="Create" />
+        <Patch Id="Omi5QkrtN0zQXgZUKbvEaa" Name="Update" />
+        <!--
+
+    ************************  ************************
+
+-->
+        <ProcessDefinition Id="Kkn8FXxHXC5PPLDCEM5MLh">
+          <Fragment Id="LtNbWY0UcybPm7avD3eKl5" Patch="IbESh9S4RAJQMa7K9qDk6G" Enabled="true" />
+          <Fragment Id="OMO6hP2rAo3Pupb8uBpTYS" Patch="Omi5QkrtN0zQXgZUKbvEaa" Enabled="true" />
+        </ProcessDefinition>
+      </Patch>
+    </Node>
   </Patch>
 </Document>

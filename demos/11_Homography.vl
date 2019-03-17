@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.96">
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.98">
   <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
     <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VVVV" CanvasType="FullCategory">
@@ -22,7 +22,7 @@
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Renderer" />
               </p:NodeReference>
-              <Pin Id="ISqvvf78mCIPGRRwUhnANK" Name="Bounds" Kind="InputPin" DefaultValue="149, 149, 510, 653">
+              <Pin Id="ISqvvf78mCIPGRRwUhnANK" Name="Bounds" Kind="InputPin" DefaultValue="-1, 6, 330, 429">
                 <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
                   <Choice Kind="TypeFlag" Name="Rectangle" />
                 </p:TypeAnnotation>
@@ -257,6 +257,31 @@
         </Patch>
       </Node>
     </Canvas>
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="DYQ9IkmkhrbOYvHIXMuitV">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="GQMNekTl5YKMpuAcRC4oAz">
+        <Canvas Id="DAbizkK893CQan0u3NlAVn" BordersChecked="false" CanvasType="Group" />
+        <Patch Id="D9iBn5oOkzqMp1Izpm2Rtq" Name="Create" />
+        <Patch Id="UhAkHnEF0SkPNmOzasonjj" Name="Update" />
+        <!--
+
+    ************************  ************************
+
+-->
+        <ProcessDefinition Id="OrHdwsXYnhEMufHuKanFdJ">
+          <Fragment Id="LVWifj3cw4PLg2n15r0X6E" Patch="D9iBn5oOkzqMp1Izpm2Rtq" Enabled="true" />
+          <Fragment Id="P5JebMcBAuzP6EEgh6XcT4" Patch="UhAkHnEF0SkPNmOzasonjj" Enabled="true" />
+        </ProcessDefinition>
+      </Patch>
+    </Node>
   </Patch>
   <NugetDependency Id="MwmviJrXk1LMVG8liSiVgb" Location="VL.OpenCV" Version="0.0.0.0" />
 </Document>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.96">
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" Version="0.98">
   <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
     <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" CanvasType="FullCategory">
@@ -55,7 +55,11 @@
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Renderer" />
               </p:NodeReference>
-              <Pin Id="H1Oqwa5EVgHMaC6EbJPOSJ" Name="Bounds" Kind="InputPin" />
+              <Pin Id="H1Oqwa5EVgHMaC6EbJPOSJ" Name="Bounds" Kind="InputPin" DefaultValue="-1, 7, 511, 409">
+                <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
+                  <Choice Kind="TypeFlag" Name="Rectangle" />
+                </p:TypeAnnotation>
+              </Pin>
               <Pin Id="EdSibadYXmgLyC2og46wPA" Name="Input" Kind="InputPin" />
               <Pin Id="IrbZm6KeE48QZWjnzZyCgw" Name="Title" Kind="InputPin" />
               <Pin Id="VNRNNZKBh8LPcO2HzoG3xo" Name="Renderer Mode" Kind="InputPin" />
@@ -388,18 +392,22 @@
               </p:ValueBoxSettings>
             </Pad>
             <Node Bounds="247,894,65,13" Id="BesDB8Bw4GqOyyO8nmHBQt">
-              <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="ProcessAppFlag" Name="Writer (Intrinsics)" />
+                <CategoryReference Kind="Category" Name="OpenCV" />
+                <CategoryReference Kind="Category" Name="Calibration" />
+                <Choice Kind="ProcessAppFlag" Name="IntrinsicsWriter" />
               </p:NodeReference>
               <Pin Id="IJvrPyB6e8GMecncIW3r6u" Name="File Path" Kind="InputPin" />
               <Pin Id="AG2nUjZWGI6NmcSL2oa5p4" Name="Intrinsics" Kind="InputPin" />
               <Pin Id="A4BT9kYl4cFLd4Hql43z5q" Name="Write" Kind="InputPin" />
             </Node>
             <Node Bounds="242,954,57,13" Id="HmQbU5hgDohLKEie3sbVxs">
-              <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="ProcessAppFlag" Name="Reader (Intrinsics)" />
+                <CategoryReference Kind="Category" Name="OpenCV" />
+                <CategoryReference Kind="Category" Name="Calibration" />
+                <Choice Kind="ProcessAppFlag" Name="IntrinsicsReader" />
               </p:NodeReference>
               <Pin Id="SLOIPAiOTnZO81BvVrwZOY" Name="File Path" Kind="InputPin" />
               <Pin Id="UjmcupkrNkOP5C2DDF84xo" Name="Read" Kind="InputPin" />
@@ -557,6 +565,31 @@
         </Patch>
       </Node>
     </Canvas>
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="SKHPrOvpTLiNlL19jBMaYv">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="IWzGLdPFgUPNZmPIigEjQW">
+        <Canvas Id="NBf9lPXaKCfMdcCVNJrWn8" BordersChecked="false" CanvasType="Group" />
+        <Patch Id="UtK8uUvCvnzOXOVlyegWvQ" Name="Create" />
+        <Patch Id="S9NGV6YRS99PTYR5vwyLWh" Name="Update" />
+        <!--
+
+    ************************  ************************
+
+-->
+        <ProcessDefinition Id="QUiq9FLnQYbOpkP3n84oXV">
+          <Fragment Id="QGcCONdIpyQOw12EXUlcDg" Patch="UtK8uUvCvnzOXOVlyegWvQ" Enabled="true" />
+          <Fragment Id="EqQ7JSNbGPON4EtsEPoTbW" Patch="S9NGV6YRS99PTYR5vwyLWh" Enabled="true" />
+        </ProcessDefinition>
+      </Patch>
+    </Node>
   </Patch>
   <NugetDependency Id="BmmECdadQ3ZOyVD18mOOK6" Location="VL.OpenCV" Version="0.0.0.0" />
 </Document>

@@ -8,14 +8,18 @@ In order to use this library with vl you have to install the nuget that is avail
 
 Once the VL.OpenCV nuget is installed and referenced in your vl document you'll see the category "OpenCV" in the nodebrowser. From there explore the nodes in its main sub-categories:
 
-- Source (VideoIn, ImageFile,...)
-- Sink (Renderer, VideoFile,...)
+- Source (VideoIn, ImageReader,...)
+- Sink (Renderer, ImageWriter)
 - Filter (Blur, Dilate, Sobel,...)
-- Tracker (Contours, ObjectDetector, MedianFlow,...)
+- Detection (Contours, ObjectDetector, MarkerDetector,...)
 
-There is also a demo-patch coming with this package that is a bit hidden in:
+Demo VL patches can be found here:
 
-    "\lib\packs\VL.OpenCV...\vvvv\girlpower\demo.v4p"
+    "\lib\packs\VL.OpenCV...\demos\"
+
+And vvvv demo patches are somewhat hidden here:
+
+    "\lib\packs\VL.OpenCV...\vvvv\girlpower\"
 
 ## Contributing to the development
 If you want to contribute to this repository, clone it into a directory like:

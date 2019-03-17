@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="AEE6Cfg0i8wOlKpLCt1WJp" Version="0.96">
+<Document xmlns:p="property" Id="AEE6Cfg0i8wOlKpLCt1WJp" Version="0.98">
   <Patch Id="VOJ8Gg4KYVfOa20dp4sCNr">
     <Canvas Id="CRaRwQfSLh7P9Gm953CwLa" DefaultCategory="VVVV" CanvasType="FullCategory">
       <!--
@@ -42,7 +42,7 @@
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Renderer" />
               </p:NodeReference>
-              <Pin Id="IHzBkt8fSiUPXY403YLF2N" Name="Bounds" Kind="InputPin" DefaultValue="1803, 200, 511, 409">
+              <Pin Id="IHzBkt8fSiUPXY403YLF2N" Name="Bounds" Kind="InputPin" DefaultValue="0, 7, 510, 409">
                 <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
                   <Choice Kind="TypeFlag" Name="Rectangle" />
                 </p:TypeAnnotation>
@@ -63,7 +63,7 @@
               </p:ValueBoxSettings>
             </Pad>
             <Node Bounds="153,394,95,13" Id="AP2VhqJV3lGLgfjwzCAHc8">
-              <p:NodeReference LastCategoryFullName="OpenCV.Tracker" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Detection" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="ObjectDetector" />
               </p:NodeReference>
@@ -88,7 +88,7 @@
               <Pin Id="TOTffVXh9yvL50qtXe7U8S" Name="Rectangles" Kind="OutputPin" />
             </Node>
             <Node Bounds="350,400,95,13" Id="PqviCfECnP0PMBqlw8Z36k">
-              <p:NodeReference LastCategoryFullName="OpenCV.Tracker" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Detection" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="ObjectDetector (CustomFile)" />
               </p:NodeReference>
@@ -119,7 +119,7 @@
               <Pin Id="UbZXBtEr7V4Pt9Ppzdb1cY" Name="Output" Kind="OutputPin" />
             </Node>
             <Node Bounds="530,400,125,13" Id="BFRQNsvKy2QQAagV0vLbf8">
-              <p:NodeReference LastCategoryFullName="OpenCV.Tracker" LastSymbolSource="VL.OpenCV.vl">
+              <p:NodeReference LastCategoryFullName="OpenCV.Detection" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="PedestrianDetector" />
               </p:NodeReference>
@@ -166,6 +166,31 @@
         </Patch>
       </Node>
     </Canvas>
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="DKFzkvrsD3BLyWQ20i633K">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="L3RqHrIIYBNNHSfnbvpnra">
+        <Canvas Id="RPiUPmvOqM8PbRHCmxU0mR" BordersChecked="false" CanvasType="Group" />
+        <Patch Id="SYkNnbUmDmaPobYlb1AS9m" Name="Create" />
+        <Patch Id="Rbo6oG5ENenOeW6jZE67dX" Name="Update" />
+        <!--
+
+    ************************  ************************
+
+-->
+        <ProcessDefinition Id="L6lMXfPwz2QM7ANA2a8nRv">
+          <Fragment Id="EaqbogNMHA1LFqFHUfiMdU" Patch="SYkNnbUmDmaPobYlb1AS9m" Enabled="true" />
+          <Fragment Id="LPeMnMPMoL0LkCTAJ6DU5Y" Patch="Rbo6oG5ENenOeW6jZE67dX" Enabled="true" />
+        </ProcessDefinition>
+      </Patch>
+    </Node>
   </Patch>
   <NugetDependency Id="Gw1gnQpkwNqNLQmokm4zvk" Location="VL.CoreLib" Version="0.78.32-g2ad58966d2" />
   <NugetDependency Id="Lzo4K5c0tEXO1Q2e6qCLOM" Location="VL.OpenCV" Version="0.0.0.0" />
