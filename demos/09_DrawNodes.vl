@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="AEE6Cfg0i8wOlKpLCt1WJp" Version="0.96">
+<Document xmlns:p="property" Id="AEE6Cfg0i8wOlKpLCt1WJp" Version="0.99">
   <NugetDependency Id="Gw1gnQpkwNqNLQmokm4zvk" Location="VL.CoreLib" Version="0.78.32-g2ad58966d2" />
   <NugetDependency Id="SvX0SMoqGc1OMycshaqtj6" Location="VL.OpenCV" Version="0.0.0.0" />
   <Patch Id="VOJ8Gg4KYVfOa20dp4sCNr">
@@ -61,7 +61,9 @@
             <Node Bounds="-161,12,65,13" Id="RDxfCioqVQhPPxn1R7HOrd">
               <p:NodeReference LastCategoryFullName="OpenCV.Source" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="ProcessAppFlag" Name="CvImage (Rows Cols)" />
+                <CategoryReference Kind="Category" Name="OpenCV" />
+                <CategoryReference Kind="Category" Name="Source" />
+                <Choice Kind="ProcessAppFlag" Name="CvImage (RGBA)" />
               </p:NodeReference>
               <Pin Id="GO4PajMOgssLE55cuzUqJ3" Name="Rows" Kind="InputPin" DefaultValue="1024">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
@@ -228,7 +230,9 @@
             <Node Bounds="269,-7,65,13" Id="CbBzbOHXdGlNUByP9wKMNQ">
               <p:NodeReference LastCategoryFullName="OpenCV.Source" LastSymbolSource="VL.OpenCV.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="ProcessAppFlag" Name="CvImage (Rows Cols)" />
+                <CategoryReference Kind="Category" Name="OpenCV" />
+                <CategoryReference Kind="Category" Name="Source" />
+                <Choice Kind="ProcessAppFlag" Name="CvImage (RGBA)" />
               </p:NodeReference>
               <Pin Id="HnWUShUI114NZAP0MIuoMj" Name="Rows" Kind="InputPin" DefaultValue="1024">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
@@ -824,5 +828,30 @@
         </Patch>
       </Node>
     </Canvas>
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="RtyiPKRRHdlMkxIfhSSHdq">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="OCQOR7A6gLNMYAtsHvzTnE">
+        <Canvas Id="JvyBb0brA6mPaClgnUgefE" BordersChecked="false" CanvasType="Group" />
+        <Patch Id="RzsIP27Ep6CPhXtG7Uodfa" Name="Create" />
+        <Patch Id="Q5ZnJbDLW4hNfE32dld75Q" Name="Update" />
+        <!--
+
+    ************************  ************************
+
+-->
+        <ProcessDefinition Id="UIeRcbyeJT9MAtdIkXNs1W">
+          <Fragment Id="MMqPeVDRxKTOTpEosws64j" Patch="RzsIP27Ep6CPhXtG7Uodfa" Enabled="true" />
+          <Fragment Id="T0nXxZb2DnjP4mk5p1Hwm2" Patch="Q5ZnJbDLW4hNfE32dld75Q" Enabled="true" />
+        </ProcessDefinition>
+      </Patch>
+    </Node>
   </Patch>
 </Document>
