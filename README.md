@@ -1,5 +1,5 @@
 # VL.OpenCV
-A [VL](https://vvvv.org/documentation/vl) wrapper for [OpenCV](https://opencv.org) based on [OpenCVSharp3-AnyCPU](https://github.com/shimat/opencvsharp) and also using [DirectShowLib](https://github.com/larrybeall/DirectShowLib).
+A [VL](https://vvvv.org/documentation/vl) wrapper for [OpenCV](https://opencv.org) based on [OpenCvSharp](https://github.com/shimat/opencvsharp) and also using [SharpDX MediaFoundation](http://sharpdx.org/wiki/class-library-api/mediafoundation/).
 
 ## Using the library
 In order to use this library with vl you have to install the nuget that is available via nuget.org. For information on how to use nugets with vl, see [Managing Nugets](https://vvvv.gitbooks.io/the-gray-book/content/en/reference/libraries/dependencies.html#_manage_nugets) in the vl documentation. As described there you go to the commandline and then type:
@@ -34,13 +34,13 @@ Open
 in VisualStudio and build it. This is necessary for a few things that cannot yet be expressed in vl directly, like dynamic enums and static readonly instances of things. 
 
 ### Get Nuget Dependency
-This wrapper is depending on the thirdparty nuget [OpenCVSharp3-AnyCPU](https://github.com/shimat/opencvsharp). When installing the VL.OpenCV nuget as mentioned under "Using the library" above, this dependency will be installed automatically. To install it otherwise, go to your vvvvs
+This wrapper is depending on two thirdparty nugets: [OpenCvSharp4.runtime.win](https://github.com/shimat/opencvsharp) and [OpenCvSharp4](https://github.com/shimat/opencvsharp). When installing the VL.OpenCV nuget as mentioned under "Using the library" above, this dependency will be installed automatically. To install it otherwise, go to your vvvvs
 
     \lib\packs 
     
 on a commandline and run
 
-    nuget.exe install OpenCVSharp3-AnyCPU
+    nuget.exe install OpenCvSharp4.Windows
 
 ### Start vvvv
 Then start vvvv with the commandline parameter:
