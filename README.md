@@ -34,7 +34,7 @@ Open
 in VisualStudio and build it. This is necessary for a few things that cannot yet be expressed in vl directly, like dynamic enums and static readonly instances of things. 
 
 ### Get Nuget Dependency
-This wrapper is depending on two thirdparty nugets: [OpenCvSharp4.runtime.win](https://github.com/shimat/opencvsharp) and [OpenCvSharp4](https://github.com/shimat/opencvsharp). When installing the VL.OpenCV nuget as mentioned under "Using the library" above, this dependency will be installed automatically. To install it otherwise, go to your vvvvs
+This wrapper is depending on two thirdparty nugets: [OpenCvSharp4.runtime.win](https://github.com/shimat/opencvsharp#installation) and [OpenCvSharp4](https://github.com/shimat/opencvsharp#installation). When installing the VL.OpenCV nuget as mentioned under "Using the library" above, this dependency will be installed automatically. To install it otherwise, go to your vvvvs
 
     \lib\packs 
     
