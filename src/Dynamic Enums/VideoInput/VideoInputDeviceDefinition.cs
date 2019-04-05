@@ -1,9 +1,8 @@
-﻿using System;
+﻿using SharpDX.MediaFoundation;
+using System;
 using System.Collections.Generic;
 using VL.Lib;
 using VL.Lib.Collections;
-using SharpDX.MediaFoundation;
-using SharpDX.Multimedia;
 
 namespace VL.OpenCV
 {
@@ -20,7 +19,14 @@ namespace VL.OpenCV
             Dictionary<string, object> devices = new Dictionary<string, object>(capDevices.Length);
             for (int i = 0; i < capDevices.Length; i++)
             {
-                devices[capDevices[i].Get(CaptureDeviceAttributeKeys.FriendlyName)] = i;
+                var j = 1;
+                var friendlyName = capDevices[i].Get(CaptureDeviceAttributeKeys.FriendlyName);
+                var finalName = friendlyName;
+                while (devices.ContainsKey(finalName))
+                {
+                    finalName = friendlyName + " #" + j++;
+                }
+                devices[finalName] = i;
             }
             return devices;
         }
