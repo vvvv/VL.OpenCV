@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Reactive.Subjects;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using VL.Core.Properties;
 
 namespace VL.OpenCV
 {
@@ -235,7 +234,7 @@ namespace VL.OpenCV
         {
             if (apply)
             {
-                var boundsinPix = Settings.DIPToPixel(bounds);
+                var boundsinPix = DIPHelpers.DIPToPixel(bounds);
                 if (boundsinPix != Bounds)
                     Bounds = boundsinPix;
             }
@@ -244,7 +243,7 @@ namespace VL.OpenCV
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            BoundsChanged.OnNext(Settings.DIP(Bounds));
+            BoundsChanged.OnNext(DIPHelpers.DIP(Bounds));
             if (loaded)
                 Text = "cw: " + ClientSize.Width + "   ch: " + ClientSize.Height;
             pictureBox.ClientSize = ClientSize;
@@ -259,7 +258,7 @@ namespace VL.OpenCV
         protected override void OnLocationChanged(EventArgs e)
         {
             base.OnLocationChanged(e);
-            BoundsChanged.OnNext(Settings.DIP(Bounds));
+            BoundsChanged.OnNext(DIPHelpers.DIP(Bounds));
         }
     }
 }
