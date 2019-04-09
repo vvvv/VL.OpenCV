@@ -47,14 +47,10 @@ namespace VL.OpenCV
                     if (mediaType.MajorType == MediaTypeGuids.Video)
                     {
                         var frameRate = ParseFrameRate(mediaType.Get(MediaTypeAttributeKeys.FrameRate));
-                        var minFrameRate = ParseFrameRate(mediaType.Get(MediaTypeAttributeKeys.FrameRateRangeMin));
-                        var maxFrameRate = ParseFrameRate(mediaType.Get(MediaTypeAttributeKeys.FrameRateRangeMax));
-
                         ParseSize(mediaType.Get(MediaTypeAttributeKeys.FrameSize), out int width, out int height);
 
                         var format = GetVideoFormat(mediaType);
 
-                        var frameRateString = minFrameRate != maxFrameRate ? $"{minFrameRate} to {maxFrameRate}" : $"{frameRate}";
                         yield return new Format() { w = width, h = height, fr = frameRate, format = format };
                     }
                 }
