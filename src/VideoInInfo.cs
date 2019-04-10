@@ -1,4 +1,5 @@
 ﻿using SharpDX.MediaFoundation;
+using DirectShowLib;
 using SharpDX.Multimedia;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,6 @@ namespace VL.OpenCV
             {
                 var device = devices[deviceIndex];
                 var name = device.Get(CaptureDeviceAttributeKeys.FriendlyName);
-                Console.WriteLine(name);
                 var mediaSource = device.ActivateObject<MediaSource>();
                 mediaSource.CreatePresentationDescriptor(out PresentationDescriptor descriptor);
                 var streamDescriptor = descriptor.GetStreamDescriptorByIndex(0, out SharpDX.Mathematics.Interop.RawBool _);
@@ -66,8 +66,43 @@ namespace VL.OpenCV
             var attributes = new MediaAttributes();
             MediaFactory.CreateAttributes(attributes, 1);
             attributes.Set(CaptureDeviceAttributeKeys.SourceType, CaptureDeviceAttributeKeys.SourceTypeVideoCapture.Guid);
-            return MediaFactory.EnumDeviceSources(attributes);
+            var mediaFoundationActivates = MediaFactory.EnumDeviceSources(attributes);
+            Activate[] result = new Activate[mediaFoundationActivates.Length];
+            Dictionary<string, int[]> order = new Dictionary<string, int[]>();
+
+            DsDevice[] capDevicesDS;
+            capDevicesDS = DsDevice.GetDevicesOfCat(FilterCategory.VideoInputDevice);
+
+            //tries to match the order of the found devices in DirectShow and MediaFoundation
+            for (int i = 0; i < mediaFoundationActivates.Length; i++)
+            {
+                var friendlyName = mediaFoundationActivates[i].Get(CaptureDeviceAttributeKeys.FriendlyName);
+                var finalName = friendlyName;
+                var suffix = ""; //used to handle multiple devices listed with the same name
+                var counter = 1;
+                for (int j = 0; j < capDevicesDS.Length; j++)
+                {
+                    var friendlyNameDS = capDevicesDS[j].Name + suffix;
+                    if (friendlyName + suffix == friendlyNameDS)
+                    {
+                        if (!order.ContainsKey(friendlyName + suffix))
+                        {
+                            order.Add(friendlyName + suffix, new int[] { i, j });
+                            result[j] = mediaFoundationActivates[i];
+                            suffix = "";
+                            break;
+                        }
+                        else
+                        {
+                            suffix = counter++.ToString();
+                            continue;
+                        }
+                    }
+                }
+            }
+            return result;
         }
+
 
         private static void ParseSize(long value, out int width, out int height)
         {
@@ -82,7 +117,7 @@ namespace VL.OpenCV
             return (float)(numerator * 100 / denominator) / 100f;
         }
 
-        private static string GetVideoFormat(MediaType mediaType)
+        private static string GetVideoFormat(SharpDX.MediaFoundation.MediaType mediaType)
         {
             // https://docs.microsoft.com/en-us/windows/desktop/medfound/video-subtype-guids
             var subTypeId = mediaType.Get(MediaTypeAttributeKeys.Subtype);
