@@ -4653,6 +4653,90 @@
             <Link Id="VfApAminmhRLaQ0j5BZDHX" Ids="KM9FCn28xkvP8A52lIkHip,SccdKNX8QQ2Pihhp6zgSnw" />
           </Patch>
         </Node>
+        <!--
+
+    ************************ ApproximatePolygon ************************
+
+-->
+        <Node Name="ApproximatePolygon" Bounds="617,741,259,209" Id="UJD486yQAowPGtWKI9EgHa" Summary="Approximates a polygonal curve with another polygon with less vertices so that the distance between them is less or equal to the specified precision." Remarks="Uses the Douglas-Peucker algorithm http://en.wikipedia.org/wiki/Ramer-Douglas-Peucker_algorithm">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+            <Choice Kind="OperationDefinition" Name="Operation" />
+          </p:NodeReference>
+          <Patch Id="QQcuZawO80rQb7akGNEPCk">
+            <Node Bounds="631,851,81,19" Id="NZWRGbiTcboPObTMt2Nu44">
+              <p:NodeReference LastCategoryFullName="OpenCvSharp.Cv2" LastSymbolSource="OpenCvSharp.dll">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="ApproxPolyDP" />
+                <CategoryReference Kind="AssemblyCategory" Name="Cv2" NeedsToBeDirectParent="true" />
+                <PinReference Kind="InputPin" Name="Curve">
+                  <p:DataTypeReference p:Type="TypeReference" LastCategoryFullName="System.Collections.Generic" LastSymbolSource="mscorlib.dll">
+                    <Choice Kind="TypeFlag" Name="IEnumerable`1" />
+                    <p:TypeArguments>
+                      <TypeReference LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
+                        <Choice Kind="TypeFlag" Name="Point2f" />
+                      </TypeReference>
+                    </p:TypeArguments>
+                  </p:DataTypeReference>
+                </PinReference>
+              </p:NodeReference>
+              <Pin Id="BKYE4lqJCKVPMllf5hZ3mC" Name="Curve" Kind="InputPin" />
+              <Pin Id="Q2d95MduSq6OJ5KWdnE9on" Name="Epsilon" Kind="InputPin" />
+              <Pin Id="GJQf5tteUpFO63U90FCawT" Name="Closed" Kind="InputPin" />
+              <Pin Id="DQOUonbl0DVMRkvpROiW4u" Name="Result" Kind="OutputPin" />
+            </Node>
+            <Node Bounds="629,780,60,19" Id="KI1IoDSil1uPaX7ECKufbJ">
+              <p:NodeReference LastCategoryFullName="OpenCV.Conversion" LastSymbolSource="VL.OpenCV.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="ToPoint2f (Spread)" />
+              </p:NodeReference>
+              <Pin Id="If1ABT89toqMqeiZfsGpRT" Name="Input" Kind="InputPin" />
+              <Pin Id="DqYFB163WMHPYd99aPmEt7" Name="Output" Kind="OutputPin" />
+            </Node>
+            <Link Id="KbqRxBRF2koP8QnoHUHyYY" Ids="DqYFB163WMHPYd99aPmEt7,BKYE4lqJCKVPMllf5hZ3mC" />
+            <ControlPoint Id="D2UxnkvkLnVP6HrxoxMLGc" Bounds="631,759" />
+            <Link Id="DOSHAUtY57HOAmcLFrdeer" Ids="D2UxnkvkLnVP6HrxoxMLGc,If1ABT89toqMqeiZfsGpRT" />
+            <Link Id="L2vDXVMp4FeOaGRVGzKVUt" Ids="FvnwrXgW363NF8sfQWhlYR,D2UxnkvkLnVP6HrxoxMLGc" IsHidden="true" />
+            <ControlPoint Id="DNGAMCIS2DIMhsX1SFMI7w" Bounds="728,775" />
+            <Link Id="HedDXGSTIdfPmNevWfdKDc" Ids="DNGAMCIS2DIMhsX1SFMI7w,UJOXmuWTujHOtxoAVjIyoy" />
+            <Link Id="MS2uQlNqubjQFd7JRZVHIL" Ids="HDzPgxwzO7ENxwK1pR8YB3,DNGAMCIS2DIMhsX1SFMI7w" IsHidden="true" />
+            <Node Bounds="725,795,62,19" Id="BCdDNKi5x0MNGjCV2JjuqL">
+              <p:NodeReference LastCategoryFullName="System.Conversion" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="ToFloat64" />
+              </p:NodeReference>
+              <Pin Id="UJOXmuWTujHOtxoAVjIyoy" Name="Input" Kind="InputPin" />
+              <Pin Id="J98wb3d81r2OTVI4RcO4Ua" Name="Result" Kind="OutputPin" />
+            </Node>
+            <Link Id="J7GFqyQ68SQQMjiLjZJqhJ" Ids="J98wb3d81r2OTVI4RcO4Ua,Q2d95MduSq6OJ5KWdnE9on" />
+            <ControlPoint Id="O1SVjSgNiZUN7ZAIGds4b0" Bounds="822,806" />
+            <Link Id="AsEVtdZqDxFMY0XTn8TLnm" Ids="O1SVjSgNiZUN7ZAIGds4b0,GJQf5tteUpFO63U90FCawT" />
+            <Link Id="VnQ9oHu22nqNcyQ2g5Nmst" Ids="SXs7TXZz711QMK1noH5Fla,O1SVjSgNiZUN7ZAIGds4b0" IsHidden="true" />
+            <Node Bounds="630,887,63,19" Id="CclijxhWm8sMCFR8rTHiYI">
+              <p:NodeReference LastCategoryFullName="OpenCV.Conversion" LastSymbolSource="VL.OpenCV.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="ToVector2 (Spread)" />
+              </p:NodeReference>
+              <Pin Id="TclPNN3aBWvQA5kpvjRhWL" Name="Input" Kind="InputPin" />
+              <Pin Id="DnAMssL2opzMd9jRhEYj9O" Name="Output" Kind="OutputPin" />
+            </Node>
+            <Link Id="Ml0p7XeLO6bLA1mG4cDT7U" Ids="DQOUonbl0DVMRkvpROiW4u,TclPNN3aBWvQA5kpvjRhWL" />
+            <ControlPoint Id="U2ty6tYJnOsP57DBf0V94p" Bounds="633,933" />
+            <Link Id="Ct5kK1VeqaSOXEHMNn3nIz" Ids="DnAMssL2opzMd9jRhEYj9O,U2ty6tYJnOsP57DBf0V94p" />
+            <Link Id="Tlw98AqFIRZNNfBUe3dHEt" Ids="U2ty6tYJnOsP57DBf0V94p,Ao0iYUpmY59N6f9mHEAcwd" IsHidden="true" />
+            <Pin Id="FvnwrXgW363NF8sfQWhlYR" Name="Input" Kind="InputPin" Bounds="648,697" />
+            <Pin Id="Ao0iYUpmY59N6f9mHEAcwd" Name="Output" Kind="OutputPin" Bounds="649,872" />
+            <Pin Id="HDzPgxwzO7ENxwK1pR8YB3" Name="Epsilon" Kind="InputPin" Bounds="715,738" Summary="A common value is normally in the range of 1-5% of the original contour perimeter.">
+              <p:TypeAnnotation>
+                <Choice Kind="TypeFlag" Name="Float32" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="SXs7TXZz711QMK1noH5Fla" Name="Closed" Kind="InputPin" Bounds="796,761" DefaultValue="True">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Boolean" />
+              </p:TypeAnnotation>
+            </Pin>
+          </Patch>
+        </Node>
       </Canvas>
       <Canvas Id="QRRvtFujAWEQEef6aTLHGP" Name="Filter" Position="185,331">
         <!--
