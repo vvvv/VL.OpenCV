@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" LanguageVersion="2019.1.0-0319-g85b7485793" Version="0.128">
+  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
+  <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
+    <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VVVV" CanvasType="FullCategory" />
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="EqyqPGAcP1RNcfJxWFwGY3">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="Fk63wli7kbDNpEU7pAdqiv">
+        <Canvas Id="A1bv15ls90rQSuoWG1a17Y" CanvasType="Group">
+          <Node Bounds="254,247,125,19" Id="JYiohCjFXo7LGk9sl4Vblj">
+            <p:NodeReference LastCategoryFullName="OpenCV.Source" LastSymbolSource="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="VideoIn" />
+            </p:NodeReference>
+            <Pin Id="FShpoQXKQN6L8ZRYiLscjw" Name="Video Input Device" Kind="InputPin" />
+            <Pin Id="O7QuCE8kpthMky9h4fJCau" Name="Width" Kind="InputPin" />
+            <Pin Id="ThrB6QXibrTMuhUrfvnzQV" Name="Height" Kind="InputPin" />
+            <Pin Id="QZsWibSXLKgO3ITXrlJXmd" Name="FPS" Kind="InputPin" />
+            <Pin Id="N6YaTI9twaOPcVMhWpklQz" Name="FourCC" Kind="InputPin" />
+            <Pin Id="KzFfyn3CttwMKrFNLUaq16" Name="Show Properties" Kind="InputPin" />
+            <Pin Id="TXbTpbjrZj3ON96vRdNm7g" Name="Enabled" Kind="InputPin" />
+            <Pin Id="FPYIAWd0N8VPLLNEA9ni7u" Name="Image" Kind="OutputPin" />
+            <Pin Id="AtIqZA8R7gcLhGqNZqSxyA" Name="Supported Formats" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="234,602,105,19" Id="QPcRmgCTjyTPSMoxI0A3Tu">
+            <p:NodeReference LastCategoryFullName="OpenCV.Sink" LastSymbolSource="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="Renderer" />
+            </p:NodeReference>
+            <Pin Id="KNBgb3kMoDzQIMeMpFNfoa" Name="Bounds" Kind="InputPin" DefaultValue="1413, 32, 504, 405">
+              <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
+                <Choice Kind="TypeFlag" Name="Rectangle" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="D8vrbJKcINiNu5XfzmYoJr" Name="Input" Kind="InputPin" />
+            <Pin Id="KCV2w6ZJLZNM9gUnEYTaTU" Name="Title" Kind="InputPin" />
+            <Pin Id="L0hZjkoigOwO0BkdEgmwOK" Name="Renderer Mode" Kind="InputPin" />
+            <Pin Id="QhJi6obBYwZOqcHNSxsTeX" Name="Show Info" Kind="InputPin" />
+            <Pin Id="ViUucBBuD4rL4hMtQ1yyEd" Name="Enabled" Kind="InputPin" />
+          </Node>
+          <Node Bounds="254,555,45,19" Id="Tj6ZlsItaGTNKFS03tntos">
+            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="LUT" />
+            </p:NodeReference>
+            <Pin Id="NtA0z8eqoooN6SjOhXR0qH" Name="Input" Kind="InputPin" />
+            <Pin Id="UTEavqKoTMzMjY869iyOtB" Name="Colors" Kind="InputPin" />
+            <Pin Id="JdckohLXHR8MexOmlNsE5x" Name="Apply" Kind="InputPin">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Boolean" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="SFBHZ80Oeb1PnrpKrmND3C" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Pad Id="QcY74WdsTHeQNBEjIj3VxP" Comment="Lookup Table" Bounds="420,423,156,509" ShowValueBox="true" isIOBox="true">
+            <p:TypeAnnotation LastCategoryFullName="Collections" LastSymbolSource="VL.Collections.vl">
+              <Choice Kind="TypeFlag" Name="Spread" />
+              <p:TypeArguments>
+                <TypeReference LastCategoryFullName="Color" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="RGBA" />
+                </TypeReference>
+              </p:TypeArguments>
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:maxvisibleentries p:Type="Int32">32</p:maxvisibleentries>
+            </p:ValueBoxSettings>
+            <p:Value>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>1, 1, 1, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0.744001, 0.2, 1, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 1, 0.5800002, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>1, 0.36, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+              <Item>0, 0, 0, 1</Item>
+            </p:Value>
+          </Pad>
+          <Node Bounds="254,294,60,19" Id="LnT5Lwd0YamLWQi5BWkLvs">
+            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="GrayScale" />
+            </p:NodeReference>
+            <Pin Id="AplGVG0LCcLPyKFQAGaZNP" Name="Input" Kind="InputPin" />
+            <Pin Id="D7FS27wueZOOiwmbHPjxkg" Name="Source Format" Kind="InputPin" />
+            <Pin Id="JrTKQ6U53yXL9tk91m871m" Name="Apply" Kind="InputPin">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Boolean" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="T34oWfOtrzuNgVlnLLRFBn" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="254,327,85,19" Id="UMvoMzrTw5JQQCikk4xF86">
+            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <CategoryReference Kind="Category" Name="OpenCV" />
+              <CategoryReference Kind="Category" Name="Filter" />
+              <Choice Kind="ProcessAppFlag" Name="ConvertColor" />
+            </p:NodeReference>
+            <Pin Id="AOCbDwUXYliOTaL0U6txFV" Name="Input" Kind="InputPin" />
+            <Pin Id="RZDwivlKnlOLgFPKixUXaU" Name="Source Format" Kind="InputPin">
+              <p:TypeAnnotation LastCategoryFullName="VL.OpenCV" LastSymbolSource="VL.OpenCV.dll">
+                <Choice Kind="TypeFlag" Name="ColorConversionSourceCodes" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="OZCveRxBIJPPsjIxMoex6V" Name="Target Format" Kind="InputPin" />
+            <Pin Id="LqwO3x3teZTPBrMeObsY7K" Name="Destination Channels" Kind="InputPin" />
+            <Pin Id="RO9yL3HaUrTMm79KX2M1OQ" Name="Apply" Kind="InputPin">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Boolean" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="JFOKRB1O3rCNTxSDbgnqFU" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Pad Id="Urp71e3yAWPPNVBWRGCuIh" Bounds="353,319,227,43" ShowValueBox="true" isIOBox="true" Value="&lt; convert to a color image with each pixel having a shade of gray">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+        </Canvas>
+        <Patch Id="BpBNcTxHioePjLn2sEMfvF" Name="Create" />
+        <Patch Id="MdWZFnwwUvzPBJs3FBXt5e" Name="Update" />
+        <ProcessDefinition Id="IxJBrGW7iTZMe7QenYEL35">
+          <Fragment Id="FWI1SwO6qOvMkGBMLDjuBG" Patch="BpBNcTxHioePjLn2sEMfvF" Enabled="true" />
+          <Fragment Id="FNAin4MRfwxNAxCk6POtip" Patch="MdWZFnwwUvzPBJs3FBXt5e" Enabled="true" />
+        </ProcessDefinition>
+        <Link Id="PW9mYsqAyaWLtUrDIpcKeC" Ids="FPYIAWd0N8VPLLNEA9ni7u,AplGVG0LCcLPyKFQAGaZNP" />
+        <Link Id="NGdeQAHOegRLljCYSDoQ1N" Ids="QcY74WdsTHeQNBEjIj3VxP,UTEavqKoTMzMjY869iyOtB" />
+        <Link Id="TudhC2kqBlWLWee9mioc8X" Ids="SFBHZ80Oeb1PnrpKrmND3C,D8vrbJKcINiNu5XfzmYoJr" />
+        <Link Id="T7S11Vx4qA1QGk8ot2BpoG" Ids="T34oWfOtrzuNgVlnLLRFBn,AOCbDwUXYliOTaL0U6txFV" />
+        <Link Id="GGfaCa0GqiPNfdWQ2Wo50y" Ids="JFOKRB1O3rCNTxSDbgnqFU,NtA0z8eqoooN6SjOhXR0qH" />
+      </Patch>
+    </Node>
+  </Patch>
+  <NugetDependency Id="MwmviJrXk1LMVG8liSiVgb" Location="VL.OpenCV" Version="0.0.0.0" />
+</Document>
