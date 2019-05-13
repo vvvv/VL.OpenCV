@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="LqaKfxY6lmtMHBbUmie8mR" LanguageVersion="2019.1.0-0293-gb6464bfaa6" Version="0.128">
+<Document xmlns:p="property" Id="LqaKfxY6lmtMHBbUmie8mR" LanguageVersion="2019.1.0-0332-g9daa03035b" Version="0.128">
   <NugetDependency Id="VtbJxOGmbj1LjeMkID7plb" Location="VL.CoreLib" Version="2019.1.0-293" />
   <Patch Id="Fw85Tj2rSIsNvSIQ4DJcRE">
     <Canvas Id="PLGyVl9kU4eQGTyArwJwYl" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
@@ -21,7 +21,7 @@
               <Choice Kind="ProcessAppFlag" Name="Renderer" />
               <CategoryReference Kind="Category" Name="Sink" NeedsToBeDirectParent="true" />
             </p:NodeReference>
-            <Pin Id="FVP9Gn2WCFzMKIUvEOdb2u" Name="Bounds" Kind="InputPin" DefaultValue="1193, 84, 512, 534">
+            <Pin Id="FVP9Gn2WCFzMKIUvEOdb2u" Name="Bounds" Kind="InputPin" DefaultValue="1192, 84, 512, 534">
               <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
                 <Choice Kind="TypeFlag" Name="Rectangle" />
               </p:TypeAnnotation>
@@ -37,16 +37,8 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="CvImage (RGBA)" />
             </p:NodeReference>
-            <Pin Id="TlIJvZtT2haMYCQ3hY1v8v" Name="Rows" Kind="InputPin" DefaultValue="512">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                <Choice Kind="TypeFlag" Name="Integer32" />
-              </p:TypeAnnotation>
-            </Pin>
-            <Pin Id="CzgNmqQlciCQMWKfCXUFUk" Name="Cols" Kind="InputPin" DefaultValue="512">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                <Choice Kind="TypeFlag" Name="Integer32" />
-              </p:TypeAnnotation>
-            </Pin>
+            <Pin Id="HP2edGmONGoPU7qmnl254B" Name="Width" Kind="InputPin" />
+            <Pin Id="L6OtOG9YmzMQUkUDPnZMe4" Name="Height" Kind="InputPin" />
             <Pin Id="QnvljMjyp6yOvkfyTToP1T" Name="Type" Kind="InputPin" />
             <Pin Id="EMb6nno9NbSOkb8cilfO3Y" Name="Color" Kind="InputPin" />
             <Pin Id="J1wGcUVF80ZP5nZvuUsWph" Name="Image" Kind="OutputPin" />
@@ -80,8 +72,8 @@
               <Choice Kind="OperationCallFlag" Name="FitCircle" />
             </p:NodeReference>
             <Pin Id="QiIDyS0KZh7LsZSz1lnB5u" Name="Input" Kind="InputPin" />
-            <Pin Id="GybUkubKs1dLPPsM4g628J" Name="Radius" Kind="OutputPin" />
             <Pin Id="P220Aou7MdMLRaML0hB7gZ" Name="Center" Kind="OutputPin" />
+            <Pin Id="GybUkubKs1dLPPsM4g628J" Name="Radius" Kind="OutputPin" />
           </Node>
           <Node Bounds="362,523,185,19" Id="V6tQuWjnRmdOeOkGJHgJ2T">
             <p:NodeReference LastCategoryFullName="OpenCV.Drawing" LastSymbolSource="VL.OpenCV.vl">
@@ -136,6 +128,11 @@
             <Pin Id="JPRDcYAPxvWLNpjCqw0WTd" Name="Input" Kind="InputPin" />
             <Pin Id="LFBpRqgKDlUOou0NkmgpXt" Name="Result" Kind="OutputPin" />
           </Node>
+          <Pad Id="H9ZGz7jNlWxOATBE51Z1JP" Comment="Width" Bounds="369,343,35,15" ShowValueBox="true" isIOBox="true" Value="512">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Integer32" />
+            </p:TypeAnnotation>
+          </Pad>
         </Canvas>
         <Patch Id="DUppXCNPniYOwsIb9gD8WN" Name="Create" />
         <Patch Id="M73oPs7wPO6PhRk8OJAoUC" Name="Update" />
@@ -151,6 +148,8 @@
         <Link Id="JugRhMUuKY8N3FEHufm1s1" Ids="P220Aou7MdMLRaML0hB7gZ,Ew0vNfRDF3GMG2x8AEhVFs" />
         <Link Id="Lk9eb2cJf7JQT7KAyr2ejz" Ids="GybUkubKs1dLPPsM4g628J,JPRDcYAPxvWLNpjCqw0WTd" />
         <Link Id="JaV5O6qLQtZPG4dn0H5mey" Ids="LFBpRqgKDlUOou0NkmgpXt,Ttp674LB4pVP1bAsr0d7VU" />
+        <Link Id="JbgJNCPchVgNSbRKTcA6j2" Ids="H9ZGz7jNlWxOATBE51Z1JP,HP2edGmONGoPU7qmnl254B" />
+        <Link Id="P8YwQqX5y6PNtWlmMjNhn3" Ids="H9ZGz7jNlWxOATBE51Z1JP,L6OtOG9YmzMQUkUDPnZMe4" />
       </Patch>
     </Node>
   </Patch>
