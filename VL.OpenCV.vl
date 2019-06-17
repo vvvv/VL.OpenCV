@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="ChQfHh6ToKXLR8ZB0RCtyF" LanguageVersion="2019.1.0-0398-ga0836f98df" Version="0.128">
+<Document xmlns:p="property" Id="ChQfHh6ToKXLR8ZB0RCtyF" LanguageVersion="2019.1.0-0417-g808f072318" Version="0.128">
   <Patch Id="C8nwPmC7mFvNATECRj2wt9">
     <Canvas Id="EatS5Y30OYxLELRQyBVMYE" DefaultCategory="OpenCV" CanvasType="FullCategory">
       <Canvas Id="N9r0bl4Ys0kMbfba5Gfahv" Name="Utils" Position="185,546" DefaultCategory="OpenCV.Utils">
@@ -4907,6 +4907,67 @@
             <Pin Id="Cgv4FW0XyvcLy88TiPQZOy" Name="Input" Kind="InputPin" Bounds="145,251" />
             <Pin Id="UWPrqI3xOI4QKC7q6l9NCc" Name="Center" Kind="OutputPin" Bounds="690,768" />
             <Pin Id="Bl001f5Qyx1N9t8mZARwX7" Name="Radius" Kind="OutputPin" Bounds="63,22" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ Get ************************
+
+-->
+        <Node Name="Get" Bounds="205,888" Id="D0au9Xa7YTjO7spRBEySBC">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin">
+            <Choice Kind="ContainerDefinition" Name="Process" />
+          </p:NodeReference>
+          <Patch Id="HvlBTUX5kiZONSUkP2Qogd" IsGeneric="true">
+            <Canvas Id="SEHdnWbG7uxLEdaL0PhAyJ" CanvasType="Group">
+              <Node Bounds="403,381" Id="G1q03OcQkBzNd6eImZAgkA">
+                <p:NodeReference LastCategoryFullName="VL.OpenCV.CvImage" LastSymbolSource="VL.OpenCV.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="AssemblyCategory" Name="CvImage" />
+                  <Choice Kind="OperationCallFlag" Name="Mat" />
+                </p:NodeReference>
+                <Pin Id="CusO45LrueSQGEjgsMGhNl" Name="Input" Kind="StateInputPin" />
+                <Pin Id="EABwyR6vzk0NCVoysz1sAT" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="FAfFemP2pAjMg0KAq6BsEy" Name="Mat" Kind="OutputPin" />
+              </Node>
+              <ControlPoint Id="Pp2U2IzdrLpN8nr3CnDwNY" Bounds="406,322" />
+              <ControlPoint Id="IIQbEk640v9PWh3UbEDLmu" Bounds="554,362" />
+              <ControlPoint Id="FT3xLrN4yv0NQE8rkWzTfO" Bounds="504,362" />
+              <Node Bounds="465,490,65,26" Id="PoH7tITdIM3NBZsuifGlRW">
+                <p:NodeReference LastCategoryFullName="OpenCvSharp.Mat" LastSymbolSource="OpenCvSharp.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="Get" />
+                  <CategoryReference Kind="AssemblyCategory" Name="Mat" NeedsToBeDirectParent="true" />
+                  <PinReference Kind="InputPin" Name="I 1" />
+                </p:NodeReference>
+                <Pin Id="VGNxWk8UGjPM573fBjvA8C" Name="Input" Kind="StateInputPin" />
+                <Pin Id="VbJdJcJov5wPRNdqPPmkeB" Name="I 0" Kind="InputPin" />
+                <Pin Id="IIL39HPsA5IMSzoD8LXXvp" Name="I 1" Kind="InputPin" />
+                <Pin Id="CAHEVSLJCsrPjDhKkpFNeO" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="JGaK3hyYYgqPrHNjXDdqtE" Name="Result" Kind="OutputPin" />
+              </Node>
+              <ControlPoint Id="NU0x3hWAb7NOyd2S3wvBY4" Bounds="522,575" />
+            </Canvas>
+            <Patch Id="PQyNrxcXirqMuHoE4wKKmy" Name="Create" />
+            <Patch Id="TxLiyKJC0sOMjhR588gBxc" Name="Update">
+              <Pin Id="TE5Sr6Sac5zMHyNBpgrEV5" Name="Input" Kind="InputPin" Bounds="406,322" />
+              <Pin Id="Rmh7eEZYyVUPyQSFI1GqBD" Name="Column" Kind="InputPin" Bounds="596,457" />
+              <Pin Id="Bgv8fQpMi9OOFTzFqNKrQ1" Name="Row" Kind="InputPin" Bounds="546,446" />
+              <Pin Id="OhU1dfZ8Qm8MoVTG6k8tZw" Name="Output" Kind="OutputPin" Bounds="522,575" />
+            </Patch>
+            <ProcessDefinition Id="L0ResQGbiZmMUoecAhj4m4">
+              <Fragment Id="Vjgz6Y59DrtNLEQhHJqzO7" Patch="PQyNrxcXirqMuHoE4wKKmy" Enabled="true" />
+              <Fragment Id="PVN194G01EDNfzBER7tGFD" Patch="TxLiyKJC0sOMjhR588gBxc" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="SZUk6tfhJaTNf3Xhe3o2CZ" Ids="Pp2U2IzdrLpN8nr3CnDwNY,CusO45LrueSQGEjgsMGhNl" />
+            <Link Id="IJmcDXUqBF3L0Gj4gdPrqF" Ids="TE5Sr6Sac5zMHyNBpgrEV5,Pp2U2IzdrLpN8nr3CnDwNY" IsHidden="true" />
+            <Link Id="TNCpdQPi60sMPoMczwNRX3" Ids="Rmh7eEZYyVUPyQSFI1GqBD,IIQbEk640v9PWh3UbEDLmu" IsHidden="true" />
+            <Link Id="AC5gpIkmhzhMW8rZjsEXFp" Ids="Bgv8fQpMi9OOFTzFqNKrQ1,FT3xLrN4yv0NQE8rkWzTfO" IsHidden="true" />
+            <Link Id="VD5hOTeusOhQOh4DKw4Ltb" Ids="FT3xLrN4yv0NQE8rkWzTfO,VbJdJcJov5wPRNdqPPmkeB" />
+            <Link Id="Qlo5xkekz3rQJdBqSVfkeg" Ids="IIQbEk640v9PWh3UbEDLmu,IIL39HPsA5IMSzoD8LXXvp" />
+            <Link Id="AUBmfHjhgLPNnnotNuogmJ" Ids="FAfFemP2pAjMg0KAq6BsEy,VGNxWk8UGjPM573fBjvA8C" />
+            <Link Id="Bexf6qXAcsCPMJp38nljZq" Ids="JGaK3hyYYgqPrHNjXDdqtE,NU0x3hWAb7NOyd2S3wvBY4" />
+            <Link Id="M1wlXY3bnHeO9tbWcCbB3l" Ids="NU0x3hWAb7NOyd2S3wvBY4,OhU1dfZ8Qm8MoVTG6k8tZw" IsHidden="true" />
           </Patch>
         </Node>
       </Canvas>
