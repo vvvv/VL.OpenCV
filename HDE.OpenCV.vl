@@ -180,7 +180,11 @@
                 </CategoryReference>
               </p:NodeReference>
               <Pin Id="Bt1RK0AWZtoQZn2f3pM7M6" Name="Input" Kind="InputPin" />
-              <Pin Id="Dl29aaUnEevLuTJRANdrBM" Name="Pixel Format" Kind="InputPin" />
+              <Pin Id="Dl29aaUnEevLuTJRANdrBM" Name="Pixel Format" Kind="InputPin" DefaultValue="B8G8R8A8">
+                <p:TypeAnnotation LastCategoryFullName="Graphics.Imaging" LastSymbolSource="VL.Imaging.vl">
+                  <Choice Kind="TypeFlag" Name="PixelFormat" />
+                </p:TypeAnnotation>
+              </Pin>
               <Pin Id="F2ZE0pPnwxSL0bN3OiysG2" Name="Output" Kind="OutputPin" />
             </Node>
             <Node Bounds="460,466,67,26" Id="MQNKSkxJw4wPfNWuziRohG">
@@ -248,32 +252,37 @@
     ************************ RegisterServices ************************
 
 -->
-      <Node Name="RegisterServices" Bounds="409,358,96,87" Id="PsBxgxnbEqTMCuGEBHHPY0">
+      <Node Name="RegisterServices" Bounds="412,346,192,157" Id="PsBxgxnbEqTMCuGEBHHPY0">
         <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
           <Choice Kind="OperationDefinition" Name="Operation" />
         </p:NodeReference>
         <Patch Id="J8LEvs2xeC8MERqbbcZYNJ">
-          <Node Bounds="421,381,72,26" Id="RJcedpkmML3PhZx6nKI5VF">
-            <p:NodeReference LastCategoryFullName="Main.CVImageViewer" LastSymbolSource="HDE.OpenCV.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <CategoryReference Kind="ClassType" Name="CVImageViewer" />
-              <Choice Kind="OperationCallFlag" Name="Create" />
+          <Node Bounds="496,390,96,93" Id="NYQLHtngYHsLq6yxFu4E57">
+            <p:NodeReference LastCategoryFullName="HDE.Viewers" LastSymbolSource="HDE.WidgetsAndViewers.vl">
+              <Choice Kind="OperationCallFlag" Name="RegisterViewer" />
+              <Choice Kind="RegionFlag" Name="Region (Stateless)" Fixed="true" />
             </p:NodeReference>
-            <Pin Id="BVN0T8JYC2ZNkzhu9TlYMa" Name="Output" Kind="StateOutputPin" />
+            <Pin Id="HSESMFiWg5pM5YkmfCq6Gt" Name="Input" Kind="InputPin" />
+            <Pin Id="PtUmZ0rNuCTMMKrVfr7t36" Name="Output" Kind="OutputPin" />
+            <Patch Id="HI7AVKeXj8QNKRj2IEyrnf" Name="Create" ManuallySortedPins="true">
+              <Pin Id="SUGjovEXgnzNwdDnfdrJ7m" Name="Result" Kind="OutputPin" />
+              <ControlPoint Id="L1o790XjFGpM6APxfeyTTK" Bounds="508,476" />
+              <Node Bounds="508,413,72,26" Id="RJcedpkmML3PhZx6nKI5VF">
+                <p:NodeReference LastCategoryFullName="Main.CVImageViewer" LastSymbolSource="HDE.OpenCV.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="ClassType" Name="CVImageViewer" />
+                  <Choice Kind="OperationCallFlag" Name="Create" />
+                </p:NodeReference>
+                <Pin Id="BVN0T8JYC2ZNkzhu9TlYMa" Name="Output" Kind="StateOutputPin" />
+              </Node>
+            </Patch>
           </Node>
-          <ControlPoint Id="TrSktNWp5LGL2WYU86fEnu" Bounds="423,428" />
-          <Link Id="K3kyCirFTduLzPMnQobX5W" Ids="BVN0T8JYC2ZNkzhu9TlYMa,TrSktNWp5LGL2WYU86fEnu" />
-          <Pin Id="SuoChdGJJWXM2tMP5PMQSS" Name="Output" Kind="OutputPin" Bounds="417,458">
-            <p:TypeAnnotation>
-              <Choice Kind="TypeFlag" Name="IValueViewer" />
-              <p:TypeArguments>
-                <TypeReference>
-                  <Choice Kind="TypeFlag" Name="CvImage" />
-                </TypeReference>
-              </p:TypeArguments>
-            </p:TypeAnnotation>
-          </Pin>
-          <Link Id="LSDYKUZycDiO5iHiKHLdgo" Ids="TrSktNWp5LGL2WYU86fEnu,SuoChdGJJWXM2tMP5PMQSS" IsHidden="true" />
+          <Link Id="H17XlcclLeDPh3Tod6tSFk" Ids="L1o790XjFGpM6APxfeyTTK,SUGjovEXgnzNwdDnfdrJ7m" IsHidden="true" />
+          <ControlPoint Id="UGYu4ygBJSJMMOq9sRoBYL" Bounds="499,364" />
+          <Link Id="JW8uCR7GiQHO4wEhLjQvpY" Ids="CDO4MlCFVjeQKquGV5SkoM,UGYu4ygBJSJMMOq9sRoBYL" IsHidden="true" />
+          <Pin Id="CDO4MlCFVjeQKquGV5SkoM" Name="Factory" Kind="InputPin" />
+          <Link Id="Q0ICNamnnCNQaRNuFJKqne" Ids="UGYu4ygBJSJMMOq9sRoBYL,HSESMFiWg5pM5YkmfCq6Gt" />
+          <Link Id="D9xG3Kyzl0bM5rAYXTRm7C" Ids="BVN0T8JYC2ZNkzhu9TlYMa,L1o790XjFGpM6APxfeyTTK" />
         </Patch>
       </Node>
     </Canvas>
@@ -291,11 +300,6 @@
         <Canvas Id="Gf64KxYvquMPt0cSLZmEai" CanvasType="Group" />
         <Patch Id="VFGoFoJQ2VGNlYYuPi6Ltg" Name="Create" />
         <Patch Id="JEix9Hnh1NHNkFN1UBSxFe" Name="Update" />
-        <!--
-
-    ************************  ************************
-
--->
         <ProcessDefinition Id="E2PaByMSc4dQN7gkh7pi82">
           <Fragment Id="L9Ze95yujH1PvDDx3IsNHu" Patch="VFGoFoJQ2VGNlYYuPi6Ltg" Enabled="true" />
           <Fragment Id="BGTBZUjh6tMQLMXDrbvTYb" Patch="JEix9Hnh1NHNkFN1UBSxFe" Enabled="true" />
