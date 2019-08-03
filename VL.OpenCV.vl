@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="ChQfHh6ToKXLR8ZB0RCtyF" LanguageVersion="2019.1.0-0489-gd7b6d7b7a5" Version="0.128">
+<Document xmlns:p="property" Id="ChQfHh6ToKXLR8ZB0RCtyF" LanguageVersion="2019.1.0-0552-g2194c41217" Version="0.128">
   <Patch Id="C8nwPmC7mFvNATECRj2wt9">
     <Canvas Id="EatS5Y30OYxLELRQyBVMYE" DefaultCategory="OpenCV" CanvasType="FullCategory">
       <Canvas Id="N9r0bl4Ys0kMbfba5Gfahv" Name="Utils" Position="185,546" DefaultCategory="OpenCV.Utils">
@@ -18655,6 +18655,7 @@
                       <Choice Kind="OperationCallFlag" Name="Confirm" />
                     </p:NodeReference>
                     <Pin Id="BXwOu4bdreLMeUZFYjVTVt" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="TSJIqDByRSFL7MWyOtylRa" Name="Solution Update Kind" Kind="InputPin" />
                   </Node>
                 </Patch>
               </Node>
@@ -27483,7 +27484,7 @@
           </p:NodeReference>
           <Patch Id="CnN0ojicWAPNiRr8Zd0coH">
             <Canvas Id="NCqdlhqTAnzNg6wR1WSSal" CanvasType="Group">
-              <ControlPoint Id="K92tIVZZelxPfPr1y8Aisi" Bounds="327,184" />
+              <ControlPoint Id="K92tIVZZelxPfPr1y8Aisi" Bounds="328,184" />
               <ControlPoint Id="DEwBeaCuzMpNVSNMTUMhlk" Bounds="333,799" />
               <ControlPoint Id="HULMnIvUScnQIEIzhlrqZo" Bounds="220,188" />
               <Node Bounds="219,279,410,480" Id="B3UYeacAoG7LnEem0B6IcF">
@@ -27600,8 +27601,8 @@
               <ControlPoint Id="U42cyEHbJ8LNTSl9TaRHR6" Bounds="440,184" />
               <ControlPoint Id="UiaMcEl76STQJp2AKWiFk5" Bounds="491,185" />
               <ControlPoint Id="NpWUc89v2XMN4gl1hXxrWr" Bounds="541,184" />
-              <ControlPoint Id="M1ruX7T50j7MWTMeuvLUtF" Bounds="371,185" />
-              <Node Bounds="219,243,37,19" Id="GTNjNtYwjjbPBHz7Rk2xHA">
+              <ControlPoint Id="M1ruX7T50j7MWTMeuvLUtF" Bounds="375,185" />
+              <Node Bounds="219,243,168,19" Id="GTNjNtYwjjbPBHz7Rk2xHA">
                 <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="OperationCallFlag" Name="AND" />
@@ -27609,9 +27610,10 @@
                 </p:NodeReference>
                 <Pin Id="CwMFIqP9QoXLLmti4ruDLj" Name="Input" Kind="StateInputPin" />
                 <Pin Id="B2QcCvZss0yOrVIe3Rz5zr" Name="Input 2" Kind="InputPin" />
+                <Pin Id="MDVjHYX9bhaLAxlBB4Qab4" Name="Input 3" Kind="InputPin" />
                 <Pin Id="TSVyVgw3B86LDKqfSLIjxa" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Node Bounds="233,216,73,19" Id="RkzL4JjWD3HMletK4RLEzI">
+              <Node Bounds="232,216,73,19" Id="RkzL4JjWD3HMletK4RLEzI">
                 <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="OperationCallFlag" Name="IsDamon" />
@@ -27620,12 +27622,25 @@
                 <Pin Id="Bj3WXnCUSXNPQJgUsOUaTS" Name="Result" Kind="OutputPin" />
                 <Pin Id="GiVgZSUk7mCQDLc0luIhfB" Name="Inverted Result" Kind="OutputPin" />
               </Node>
+              <Node Bounds="382,214,27,19" Id="MNmYfSesYkvNWLF0G2nZTx">
+                <p:NodeReference LastCategoryFullName="Math" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="!=" />
+                </p:NodeReference>
+                <Pin Id="ASxPF7LUM8ePtsObsZ1bLG" Name="Input" Kind="InputPin" />
+                <Pin Id="Q2sB6gzLlLxL107nOdd4yi" Name="Input 2" Kind="InputPin" />
+                <Pin Id="JpwVWzj8a1aPCvK44xJACN" Name="Result" Kind="OutputPin" />
+              </Node>
             </Canvas>
             <Patch Id="LdRgU1m32irPZ92UdKigLH" Name="Create" />
             <Patch Id="VKgEntbiBCKLDHWUIR6qTT" Name="Update" ManuallySortedPins="true">
               <Pin Id="Sqs009RGiGFOpHHTW1Fxme" Name="Input" Kind="InputPin" />
               <Pin Id="KyYd9FBE6qpPMKeuFLdrcU" Name="Position" Kind="InputPin" Bounds="760,239" />
-              <Pin Id="LssrLav23yONRJZtcLn6qt" Name="Text" Kind="InputPin" Bounds="744,217" />
+              <Pin Id="LssrLav23yONRJZtcLn6qt" Name="Text" Kind="InputPin" Bounds="744,217" DefaultValue="vvvv">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="String" />
+                </p:TypeAnnotation>
+              </Pin>
               <Pin Id="Vx0qu46l3anPsw2MplQIne" Name="Font" Kind="InputPin" Bounds="806,220" />
               <Pin Id="PFPvYyI21SEP3UJoHsFZMl" Name="Font Scale" Kind="InputPin" Bounds="857,219" DefaultValue="1">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
@@ -27699,6 +27714,8 @@
             <Link Id="MRekG2M6hlfQA3OipKaEvq" Ids="GiVgZSUk7mCQDLc0luIhfB,B2QcCvZss0yOrVIe3Rz5zr" />
             <Link Id="AwLvnkK7Kv3Pzr2gpIbyEw" Ids="HULMnIvUScnQIEIzhlrqZo,CwMFIqP9QoXLLmti4ruDLj" />
             <Link Id="FtFItP8s7XOO3FDDfyl3p2" Ids="TSVyVgw3B86LDKqfSLIjxa,OKdlOmlHLgHOpwi34TG8EX" />
+            <Link Id="AmAFcRtl9iNP2786LlUKMQ" Ids="U42cyEHbJ8LNTSl9TaRHR6,ASxPF7LUM8ePtsObsZ1bLG" />
+            <Link Id="HJG4fPcLGH5LmzVNGJSsDe" Ids="JpwVWzj8a1aPCvK44xJACN,MDVjHYX9bhaLAxlBB4Qab4" />
           </Patch>
         </Node>
         <!--
