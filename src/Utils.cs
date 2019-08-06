@@ -123,5 +123,71 @@ namespace VL.OpenCV
             }
             return output;
         }
+
+        public static int ToDType(MatType type)
+        {
+            switch (type)
+            {
+                case MatType.CV_8UC1:
+                    return 0;
+                case MatType.CV_8UC2:
+                    return 8;
+                case MatType.CV_8UC3:
+                    return 16;
+                case MatType.CV_8UC4:
+                    return 24;
+                case MatType.CV_8SC1:
+                    return 1;
+                case MatType.CV_8SC2:
+                    return 9;
+                case MatType.CV_8SC3:
+                    return 17;
+                case MatType.CV_8SC4:
+                    return 25;
+                case MatType.CV_16UC1:
+                    return 2;
+                case MatType.CV_16UC2:
+                    return 10;
+                case MatType.CV_16UC3:
+                    return 18;
+                case MatType.CV_16UC4:
+                    return 26;
+                case MatType.CV_16SC1:
+                    return 3;
+                case MatType.CV_16SC2:
+                    return 11;
+                case MatType.CV_16SC3:
+                    return 19;
+                case MatType.CV_16SC4:
+                    return 27;
+                case MatType.CV_32SC1:
+                    return 4;
+                case MatType.CV_32SC2:
+                    return 12;
+                case MatType.CV_32SC3:
+                    return 20;
+                case MatType.CV_32SC4:
+                    return 28;
+                case MatType.CV_32FC1:
+                    return 5;
+                case MatType.CV_32FC2:
+                    return 13;
+                case MatType.CV_32FC3:
+                    return 21;
+                case MatType.CV_32FC4:
+                    return 29;
+                case MatType.CV_64FC1:
+                    return 6;
+                case MatType.CV_64FC2:
+                    return 14;
+                case MatType.CV_64FC3:
+                    return 22;
+                case MatType.CV_64FC4:
+                    return 30;
+                case MatType.Unknown:
+                default:
+                    return -1;
+            }
+        }
     }
 }
