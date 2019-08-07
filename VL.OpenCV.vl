@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="ChQfHh6ToKXLR8ZB0RCtyF" LanguageVersion="2019.1.0-0565-g45758a7fdf" Version="0.128">
+<Document xmlns:p="property" Id="ChQfHh6ToKXLR8ZB0RCtyF" LanguageVersion="2019.1.0-0568-g3bb521b672" Version="0.128">
   <Patch Id="C8nwPmC7mFvNATECRj2wt9">
     <Canvas Id="EatS5Y30OYxLELRQyBVMYE" DefaultCategory="OpenCV" CanvasType="FullCategory">
       <Canvas Id="N9r0bl4Ys0kMbfba5Gfahv" Name="Utils" Position="185,546" DefaultCategory="OpenCV.Utils">
@@ -39792,6 +39792,165 @@
             <Link Id="DQ9TIePTfsKQHlUWa0ljTY" Ids="QXvczQrb19QPvHV6EmRB9Q,HFNWhs6YedkLD01vmn5N8I" />
             <Link Id="EVwZEXWkAJ3Ngafuxd2G2W" Ids="OGpgb3Sq4sTMGIVp0Dky1C,EShIF24jjgOL8h4kaeaWny" />
             <Link Id="IIHeGQjshrHNGuw4TFkjRa" Ids="RiwnnWAuwOULK9qwRbjLXl,GAbcZ0fVMQxOVwAyZVAyPC" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ GoodFeaturesDetector ************************
+
+-->
+        <Node Name="GoodFeaturesDetector" Bounds="648,472" Id="J1FKWkZonzCNUYpHCc2biL">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
+            <Choice Kind="ContainerDefinition" Name="Process" />
+          </p:NodeReference>
+          <Patch Id="L2UfiOSBryjNIniuuF11o0">
+            <Canvas Id="BA5wttlvgNiO3dWDCfcIFj" CanvasType="Group">
+              <ControlPoint Id="MYTamhpdSxSOP0Hb1GWgHF" Bounds="352,200" />
+              <Node Bounds="340,218,531,224" Id="Pb40L3pDgnAO8D4jYupKQj">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <Choice Kind="ProcessStatefulRegion" Name="Cache" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <Pin Id="KI00OBfW0LoO4KEs3h4yv5" Name="Force" Kind="InputPin" />
+                <Pin Id="PgsRt345uMKPCAasEoGJWw" Name="Dispose Cached Outputs" Kind="InputPin" />
+                <Pin Id="LEGKjFVJOMAMjT3J71S8wh" Name="Has Changed" Kind="OutputPin" />
+                <Patch Id="BWSdxr6zTfUPESkMJhgZS5" ManuallySortedPins="true">
+                  <Patch Id="BiJ5u0Fg0beP7dOgBUXkFn" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="GQ6cnslFHHLLkOlLDgFCak" Name="Then" ManuallySortedPins="true" />
+                  <Node Bounds="394,316,145,26" Id="OkVaAk783VBPdiS7L26kAl">
+                    <p:NodeReference LastCategoryFullName="OpenCvSharp.Mat" LastSymbolSource="OpenCvSharp.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="GoodFeaturesToTrack" />
+                      <CategoryReference Kind="AssemblyCategory" Name="Mat" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="OnyseHKexNLQXzQps8amfU" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="FYWRzfbTLr6PQRX0q8Rj2l" Name="Max Corners" Kind="InputPin" />
+                    <Pin Id="NRUdDl7C3NBLOqTBfy6oaQ" Name="Quality Level" Kind="InputPin" />
+                    <Pin Id="S306MIAKIGJPSMlJRdxcx6" Name="Min Distance" Kind="InputPin" />
+                    <Pin Id="Q9efYyBB9AEPH6BmORFTbB" Name="Mask" Kind="InputPin" />
+                    <Pin Id="AJvg724Bp6fO882mmDKsW0" Name="Block Size" Kind="InputPin" />
+                    <Pin Id="QkaLSNlUfDHMws1rmxKQKf" Name="Use Harris Detector" Kind="InputPin">
+                      <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                        <Choice Kind="TypeFlag" Name="Boolean" />
+                      </p:TypeAnnotation>
+                    </Pin>
+                    <Pin Id="NkXppuzjagJLvcxklTQfzY" Name="K" Kind="InputPin" />
+                    <Pin Id="DX9a6dOnR75OCq8jQZNZlI" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="DFPMU1WSXbsNBwnwygKw1F" Name="Result" Kind="OutputPin" />
+                  </Node>
+                  <Node Bounds="352,247,47,26" Id="VnOp4PEvuJBO0GGH3PSCLF">
+                    <p:NodeReference LastCategoryFullName="VL.OpenCV.CvImage" LastSymbolSource="VL.OpenCV.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="AssemblyCategory" Name="CvImage" />
+                      <Choice Kind="OperationCallFlag" Name="Mat" />
+                    </p:NodeReference>
+                    <Pin Id="GsMAkoxUuIsMEdps41UezE" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="RG51oOTBmoZNf04aHl3507" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="GQ1kLWu1smrMF8vXEA4BFG" Name="Mat" Kind="OutputPin" />
+                  </Node>
+                  <Node Bounds="533,371,63,19" Id="UZKCfHqgJ4TOCSd5udpasU">
+                    <p:NodeReference LastCategoryFullName="OpenCV.Conversion" LastSymbolSource="VL.OpenCV.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="ToVector2 (Spread)" />
+                      <PinReference Kind="InputPin" Name="Input">
+                        <p:DataTypeReference p:Type="TypeReference" LastCategoryFullName="Collections" LastSymbolSource="VL.Collections.vl">
+                          <Choice Kind="TypeFlag" Name="Sequence" />
+                          <p:TypeArguments>
+                            <TypeReference LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
+                              <Choice Kind="TypeFlag" Name="Point2f" />
+                            </TypeReference>
+                          </p:TypeArguments>
+                        </p:DataTypeReference>
+                      </PinReference>
+                    </p:NodeReference>
+                    <Pin Id="HjkJMvGNw1gP1pcC279Glj" Name="Input" Kind="InputPin" />
+                    <Pin Id="MGff2sbehOlL6uMLYL7O1u" Name="Output" Kind="OutputPin" />
+                  </Node>
+                </Patch>
+                <ControlPoint Id="LnYMX4MYpP6LAaHaSbk4B4" Bounds="354,224" Alignment="Top" />
+                <ControlPoint Id="H9asPxZ8o7VQJfcQrbQHHx" Bounds="535,435" Alignment="Bottom" />
+                <ControlPoint Id="Bx9G5DGULrVPenFKIlwCgd" Bounds="450,224" Alignment="Top" />
+                <ControlPoint Id="VGsaA3jrpTOMK8cW51ctQY" Bounds="418,224" Alignment="Top" />
+                <ControlPoint Id="RXuugvXtP1HOA5hLw0r6J0" Bounds="538,224" Alignment="Top" />
+                <ControlPoint Id="EbX4iPHLnQTPyqM2ImMMCY" Bounds="634,224" Alignment="Top" />
+                <ControlPoint Id="GK8EVHwKAmENiV4Gkh7bi3" Bounds="725,224" Alignment="Top" />
+                <ControlPoint Id="E1CoqFSgqXKOVUuDShJBNN" Bounds="856,224" Alignment="Top" />
+              </Node>
+              <ControlPoint Id="Epas49yrUgMQHC7cNfGmG3" Bounds="533,484" />
+              <ControlPoint Id="JsoQTot5nYZPcWCQixfEpg" Bounds="454,154" />
+              <ControlPoint Id="Rpt71MHxljSNs11njC90Qo" Bounds="418,186" />
+              <ControlPoint Id="G5JwPbf4uIJOOrJ9gKpooO" Bounds="540,180" />
+              <ControlPoint Id="VTSn2YIojCEQZEd6roHWXz" Bounds="637,178" />
+              <ControlPoint Id="HhYp6FsEUUeN21jtysXtlx" Bounds="730,180" />
+              <ControlPoint Id="AsOVIung8M4P87iJq4LGSE" Bounds="860,180" />
+            </Canvas>
+            <Patch Id="Mu4217x6uzQNgsfeZ1aqo4" Name="Create" />
+            <Patch Id="C3lZcIn7dsWP1quQqJTxsE" Summary="Determines strong corners in an image." Remarks="Input must be an 8bit  or 32bit single channel image" Name="Update">
+              <Pin Id="NbnwZY89FVDOdAyrj2g54v" Name="Input" Kind="InputPin" Bounds="451,214" />
+              <Pin Id="FWM7woAI9ZGOG6IPUSaOlR" Name="Quality Level" Kind="InputPin" Bounds="546,211" DefaultValue="0.01" Summary="Parameter characterizing the minimal accepted quality of image corners. The parameter value is multiplied by the best corner quality measure, which is the minimal eigenvalue (see cornerMinEigenVal() ) or the Harris function response (see cornerHarris()). The corners with the quality measure less than the product are rejected. For example, if the best corner has the quality measure = 1500, and the qualityLevel=0.01, then all the corners with the quality measure less than 15 are rejected.">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Float32" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="Mj1uw5VM4z6NptSjyo9x7u" Name="Max Corners" Kind="InputPin" Bounds="520,174" DefaultValue="10" Summary="Maximum number of corners to return. If there are more corners than are found, the strongest of them is returned.">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Integer32" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="AVRyi50UMEdMGOFx2RI03k" Name="Min Distance" Kind="InputPin" Bounds="644,181" DefaultValue="10" Summary="Minimum possible Euclidean distance between the returned corners.">
+                <p:TypeAnnotation>
+                  <Choice Kind="TypeFlag" Name="Float32" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="JArJti8ZWavMMgFhi5Qecj" Name="Block Size" Kind="InputPin" Bounds="678,205" DefaultValue="2" Summary="Size of an average block for computing a derivative covariation matrix over each pixel neighborhood.">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Integer32" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="BXJdIjxZ2pZPtRTlSRDeQT" Name="Use Harris Detector" Kind="InputPin" Bounds="771,207" Summary="Whether to use a Harris detector (see cornerHarris()) or cornerMinEigenVal()." />
+              <Pin Id="HFO3BHlhWkOQP0pl2LM7Kv" Name="K" Kind="InputPin" Bounds="901,207" Summary="Free parameter of the Harris detector.">
+                <p:TypeAnnotation>
+                  <Choice Kind="TypeFlag" Name="Float32" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="Oc2FfRCJR6FMZEx5mr9Fk6" Name="Output" Kind="OutputPin" Bounds="473,502" />
+            </Patch>
+            <!--
+
+    ************************  ************************
+
+-->
+            <ProcessDefinition Id="HjkkPPbt82dMXDeVxIZoR4">
+              <Fragment Id="OBlO70pQp27OwHhcOET23R" Patch="Mu4217x6uzQNgsfeZ1aqo4" Enabled="true" />
+              <Fragment Id="I5uL7z48bWCOFOIeqC7GTW" Patch="C3lZcIn7dsWP1quQqJTxsE" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="VMBnIAlzDc3LTp1WhA7q2c" Ids="NbnwZY89FVDOdAyrj2g54v,MYTamhpdSxSOP0Hb1GWgHF" IsHidden="true" />
+            <Link Id="KIEruxaqb0aLJ783blr0u6" Ids="GQ1kLWu1smrMF8vXEA4BFG,OnyseHKexNLQXzQps8amfU" />
+            <Link Id="B7pRjjhF3wEQLHtOczh7yZ" Ids="MYTamhpdSxSOP0Hb1GWgHF,LnYMX4MYpP6LAaHaSbk4B4" />
+            <Link Id="GjT8gWhwQdxMcBMiL4VJnh" Ids="LnYMX4MYpP6LAaHaSbk4B4,GsMAkoxUuIsMEdps41UezE" />
+            <Link Id="RaCVJhi3LZBQcHXQ8VEOTn" Ids="DFPMU1WSXbsNBwnwygKw1F,HjkJMvGNw1gP1pcC279Glj" />
+            <Link Id="PL7IwQZyGuRMqKxSpgH5XO" Ids="MGff2sbehOlL6uMLYL7O1u,H9asPxZ8o7VQJfcQrbQHHx" />
+            <Link Id="MCkoL9QKfEFLu2kK6P9nml" Ids="H9asPxZ8o7VQJfcQrbQHHx,Epas49yrUgMQHC7cNfGmG3" />
+            <Link Id="R85sn8sn8S6O1CkKzQgmnj" Ids="Epas49yrUgMQHC7cNfGmG3,Oc2FfRCJR6FMZEx5mr9Fk6" IsHidden="true" />
+            <Link Id="PgSB9oHW7cSPPssmcBz4M1" Ids="JsoQTot5nYZPcWCQixfEpg,Bx9G5DGULrVPenFKIlwCgd" />
+            <Link Id="CLellrRdIGmNzsuERorwql" Ids="FWM7woAI9ZGOG6IPUSaOlR,JsoQTot5nYZPcWCQixfEpg" IsHidden="true" />
+            <Link Id="A99QfFCgQ85O7BX1ffGasR" Ids="VGsaA3jrpTOMK8cW51ctQY,FYWRzfbTLr6PQRX0q8Rj2l" />
+            <Link Id="KfvNMsOcEydOQm2qC13xvG" Ids="Rpt71MHxljSNs11njC90Qo,VGsaA3jrpTOMK8cW51ctQY" />
+            <Link Id="AEcrk94aETPNiv2qZvUDZR" Ids="Mj1uw5VM4z6NptSjyo9x7u,Rpt71MHxljSNs11njC90Qo" IsHidden="true" />
+            <Link Id="Qa0N4sd8WAEPbGBxOyRfo3" Ids="G5JwPbf4uIJOOrJ9gKpooO,RXuugvXtP1HOA5hLw0r6J0" />
+            <Link Id="K2p5nVV2fCUQBukdXELBR7" Ids="AVRyi50UMEdMGOFx2RI03k,G5JwPbf4uIJOOrJ9gKpooO" IsHidden="true" />
+            <Link Id="MbPpJJlLcReLeIAbSYXg3E" Ids="EbX4iPHLnQTPyqM2ImMMCY,AJvg724Bp6fO882mmDKsW0" />
+            <Link Id="IhgGfqZ4jeiNxCyRpSOpEE" Ids="VTSn2YIojCEQZEd6roHWXz,EbX4iPHLnQTPyqM2ImMMCY" />
+            <Link Id="P7yy8ah3in9MQZO2Iv39PE" Ids="JArJti8ZWavMMgFhi5Qecj,VTSn2YIojCEQZEd6roHWXz" IsHidden="true" />
+            <Link Id="EwFC7cwAmixLNr4ZbFQXH6" Ids="GK8EVHwKAmENiV4Gkh7bi3,QkaLSNlUfDHMws1rmxKQKf" />
+            <Link Id="AOiREf0t2g8PMvyogJDyge" Ids="HhYp6FsEUUeN21jtysXtlx,GK8EVHwKAmENiV4Gkh7bi3" />
+            <Link Id="V3QP9CR4qsgLL9n1ewZFd1" Ids="BXJdIjxZ2pZPtRTlSRDeQT,HhYp6FsEUUeN21jtysXtlx" IsHidden="true" />
+            <Link Id="MbMDNLzAhI8MaWh7pFh0gM" Ids="AsOVIung8M4P87iJq4LGSE,E1CoqFSgqXKOVUuDShJBNN" />
+            <Link Id="UAbCNrQyi3XOtyBHptf19C" Ids="HFO3BHlhWkOQP0pl2LM7Kv,AsOVIung8M4P87iJq4LGSE" IsHidden="true" />
+            <Link Id="Fu23vlPOFVCMzRoiotLAuY" Ids="RXuugvXtP1HOA5hLw0r6J0,S306MIAKIGJPSMlJRdxcx6" />
+            <Link Id="S7WSBaTlAZsLBSJxQQ3SH8" Ids="Bx9G5DGULrVPenFKIlwCgd,NRUdDl7C3NBLOqTBfy6oaQ" />
+            <Link Id="Utg8VWmtwEbNXTumJyfBTS" Ids="E1CoqFSgqXKOVUuDShJBNN,NkXppuzjagJLvcxklTQfzY" />
           </Patch>
         </Node>
       </Canvas>
