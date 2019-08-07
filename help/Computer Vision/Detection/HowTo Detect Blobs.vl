@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="EbpgRSsM6pTLFbZFbtPif0" LanguageVersion="2019.1.0-0332-g9daa03035b" Version="0.128">
+<Document xmlns:p="property" Id="EbpgRSsM6pTLFbZFbtPif0" LanguageVersion="2019.1.0-0568-g3bb521b672" Version="0.128">
   <NugetDependency Id="EMIt78TWhOcQUcftWhJuql" Location="VL.CoreLib" Version="2019.1.0-140" />
   <Patch Id="L2DYEsrBBVGLc2QPcnxgJd">
     <Canvas Id="UfD3YM3nJIAOsY5o5DclO1" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
@@ -24,6 +24,9 @@
             </p:NodeReference>
             <Pin Id="KUeHZJCLvAmLGqStVvgEV6" Name="Input" Kind="InputPin" />
             <Pin Id="V2dznX9H0rSNfEjMIyWXHp" Name="Parameters" Kind="InputPin" />
+            <Pin Id="B076oWyitmWQHEtZggzvo5" Name="Minimum Threshold" Kind="InputPin" />
+            <Pin Id="BZFnRfNPorJQFljs3KGkyH" Name="Maximum Threshold" Kind="InputPin" />
+            <Pin Id="OWaekQuCBGHM5dS5mhSpyZ" Name="Enabled" Kind="InputPin" />
             <Pin Id="BoUyz6AXjUfPAhgrLHa1lU" Name="KeyPoints" Kind="OutputPin" />
             <Pin Id="QQ6D43yi5G9Ns4zp312DlV" Name="Centers" Kind="OutputPin" />
             <Pin Id="IApYuwqsyXqLlvdK09SsE1" Name="Sizes" Kind="OutputPin" />
@@ -59,7 +62,7 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Renderer" />
             </p:NodeReference>
-            <Pin Id="GdRQGjQBTxMPgmm7slYknO" Name="Bounds" Kind="InputPin" DefaultValue="1189, 63, 488, 392">
+            <Pin Id="GdRQGjQBTxMPgmm7slYknO" Name="Bounds" Kind="InputPin" DefaultValue="1168, 246, 488, 393">
               <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
                 <Choice Kind="TypeFlag" Name="Rectangle" />
               </p:TypeAnnotation>
@@ -241,111 +244,6 @@
             <Pin Id="SI3ddnrI1dWNUBifRLdIOF" Name="Apply" Kind="InputPin" />
             <Pin Id="AD7h8iWJWCVONK1QV6NtwG" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="367,230,523,168" Id="QNc5rR3qj74PhzMRcBdPPy">
-            <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-              <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
-              <FullNameCategoryReference ID="Primitive" />
-              <Choice Kind="ProcessStatefulRegion" Name="Cache" />
-              <CategoryReference Kind="Category" Name="Primitive" />
-            </p:NodeReference>
-            <Patch Id="I48vguJmRklMHOyP3ahjEV" ManuallySortedPins="true">
-              <Patch Id="IM2z4IIS1MjL5Xhdiwzc1P" Name="Create" ManuallySortedPins="true" />
-              <Patch Id="FFWMZnT0jPsO20RhyVcMgj" Name="Then" ManuallySortedPins="true" />
-              <Node Bounds="379,271,112,26" Id="AlRrkPNAkNlOXL4PAaKlor">
-                <p:NodeReference LastCategoryFullName="OpenCV.Detection.SimpleBlobDetectorParams" LastSymbolSource="VL.OpenCV.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="ClassType" Name="SimpleBlobDetectorParams" />
-                  <Choice Kind="OperationCallFlag" Name="Create" />
-                </p:NodeReference>
-                <Pin Id="T05mrZamu3zLGDOqYIaiDD" Name="Output" Kind="StateOutputPin" />
-              </Node>
-              <Node Bounds="404,323,112,26" Id="HpTqoQqMeOmP2ImbGBcSZZ">
-                <p:NodeReference LastCategoryFullName="OpenCV.Detection.SimpleBlobDetectorParams" LastSymbolSource="VL.OpenCV.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="SetFilterByArea" />
-                </p:NodeReference>
-                <Pin Id="Pl7COdPUc0VMIgwtSkgVUV" Name="Input" Kind="StateInputPin" />
-                <Pin Id="Ix7UDyOXUmYOiQqSGuivxQ" Name="Value" Kind="InputPin" />
-                <Pin Id="TFMvOf7ohJIMvtzvBzuWz7" Name="Output" Kind="StateOutputPin" />
-              </Node>
-              <Node Bounds="524,323,112,26" Id="Fw6iPCOlCUwLXvOK8ZzL1q">
-                <p:NodeReference LastCategoryFullName="OpenCV.Detection.SimpleBlobDetectorParams" LastSymbolSource="VL.OpenCV.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="SetMaxArea" />
-                </p:NodeReference>
-                <Pin Id="Kii37f0qMcCMDCD06SiRtw" Name="Input" Kind="StateInputPin" />
-                <Pin Id="TDknpv7anxVMrzayPacbn3" Name="Value" Kind="InputPin" />
-                <Pin Id="QEvDhDefFcfMTAN1tSYUkC" Name="Output" Kind="StateOutputPin" />
-              </Node>
-              <Node Bounds="645,323,112,26" Id="OPa0HBhmAb8NPbgokQQSZM">
-                <p:NodeReference LastCategoryFullName="OpenCV.Detection.SimpleBlobDetectorParams" LastSymbolSource="VL.OpenCV.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="SetMinArea" />
-                </p:NodeReference>
-                <Pin Id="RuCTMiH5NI3NzbdDrgNh8e" Name="Input" Kind="StateInputPin" />
-                <Pin Id="PR6kHjNseUtNjxLajiVvtN" Name="Value" Kind="InputPin" />
-                <Pin Id="N8pu1NDsH0mLxnQfojhuYz" Name="Output" Kind="StateOutputPin" />
-              </Node>
-              <Node Bounds="766,323,112,26" Id="N8gE2xowqVvOTneDL5Iw6j">
-                <p:NodeReference LastCategoryFullName="OpenCV.Detection.SimpleBlobDetectorParams" LastSymbolSource="VL.OpenCV.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="SetMaxThreshold" />
-                </p:NodeReference>
-                <Pin Id="Ec558G6aPjCPLHozgE8mX9" Name="Input" Kind="StateInputPin" />
-                <Pin Id="Blwwc8AOaPvL3OOoQcAvfX" Name="Value" Kind="InputPin" />
-                <Pin Id="USarMtTafa6MWk1LyQmu1H" Name="Output" Kind="StateOutputPin" />
-              </Node>
-            </Patch>
-            <Pin Id="A2LMfEMNnASOEfcWhNEpCx" Name="Force" Kind="InputPin" />
-            <Pin Id="Aod6yJnqVSRN4B0ohrEO2a" Name="Dispose Cached Outputs" Kind="InputPin" />
-            <Pin Id="FWDCNekzUcILBgWKECucQF" Name="Has Changed" Kind="OutputPin" />
-            <ControlPoint Id="GisY9S6zgX0OICiYgrZ1Or" Bounds="768,392" Alignment="Bottom" />
-            <ControlPoint Id="NiPIvDSzYxgOuhEUf2qDw1" Bounds="513,237" Alignment="Top" />
-            <ControlPoint Id="FkLovWHH0d5MTknaxnv2hR" Bounds="633,237" Alignment="Top" />
-            <ControlPoint Id="RmnGvBjFg2MN8oPwgfLkRt" Bounds="754,237" Alignment="Top" />
-            <ControlPoint Id="GMJUnOd0TPsPusxT2oJTZG" Bounds="875,237" Alignment="Top" />
-            <ControlPoint Id="VKyAnaiqyuIPA2oIdJRD89" Bounds="754,237" Alignment="Top" />
-            <ControlPoint Id="BRqBrPRcMrXQUlYYBs9T31" Bounds="875,237" Alignment="Top" />
-          </Node>
-          <Pad Id="GpVDLDchbmQMMcNBapMmEy" Comment="Filter By Area" Bounds="513,175,35,35" ShowValueBox="true" isIOBox="true" Value="True">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-              <Choice Kind="TypeFlag" Name="Boolean" />
-            </p:TypeAnnotation>
-          </Pad>
-          <Pad Id="MEgsu3eWvwbNZuGyN5HBK0" Comment="Max Area" Bounds="633,175,60,15" ShowValueBox="true" isIOBox="true" Value="10000000">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-              <Choice Kind="TypeFlag" Name="Integer32" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings />
-          </Pad>
-          <Pad Id="Eem8pPs97lmMmxvVdaBv5w" Comment="Min Area" Bounds="754,175,35,15" ShowValueBox="true" isIOBox="true" Value="10">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-              <Choice Kind="TypeFlag" Name="Integer32" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings />
-          </Pad>
-          <Pad Id="E2cdVnBmp5RP1zbgC5Gfr8" Comment="Max Threshold" Bounds="875,176,35,15" ShowValueBox="true" isIOBox="true" Value="66.5">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-              <Choice Kind="TypeFlag" Name="Float32" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:minimum p:Type="Single">0</p:minimum>
-              <p:precision p:Type="Int32">1</p:precision>
-              <p:stepsize p:Type="Single">0.5</p:stepsize>
-            </p:ValueBoxSettings>
-          </Pad>
-          <Overlay Id="UXzOJVs14beLu751KLrXve" Name="SimpleBlobDetector Configuration" Bounds="293,64,719,383" FillColor="#00000066">
-            <p:ColorIndex p:Type="Int32">0</p:ColorIndex>
-          </Overlay>
-          <Pad Id="GgAk1gGfVuuLdc7rzrNFnl" Bounds="299,110,418,42" ShowValueBox="true" isIOBox="true" Value="This configuration depends on the usecase. For more options check the SimpleBlobDetectorParams type and its members">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-              <Choice Kind="TypeFlag" Name="String" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:fontsize p:Type="Int32">10</p:fontsize>
-              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
-            </p:ValueBoxSettings>
-          </Pad>
           <Pad Id="HAm4GpvAJgPMzu6lOY3sVK" Bounds="11,981,75,18" ShowValueBox="true" isIOBox="true" Value="References:">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
@@ -396,6 +294,16 @@
               <Choice Kind="TypeFlag" Name="DrawMatchesFlags" />
             </p:TypeAnnotation>
           </Pad>
+          <Node Bounds="281,441,96,19" Id="D0mZZScR5j1OWiGI650Ur5">
+            <p:NodeReference LastCategoryFullName="OpenCV.Detection.SimpleBlobDetector" LastSymbolSource="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="FilterByCircularity" />
+            </p:NodeReference>
+            <Pin Id="L72TdO7WwzyNzT4XpltVxj" Name="Input" Kind="StateInputPin" />
+            <Pin Id="TUfqDO5x5BjLCzp3uIXThS" Name="Minimum Circularity" Kind="InputPin" />
+            <Pin Id="PFWMSbzGLc2LFjuW4KONJV" Name="Maximum Circularity" Kind="InputPin" />
+            <Pin Id="K4ly6M15zH9O3IHIcivUyO" Name="Output" Kind="StateOutputPin" />
+          </Node>
         </Canvas>
         <Patch Id="JIsECk5wgXrNiQZOAcmKR5" Name="Create" />
         <Patch Id="QRSUarNL84tP2nyFqly4NF" Name="Update" />
@@ -420,23 +328,10 @@
         <Link Id="NWypLbVaKDBL5Ekemto76R" Ids="NMzy20tsWSrQLkr5ZS6xlh,QzhFhm3bkZON6kevxmQcA1" />
         <Link Id="Nv01tA6CsV1QNprazCIkGQ" Ids="VoSSQNbDe9RLpDGrvefeY1,Tnq8t1lj4CROKPSIPVNMnl" />
         <Link Id="Ggt9CauoGHaQFsyKSkWCGc" Ids="VoSSQNbDe9RLpDGrvefeY1,BIwCqBHv2lfQc6kWH9x5du" />
-        <Link Id="JqkiO1lMZppNjXyWE81wWa" Ids="T05mrZamu3zLGDOqYIaiDD,Pl7COdPUc0VMIgwtSkgVUV" />
-        <Link Id="Mp1YGO8wUxdN2tkl2RzcTU" Ids="TFMvOf7ohJIMvtzvBzuWz7,Kii37f0qMcCMDCD06SiRtw" />
-        <Link Id="LqxI3qSFcvELN6SwehhAkU" Ids="QEvDhDefFcfMTAN1tSYUkC,RuCTMiH5NI3NzbdDrgNh8e" />
-        <Link Id="DJ6DuhoynokNkwf2rg872W" Ids="USarMtTafa6MWk1LyQmu1H,GisY9S6zgX0OICiYgrZ1Or" />
-        <Link Id="QNnJACJnb68OhhtTdUi5Oz" Ids="GisY9S6zgX0OICiYgrZ1Or,V2dznX9H0rSNfEjMIyWXHp" />
-        <Link Id="AcNoPOIAr2DLFbdRqqGvJs" Ids="NiPIvDSzYxgOuhEUf2qDw1,Ix7UDyOXUmYOiQqSGuivxQ" />
-        <Link Id="QiCyBS0NSRGN916OfN5iQj" Ids="GpVDLDchbmQMMcNBapMmEy,NiPIvDSzYxgOuhEUf2qDw1" />
-        <Link Id="RIbYCdOuaKnPSfghE8GgmR" Ids="FkLovWHH0d5MTknaxnv2hR,TDknpv7anxVMrzayPacbn3" />
-        <Link Id="EDrjdSwhz1wOfNX9MWr57M" Ids="MEgsu3eWvwbNZuGyN5HBK0,FkLovWHH0d5MTknaxnv2hR" />
-        <Link Id="GekoSH6qYxZM2M965nTpCO" Ids="RmnGvBjFg2MN8oPwgfLkRt,PR6kHjNseUtNjxLajiVvtN" />
-        <Link Id="J55HtlTpL2CP1lL0lkV07w" Ids="Eem8pPs97lmMmxvVdaBv5w,RmnGvBjFg2MN8oPwgfLkRt" />
-        <Link Id="S1PwUYn90tPOwYSeSH4inD" Ids="BRqBrPRcMrXQUlYYBs9T31,Blwwc8AOaPvL3OOoQcAvfX" />
-        <Link Id="SWqLnxZjpMjMqjbepsigyz" Ids="E2cdVnBmp5RP1zbgC5Gfr8,BRqBrPRcMrXQUlYYBs9T31" />
-        <Link Id="Lzf6Al3R5VHLYchB4X73JA" Ids="N8pu1NDsH0mLxnQfojhuYz,Ec558G6aPjCPLHozgE8mX9" />
         <Link Id="GkNfjfHorpWMTyRdyYY7AR" Ids="AD7h8iWJWCVONK1QV6NtwG,KUeHZJCLvAmLGqStVvgEV6" />
         <Link Id="RXyLcUWJgsANKZZHU7kg3R" Ids="Sbz4ISwnCPXO6Ex0HX5oUG,JXVegieiIjWPjfiPHbE4NO" />
         <Link Id="IhllsOJoSDzPu4Ql1iSeED" Ids="UiiucqnYRz6MqCG8WhBLXC,GvgAlkOXsn3NfsBONrpxg0" />
+        <Link Id="B5ozErNgnDIM6Ah9Nz5onq" Ids="K4ly6M15zH9O3IHIcivUyO,V2dznX9H0rSNfEjMIyWXHp" />
       </Patch>
     </Node>
   </Patch>
