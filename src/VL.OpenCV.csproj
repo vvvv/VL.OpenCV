@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
- 
+  <Import Project="packages\Xenko.Core.3.1.0.1-beta02-0674\build\Xenko.Core.props" Condition="Exists('packages\Xenko.Core.3.1.0.1-beta02-0674\build\Xenko.Core.props')" />
+  <Import Project="packages\OpenCvSharp4.runtime.win.4.0.1.20190326\build\net\OpenCvSharp4.runtime.win.props" Condition="Exists('packages\OpenCvSharp4.runtime.win.4.0.1.20190326\build\net\OpenCvSharp4.runtime.win.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <ProjectGuid>{BF6BC14C-CC1F-4F5F-B491-452662B4D4A1}</ProjectGuid>
     <RootNamespace>VL.OpenCV</RootNamespace>
@@ -59,5 +61,12 @@
     <Error Condition="!Exists('packages\Xenko.Core.3.1.0.1-beta02-0674\build\Xenko.Core.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Xenko.Core.3.1.0.1-beta02-0674\build\Xenko.Core.props'))" />
     <Error Condition="!Exists('packages\Xenko.Core.3.1.0.1-beta02-0674\build\Xenko.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Xenko.Core.3.1.0.1-beta02-0674\build\Xenko.Core.targets'))" />
   </Target>
-
+  <Import Project="packages\Xenko.Core.3.1.0.1-beta02-0674\build\Xenko.Core.targets" Condition="Exists('packages\Xenko.Core.3.1.0.1-beta02-0674\build\Xenko.Core.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>
