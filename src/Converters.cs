@@ -1,5 +1,5 @@
 ﻿using OpenCvSharp;
-using SharpDX;
+using Xenko.Core.Mathematics;
 using System;
 using System.Runtime.CompilerServices;
 using VL.Lib.Basics.Imaging;
