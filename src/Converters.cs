@@ -3,6 +3,7 @@ using Xenko.Core.Mathematics;
 using System;
 using System.Runtime.CompilerServices;
 using VL.Lib.Basics.Imaging;
+using System.Buffers;
 
 namespace VL.OpenCV
 {
@@ -10,19 +11,40 @@ namespace VL.OpenCV
     {
         class MatImage : IImage
         {
-            class Data : IImageData
+            public unsafe class Data : MemoryManager<byte>, IImageData
             {
-                public Data(Mat mat, ImageInfo info)
+                readonly IntPtr FPointer;
+                readonly int FLength;
+
+                public Data(Mat mat)
                 {
-                    Pointer = mat.Data;
+                    FPointer = mat.Data;
+                    FLength = (int)(mat.Total() * mat.ElemSize());
                     ScanSize = (int)mat.Step();
-                    Size = info.ImageSize;
                 }
 
-                public IntPtr Pointer { get; }
                 public int ScanSize { get; }
-                public int Size { get; }
-                public void Dispose() { }
+
+                public ReadOnlyMemory<byte> Bytes => Memory;
+
+                public override Span<byte> GetSpan()
+                {
+                    return new Span<byte>(FPointer.ToPointer(), FLength);
+                }
+
+                public override MemoryHandle Pin(int elementIndex = 0)
+                {
+                    // Already pinned
+                    return new MemoryHandle(FPointer.ToPointer(), pinnable: this);
+                }
+
+                public override void Unpin()
+                {
+                }
+
+                protected override void Dispose(bool disposing)
+                {
+                }
             }
 
             readonly Mat FMat;
@@ -46,7 +68,7 @@ namespace VL.OpenCV
                     FMat.Dispose();
             }
 
-            public IImageData GetData() => new Data(FMat, Info);
+            public IImageData GetData() => new Data(FMat);
         }
 
         public static IImage ToImage(this CvImage input, PixelFormat pixelFormat, bool takeOwnership)
@@ -56,27 +78,27 @@ namespace VL.OpenCV
             return new MatImage(input.Mat, pixelFormat, takeOwnership);
         }
 
-        public static unsafe Mat ToMat(this IImage input)
+        public static Mat ToMat(this IImage input)
         {
             var info = input.Info;
             var type = info.Format.ToMatType(info.OriginalFormat);
             using (var srcData = input.GetData())
             {
-                var dstData = new byte[srcData.Size];
-                fixed (byte* dst = dstData)
-                    ImageExtensions.CopyTo(srcData, info, dst);
+                var dstData = new byte[srcData.Bytes.Length];
+                srcData.Bytes.CopyTo(dstData);
                 return new Mat(info.Height, info.Width, type, dstData, srcData.ScanSize);
             }
         }
 
-        public static unsafe void ToMat(this IImage input, Mat dstMat)
+        public static void ToMat(this IImage input, Mat dstMat)
         {
             var info = input.Info;
             var type = info.Format.ToMatType(info.OriginalFormat);
+            dstMat.Create(info.Height, info.Width, type);
             using (var srcData = input.GetData())
+            using (var dstData = new MatImage.Data(dstMat))
             {
-                dstMat.Create(info.Height, info.Width, type);
-                ImageExtensions.CopyTo(srcData, info, (byte*)dstMat.Data.ToPointer());
+                ImageExtensions.CopyTo(srcData, dstData);
             }
         }
 
