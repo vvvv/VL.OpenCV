@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="UB4BlHOg5r6PLXkuCjtlHz" LanguageVersion="2019.1.0-0573-g619e81f294" Version="0.128">
-  <NugetDependency Id="VmVK7O1kpB8PpmczgmjYSD" Location="VL.CoreLib" Version="2019.1.0-552" />
+<Document xmlns:p="property" Id="UB4BlHOg5r6PLXkuCjtlHz" LanguageVersion="2020.1.0.53" Version="0.128">
+  <NugetDependency Id="VmVK7O1kpB8PpmczgmjYSD" Location="VL.CoreLib" Version="2020.1.0" />
   <Patch Id="OpqtrHZjQuKP2rxhhntsj4">
     <Canvas Id="Kr1MVHTLZXZNwMMxo83rHX" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -15,12 +15,15 @@
       </p:NodeReference>
       <Patch Id="OI1wmr0RPNMPWUTm0Zw2uX">
         <Canvas Id="Mw6h9KRBuACMVZ5hdE01el" CanvasType="Group">
-          <Pad Id="SzRbpaNoXknM5e5JWV56n4" Comment="File Name" Bounds="328,213,64,-33" ShowValueBox="true" isIOBox="true" Value="..\..\..\..\..\..\vvvv\gamma-preview\Sketches\workshops\CV\assets\\">
+          <Pad Id="SzRbpaNoXknM5e5JWV56n4" Comment="File Name" Bounds="330,216,260,0" ShowValueBox="true" isIOBox="true" Value="..\..\content\assets">
             <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Path" />
             </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:pathtype p:Assembly="VL.Core" p:Type="VL.Core.PathType">Directory</p:pathtype>
+            </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="328,262,85,19" Id="Nzwez6cBtzDO6XRXgYYsfe">
+          <Node Bounds="328,284,85,19" Id="Nzwez6cBtzDO6XRXgYYsfe">
             <p:NodeReference LastCategoryFullName="IO.Path" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Dir" />
@@ -48,7 +51,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="ROzIzvI1cdXOglrRfVquYT" Comment="Read directory" Bounds="430,243,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="ROzIzvI1cdXOglrRfVquYT" Comment="Read directory" Bounds="410,250,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -205,7 +208,44 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="O8vv2brTllBO8o5QbPwvmI" Comment="" Bounds="353,241,35,15" ShowValueBox="true" isIOBox="true" Value="*.png">
+          <Pad Id="O8vv2brTllBO8o5QbPwvmI" Comment="" Bounds="350,251,35,15" ShowValueBox="true" isIOBox="true" Value="*.jpg">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Node Bounds="328,64,57,19" Id="Iik8kjrFv3QO70Al4NaYCk">
+            <p:NodeReference LastCategoryFullName="System.Application" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="ApplicationPath" />
+            </p:NodeReference>
+            <Pin Id="LHyahOSWy33OBF5NJtgvXt" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="328,128,48,19" Id="SWwUsfaAHFuK9WZba3sPzJ">
+            <p:NodeReference LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="ToPath" />
+            </p:NodeReference>
+            <Pin Id="VutH4FSrQBjMTved9ZX3mr" Name="Input" Kind="InputPin" />
+            <Pin Id="TAPRs6rPBLoPcaImXnxuai" Name="Result" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="328,165,82,26" Id="EQzxvkY9SfqL05vigO44Nc">
+            <p:NodeReference LastCategoryFullName="IO.Path" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="Combine" />
+            </p:NodeReference>
+            <Pin Id="A647uwUOY2APRcomburPcp" Name="Input" Kind="StateInputPin" />
+            <Pin Id="V7YmvqIWTLGP5fVLF1Oqkw" Name="Input 2" Kind="InputPin" />
+            <Pin Id="R4nYwtnpTvPLytjFpp7TWD" Name="Output" Kind="StateOutputPin" />
+          </Node>
+          <Node Bounds="405,128,48,19" Id="A0XCvkzLuB9NwkiSFSVQhf">
+            <p:NodeReference LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="ToPath" />
+            </p:NodeReference>
+            <Pin Id="BV7R26Mv7R3OxyQGWGRVON" Name="Input" Kind="InputPin" />
+            <Pin Id="JzA2KQtbdFpQMGljBUyIQ6" Name="Result" Kind="OutputPin" />
+          </Node>
+          <Pad Id="Ut7ZMjladmCMsP5QZZY6g6" Comment="" Bounds="407,114,112,15" ShowValueBox="true" isIOBox="true" Value="..\..\content\assets">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -239,9 +279,14 @@
         <Link Id="AudNEwpzdFsQZKBnPGu3Fh" Ids="TzTfD2vWnUYQElrASPHNUp,T53l346cII5QOtXnG5iD8R" />
         <Link Id="Mc33wsm9FHMN02p042lUSK" Ids="H5nAVWNWEz7LJvHwwIPFBa,GpOYiFvfkHxOcH4puPIeT0" />
         <Link Id="ESTw43uQyQdPjr2aGajmhi" Ids="O8vv2brTllBO8o5QbPwvmI,TECay4EXUYZPN6Gl6tpNEd" />
+        <Link Id="T3pBSt3kaVZOSMoBTI1peo" Ids="LHyahOSWy33OBF5NJtgvXt,VutH4FSrQBjMTved9ZX3mr" />
+        <Link Id="OJUkpxOufRgOeIOsU1kO76" Ids="TAPRs6rPBLoPcaImXnxuai,A647uwUOY2APRcomburPcp" />
+        <Link Id="AxnVpfeTojKOV7QotNvjki" Ids="JzA2KQtbdFpQMGljBUyIQ6,V7YmvqIWTLGP5fVLF1Oqkw" />
+        <Link Id="OKusnzqViaeLBvUD1rwt44" Ids="Ut7ZMjladmCMsP5QZZY6g6,BV7R26Mv7R3OxyQGWGRVON" />
+        <Link Id="VuQW92T3cxEOf36OsLfWjL" Ids="R4nYwtnpTvPLytjFpp7TWD,SzRbpaNoXknM5e5JWV56n4" />
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="JNy93TAXtOBPDDsHgRztJy" Location="VL.Skia" Version="2019.1.0-0552-g2194c41217" />
+  <NugetDependency Id="JNy93TAXtOBPDDsHgRztJy" Location="VL.Skia" Version="2020.1.0" />
   <NugetDependency Id="Cv6RPU649kDQV0n0g2B169" Location="VL.OpenCV" Version="0.2.106-alpha" />
 </Document>
