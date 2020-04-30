@@ -4,7 +4,7 @@ A [VL](https://vvvv.org/documentation/vl) wrapper for [OpenCV](https://opencv.or
 ## Using the library
 In order to use this library with vl you have to install the nuget that is available via nuget.org. For information on how to use nugets with vl, see [Managing Nugets](https://vvvv.gitbooks.io/the-gray-book/content/en/reference/libraries/dependencies.html#_manage_nugets) in the vl documentation. As described there you go to the commandline and then type:
 
-    nuget install VL.OpenCV -prerelease
+    nuget install VL.OpenCV
 
 Once the VL.OpenCV nuget is installed and referenced in your vl document you'll see the category "OpenCV" in the nodebrowser. From there explore the nodes in its main sub-categories:
 
@@ -13,7 +13,7 @@ Once the VL.OpenCV nuget is installed and referenced in your vl document you'll 
 - Filter (Blur, Dilate, Sobel,...)
 - Detection (Contours, ObjectDetector, MarkerDetector,...)
 
-Demo VL patches can be found here:
+Demo patches can be found using the Help Browser, or navigating here:
 
     "\lib\packs\VL.OpenCV...\demos\"
 
@@ -45,7 +45,7 @@ on a commandline and run
 ### Start vvvv
 Then start vvvv with the commandline parameter:
 
-    /package-repositories "X:\vl-libs\"
+    --package-repositories "X:\vl-libs\"
     
 which will make all packs found in that directory available as dependencies in vl documents. Note that it is possible to have both the nuget (binary) and the sources available. If both are found, the one in the "package-repositories" path is used. Like this you can easily switch between your local development version and the "official" nuget by simply including your local version in that search path or not.
 
