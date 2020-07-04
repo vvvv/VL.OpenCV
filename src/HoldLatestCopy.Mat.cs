@@ -7,23 +7,23 @@ namespace VL.OpenCV
     /// <summary>
     /// Holds on to a copy of the latest received image. Whenever an image gets pushed to the node a copy is made and stored internally.
     /// </summary>
-    public class HoldLatestCopy : HoldLatestCopy<Mat, Mat>
+    public class HoldLatestCopy : HoldLatestCopy<CvImage, CvImage>
     {
-        public HoldLatestCopy(Mat initialResult) : base(initialResult)
+        public HoldLatestCopy(CvImage initialResult) : base(initialResult)
         {
         }
 
         // HACK: Override needed as forwarding mechanism in VL can't properly deal with generic base class
-        public override Mat Update(IObservable<Mat> asyncNotifications, int timeout, bool reset, out int swapCount, out int dropCount)
+        public override CvImage Update(IObservable<CvImage> asyncNotifications, int timeout, bool reset, out int swapCount, out int dropCount)
         {
             return base.Update(asyncNotifications, timeout, reset, out swapCount, out dropCount);
         }
 
-        protected override void CopyTo(Mat source, ref Mat destination)
+        protected override void CopyTo(CvImage source, ref CvImage destination)
         {
             if (destination == null)
-                destination = new Mat();
-            source.CopyTo(destination);
+                destination = new CvImage(new Mat());
+            source.Mat.CopyTo(destination.Mat);
         }
     }
 }

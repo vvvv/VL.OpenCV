@@ -4,13 +4,13 @@
 
 environment:
   nuget_api_key:
-    secure: McEEP7IEB2tb6Eq4C5LuXTWtJ6Aao6VGJK3FrfdhcmVxbeupFzKehhaZ+JFqbcpp
+    secure: 5DYDdJ9IBZfMa0jR0eYhz3RJAbtUclBLeeyH1VLdBKA9ps8I6UVYXmBl+QN7hS9Z
 
 # version format
-version: 0.2.{build}
+version: 1.0.{build}
 
 # Build worker image (VM template)
-image: Visual Studio 2015
+image: Visual Studio 2019
 
 # clone directory
 clone_folder: c:\projects\VL.OpenCV
@@ -23,7 +23,7 @@ branches:
 assembly_info:
   patch: true
   file: AssemblyInfo.*
-  assembly_version: "0.2.{build}-alpha"
+  assembly_version: "1.0.{build}"
   assembly_file_version: "{version}"
 
 
@@ -53,9 +53,9 @@ before_build:
 
 after_build:
   - cd..
-  - nuget pack appveyor\VL.OpenCV.nuspec -Version %APPVEYOR_BUILD_VERSION%-alpha
+  - nuget pack appveyor\VL.OpenCV.nuspec -Version %APPVEYOR_BUILD_VERSION%
   - nuget setApiKey %nuget_api_key%
-  - nuget push C:\projects\VL.OpenCV\VL.OpenCV.%APPVEYOR_BUILD_VERSION%-alpha.nupkg -Source https://api.nuget.org/v3/index.json
+  - nuget push C:\projects\VL.OpenCV\VL.OpenCV.%APPVEYOR_BUILD_VERSION%.nupkg -Source https://api.nuget.org/v3/index.json
     
 artifacts:
   - path: '*.nupkg'

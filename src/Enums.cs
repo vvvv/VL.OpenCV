@@ -178,6 +178,7 @@
         CV_64FC1,
         CV_64FC2,
         CV_64FC3,
-        CV_64FC4
+        CV_64FC4,
+        Unknown
     }
 }

@@ -1,22 +1,14 @@
-﻿
-using System;
+﻿using System;
 using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Management;
 using System.Reactive;
 using System.Reactive.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VL.Core;
-using VL.Lib.Reactive;
 using System.Reflection;
 
 namespace VL.OpenCV
 {
     public static class DirectoryChangedEvents
     {
-        static FileSystemWatcher fsw = new FileSystemWatcher(Assembly.GetExecutingAssembly().Location + "\\..\\..\\..\\content\\haarcascades");
+        static readonly FileSystemWatcher fsw;
         
         static readonly IObservable<EventPattern<FileSystemEventArgs>> FileCreatedObservable;
 
@@ -31,16 +23,24 @@ namespace VL.OpenCV
 
         static DirectoryChangedEvents()
         {
-            fsw.EnableRaisingEvents = true;
+            var haarcascadesDir = HAARCascadeResolver.ResolveHaarcascadesDirectory();
+            if (haarcascadesDir != null)
+            {
+                fsw = new FileSystemWatcher(haarcascadesDir);
+                fsw.EnableRaisingEvents = true;
 
-            FileCreatedObservable = Observable.FromEventPattern<FileSystemEventArgs>(fsw, "Created");
-            FileCreatedObservable.Subscribe();
+                FileCreatedObservable = Observable.FromEventPattern<FileSystemEventArgs>(fsw, "Created");
+                FileCreatedObservable.Subscribe();
 
-            FileDeletedObservable = Observable.FromEventPattern<FileSystemEventArgs>(fsw, "Deleted");
-            FileDeletedObservable.Subscribe();
+                FileDeletedObservable = Observable.FromEventPattern<FileSystemEventArgs>(fsw, "Deleted");
+                FileDeletedObservable.Subscribe();
 
-            DirectoryChangedObservable = Observable.Merge(FileCreatedObservable, FileDeletedObservable);
+                DirectoryChangedObservable = Observable.Merge(FileCreatedObservable, FileDeletedObservable);
+            }
+            else
+            {
+                DirectoryChangedObservable = Observable.Never<EventPattern<FileSystemEventArgs>>();
+            }
         }
     }
-
 }

@@ -1,21 +1,25 @@
 # VL.OpenCV
-A [VL](https://vvvv.org/documentation/vl) wrapper for [OpenCV](https://opencv.org) based on [OpenCVSharp3-AnyCPU](https://github.com/shimat/opencvsharp) and also using [DirectShowLib](https://github.com/larrybeall/DirectShowLib).
+A [VL](https://vvvv.org/documentation/vl) wrapper for [OpenCV](https://opencv.org) based on [OpenCvSharp](https://github.com/shimat/opencvsharp) and also using [SharpDX MediaFoundation](http://sharpdx.org/wiki/class-library-api/mediafoundation/).
 
 ## Using the library
 In order to use this library with vl you have to install the nuget that is available via nuget.org. For information on how to use nugets with vl, see [Managing Nugets](https://vvvv.gitbooks.io/the-gray-book/content/en/reference/libraries/dependencies.html#_manage_nugets) in the vl documentation. As described there you go to the commandline and then type:
 
-    nuget install VL.OpenCV -prerelease
+    nuget install VL.OpenCV
 
 Once the VL.OpenCV nuget is installed and referenced in your vl document you'll see the category "OpenCV" in the nodebrowser. From there explore the nodes in its main sub-categories:
 
-- Source (VideoIn, ImageFile,...)
-- Sink (Renderer, VideoFile,...)
+- Source (VideoIn, ImageReader,...)
+- Sink (Renderer, ImageWriter)
 - Filter (Blur, Dilate, Sobel,...)
-- Tracker (Contours, ObjectDetector, MedianFlow,...)
+- Detection (Contours, ObjectDetector, MarkerDetector,...)
 
-There is also a demo-patch coming with this package that is a bit hidden in:
+Demo patches can be found using the Help Browser, or navigating here:
 
-    "\lib\packs\VL.OpenCV...\vvvv\girlpower\demo.v4p"
+    "\lib\packs\VL.OpenCV...\demos\"
+
+And vvvv demo patches are somewhat hidden here:
+
+    "\lib\packs\VL.OpenCV...\vvvv\girlpower\"
 
 ## Contributing to the development
 If you want to contribute to this repository, clone it into a directory like:
@@ -30,18 +34,18 @@ Open
 in VisualStudio and build it. This is necessary for a few things that cannot yet be expressed in vl directly, like dynamic enums and static readonly instances of things. 
 
 ### Get Nuget Dependency
-This wrapper is depending on the thirdparty nuget [OpenCVSharp3-AnyCPU](https://github.com/shimat/opencvsharp). When installing the VL.OpenCV nuget as mentioned under "Using the library" above, this dependency will be installed automatically. To install it otherwise, go to your vvvvs
+This wrapper is depending on two thirdparty nugets: [OpenCvSharp4.runtime.win](https://github.com/shimat/opencvsharp#installation) and [OpenCvSharp4](https://github.com/shimat/opencvsharp#installation). When installing the VL.OpenCV nuget as mentioned under "Using the library" above, this dependency will be installed automatically. To install it otherwise, go to your vvvvs
 
     \lib\packs 
     
 on a commandline and run
 
-    nuget.exe install OpenCVSharp3-AnyCPU
+    nuget.exe install OpenCvSharp4.Windows
 
 ### Start vvvv
 Then start vvvv with the commandline parameter:
 
-    /package-repositories "X:\vl-libs\"
+    --package-repositories "X:\vl-libs\"
     
 which will make all packs found in that directory available as dependencies in vl documents. Note that it is possible to have both the nuget (binary) and the sources available. If both are found, the one in the "package-repositories" path is used. Like this you can easily switch between your local development version and the "official" nuget by simply including your local version in that search path or not.
 
