@@ -137,12 +137,12 @@ namespace VL.OpenCV
             if (img == null || pictureBox.Image == null)
             {
                 pictureBox.ImageIpl = img;
-                imageID = img.Width + img.Height + img.Channels() + img.Type().Value;
+                imageID = -img.Width + img.Height + img.Channels() + img.Type().Value;
             }
-            else if (img.Width + img.Height + img.Channels() + img.Type().Value != imageID)
+            else if (-img.Width + img.Height + img.Channels() + img.Type().Value != imageID)
             {
                 pictureBox.ImageIpl = img;
-                imageID = img.Width + img.Height + img.Channels() + img.Type().Value;
+                imageID = -img.Width + img.Height + img.Channels() + img.Type().Value;
             }
             else
             {
