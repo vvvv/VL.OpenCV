@@ -41385,14 +41385,14 @@
     ************************ GoodFeaturesDetector ************************
 
 -->
-        <Node Name="GoodFeaturesDetector" Bounds="295,523" Id="J1FKWkZonzCNUYpHCc2biL">
+        <Node Name="GoodFeaturesDetector" Bounds="295,523" Id="J1FKWkZonzCNUYpHCc2biL" Remarks="Only works with 1 channel images.">
           <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
             <Choice Kind="ContainerDefinition" Name="Process" />
           </p:NodeReference>
           <Patch Id="L2UfiOSBryjNIniuuF11o0">
             <Canvas Id="BA5wttlvgNiO3dWDCfcIFj" CanvasType="Group">
-              <ControlPoint Id="MYTamhpdSxSOP0Hb1GWgHF" Bounds="352,155" />
-              <ControlPoint Id="Epas49yrUgMQHC7cNfGmG3" Bounds="533,484" />
+              <ControlPoint Id="MYTamhpdSxSOP0Hb1GWgHF" Bounds="355,26" />
+              <ControlPoint Id="Epas49yrUgMQHC7cNfGmG3" Bounds="536,496" />
               <ControlPoint Id="JsoQTot5nYZPcWCQixfEpg" Bounds="454,109" />
               <ControlPoint Id="Rpt71MHxljSNs11njC90Qo" Bounds="418,141" />
               <ControlPoint Id="G5JwPbf4uIJOOrJ9gKpooO" Bounds="540,135" />
@@ -41484,7 +41484,53 @@
                   </Node>
                 </Patch>
               </Node>
-              <ControlPoint Id="Tl9VUT125rzL7b7MJgVcfd" Bounds="272,133" />
+              <ControlPoint Id="Tl9VUT125rzL7b7MJgVcfd" Bounds="216,30" />
+              <Node Bounds="288,74,65,19" Id="PeY9vB1xIJRMoN6fhOFFOW">
+                <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastSymbolSource="VL.OpenCV.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="ProcessAppFlag" Name="Info" />
+                  <CategoryReference Kind="Category" Name="Utils" NeedsToBeDirectParent="true" />
+                </p:NodeReference>
+                <Pin Id="OKk4Cyem0bELBvWoUgwPyI" Name="Input" Kind="InputPin" />
+                <Pin Id="SruITyGvrJKQEQ6XuL2vXk" Name="Enabled" Kind="InputPin" />
+                <Pin Id="DfdU7wN2C3GOjSxYML1irk" Name="Width" Kind="OutputPin" />
+                <Pin Id="KVM951nyPpbOozWGtwYtUi" Name="Height" Kind="OutputPin" />
+                <Pin Id="J2QVRYV4eSlLcMKfMi8B7X" Name="Channels" Kind="OutputPin" />
+                <Pin Id="CVlTY5j3VlmMY3TFQwqeI7" Name="Format" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="296,159,25,19" Id="Bdmr6KapD6RNW2nNlqq3kR">
+                <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="AND" />
+                  <CategoryReference Kind="BooleanType" Name="Boolean" NeedsToBeDirectParent="true" />
+                </p:NodeReference>
+                <Pin Id="Py9Xt5FaMUnMmUHpHYCQFs" Name="Input" Kind="StateInputPin" />
+                <Pin Id="Tc0ldTJ87BROaLm2KzZY5D" Name="Input 2" Kind="InputPin" />
+                <Pin Id="OgXIZKePtyMQNu9TvW0yGP" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <Node Bounds="328,130,25,19" Id="GiLO3RFwEwnLlyCtsxpJhz">
+                <p:NodeReference LastCategoryFullName="Math" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="=" />
+                </p:NodeReference>
+                <Pin Id="OUxn0iuelfAOVCW0PtV9I7" Name="Input" Kind="InputPin" />
+                <Pin Id="P0nFfxiP50JPR0vflJDyCJ" Name="Input 2" Kind="InputPin" />
+                <Pin Id="OFRjQmvXCmVPSX5tFxI7Fz" Name="Result" Kind="OutputPin" />
+              </Node>
+              <Pad Id="Cl1GLuJUm0hPeV6UKrggtz" Comment="" Bounds="350,114,20,15" ShowValueBox="true" isIOBox="true" Value="1">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Integer32" />
+                </p:TypeAnnotation>
+              </Pad>
+              <Pad Id="EPAFtNzNcgoQO9GzYZWDzK" Bounds="351,81,170,19" ShowValueBox="true" isIOBox="true" Value="Single channel images only">
+                <p:TypeAnnotation>
+                  <Choice Kind="TypeFlag" Name="String" />
+                </p:TypeAnnotation>
+                <p:ValueBoxSettings>
+                  <p:fontsize p:Type="Int32">9</p:fontsize>
+                  <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+                </p:ValueBoxSettings>
+              </Pad>
             </Canvas>
             <Patch Id="Mu4217x6uzQNgsfeZ1aqo4" Name="Create" />
             <Patch Id="C3lZcIn7dsWP1quQqJTxsE" Summary="Determines strong corners in an image." Remarks="Input must be an 8bit  or 32bit single channel image" Name="Update" ManuallySortedPins="true">
@@ -41551,11 +41597,16 @@
             <Link Id="Fu23vlPOFVCMzRoiotLAuY" Ids="RXuugvXtP1HOA5hLw0r6J0,S306MIAKIGJPSMlJRdxcx6" />
             <Link Id="S7WSBaTlAZsLBSJxQQ3SH8" Ids="Bx9G5DGULrVPenFKIlwCgd,NRUdDl7C3NBLOqTBfy6oaQ" />
             <Link Id="Utg8VWmtwEbNXTumJyfBTS" Ids="E1CoqFSgqXKOVUuDShJBNN,NkXppuzjagJLvcxklTQfzY" />
-            <Link Id="UZiivz3w3ppLp5veuLMsYz" Ids="Tl9VUT125rzL7b7MJgVcfd,G40wu4wv8JmPd8ebzhjcOJ" />
+            <Link Id="UZiivz3w3ppLp5veuLMsYz" Ids="Tl9VUT125rzL7b7MJgVcfd,Py9Xt5FaMUnMmUHpHYCQFs" />
             <Link Id="Rz2uTnLIrNlLXaM6Ko6JjF" Ids="LxJECUM1lGpOsQR0WKFQ2g,Tl9VUT125rzL7b7MJgVcfd" IsHidden="true" />
             <Link Id="AM7EMFuOIaSLD1kjYNjPfi" Ids="MlpakyES0dBQTyK02yR7bD,H8ZFOI2YfAsNdEybqGxl3I" IsFeedback="true" />
             <Link Id="VlZP2RYCoy4LKRSSVuHxNv" Ids="H9asPxZ8o7VQJfcQrbQHHx,H8ZFOI2YfAsNdEybqGxl3I" />
             <Link Id="O7AWmAcHMQ0LLV5UTcLBrC" Ids="H8ZFOI2YfAsNdEybqGxl3I,Epas49yrUgMQHC7cNfGmG3" />
+            <Link Id="V8GLpDMaYnqNKIcYmuHtS4" Ids="MYTamhpdSxSOP0Hb1GWgHF,OKk4Cyem0bELBvWoUgwPyI" />
+            <Link Id="O8j7OdeHmPDPUw6o4p4rzG" Ids="OgXIZKePtyMQNu9TvW0yGP,G40wu4wv8JmPd8ebzhjcOJ" />
+            <Link Id="AYwMxMnIO6ROCnwdZMd6H1" Ids="J2QVRYV4eSlLcMKfMi8B7X,OUxn0iuelfAOVCW0PtV9I7" />
+            <Link Id="JtWCcMnGllDLHec2kRl9rb" Ids="OFRjQmvXCmVPSX5tFxI7Fz,Tc0ldTJ87BROaLm2KzZY5D" />
+            <Link Id="BaXTI3aHqXKLIzNHP04fCW" Ids="Cl1GLuJUm0hPeV6UKrggtz,P0nFfxiP50JPR0vflJDyCJ" />
           </Patch>
         </Node>
         <Canvas Id="Pxklg3IMNeKOsDjwY49PDw" Name="BlobDetector" Position="558,709">
