@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="LhqQv2Gk7Q2LVBSvGzgps8" LanguageVersion="2020.1.7.184" Version="0.128">
-  <NugetDependency Id="SnbOtdyDeyROnqUbIbwaRc" Location="VL.CoreLib" Version="2020.1.7" />
+<Document xmlns:p="property" Id="LhqQv2Gk7Q2LVBSvGzgps8" LanguageVersion="2020.3.0.80" Version="0.128">
+  <NugetDependency Id="SnbOtdyDeyROnqUbIbwaRc" Location="VL.CoreLib" Version="2020.3.0-0080-gc288cbe120" />
   <Patch Id="VdzXdHpgsuALBO9mcy8jXx">
     <Canvas Id="T59SjfSXkvMPr6Z8nNPkaa" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -68,12 +68,16 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="272,175,113,140" Id="SOvl7WaMz4zLJjCaERoccM">
-            <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+            <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
               <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
               <Choice Kind="ProcessStatefulRegion" Name="Cache" />
               <FullNameCategoryReference ID="Primitive" />
             </p:NodeReference>
-            <Pin Id="Op2RR0hoGZXNFMOA2dnEBD" Name="Force" Kind="InputPin" />
+            <Pin Id="Op2RR0hoGZXNFMOA2dnEBD" Name="Force" Kind="InputPin" DefaultValue="False">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Boolean" />
+              </p:TypeAnnotation>
+            </Pin>
             <Pin Id="LgRjZd1tacXMZD0dDl24SU" Name="Dispose Cached Outputs" Kind="InputPin" />
             <Pin Id="Kgzlz1OUnYCO5K5f2Q9c4w" Name="Has Changed" Kind="OutputPin" />
             <Patch Id="LJzSCjsRNsTMdYUjGqMb7q" ManuallySortedPins="true">
@@ -114,7 +118,7 @@
             <ControlPoint Id="Cu38JXnQsFRLocCCNh5jmM" Bounds="286,309" Alignment="Bottom" />
             <ControlPoint Id="MOmD9LvkzukMc3lKeGwz5j" Bounds="286,181" Alignment="Top" />
           </Node>
-          <Pad Id="A917ESLJbRSMmNxhOa3TJJ" Comment="Intrisics file (result of CalibrateCamera+IntrinsicsWriter)" Bounds="286,141,173,15" ShowValueBox="true" isIOBox="true" Value="">
+          <Pad Id="A917ESLJbRSMmNxhOa3TJJ" Comment="Intrisics file (result of CalibrateCamera+IntrinsicsWriter)" Bounds="286,141,173,15" ShowValueBox="true" isIOBox="true" Value="..\..\..\content\calibrations\Intrinsics.xml">
             <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Path" />
             </p:TypeAnnotation>
@@ -130,6 +134,15 @@
           </Pad>
           <Pad Id="QICDVRZx8PQOxxk1xsxChR" Bounds="532,427,152,19" ShowValueBox="true" isIOBox="true" Value="Physical sensor height">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="T0rMmxI9vGjPiKhucOmnHt" Bounds="279,111,464,19" ShowValueBox="true" isIOBox="true" Value="To generate your own Intrinsics file check the &quot;Calibrate a camera&quot; help patch">
+            <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
             <p:ValueBoxSettings>
@@ -162,6 +175,6 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="VwfXFx8YEv0NV4N0IGf0nf" Location="VL.Skia" Version="2020.1.7" />
+  <NugetDependency Id="VwfXFx8YEv0NV4N0IGf0nf" Location="VL.Skia" Version="2020.3.0-0080-gc288cbe120" />
   <NugetDependency Id="NJ0Bq3swTCaQFE2uXDIN3x" Location="VL.OpenCV" Version="0.0.0.0" />
 </Document>
