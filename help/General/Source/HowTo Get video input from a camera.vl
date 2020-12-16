@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="AEE6Cfg0i8wOlKpLCt1WJp" LanguageVersion="2019.2.0-0233-9a784d7931" Version="0.128">
-  <NugetDependency Id="Gw1gnQpkwNqNLQmokm4zvk" Location="VL.CoreLib" Version="2019.2.0-0233-g9a784d7931" />
-  <NugetDependency Id="SvX0SMoqGc1OMycshaqtj6" Location="VL.OpenCV" Version="0.0.0.0" />
+<Document xmlns:p="property" Id="AEE6Cfg0i8wOlKpLCt1WJp" LanguageVersion="2020.3.0.120" Version="0.128">
+  <NugetDependency Id="Gw1gnQpkwNqNLQmokm4zvk" Location="VL.CoreLib" Version="2020.3.0-0120-gb094184330" />
+  <NugetDependency Id="SvX0SMoqGc1OMycshaqtj6" Location="VL.OpenCV" Version="1.0.0" />
   <Patch Id="VOJ8Gg4KYVfOa20dp4sCNr">
     <Canvas Id="CRaRwQfSLh7P9Gm953CwLa" DefaultCategory="VVVV" CanvasType="FullCategory" />
     <!--
@@ -21,8 +21,8 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Renderer" />
             </p:NodeReference>
-            <Pin Id="IuzkowI3JFoPfqR45jvfdp" Name="Bounds" Kind="InputPin" DefaultValue="8, 11, 220, 243">
-              <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
+            <Pin Id="IuzkowI3JFoPfqR45jvfdp" Name="Bounds" Kind="InputPin" DefaultValue="8, 11, 220, 153">
+              <p:TypeAnnotation LastCategoryFullName="System.Windows" LastSymbolSource="VL.CoreLib.Windows.vl">
                 <Choice Kind="TypeFlag" Name="Rectangle" />
               </p:TypeAnnotation>
             </Pin>
@@ -49,11 +49,6 @@
             <Pin Id="L7x6odlNJ5SO1T4YcC8tCy" Name="Supported Formats" Kind="OutputPin" />
           </Node>
           <Pad Id="PMtr7ECUWCsO8XIfUHY1YA" Comment="Supported Formats" Bounds="352,500,147,280" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="HfKxbO4DGJUNPBnvSn9cXk" Comment="Video Input Device" Bounds="56,80,141,15" ShowValueBox="true" isIOBox="true" Value="USB2.0 HD UVC WebCam">
-            <p:TypeAnnotation LastCategoryFullName="OpenCV.Source" LastSymbolSource="VL.OpenCV.vl">
-              <Choice Kind="TypeFlag" Name="VideoInputDevice" />
-            </p:TypeAnnotation>
-          </Pad>
           <Pad Id="RigxMUL95GoLfkxeno0lo9" Comment="Width" Bounds="106,140,35,15" ShowValueBox="true" isIOBox="true" Value="640">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Integer32" />
@@ -123,6 +118,11 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
+          <Pad Id="JAPsJpbFv9bNU2KZfoIqfh" Comment="Video Input Device" Bounds="59,81,141,15" ShowValueBox="true" isIOBox="true">
+            <p:TypeAnnotation LastCategoryFullName="OpenCV.Source" LastSymbolSource="VL.OpenCV.vl">
+              <Choice Kind="TypeFlag" Name="VideoInputDevice" />
+            </p:TypeAnnotation>
+          </Pad>
         </Canvas>
         <Patch Id="RzsIP27Ep6CPhXtG7Uodfa" Name="Create" />
         <Patch Id="Q5ZnJbDLW4hNfE32dld75Q" Name="Update" />
@@ -132,13 +132,13 @@
         </ProcessDefinition>
         <Link Id="MEzcj4YYlqJLnXdBI5yY90" Ids="L7x6odlNJ5SO1T4YcC8tCy,PMtr7ECUWCsO8XIfUHY1YA" />
         <Link Id="P5lBUbc4l8TPhbw4B0p3aw" Ids="UlNeMWrhG7APgSwK4gwp09,EsbxEP8iUCxNNLuL3nGYyg" />
-        <Link Id="NbuYP2caFd8OfKaM2kcOpw" Ids="HfKxbO4DGJUNPBnvSn9cXk,CfcnCgSDiTcNNN4gFdLGdl" />
         <Link Id="VT0oJe4r0HjLn2je1FtUcC" Ids="RigxMUL95GoLfkxeno0lo9,Sbves9BH1ylMjh46Xh7fRO" />
         <Link Id="PQJvAspYR2aNbIJKeOv8lY" Ids="S0NZZdu0cWgQWc475R8IRa,LWsrXEpusboNzfYzRufpDE" />
         <Link Id="FaETJnjdIMcLBR4xIMEJSg" Ids="GaFuyH8QvTSOInbJxzcBEw,Id7ECM8ibhoN3rdU9Xv1aj" />
         <Link Id="PMiOpOz0R5mLfUiIMi8704" Ids="KXobpTk1173NJBf01yslK6,VZEXiTxb93oPRigerLqLKn" />
         <Link Id="F8VgC4sqIVpPhWvGrBB1P2" Ids="H5gaQUTyvalNNDDaQ8ai8x,FWiXiHufbDUNptzq4GUriY" />
         <Link Id="GKY8Q8FxLDaO4W76nrdKNb" Ids="SINBuHJcIeVMdwyKdV8w6f,L3DrICTAObUM86edhgPJfB" />
+        <Link Id="P0c4JBR6qZsNFhB9hg5pTt" Ids="JAPsJpbFv9bNU2KZfoIqfh,CfcnCgSDiTcNNN4gFdLGdl" />
       </Patch>
     </Node>
   </Patch>
