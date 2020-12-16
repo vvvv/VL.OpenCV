@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="CUIzzMtXbMXL1PSyxhqGoY" LanguageVersion="2020.3.0.102" Version="0.128">
-  <NugetDependency Id="Rq1hxtGm4prLgcbPnzpr1q" Location="VL.CoreLib" Version="2020.3.0-0102-g094033fb54" />
+<Document xmlns:p="property" Id="CUIzzMtXbMXL1PSyxhqGoY" LanguageVersion="2020.3.0.120" Version="0.128">
+  <NugetDependency Id="Rq1hxtGm4prLgcbPnzpr1q" Location="VL.CoreLib" Version="2020.3.0-0120-gb094184330" />
   <Patch Id="EflKC5Ddi2BN1mZWLv60qK">
     <Canvas Id="NBB3K3ClmntMsyQxzUGU5L" DefaultCategory="Main" CanvasType="FullCategory">
       <!--
@@ -419,7 +419,7 @@
                   <Pin Id="RCpGpzzOEGpLmKsjczvGOd" Name="Output" Kind="OutputPin" />
                 </Node>
                 <Node Bounds="546,445,244,19" Id="NDRK0bnxYu0Ple4A4WW9iW">
-                  <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector.vl">
+                  <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector and reproject.vl">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <PinReference Kind="InputPin" Name="Offset">
                       <p:DataTypeReference p:Type="TypeReference" LastCategoryFullName="2D" LastSymbolSource="CoreLibBasics.vl">
@@ -569,7 +569,7 @@
                   <Pin Id="VCbzs2V9vq8PfPX1UbRtV7" Name="Output" Kind="OutputPin" />
                 </Node>
                 <Node Bounds="400,511,135,19" Id="Q1o5J3DdcCyLAdW3SjnbKV">
-                  <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector.vl">
+                  <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector and reproject.vl">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <Choice Kind="ProcessAppFlag" Name="SkiaBillboardRectangleRenderer" />
                   </p:NodeReference>
@@ -1969,7 +1969,6 @@
         </p:NodeReference>
         <Patch Id="SLFLVvsEZ7fO5Vp3xGoMOK">
           <Canvas Id="PTCafg8HmzONWyshaYEnQ9" CanvasType="Group">
-            <ControlPoint Id="RfFtlm8U2FgO7tZShmjUqY" Bounds="886,583" />
             <Node Bounds="1123,370,85,19" Id="GnToUW4hjYtLy6SvLisQXN">
               <p:NodeReference LastCategoryFullName="3D.Transform" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -1990,8 +1989,8 @@
               <Pin Id="LVHK0GWO5qNM3o4cjXeYEV" Name="Output" Kind="OutputPin" />
             </Node>
             <ControlPoint Id="AIMMKraUTT8MXv6KddElfu" Bounds="1125,583" />
-            <Node Bounds="611,472" Id="EyAQJkMAlJIOTcYnFWDCeT">
-              <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector.vl">
+            <Node Bounds="484,440,61,19" Id="EyAQJkMAlJIOTcYnFWDCeT">
+              <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector and reproject.vl">
                 <Choice Kind="ProcessNode" Name="ViewCone" />
               </p:NodeReference>
               <Pin Id="BhzeXFx3zMgPurBh4v6b8R" Name="View" Kind="InputPin" />
@@ -2004,22 +2003,47 @@
               <Pin Id="VDWgTvbWskANrZAFbiAoEP" Name="Output" Kind="OutputPin" />
             </Node>
             <ControlPoint Id="MLjVnsb2n5fOgZdVaa5KJE" Bounds="1297,385" />
-            <ControlPoint Id="AmTvcypKo6VMuvadTxUtXi" Bounds="611,553" />
-            <ControlPoint Id="RYqeS6z6vo1Lx8fHbuENxU" Bounds="638,208" />
+            <ControlPoint Id="AmTvcypKo6VMuvadTxUtXi" Bounds="484,521" />
+            <Node Bounds="483,332,48,19" Id="H1smSVgF2TgQGQtmbTo7Al">
+              <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <CategoryReference Kind="RecordType" Name="Matrix" NeedsToBeDirectParent="true" />
+                <Choice Kind="OperationCallFlag" Name="LookAt (RightHanded)" />
+              </p:NodeReference>
+              <Pin Id="KHnlJhqkfTQLtxqdxtCiKJ" Name="Eye" Kind="InputPin" />
+              <Pin Id="FtzejKuVWNZMr8YHJGYIIy" Name="Target" Kind="InputPin" />
+              <Pin Id="VVAUWhOkyikOML362rtBN1" Name="Up" Kind="InputPin" DefaultValue="0, 1, 0">
+                <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Vector3" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="IveyTg4DB6WLEy4o4MfKez" Name="Result" Kind="OutputPin" />
+            </Node>
+            <ControlPoint Id="DPW7CMfCJTuMnqe9CHvgc5" Bounds="447,177" />
+            <ControlPoint Id="CcQ09OUdt8uLVrpndGcGwd" Bounds="530,165" />
+            <ControlPoint Id="GC75LA9rPy4MU5htERolhU" Bounds="822,548" />
+            <ControlPoint Id="DFid4krPAxzO3x02WbF3KI" Bounds="1165,186" />
+            <ControlPoint Id="PBOVKL3a1NSNbCDty2zRSn" Bounds="1110,186" />
+            <ControlPoint Id="FP78VONesA0L6fbYsg91c0" Bounds="1267,186" />
+            <ControlPoint Id="Ps19U0Mv5REOt5VZpHiN2u" Bounds="1349,186" />
           </Canvas>
           <Patch Id="OraWTRpYhqtNA8XghPVFYb" Name="Create" />
           <Patch Id="PNu6kKoaSXELAbi7NM2VFS" Name="Update">
-            <Pin Id="HZsCIF3kwcLOPPA2aE8KKb" Name="View" Kind="OutputPin" Bounds="882,673" />
             <Pin Id="I8kVGlEXuj0LnDo9J4ZxGB" Name="Perspective" Kind="OutputPin" Bounds="1122,673" />
             <Pin Id="EE02Zod4UCrNhfnerZb20G" Name="Enabled" Kind="InputPin" Bounds="1297,385" />
             <Pin Id="JPlb7lzOILgLSOEXDHnlst" Name="Output" Kind="OutputPin" Bounds="611,553" />
-            <Pin Id="VzIxnusiGISMIc3NxCQkr7" Name="View" Kind="InputPin" Bounds="637,208" />
+            <Pin Id="LScb1ITiNE5OTsHMp87RW6" Name="Position" Kind="InputPin" Bounds="446,176" />
+            <Pin Id="BiAAOdBHBbEQPO9AB0kGkT" Name="Target" Kind="InputPin" Bounds="528,194" />
+            <Pin Id="TSeAJJowrnGLDsYTyuoh91" Name="View" Kind="OutputPin" Bounds="822,547" />
+            <Pin Id="O00caqMt5DRNcZxUANeajD" Name="Aspect" Kind="InputPin" Bounds="1175,188" />
+            <Pin Id="Hy9rG3fvRzLMyB1Iv5MeUH" Name="FOV" Kind="InputPin" Bounds="1076,185" Visibility="Hidden" />
+            <Pin Id="NwJdd7VumagQIbxbPlQnbm" Name="Near Plane" Kind="InputPin" Bounds="1249,191" Visibility="Hidden" />
+            <Pin Id="PojoELp9lODQIwnV8XW7yp" Name="Far Plane" Kind="InputPin" Bounds="1358,193" Visibility="Hidden" />
           </Patch>
           <ProcessDefinition Id="PnEgcWMheDcMSwgVaUUGlR">
             <Fragment Id="CkJEKXrbWi4OUGMDNO7chj" Patch="OraWTRpYhqtNA8XghPVFYb" Enabled="true" />
             <Fragment Id="OwEWjPAJdFMQEM03Mx3rIK" Patch="PNu6kKoaSXELAbi7NM2VFS" Enabled="true" />
           </ProcessDefinition>
-          <Link Id="STNQVwO87x9NR6lvJh8gvZ" Ids="RfFtlm8U2FgO7tZShmjUqY,HZsCIF3kwcLOPPA2aE8KKb" IsHidden="true" />
           <Link Id="VZDnRnWiZC0QXeWf78EAkO" Ids="LVHK0GWO5qNM3o4cjXeYEV,AIMMKraUTT8MXv6KddElfu" />
           <Link Id="IbRIFc2Ucy9O1HVDwDfzB4" Ids="AIMMKraUTT8MXv6KddElfu,I8kVGlEXuj0LnDo9J4ZxGB" IsHidden="true" />
           <Link Id="MRzA25x7rAJM7fAwhEoS3Y" Ids="LVHK0GWO5qNM3o4cjXeYEV,GHG26u6gKTrMTCOgfqe3lU" />
@@ -2027,9 +2051,21 @@
           <Link Id="R2lyHBrjpOMMVlfktGPnir" Ids="EE02Zod4UCrNhfnerZb20G,MLjVnsb2n5fOgZdVaa5KJE" IsHidden="true" />
           <Link Id="GXXl5zp88VvNoYKz1WVicT" Ids="VDWgTvbWskANrZAFbiAoEP,AmTvcypKo6VMuvadTxUtXi" />
           <Link Id="MWDdJCtFXwdNYvAEdOa5LZ" Ids="AmTvcypKo6VMuvadTxUtXi,JPlb7lzOILgLSOEXDHnlst" IsHidden="true" />
-          <Link Id="PZ9PoYV6MEiN3UxD59KasP" Ids="RYqeS6z6vo1Lx8fHbuENxU,BhzeXFx3zMgPurBh4v6b8R" />
-          <Link Id="KSk8LxXVgq5QQHttMr7YcX" Ids="VzIxnusiGISMIc3NxCQkr7,RYqeS6z6vo1Lx8fHbuENxU" IsHidden="true" />
-          <Link Id="HkQaRr6sNxRPoRdRvrnRgc" Ids="RYqeS6z6vo1Lx8fHbuENxU,RfFtlm8U2FgO7tZShmjUqY" />
+          <Link Id="CxbvpFqTWcHOpsA02oVZCg" Ids="DPW7CMfCJTuMnqe9CHvgc5,KHnlJhqkfTQLtxqdxtCiKJ" />
+          <Link Id="Oktap9HatWANkAMuVhgTsj" Ids="LScb1ITiNE5OTsHMp87RW6,DPW7CMfCJTuMnqe9CHvgc5" IsHidden="true" />
+          <Link Id="LkKFlV0EGk2MSA5YRyNQ05" Ids="CcQ09OUdt8uLVrpndGcGwd,FtzejKuVWNZMr8YHJGYIIy" />
+          <Link Id="SSmza06j7R1PSvFPrpnFGT" Ids="BiAAOdBHBbEQPO9AB0kGkT,CcQ09OUdt8uLVrpndGcGwd" IsHidden="true" />
+          <Link Id="IkSnquBD9ErOLcxiMW3Ojv" Ids="IveyTg4DB6WLEy4o4MfKez,BhzeXFx3zMgPurBh4v6b8R" />
+          <Link Id="LgLjLaQFSNGPXAH6swXTie" Ids="IveyTg4DB6WLEy4o4MfKez,GC75LA9rPy4MU5htERolhU" />
+          <Link Id="R5tNbsbxq4sNTapCvbf0M3" Ids="GC75LA9rPy4MU5htERolhU,TSeAJJowrnGLDsYTyuoh91" IsHidden="true" />
+          <Link Id="IoSKZm6YCL9OEY65hOZAnd" Ids="DFid4krPAxzO3x02WbF3KI,NoJlkm4cUCWMLajxg9FDNO" />
+          <Link Id="NjBkln1tav8LAkSw9NTYa5" Ids="O00caqMt5DRNcZxUANeajD,DFid4krPAxzO3x02WbF3KI" IsHidden="true" />
+          <Link Id="NYiZTmpBvrcP9w8mADjX4q" Ids="PBOVKL3a1NSNbCDty2zRSn,Q3gr7kwU0WAM2eojgTM364" />
+          <Link Id="DFoVK8ZhvnUP6NPl36R8lG" Ids="Hy9rG3fvRzLMyB1Iv5MeUH,PBOVKL3a1NSNbCDty2zRSn" IsHidden="true" />
+          <Link Id="OvH13gc6hGaQVUZFrHElgJ" Ids="FP78VONesA0L6fbYsg91c0,FIgwVsJspLHLHMthwNz7kn" />
+          <Link Id="BNHpFJVgwO6OHAE4HceXoq" Ids="NwJdd7VumagQIbxbPlQnbm,FP78VONesA0L6fbYsg91c0" IsHidden="true" />
+          <Link Id="AcmVzhqD6LJOZa07CdTh10" Ids="Ps19U0Mv5REOt5VZpHiN2u,UQq3R71g8PIM1Ee9m47HQI" />
+          <Link Id="HqPlAY1lFvlLpLJpJEpVXk" Ids="PojoELp9lODQIwnV8XW7yp,Ps19U0Mv5REOt5VZpHiN2u" IsHidden="true" />
         </Patch>
       </Node>
       <!--
@@ -2182,7 +2218,7 @@
         <Patch Id="IHCkdt3YqJcNW35amNUBTE">
           <Canvas Id="QBKRnwMWny5MviT65kknGO" CanvasType="Group">
             <Node Bounds="568,454" Id="I3Plst3MbcoOPXcqNHJXJ9">
-              <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector.vl">
+              <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector and reproject.vl">
                 <Choice Kind="ProcessNode" Name="RenderTarget" />
               </p:NodeReference>
               <Pin Id="MZG55X42lEKPgJlLuFrIvJ" Name="Input" Kind="InputPin" />
@@ -2196,8 +2232,6 @@
               <Pin Id="E3wlUbVGGpCM4Dp1NdunjX" Name="Projection Matrix" Kind="InputPin" />
               <Pin Id="MmgeFWnToFfQX6BiBW5upZ" Name="Output" Kind="OutputPin" />
             </Node>
-            <ControlPoint Id="HryghmnKHnaOOExbSCKX7d" Bounds="631,269" />
-            <ControlPoint Id="Os6O2zdrjhqQNbgPn1hueh" Bounds="772,272" />
             <ControlPoint Id="J3GRLPgojTCLPtGS0dvQBf" Bounds="540,271" />
             <Node Bounds="388,544,405,19" Id="LiqZ7mLsAF8LDsWpZg1wu6">
               <p:NodeReference LastCategoryFullName="Stride.Lights" LastSymbolSource="VL.Stride.Engine.vl">
@@ -2212,9 +2246,17 @@
                   <Choice Kind="TypeFlag" Name="Float32" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="Gb3KDIK5ZFPQLgJBgkoCBk" Name="Range" Kind="InputPin" />
+              <Pin Id="Gb3KDIK5ZFPQLgJBgkoCBk" Name="Range" Kind="InputPin" DefaultValue="10">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Float32" />
+                </p:TypeAnnotation>
+              </Pin>
               <Pin Id="BY4xXngDrFYLVEKcl3sHV5" Name="Angle" Kind="InputPin" />
-              <Pin Id="VCkdSQTzplWOXREWIkq4pk" Name="Softness" Kind="InputPin" />
+              <Pin Id="VCkdSQTzplWOXREWIkq4pk" Name="Softness" Kind="InputPin" DefaultValue="0">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Float32" />
+                </p:TypeAnnotation>
+              </Pin>
               <Pin Id="PnIOlQIH3xJOwAodPoAKD7" Name="Shadow" Kind="InputPin" />
               <Pin Id="REId95IKrLbNbr6h4rpQNH" Name="Enable Default Shadow" Kind="InputPin" />
               <Pin Id="AGQVxO0nKAQO0YJsA3IN3I" Name="Projective Texture" Kind="InputPin" />
@@ -2222,7 +2264,11 @@
               <Pin Id="R86lgsu6jGwOr9pikMPoZ6" Name="UVOffset" Kind="InputPin" />
               <Pin Id="IwT5IsXz1GoLDY5R7maxBW" Name="Mip Map Scale" Kind="InputPin" />
               <Pin Id="DGKKAggRsliPUpEo1MJYEf" Name="Aspect Ratio" Kind="InputPin" />
-              <Pin Id="BXkbatNubM2LKWamItRrjE" Name="Transition Area" Kind="InputPin" />
+              <Pin Id="BXkbatNubM2LKWamItRrjE" Name="Transition Area" Kind="InputPin" DefaultValue="0">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Float32" />
+                </p:TypeAnnotation>
+              </Pin>
               <Pin Id="V0YHiPqOsufNF8o0eqpbNf" Name="Projection Plane Distance" Kind="InputPin" />
               <Pin Id="HdeIql6YNWBQRfRJABOJxD" Name="Flip Mode" Kind="InputPin" DefaultValue="None">
                 <p:TypeAnnotation LastCategoryFullName="Stride.Rendering.Lights.LightSpot" LastSymbolSource="Stride.Rendering.dll">
@@ -2238,14 +2284,8 @@
                 </p:TypeAnnotation>
               </Pin>
               <Pin Id="L2D97DMNyiSLNgu8vo1gsu" Name="Entity" Kind="OutputPin" />
-              <Pin Id="LgMoc4aRXLxL8L9sHtjvly" Name="Transformation" Kind="InputPin" />
             </Node>
             <ControlPoint Id="JshNZ31NI7UNv9hiVrpfDL" Bounds="350,648" />
-            <Pad Id="UogjNMhWFXGNZmjAlrmhqz" Comment="Aspect Ratio" Bounds="778,471,35,15" ShowValueBox="true" isIOBox="true" Value="1.78">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                <Choice Kind="TypeFlag" Name="Float32" />
-              </p:TypeAnnotation>
-            </Pad>
             <Node Bounds="348,595,85,19" Id="Hq1x5luLoczLpEuROiAlZZ">
               <p:NodeReference LastCategoryFullName="Stride" LastSymbolSource="VL.Stride.Engine.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -2260,15 +2300,6 @@
               <Pin Id="CwgU1EXVzpMP5RWsVUT9A4" Name="Output" Kind="OutputPin" />
             </Node>
             <ControlPoint Id="HkT6OMGMKhePDY4K0nVsdK" Bounds="479,273" />
-            <Node Bounds="608,399,42,19" Id="Skoij1CYtMnNBIu0OgBadO">
-              <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="CoreLibBasics.vl">
-                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                <Choice Kind="OperationCallFlag" Name="Invert" />
-                <CategoryReference Kind="RecordType" Name="Matrix" NeedsToBeDirectParent="true" />
-              </p:NodeReference>
-              <Pin Id="VIxe0DGEOVZOG2PKSnE1rr" Name="Input" Kind="StateInputPin" />
-              <Pin Id="Jj7RCPBPeIkMges5NV3BUj" Name="Output" Kind="StateOutputPin" />
-            </Node>
             <ControlPoint Id="L5tA1KmBH1CN2DhfMwq3oj" Bounds="309,276" />
             <Node Bounds="287,349,145,19" Id="Ferhg7veMpRNexy1u17qjn">
               <p:NodeReference LastCategoryFullName="Stride.Models" LastSymbolSource="VL.Stride.Engine.vl">
@@ -2287,50 +2318,90 @@
             </Node>
             <ControlPoint Id="KYHXa16uVemPpxAH19ACoS" Bounds="201,277" />
             <ControlPoint Id="RkoGLqqW71aPijZ3njxERZ" Bounds="369,277" />
-            <Pad Id="D7ftJTr4kBiOwpapJEclJm" Comment="Intensity" Bounds="450,506,35,15" ShowValueBox="true" isIOBox="true" Value="15">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                <Choice Kind="TypeFlag" Name="Float32" />
-              </p:TypeAnnotation>
-            </Pad>
+            <ControlPoint Id="HqHuF9DGWmZPpaf7Ig7hqi" Bounds="624,205" />
+            <ControlPoint Id="RaAI6kKQyihLFmElbUjRWC" Bounds="763,205" />
+            <Node Bounds="608,406,48,19" Id="Bwuv5oExPz7NeQJWNd3otk">
+              <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <CategoryReference Kind="RecordType" Name="Matrix" NeedsToBeDirectParent="true" />
+                <Choice Kind="OperationCallFlag" Name="LookAt (RightHanded)" />
+              </p:NodeReference>
+              <Pin Id="GkIDuLxItyNLjW9yyoXc5m" Name="Eye" Kind="InputPin" />
+              <Pin Id="S0EVDIYSebaLEMcY1soiZZ" Name="Target" Kind="InputPin" />
+              <Pin Id="OPnBJDSRRdCPJssIcuU5oR" Name="Up" Kind="InputPin" DefaultValue="0, 1, 0">
+                <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Vector3" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="KnXMKQD1Rg2PIaEeQqIm0G" Name="Result" Kind="OutputPin" />
+            </Node>
+            <ControlPoint Id="H8Dp3SkINVEOvq2ZRoCBMD" Bounds="897,203" />
+            <ControlPoint Id="F3xtNfv6PMiLnZ2BkgaPCj" Bounds="1000,206" />
+            <ControlPoint Id="HOG6wHWcZuePeyyXVOLNhh" Bounds="1274,209" />
+            <ControlPoint Id="G8fWP0jJ1qmN8S01xImvWK" Bounds="1354,214" />
+            <ControlPoint Id="ThjmgJHjYXjOrKP0XuM0WH" Bounds="1086,212" />
           </Canvas>
           <Patch Id="RObaMY6LTLINUbEJ0E4rwW" Name="Create" />
           <Patch Id="DOInhcaHPBsLoWr5Hm8iQX" Name="Update">
-            <Pin Id="Dcf9qX1WURdMOsoJe3sNWs" Name="Spectator View" Kind="InputPin" Bounds="644,267" />
-            <Pin Id="CqfuSgv1ucDP8zsRCb35Fl" Name="Spectator Projection" Kind="InputPin" Bounds="797,280" />
             <Pin Id="QQFqet7N2ypM39ZmltMcB8" Name="Resolution" Kind="InputPin" Bounds="515,271" />
             <Pin Id="MMj1HMBRZTGPAe6A4zLTyf" Name="Entity" Kind="OutputPin" Bounds="386,606" />
             <Pin Id="NmrMSd88lpCMTTII9fw6ic" Name="Input" Kind="InputPin" Bounds="392,288" />
             <Pin Id="JJeKN8jJNJ7Mzrji8fi3D0" Name="Model" Kind="InputPin" Bounds="122,251" />
             <Pin Id="KJ4W29u3YYNNysIWNKBrxa" Name="Model Transform" Kind="InputPin" />
             <Pin Id="CyTEMUSlDsiPtNIhax7Mlx" Name="Model Material" Kind="InputPin" Bounds="109,276" />
+            <Pin Id="ERpkPYP3DFHLXanZqL3l0H" Name="Spectator Position" Kind="InputPin" Bounds="673,208" />
+            <Pin Id="B729WEMJJRIM9xVeWpYs73" Name="Spectator Target" Kind="InputPin" Bounds="763,205" />
+            <Pin Id="LmMf5zvoKImLvlkMmpEijY" Name="Aspect Ratio" Kind="InputPin" Bounds="1011,210" />
+            <Pin Id="ThUnibyIFbsOTmEOp9UHqD" Name="Angle" Kind="InputPin" Bounds="1065,259" Visibility="Hidden" />
+            <Pin Id="RuBDGULvadmPzPEZIIHxnl" Name="Intensity" Kind="InputPin" Bounds="1373,193" DefaultValue="15">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Float32" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="BIMWheYuIO6MrQoR6Vfl8X" Name="Range" Kind="InputPin" Bounds="1449,195" DefaultValue="15">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Float32" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="MDloVcaOswPOfINuCkT8yj" Name="Spectator Projection" Kind="InputPin" Bounds="1040,241" />
           </Patch>
           <ProcessDefinition Id="IDcvyWoo9kXQcDNWtUOLEr">
             <Fragment Id="HwpJx2uAalPLCHZ4gMy8sa" Patch="RObaMY6LTLINUbEJ0E4rwW" Enabled="true" />
             <Fragment Id="GVStgstDOquOEGRNtKPAfy" Patch="DOInhcaHPBsLoWr5Hm8iQX" Enabled="true" />
           </ProcessDefinition>
-          <Link Id="DvtNhDEzOQiM0cENISH1rg" Ids="Dcf9qX1WURdMOsoJe3sNWs,HryghmnKHnaOOExbSCKX7d" IsHidden="true" />
-          <Link Id="OriKdfpAWYyM38e1uhWHDb" Ids="CqfuSgv1ucDP8zsRCb35Fl,Os6O2zdrjhqQNbgPn1hueh" IsHidden="true" />
           <Link Id="GhKDIC1AoM2O7QykhoOr1k" Ids="J3GRLPgojTCLPtGS0dvQBf,ALBi7jcacrYPlEyohfLgPd" />
           <Link Id="VLMPe4GH7qLLRiEaANKRLW" Ids="QQFqet7N2ypM39ZmltMcB8,J3GRLPgojTCLPtGS0dvQBf" IsHidden="true" />
           <Link Id="OID3YYhkrl1QJ3UBRhsD7i" Ids="JshNZ31NI7UNv9hiVrpfDL,MMj1HMBRZTGPAe6A4zLTyf" IsHidden="true" />
-          <Link Id="BsHrIreGddAQDbH0yjDMG9" Ids="UogjNMhWFXGNZmjAlrmhqz,DGKKAggRsliPUpEo1MJYEf" />
-          <Link Id="BkzoPzEWNAoMPqlM8xjvTm" Ids="Os6O2zdrjhqQNbgPn1hueh,E3wlUbVGGpCM4Dp1NdunjX" />
           <Link Id="APMB4EYJMDrO3XcIVP1LdP" Ids="MmgeFWnToFfQX6BiBW5upZ,AGQVxO0nKAQO0YJsA3IN3I" />
           <Link Id="Nqo4Fu4oKu0NOicDJkbUtW" Ids="L2D97DMNyiSLNgu8vo1gsu,DtuCzW5SSg7PG0nFcQzqaS" />
           <Link Id="Rca8Hw1w7kNO2o1TncwyMi" Ids="HkT6OMGMKhePDY4K0nVsdK,MZG55X42lEKPgJlLuFrIvJ" />
           <Link Id="DieeWk2xWVCL4aAfCd2Lx4" Ids="NmrMSd88lpCMTTII9fw6ic,HkT6OMGMKhePDY4K0nVsdK" IsHidden="true" />
-          <Link Id="UzimbXXNh9UNvvOUsm4KNm" Ids="HryghmnKHnaOOExbSCKX7d,VIxe0DGEOVZOG2PKSnE1rr" />
-          <Link Id="VMfYE9mDJi6QFmanO26UEm" Ids="Jj7RCPBPeIkMges5NV3BUj,LtpUOEei2CcNAYTynezvJ2" />
           <Link Id="LaPGzTX9BBWMqsxK5uYMM5" Ids="JJeKN8jJNJ7Mzrji8fi3D0,L5tA1KmBH1CN2DhfMwq3oj" IsHidden="true" />
           <Link Id="Pt5GJWVuXGRPNoIUMIys81" Ids="CwgU1EXVzpMP5RWsVUT9A4,JshNZ31NI7UNv9hiVrpfDL" />
-          <Link Id="LG1TJQGS8LXNTTcnz7drI5" Ids="HryghmnKHnaOOExbSCKX7d,LgMoc4aRXLxL8L9sHtjvly" />
           <Link Id="OOgIHZ1stQmQXIGKdSVw9n" Ids="L5tA1KmBH1CN2DhfMwq3oj,UfD7d07CJyqMCXNcgBUsYk" />
           <Link Id="K6khU3yI7YNMz2SX1247Jw" Ids="KYHXa16uVemPpxAH19ACoS,In36fLut6GOOK8sHmQU1pn" />
           <Link Id="AaJHoYRAxQXQGGFGBXhaN4" Ids="KJ4W29u3YYNNysIWNKBrxa,KYHXa16uVemPpxAH19ACoS" IsHidden="true" />
           <Link Id="FnR0M7fAxxSQWbdEHYTps5" Ids="R4mevnzbqaWO2xo8yzz7xe,CpTwfMHTt7sM5SRh3p6jf5" />
           <Link Id="NjL89n9tkD0LVYOefDWTOh" Ids="RkoGLqqW71aPijZ3njxERZ,KNgyyir9tjONIFX99GKvZL" />
           <Link Id="SgsavK42anXOT0CPsG9okr" Ids="CyTEMUSlDsiPtNIhax7Mlx,RkoGLqqW71aPijZ3njxERZ" IsHidden="true" />
-          <Link Id="JYADIPzYxrPNy5RzjWx6Xi" Ids="D7ftJTr4kBiOwpapJEclJm,AiCOyBH6EqSNfWbxuQ0Yxv" />
+          <Link Id="U0pwIq8URZROHcTEuN5hAy" Ids="HqHuF9DGWmZPpaf7Ig7hqi,NBS4fVijbC0PxTAYTcHc4U" />
+          <Link Id="Er3os7Pcn96L03Uo24rbZF" Ids="ERpkPYP3DFHLXanZqL3l0H,HqHuF9DGWmZPpaf7Ig7hqi" IsHidden="true" />
+          <Link Id="VTQ57UREIF6QOfIq5IioGF" Ids="RaAI6kKQyihLFmElbUjRWC,UPWmh9BnVWsMkVfUutcWsK" />
+          <Link Id="ObfFLXL9rKFPaqxzoLyHH2" Ids="B729WEMJJRIM9xVeWpYs73,RaAI6kKQyihLFmElbUjRWC" IsHidden="true" />
+          <Link Id="A3La0SdmneHLnTMHh81STW" Ids="HqHuF9DGWmZPpaf7Ig7hqi,GkIDuLxItyNLjW9yyoXc5m" />
+          <Link Id="BKrYaZsDbswNiS8P4DSIUP" Ids="RaAI6kKQyihLFmElbUjRWC,S0EVDIYSebaLEMcY1soiZZ" />
+          <Link Id="AqKqFcP3JI3NuU155qOrHI" Ids="KnXMKQD1Rg2PIaEeQqIm0G,LtpUOEei2CcNAYTynezvJ2" />
+          <Link Id="Je4wVjT9iXKL7jp6qaTpTK" Ids="H8Dp3SkINVEOvq2ZRoCBMD,NxOLHJnWDaWLtQik1REY6J" />
+          <Link Id="RYABv37zCDSPi8psioYqKH" Ids="LmMf5zvoKImLvlkMmpEijY,H8Dp3SkINVEOvq2ZRoCBMD" IsHidden="true" />
+          <Link Id="FYyMKMAkF3EPmRhvVdl6Au" Ids="F3xtNfv6PMiLnZ2BkgaPCj,BY4xXngDrFYLVEKcl3sHV5" />
+          <Link Id="Vn3bNnWxnk0PSlG5SHgN5m" Ids="ThUnibyIFbsOTmEOp9UHqD,F3xtNfv6PMiLnZ2BkgaPCj" IsHidden="true" />
+          <Link Id="BHlNorysqkJOW3Ebk10KEv" Ids="H8Dp3SkINVEOvq2ZRoCBMD,DGKKAggRsliPUpEo1MJYEf" />
+          <Link Id="Oghgy2YvvsgQPonwdS1keJ" Ids="HOG6wHWcZuePeyyXVOLNhh,AiCOyBH6EqSNfWbxuQ0Yxv" />
+          <Link Id="AMCtWWTWOy7QETG7sVFGnM" Ids="RuBDGULvadmPzPEZIIHxnl,HOG6wHWcZuePeyyXVOLNhh" IsHidden="true" />
+          <Link Id="BzinLqTgk38Ns5Rqh1pRLr" Ids="G8fWP0jJ1qmN8S01xImvWK,Gb3KDIK5ZFPQLgJBgkoCBk" />
+          <Link Id="N5BgKis91R6NFsI95IWrEe" Ids="BIMWheYuIO6MrQoR6Vfl8X,G8fWP0jJ1qmN8S01xImvWK" IsHidden="true" />
+          <Link Id="TvIDIEAayFeOxNEHuXL6Tz" Ids="ThjmgJHjYXjOrKP0XuM0WH,E3wlUbVGGpCM4Dp1NdunjX" />
+          <Link Id="U7nmAqOv3qSP28kFxDDHV3" Ids="MDloVcaOswPOfINuCkT8yj,ThjmgJHjYXjOrKP0XuM0WH" IsHidden="true" />
         </Patch>
       </Node>
       <!--
@@ -2521,7 +2592,7 @@
               <Pin Id="E55nwquRJzvMnD6xaukbjR" Name="Output" Kind="OutputPin" />
             </Node>
             <Node Bounds="381,434,46,19" Id="J6k0P0t95RaMqGcQCBYu1m">
-              <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector.vl">
+              <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector and reproject.vl">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="ProcessAppFlag" Name="Screen" />
               </p:NodeReference>
@@ -2663,7 +2734,7 @@
             </p:TypeAnnotation>
           </Pad>
           <Node Bounds="435,385,85,19" Id="LmhQXcLOFHGPqZ9pQbVPNN">
-            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector.vl">
+            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector and reproject.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="PointID (3D)" />
             </p:NodeReference>
@@ -2760,7 +2831,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="311,385,105,19" Id="OZ9tpOyYHofODPnUieCDqL">
-            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector.vl">
+            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector and reproject.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Point (3D)" />
             </p:NodeReference>
@@ -3228,7 +3299,7 @@
             <Pin Id="JeIdS2VzpwEOeU0sHBTJN5" Name="Back Buffer" Kind="OutputPin" />
             <Pin Id="VXv2SFfcEFKO47dkDyVFzu" Name="Depth Buffer" Kind="OutputPin" />
           </Node>
-          <Node Bounds="1980,742,114,19" Id="Dk68dAxdqFCMbgIioKveny">
+          <Node Bounds="1980,712,114,19" Id="Dk68dAxdqFCMbgIioKveny">
             <p:NodeReference LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="ViewProjectionReader" />
@@ -3238,7 +3309,7 @@
             <Pin Id="QmHoXbR0IqmOxLumttKRqT" Name="View" Kind="OutputPin" />
             <Pin Id="IFDLUkbps6mLO7F2YvZoNN" Name="Projection" Kind="OutputPin" />
           </Node>
-          <Pad Id="MyKGDXXNk07PcRaejNOgPT" Comment="Read" Bounds="2091,694,47,48" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="MyKGDXXNk07PcRaejNOgPT" Comment="Read" Bounds="2091,664,47,48" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Boolean" />
             </p:TypeAnnotation>
@@ -3246,18 +3317,20 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="2476,74,59,19" Id="LbjCuvVPOCgL6MVbXA71uO">
-            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector.vl">
+          <Node Bounds="2478,74,15,19" Id="LbjCuvVPOCgL6MVbXA71uO">
+            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector and reproject.vl">
               <Choice Kind="ProcessNode" Name="Spectator" />
             </p:NodeReference>
-            <Pin Id="KHuBuuk2T6cNzbatOVx9nj" Name="View" Kind="InputPin" />
+            <Pin Id="Nqv3SJynuoRLOcHVQujf4o" Name="Position" Kind="InputPin" />
+            <Pin Id="TRKWrcQLS17OkzGUD31w9g" Name="Target" Kind="InputPin" />
+            <Pin Id="C7AZiOi9nuUMiv8h1klXA3" Name="Aspect" Kind="InputPin" />
             <Pin Id="Ek1NCEbnoLNLA245J3DmYA" Name="Enabled" Kind="InputPin" />
             <Pin Id="NHbDlQFxRfAPCb4FlPe4Mv" Name="Output" Kind="OutputPin" />
-            <Pin Id="ELXWGUIYJ3KOsFN9kPQATD" Name="View" Kind="OutputPin" />
+            <Pin Id="AkQrSgHbeVlNIpPO9NlSDG" Name="View" Kind="OutputPin" />
             <Pin Id="R5aJPeWGq5iNIMPsbxHMqi" Name="Perspective" Kind="OutputPin" />
           </Node>
-          <Node Bounds="2072,491,125,19" Id="NHwLgQxO8ZoO1u2l65Lbwg">
-            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector.vl">
+          <Node Bounds="2072,491,123,19" Id="NHwLgQxO8ZoO1u2l65Lbwg">
+            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector and reproject.vl">
               <Choice Kind="ProcessNode" Name="ProjectToScreen" />
             </p:NodeReference>
             <Pin Id="QyBXjIcdFAUM9lvmoiwjFK" Name="Model Transform" Kind="InputPin" />
@@ -3265,11 +3338,15 @@
             <Pin Id="SFvVtHyNXqqO0ZEWGRO1KK" Name="Model Material" Kind="InputPin" />
             <Pin Id="EgGlVxBG8PwLc9na97er8F" Name="Input" Kind="InputPin" />
             <Pin Id="QXd8myuntn1NaUUWViOfRo" Name="Resolution" Kind="InputPin" />
-            <Pin Id="MUdKxRiFFInOfr4cC9H2kc" Name="Spectator View" Kind="InputPin" />
-            <Pin Id="S4qnoUQpLSDQHdePAT4RN4" Name="Spectator Projection" Kind="InputPin" />
+            <Pin Id="QwhT0BoVFYvQDSnkGx243v" Name="Spectator Position" Kind="InputPin" />
+            <Pin Id="FPgk8CKJi4eNCbFdRKaWim" Name="Spectator Target" Kind="InputPin" />
+            <Pin Id="CGp42ZrACE5QK9wqbtVgwW" Name="Aspect Ratio" Kind="InputPin" />
+            <Pin Id="MDCkGJiZkYtOePxxghTY9E" Name="Spectator Projection" Kind="InputPin" />
+            <Pin Id="LsLtomeTSYqL3l9v3Giwsx" Name="Intensity" Kind="InputPin" />
+            <Pin Id="BqWrpU23iHmPdFtsvCsinQ" Name="Range" Kind="InputPin" />
             <Pin Id="GGIXB6HTxuGNUhCVbIoLK4" Name="Entity" Kind="OutputPin" />
           </Node>
-          <Pad Id="QUo8PP50TdlL4PymjdQhQJ" Comment="Resolution" Bounds="2155,404,47,28" ShowValueBox="true" isIOBox="true" Value="2048, 2048">
+          <Pad Id="QUo8PP50TdlL4PymjdQhQJ" Comment="Resolution" Bounds="2154,422,47,28" ShowValueBox="true" isIOBox="true" Value="2048, 2048">
             <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Vector2" />
             </p:TypeAnnotation>
@@ -3341,12 +3418,12 @@
             <Pin Id="IJgkjUTTHiaORugeAAR18Q" Name="View Matrix" Kind="InputPin" />
             <Pin Id="LcrpT8rITTzM7pETdRdEJH" Name="Projection" Kind="InputPin" />
             <Pin Id="Ci1C1ttKlXBMBzuu16cEAD" Name="Vertical Field Of View" Kind="InputPin" />
-            <Pin Id="FQuxM0yNDKbLBStWSLLaq8" Name="Use Custom Aspect Ratio" Kind="InputPin" />
-            <Pin Id="GxyoOmVap3TL1CdghBGVwb" Name="Aspect Ratio" Kind="InputPin" DefaultValue="1.7">
+            <Pin Id="FQuxM0yNDKbLBStWSLLaq8" Name="Use Custom Aspect Ratio" Kind="InputPin" DefaultValue="False">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                <Choice Kind="TypeFlag" Name="Float32" />
+                <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
             </Pin>
+            <Pin Id="GxyoOmVap3TL1CdghBGVwb" Name="Aspect Ratio" Kind="InputPin" />
             <Pin Id="QcUWUGOWnNdOZ8ua87PtHP" Name="Near Clip Plane" Kind="InputPin" />
             <Pin Id="UgRS07Shct3MjDyVE7XimG" Name="Far Clip Plane" Kind="InputPin" />
             <Pin Id="Q9XVIlBcpruLOTFTK4s5Wo" Name="Use Custom Projection Matrix" Kind="InputPin" DefaultValue="True">
@@ -3385,26 +3462,10 @@
             <Pin Id="ANH2a1VvIahLooLTcbJyCk" Name="View Matrix" Kind="InputPin" />
             <Pin Id="CsFXKULBxzELxvRzyqQyyY" Name="Projection" Kind="InputPin" />
             <Pin Id="AD6zsyfYxAaOBGrZeXdZfb" Name="Vertical Field Of View" Kind="InputPin" />
-            <Pin Id="IQocloecuuxO5x7bw4tDne" Name="Use Custom Aspect Ratio" Kind="InputPin" DefaultValue="True">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                <Choice Kind="TypeFlag" Name="Boolean" />
-              </p:TypeAnnotation>
-            </Pin>
-            <Pin Id="Um4t0SYm6PrPJtLVukmqMu" Name="Aspect Ratio" Kind="InputPin" DefaultValue="1.7">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                <Choice Kind="TypeFlag" Name="Float32" />
-              </p:TypeAnnotation>
-            </Pin>
-            <Pin Id="RROd3rltu42PKNOU79ROlA" Name="Near Clip Plane" Kind="InputPin" DefaultValue="0.02">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                <Choice Kind="TypeFlag" Name="Float32" />
-              </p:TypeAnnotation>
-            </Pin>
-            <Pin Id="UhEGiIEA4bYLOsMV5RyJMK" Name="Far Clip Plane" Kind="InputPin" DefaultValue="200">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                <Choice Kind="TypeFlag" Name="Float32" />
-              </p:TypeAnnotation>
-            </Pin>
+            <Pin Id="IQocloecuuxO5x7bw4tDne" Name="Use Custom Aspect Ratio" Kind="InputPin" />
+            <Pin Id="Um4t0SYm6PrPJtLVukmqMu" Name="Aspect Ratio" Kind="InputPin" />
+            <Pin Id="RROd3rltu42PKNOU79ROlA" Name="Near Clip Plane" Kind="InputPin" />
+            <Pin Id="UhEGiIEA4bYLOsMV5RyJMK" Name="Far Clip Plane" Kind="InputPin" />
             <Pin Id="P9jhgVvQdOmM53W7es5lq0" Name="Use Custom Projection Matrix" Kind="InputPin" DefaultValue="True">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Boolean" />
@@ -3425,7 +3486,7 @@
             <Pin Id="VmZHjOFeRRMPovH9uOmQxO" Name="Camera Component" Kind="OutputPin" />
           </Node>
           <Node Bounds="2132,223,52,19" Id="Gg18ooP6Q5YMQMS97IQy87">
-            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector.vl">
+            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector and reproject.vl">
               <Choice Kind="ProcessNode" Name="Content" />
             </p:NodeReference>
             <Pin Id="HZJM0jiudCNNdXvnYSvxwn" Name="Model Transformation" Kind="InputPin" />
@@ -3433,7 +3494,7 @@
             <Pin Id="QNvJoYg3DrEPF947eBM7B6" Name="Model Material" Kind="InputPin" />
             <Pin Id="QUJjf8gDwYNNnsilwj8QUM" Name="Output" Kind="OutputPin" />
           </Node>
-          <Node Bounds="2371,158,42,19" Id="FBz1OgIEiedOKnXqpE7lZB">
+          <Node Bounds="2280,184,42,19" Id="FBz1OgIEiedOKnXqpE7lZB">
             <p:NodeReference LastCategoryFullName="3D.Matrix" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="Invert" />
@@ -3442,30 +3503,6 @@
             <Pin Id="NSyBQ1DZkSSNSH9wXmKnAl" Name="Input" Kind="StateInputPin" />
             <Pin Id="Il8yyPnrNqoPwTMiKT28qJ" Name="Output" Kind="StateOutputPin" />
           </Node>
-          <Node Bounds="2476,35,80,19" Id="OVVeKsJwkK3Pp8ltGD6pVY">
-            <p:NodeReference LastCategoryFullName="3D.Transform" LastSymbolSource="CoreLibBasics.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="OperationCallFlag" Name="TransformSRT" />
-              <CategoryReference Kind="Category" Name="Transform" NeedsToBeDirectParent="true">
-                <p:OuterCategoryReference Kind="Category" Name="3D" NeedsToBeDirectParent="true" />
-              </CategoryReference>
-            </p:NodeReference>
-            <Pin Id="F4oMMfInRrxQL2QUVuELfp" Name="Input" Kind="InputPin" />
-            <Pin Id="IbZR2hfzXLDN2flSBuIrpU" Name="Scaling" Kind="InputPin" />
-            <Pin Id="MSY3hwXDurTLCiNLxgWOih" Name="Rotation" Kind="InputPin" />
-            <Pin Id="Pg9cF551qfbNsjZlipdRKY" Name="Translation" Kind="InputPin" />
-            <Pin Id="KbG8Zqg6qaqMB3f73BMAtl" Name="Output" Kind="OutputPin" />
-          </Node>
-          <Pad Id="KSJST5q44QPO47TTtDsfhV" Comment="Translation" Bounds="2553,-15,35,43" ShowValueBox="true" isIOBox="true" Value="1.88, 1.65, 1.65">
-            <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="CoreLibBasics.vl">
-              <Choice Kind="TypeFlag" Name="Vector3" />
-            </p:TypeAnnotation>
-          </Pad>
-          <Pad Id="NJ7ccuvM6rkPGPIJDTOjYl" Comment="Rotation" Bounds="2529,-70,35,43" ShowValueBox="true" isIOBox="true" Value="-0.03, 0.13, 0">
-            <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="CoreLibBasics.vl">
-              <Choice Kind="TypeFlag" Name="Vector3" />
-            </p:TypeAnnotation>
-          </Pad>
           <Node Bounds="2230,865,225,19" Id="RbLThM9ZJooLXQR52FC4nS">
             <p:NodeReference LastCategoryFullName="Stride" LastSymbolSource="VL.Stride.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -3514,16 +3551,20 @@
             <Pin Id="GSvTBKQYfAFM4pwGOIn8L5" Name="Transformation" Kind="InputPin" />
             <Pin Id="IRoX39EoqxpQHglcKtATXD" Name="Components" Kind="InputPin" />
             <Pin Id="OGOQmfODeJ8MiOwWXLh92B" Name="Children" Kind="InputPin" />
-            <Pin Id="NbVtoGpE9p9LOgBDCrMszY" Name="Use Custom View Matrix" Kind="InputPin" />
+            <Pin Id="NbVtoGpE9p9LOgBDCrMszY" Name="Use Custom View Matrix" Kind="InputPin" DefaultValue="True">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Boolean" />
+              </p:TypeAnnotation>
+            </Pin>
             <Pin Id="AYMRHKsQ9IkO3GTUqRI524" Name="View Matrix" Kind="InputPin" />
             <Pin Id="BRxwbCUY1zcOGIP3kgmIbn" Name="Projection" Kind="InputPin" />
             <Pin Id="A3quvxL3uMTQYy6lVlDkAm" Name="Vertical Field Of View" Kind="InputPin" />
-            <Pin Id="Agf45EZINAFOV2gNpIy1lK" Name="Use Custom Aspect Ratio" Kind="InputPin" />
-            <Pin Id="GV45evyeC9pOUHRa1D606n" Name="Aspect Ratio" Kind="InputPin" DefaultValue="1.7">
+            <Pin Id="Agf45EZINAFOV2gNpIy1lK" Name="Use Custom Aspect Ratio" Kind="InputPin" DefaultValue="False">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                <Choice Kind="TypeFlag" Name="Float32" />
+                <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
             </Pin>
+            <Pin Id="GV45evyeC9pOUHRa1D606n" Name="Aspect Ratio" Kind="InputPin" />
             <Pin Id="VE2IhAiNxjULHj8c72WRH7" Name="Near Clip Plane" Kind="InputPin" />
             <Pin Id="MkgHaQkO44GPIIsWuTOMax" Name="Far Clip Plane" Kind="InputPin" />
             <Pin Id="DedrTiQSKK8OCMeNPRyFDl" Name="Use Custom Projection Matrix" Kind="InputPin" DefaultValue="True">
@@ -3532,7 +3573,7 @@
               </p:TypeAnnotation>
             </Pin>
             <Pin Id="JBovONVHkJTOpLIeyHsjiR" Name="Projection Matrix" Kind="InputPin" />
-            <Pin Id="LCwWQ1oP6YlNeXtD17UTWa" Name="Show Helper" Kind="InputPin" DefaultValue="False">
+            <Pin Id="LCwWQ1oP6YlNeXtD17UTWa" Name="Show Helper" Kind="InputPin" DefaultValue="True">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
@@ -3547,7 +3588,7 @@
           </Node>
           <Overlay Id="Ia8Ny2tiBqfLfK4XZdA0TV" Name="Part 2 - Reproject" Bounds="1783,-106,1059,1030" />
           <Node Bounds="2072,149,46,19" Id="AaxdCP0giu4NFuhSPCEqwF">
-            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector.vl">
+            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector and reproject.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Screen" />
             </p:NodeReference>
@@ -3555,7 +3596,7 @@
             <Pin Id="PNV5vdIYDDoMh0BQES5yW3" Name="Output" Kind="OutputPin" />
             <Pin Id="QNZFpl2V5GUQCITNXpppGH" Name="Model Material" Kind="OutputPin" />
           </Node>
-          <Pad Id="VIz6uqSSL66OmJqD0VAWJ2" Comment="File Path" Bounds="1983,666,128,15" ShowValueBox="true" isIOBox="true" Value="..\..\..\content\calibrations\ProjectorCalibration.xml">
+          <Pad Id="VIz6uqSSL66OmJqD0VAWJ2" Comment="File Path" Bounds="1983,636,128,15" ShowValueBox="true" isIOBox="true" Value="..\..\..\content\calibrations\ProjectorCalibration.xml">
             <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Path" />
             </p:TypeAnnotation>
@@ -3570,9 +3611,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <ControlPoint Id="NVif216pNJsLHL5Uo9YwK2" Bounds="2532,321" />
-          <ControlPoint Id="QdeDej9vtTJNaIyJ1RbCIX" Bounds="2506,324" />
-          <ControlPoint Id="OvpZjXz2t8tPRiOIcJE0S8" Bounds="2532,178" />
+          <ControlPoint Id="OvpZjXz2t8tPRiOIcJE0S8" Bounds="2539,178" />
           <Pad Id="VBjhGETc7z3L1OgppwAUMt" Comment="Title" Bounds="2242,265,47,15" ShowValueBox="true" isIOBox="true" Value="Content">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
@@ -3698,7 +3737,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="FvmgqESgBdgLXntPPAhsLm" Bounds="2634,-74,35,41" ShowValueBox="true" isIOBox="true" Value="1.">
+          <Pad Id="FvmgqESgBdgLXntPPAhsLm" Bounds="2631,-17,35,41" ShowValueBox="true" isIOBox="true" Value="1.">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -3707,7 +3746,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="EbFlI8eeKZjPGiMAwGS9Ul" Bounds="2678,-72,134,62" ShowValueBox="true" isIOBox="true" Value="Set the expectator's average position">
+          <Pad Id="EbFlI8eeKZjPGiMAwGS9Ul" Bounds="2675,-15,134,45" ShowValueBox="true" isIOBox="true" Value="Set the expectator's average position">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -3725,7 +3764,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="Vhip5PU9iKYQHNoTTvGS7J" Bounds="1945,219,113,66" ShowValueBox="true" isIOBox="true" Value="Add some 3D content to the virtua scene">
+          <Pad Id="Vhip5PU9iKYQHNoTTvGS7J" Bounds="1945,219,113,66" ShowValueBox="true" isIOBox="true" Value="Add some 3D content to the virtual scene">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -3734,7 +3773,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="UNrYoLZ7U8aLYo59bSqecZ" Bounds="2175,687,35,41" ShowValueBox="true" isIOBox="true" Value="4.">
+          <Pad Id="UNrYoLZ7U8aLYo59bSqecZ" Bounds="2175,657,35,41" ShowValueBox="true" isIOBox="true" Value="4.">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -3743,7 +3782,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="JZjIB1RU961ME6Wa214utn" Bounds="2212,684,155,59" ShowValueBox="true" isIOBox="true" Value="Read the calibrated view and projection from the previous step">
+          <Pad Id="JZjIB1RU961ME6Wa214utn" Bounds="2212,654,249,61" ShowValueBox="true" isIOBox="true" Value="Read the calibrated view and projection from the previous step to get the projector's position and rotation">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -3752,7 +3791,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="MXQBxW1Q0GyOm8OP9VYFty" Bounds="1911,480,35,41" ShowValueBox="true" isIOBox="true" Value="3.">
+          <Pad Id="MXQBxW1Q0GyOm8OP9VYFty" Bounds="1884,486,35,41" ShowValueBox="true" isIOBox="true" Value="3.">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -3761,7 +3800,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="EkWKv4xopZBQIxcElsClip" Bounds="1951,477,107,59" ShowValueBox="true" isIOBox="true" Value="Reproject the content onto the geometry">
+          <Pad Id="EkWKv4xopZBQIxcElsClip" Bounds="1924,483,116,100" ShowValueBox="true" isIOBox="true" Value="Reproject the content onto the geometry from the spectator's perspective">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -3780,17 +3819,8 @@
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="VZEuHHZTUhlMwdB0rlZ00k" Bounds="2209,492,409,77" ShowValueBox="true" isIOBox="true" Value="Still WIP, awaiting a change in VL.Stride's ProjectorLight node">
-            <p:TypeAnnotation>
-              <Choice Kind="TypeFlag" Name="String" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:fontsize p:Type="Int32">17</p:fontsize>
-              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
-            </p:ValueBoxSettings>
-          </Pad>
           <Node Bounds="1038,975,85,19" Id="KEy8g3NjNh2Mygnx3ggGhV">
-            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector.vl">
+            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector and reproject.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="PointID (2D)" />
             </p:NodeReference>
@@ -3816,7 +3846,7 @@
             </p:TypeAnnotation>
           </Pad>
           <Node Bounds="914,975,85,19" Id="A4uwn2UZBoiMafuC5QuowC">
-            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector.vl">
+            <p:NodeReference LastCategoryFullName="Main" LastSymbolSource="HowTo Calibrate a projector and reproject.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Point (2D)" />
             </p:NodeReference>
@@ -3884,6 +3914,56 @@
             </Pin>
             <Pin Id="Ullc8it8HzcOtasrQHOPYm" Name="Output" Kind="OutputPin" />
           </Node>
+          <Pad Id="KsDLozMkic4PgY9Y3pPsAq" Comment="Spectator Eye Position" Bounds="2481,-49,35,43" ShowValueBox="true" isIOBox="true" Value="1.37, 1.65, 1.95">
+            <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Vector3" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="An9pPsDEg90LGOnZzwJM5n" Comment="Spectator Target" Bounds="2500,11,35,43" ShowValueBox="true" isIOBox="true" Value="0, 0.6, 0">
+            <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Vector3" />
+            </p:TypeAnnotation>
+          </Pad>
+          <ControlPoint Id="F6NoFNCtjaeNyWys3dwX7T" Bounds="2537,351" />
+          <ControlPoint Id="Eo7pq94iOqRPa7A6jGcvYC" Bounds="2504,713" />
+          <ControlPoint Id="B5tmdgS5fRXOR0ZAABMhEt" Bounds="2174,102" />
+          <ControlPoint Id="NyxrcKTLVUHPbOXB48HpHD" Bounds="2194,159" />
+          <Pad Id="KEPHRwUV85rNfnsIRd51PJ" Bounds="2047,820,35,41" ShowValueBox="true" isIOBox="true" Value="5.">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">20</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="SL6BLTcbpozLqnwHZE7T8a" Bounds="2084,817,106,64" ShowValueBox="true" isIOBox="true" Value="Send the final texture out to the projector">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="NxrNcTnwx3aQJRTYxsRUhE" Bounds="2584,768,149,102" ShowValueBox="true" isIOBox="true" Value="(Optional)&#xD;&#xA;Visualize how the reprojected content looks from the spectator's perspective">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="NCA3QMX70ouOdqXvl5ofSp" Bounds="2365,274,135,44" ShowValueBox="true" isIOBox="true" Value="(Optional)&#xD;&#xA;Visualize Content">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
         </Canvas>
         <Patch Id="MlJDEAkmWSCNFrBbC1wcnK" Name="Create" />
         <Patch Id="FH0PMPoKAjCPHHW3NlP1Bj" Name="Update" />
@@ -3945,21 +4025,14 @@
         <Link Id="Puknw5woQHwOYZQEPiyzfv" Ids="Slveiegm3giP87KDj9JAmM,TMnq1TKN5RmMn9bw3c0fu6" />
         <Link Id="Qegm8S9rha4MDr2nBNqnKh" Ids="E6SBWakXueIMh8fOlVPfD8,ReFKaqlRtjRPR9cUngOKtS" />
         <Link Id="A6RqFzw9NEqN6ct1IfoQJv" Ids="MyKGDXXNk07PcRaejNOgPT,IQWALucbJJTMriF1LctC8f" />
-        <Link Id="Pt57OFp3e8UNHFnOKSBAKZ" Ids="R5aJPeWGq5iNIMPsbxHMqi,NVif216pNJsLHL5Uo9YwK2,S4qnoUQpLSDQHdePAT4RN4" />
         <Link Id="D3t5mSAoyc5NZqrmStsRIi" Ids="QUo8PP50TdlL4PymjdQhQJ,QXd8myuntn1NaUUWViOfRo" />
         <Link Id="QKoOiQxuwBkMk7XQwnuXLZ" Ids="JRmJbtQgmtoOmM3wl4a5mH,OnALtFJGYN7P12N28iwsaI,LC3iRC2foJMOsxbJwIHlj3" />
         <Link Id="Mom0vgwg4CmMWSRJtYKSoA" Ids="TazNE74ThLWOVO3arxhmGi,SqSgEgMF788OZPIHXUHioh" />
         <Link Id="Cx9IzPXUlQgNXcdZl6UOHg" Ids="N9NkWLjwBi0QE5mEQFCPsi,Ptc0RwTikiiNQErHlhTFCr" />
-        <Link Id="PiylvKRCE2hNWAOFesXxmX" Ids="ELXWGUIYJ3KOsFN9kPQATD,QdeDej9vtTJNaIyJ1RbCIX,MUdKxRiFFInOfr4cC9H2kc" />
         <Link Id="BNO3gvhTPk0OIEvxbCcRWp" Ids="R5aJPeWGq5iNIMPsbxHMqi,OvpZjXz2t8tPRiOIcJE0S8,SjzJNEwj1yuM0jtclyIWX5" />
         <Link Id="IWCK10AJYzbOPulo2yCRQY" Ids="QUJjf8gDwYNNnsilwj8QUM,EgGlVxBG8PwLc9na97er8F" />
         <Link Id="IoMeu7zPKZ2LEUgLa9eITX" Ids="Il8yyPnrNqoPwTMiKT28qJ,ANH2a1VvIahLooLTcbJyCk" />
-        <Link Id="Rkn6R2LtvLSNMFgYhmMMnq" Ids="ELXWGUIYJ3KOsFN9kPQATD,NSyBQ1DZkSSNSH9wXmKnAl" />
-        <Link Id="N5RRGLR3sr9QbksZH3xwXS" Ids="KbG8Zqg6qaqMB3f73BMAtl,KHuBuuk2T6cNzbatOVx9nj" />
-        <Link Id="Uz2uohxYS0xOozZwpN3RyZ" Ids="KSJST5q44QPO47TTtDsfhV,Pg9cF551qfbNsjZlipdRKY" />
-        <Link Id="SzELUyWudO4Lb7ZnhHRnAe" Ids="NJ7ccuvM6rkPGPIJDTOjYl,MSY3hwXDurTLCiNLxgWOih" />
         <Link Id="ME8Jku5PpHTNYvfkWSeuyD" Ids="U4zM8EAb3DML9Q8EaDUMs2,HDsoZHRIBlhP7RktrAI2to" />
-        <Link Id="PxVebYTn6XQP136MYrAALt" Ids="Il8yyPnrNqoPwTMiKT28qJ,AYMRHKsQ9IkO3GTUqRI524" />
         <Link Id="BqWDtyn70mqODwsmdPyR55" Ids="R5aJPeWGq5iNIMPsbxHMqi,JBovONVHkJTOpLIeyHsjiR" />
         <Link Id="QFikywtu53uNRv9CvKERPk" Ids="QmHoXbR0IqmOxLumttKRqT,IJgkjUTTHiaORugeAAR18Q" />
         <Link Id="EcqT1gxkzgSMI3TsVGqr6x" Ids="IFDLUkbps6mLO7F2YvZoNN,Cn5fH10i6SyPRjiaPeuaRw" />
@@ -3990,12 +4063,19 @@
         <Link Id="Q9564JLZqPuNPy3tlbR7Xk" Ids="Sv6KyxY3BZGLCtvpIsCcwL,GhJc8OORA4cLeyBXgI62rO" />
         <Link Id="IZbFSMDdQuhNYi30HBiSCH" Ids="HqBEiqn6DaNMs4wzYCvtZQ,DQbWBMAmXeSLonlZv1TtBe" />
         <Link Id="EbCGWzlPesxQAjaWjuNosV" Ids="HqBEiqn6DaNMs4wzYCvtZQ,B6g8dlnZy6sP8Dd2yXY00Z" />
+        <Link Id="CfHwqJjmvRMPDlXPj7iLVU" Ids="KsDLozMkic4PgY9Y3pPsAq,B5tmdgS5fRXOR0ZAABMhEt,QwhT0BoVFYvQDSnkGx243v" />
+        <Link Id="JR7CbfBGCzjL8iPMKl5BxN" Ids="An9pPsDEg90LGOnZzwJM5n,NyxrcKTLVUHPbOXB48HpHD,FPgk8CKJi4eNCbFdRKaWim" />
+        <Link Id="FNlIne8k01IMfF86Q69IW3" Ids="AkQrSgHbeVlNIpPO9NlSDG,NSyBQ1DZkSSNSH9wXmKnAl" />
+        <Link Id="JaIumtClb51MBs1hqNSzEz" Ids="KsDLozMkic4PgY9Y3pPsAq,Nqv3SJynuoRLOcHVQujf4o" />
+        <Link Id="QexKtOKKpHhNDeZ67LvuzE" Ids="An9pPsDEg90LGOnZzwJM5n,TRKWrcQLS17OkzGUD31w9g" />
+        <Link Id="BNjeAfOZ3ZrQYp0A1BoW7p" Ids="AkQrSgHbeVlNIpPO9NlSDG,Eo7pq94iOqRPa7A6jGcvYC,AYMRHKsQ9IkO3GTUqRI524" />
+        <Link Id="RWZk0rSADSnNSkQRxRD4rm" Ids="R5aJPeWGq5iNIMPsbxHMqi,F6NoFNCtjaeNyWys3dwX7T,MDCkGJiZkYtOePxxghTY9E" />
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="O4cakjMGDhTLmzD7Q9aWkK" Location="VL.Stride" Version="0.8.79-gd55713e492" />
-  <NugetDependency Id="QVX8J73UwogLed0cE5PoDh" Location="VL.Skia" Version="2020.3.0-0102-g094033fb54" />
+  <NugetDependency Id="O4cakjMGDhTLmzD7Q9aWkK" Location="VL.Stride" Version="0.8.117-gd593673e34" />
+  <NugetDependency Id="QVX8J73UwogLed0cE5PoDh" Location="VL.Skia" Version="2020.3.0-0120-gb094184330" />
   <PlatformDependency Id="SbNXdJ74gqRQUH6D4i7RnM" Location="../../../../../Program Files/vvvv/vvvv_gamma_2020.3.0-0043-g2cdd73bab2/lib/Stride.Rendering.dll" />
-  <NugetDependency Id="AsfDc6DZ74mONdjpNF7V5g" Location="VL.EditingFramework" Version="2020.3.0-0102-g094033fb54" />
+  <NugetDependency Id="AsfDc6DZ74mONdjpNF7V5g" Location="VL.EditingFramework" Version="2020.3.0-0120-gb094184330" />
   <NugetDependency Id="UdJwnxvKTPVQDCOhEpA1sF" Location="VL.OpenCV" Version="1.0.145" />
 </Document>
