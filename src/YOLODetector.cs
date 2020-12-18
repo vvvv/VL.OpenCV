@@ -47,7 +47,7 @@ namespace VL.OpenCV
                     {
                         //get classes probability
                         Point min, max;
-                        Cv2.MinMaxLoc(prob.Row[i].ColRange(prefix, prob.Cols), out min, out max);
+                        Cv2.MinMaxLoc(prob.Row(i).ColRange(prefix, prob.Cols), out min, out max);
                         var classes = max.X;
                         var probability = prob.At<float>(i, classes + prefix);
 

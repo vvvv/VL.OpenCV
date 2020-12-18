@@ -236,7 +236,8 @@ namespace VL.OpenCV
             rmatrix[2, 1] = transform.M23;
             rmatrix[2, 2] = transform.M33;
             double[] rvecArray = new double[3];
-            Cv2.Rodrigues(rmatrix, out rvecArray);
+            double[,] jacobian;
+            Cv2.Rodrigues(rmatrix, out rvecArray, out jacobian);
             rotationVector = new Mat(3, 1, OpenCvSharp.MatType.CV_64FC1, rvecArray);
 
             //tvec
