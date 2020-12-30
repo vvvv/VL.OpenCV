@@ -102,6 +102,13 @@ namespace VL.OpenCV
             }
         }
 
+        public static byte[] ToByteArray(Mat mat)
+        {
+            byte[] result;
+            mat.GetArray<byte>(out result);
+            return result;
+        }
+
         public static OpenCvSharp.MatType ToMatType(this PixelFormat format, string originalFormat)
         {
             switch (format)
