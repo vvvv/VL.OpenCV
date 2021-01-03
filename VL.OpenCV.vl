@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="Uus0TAjE4OuO6fa0f7MAkT" LanguageVersion="2020.3.0.117" Version="0.128">
+<Document xmlns:p="property" Id="Uus0TAjE4OuO6fa0f7MAkT" LanguageVersion="2020.3.0.129" Version="0.128">
   <Patch Id="C8nwPmC7mFvNATECRj2wt9">
     <Canvas Id="EatS5Y30OYxLELRQyBVMYE" DefaultCategory="OpenCV" CanvasType="FullCategory">
       <Canvas Id="N9r0bl4Ys0kMbfba5Gfahv" Name="Utils" Position="185,546" DefaultCategory="OpenCV.Utils">
@@ -5397,6 +5397,140 @@
             <Link Id="Rzn8KGq1DrdPfPSMGI9gdO" Ids="PEehYI4WO82Oa42rGRZgn5,Pe1vBF8T6QwOGnv2OZTl3p" />
             <Link Id="NXBXsbVMZsvLxnparL4NpS" Ids="VKlneARVGHWL8lmOL2KI3J,Jcpr3AkVYQwMfaSWzOlmBg" />
             <Link Id="Fmd8wdvgFYNO4L3z88tAmE" Ids="LWl1im3QChPM9GL5RmtO3S,VKlneARVGHWL8lmOL2KI3J" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ Centroid ************************
+
+-->
+        <Node Name="Centroid" Bounds="1270,457,232,410" Id="QeU5blUuWasM5TSR0xTmiS" Tags="contour,moments">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="builtin">
+            <Choice Kind="OperationDefinition" Name="Operation" />
+          </p:NodeReference>
+          <Patch Id="SmzPervlOfjNEVuI0X2xvq">
+            <ControlPoint Id="JZIhEegf8z3NxJhfsOJ27Y" Bounds="1286,475" />
+            <Pin Id="Gvp829WUfJDOK9O5KAOjum" Name="Input" Kind="InputPin" Bounds="1281,492" />
+            <Link Id="ArgdzaND6PFLykIAeG7W8V" Ids="Gvp829WUfJDOK9O5KAOjum,JZIhEegf8z3NxJhfsOJ27Y" IsHidden="true" />
+            <Node Bounds="1282,539,58,19" Id="FzzerL3ZrGaNQ2EdMWiTuj">
+              <p:NodeReference LastCategoryFullName="OpenCvSharp.Cv2" LastSymbolSource="OpenCvSharp.dll">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="Moments" />
+                <CategoryReference Kind="AssemblyCategory" Name="Cv2" NeedsToBeDirectParent="true" />
+                <PinReference Kind="InputPin" Name="Array">
+                  <p:DataTypeReference p:Type="TypeReference" LastCategoryFullName="System.Collections.Generic" LastSymbolSource="mscorlib.dll">
+                    <Choice Kind="TypeFlag" Name="IEnumerable`1" />
+                    <p:TypeArguments>
+                      <TypeReference LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
+                        <Choice Kind="TypeFlag" Name="Point2f" />
+                      </TypeReference>
+                    </p:TypeArguments>
+                  </p:DataTypeReference>
+                </PinReference>
+              </p:NodeReference>
+              <Pin Id="ReJAvNRaimnQSTXxO6jf1x" Name="Array" Kind="InputPin" />
+              <Pin Id="UZ3EIa3uwkTPFQuJ1Y6MXH" Name="Binary Image" Kind="InputPin" />
+              <Pin Id="Bk5X9plkCOQLa6XTHgKJLQ" Name="Result" Kind="OutputPin" />
+            </Node>
+            <Node Bounds="1282,586,49,26" Id="VLJ8IHbqhNfP5m15CJt05C">
+              <p:NodeReference LastCategoryFullName="OpenCvSharp.Moments" LastSymbolSource="OpenCvSharp.dll">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <CategoryReference Kind="AssemblyCategory" Name="Moments" />
+                <Choice Kind="OperationCallFlag" Name="M10" />
+              </p:NodeReference>
+              <Pin Id="MFJosgiFxW4ONnw8KZeiPD" Name="Input" Kind="StateInputPin" />
+              <Pin Id="RhGJIw5rOaJN172tCULPkB" Name="Output" Kind="StateOutputPin" />
+              <Pin Id="JwjCatifz3lM755rIgVCdd" Name="M10" Kind="OutputPin" />
+            </Node>
+            <Link Id="LVvDmcAtMECQZdkcm1HVc0" Ids="Bk5X9plkCOQLa6XTHgKJLQ,MFJosgiFxW4ONnw8KZeiPD" />
+            <Node Bounds="1282,641,49,26" Id="OAqVEROpEeBLaYE9xiTeaF">
+              <p:NodeReference LastCategoryFullName="OpenCvSharp.Moments" LastSymbolSource="OpenCvSharp.dll">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <CategoryReference Kind="AssemblyCategory" Name="Moments" />
+                <Choice Kind="OperationCallFlag" Name="M01" />
+              </p:NodeReference>
+              <Pin Id="BjPfkDvJIJ2ORqL9pQiKLb" Name="Input" Kind="StateInputPin" />
+              <Pin Id="IJNfO5rvY05Oken2V9Qh4D" Name="Output" Kind="StateOutputPin" />
+              <Pin Id="ISPYWvURbGQNp3tEUozwot" Name="M01" Kind="OutputPin" />
+            </Node>
+            <Link Id="CEakUfsGS7CM2BQ3i7Y6nI" Ids="RhGJIw5rOaJN172tCULPkB,BjPfkDvJIJ2ORqL9pQiKLb" />
+            <Node Bounds="1282,687,49,26" Id="VPWCTBAbDaoNPlI8xEWAba">
+              <p:NodeReference LastCategoryFullName="OpenCvSharp.Moments" LastSymbolSource="OpenCvSharp.dll">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <CategoryReference Kind="AssemblyCategory" Name="Moments" />
+                <Choice Kind="OperationCallFlag" Name="M00" />
+              </p:NodeReference>
+              <Pin Id="OcuiI1SoDQaOxmXPN36hhd" Name="Input" Kind="StateInputPin" />
+              <Pin Id="DVT0FTVmLhbMYVzDR8yoA4" Name="Output" Kind="StateOutputPin" />
+              <Pin Id="P926nze7rJIOUlaavAedys" Name="M00" Kind="OutputPin" />
+            </Node>
+            <Link Id="S5TKoSIJpTXN6v0SsYo415" Ids="IJNfO5rvY05Oken2V9Qh4D,OcuiI1SoDQaOxmXPN36hhd" />
+            <Node Bounds="1353,812,46,19" Id="Mzivnl6KWUkOrxE40u0HTl">
+              <p:NodeReference LastCategoryFullName="2D.Vector2" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <CategoryReference Kind="Vector2Type" Name="Vector2" />
+                <Choice Kind="OperationCallFlag" Name="Vector (Join)" />
+              </p:NodeReference>
+              <Pin Id="CnKH3u5KXNEMJibcAqiRTY" Name="X" Kind="InputPin" />
+              <Pin Id="UHJpDv3oSq8QVXVZSlpnfb" Name="Y" Kind="InputPin" />
+              <Pin Id="EweMNexFjBZMyDiAlLvN43" Name="Output" Kind="StateOutputPin" />
+            </Node>
+            <Node Bounds="1353,729,25,19" Id="DQITixtDj2TOqcMugLka22">
+              <p:NodeReference LastCategoryFullName="Math" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="/" />
+              </p:NodeReference>
+              <Pin Id="VqdDKHzMxGaM6l2RncIASq" Name="Input" Kind="InputPin" />
+              <Pin Id="CenHxnbieaINlS2ildlsKI" Name="Input 2" Kind="InputPin" />
+              <Pin Id="UrdMBkAUD6OM2OkZHcqqw5" Name="Output" Kind="OutputPin" />
+            </Node>
+            <Link Id="N2WssW78n4LNTUB5wNvZ0w" Ids="P926nze7rJIOUlaavAedys,CenHxnbieaINlS2ildlsKI" />
+            <Link Id="DhI0Kkot77AN8vTI3DjzN9" Ids="JwjCatifz3lM755rIgVCdd,VqdDKHzMxGaM6l2RncIASq" />
+            <Link Id="Rr1dRI1LFrZL1BZQzeCTSB" Ids="UrdMBkAUD6OM2OkZHcqqw5,FBie5XIyoR3ODdpZ8HGBEK" />
+            <Node Bounds="1353,769,62,19" Id="Tcu9WJo82cgPQIaJCMHsz9">
+              <p:NodeReference LastCategoryFullName="System.Conversion" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="ToFloat32" />
+              </p:NodeReference>
+              <Pin Id="FBie5XIyoR3ODdpZ8HGBEK" Name="Input" Kind="InputPin" />
+              <Pin Id="MCbaCAqqm5OPYtR1LOpZ7F" Name="Result" Kind="OutputPin" />
+            </Node>
+            <Link Id="U8u1kDO0gedQPUnGpKDhSt" Ids="MCbaCAqqm5OPYtR1LOpZ7F,CnKH3u5KXNEMJibcAqiRTY" />
+            <Node Bounds="1428,728,25,19" Id="DDcKhn6HP2xL0Tm2ajD0ty">
+              <p:NodeReference LastCategoryFullName="Math" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="/" />
+              </p:NodeReference>
+              <Pin Id="K3cHs2C62BgMc6u2l8dS1j" Name="Input" Kind="InputPin" />
+              <Pin Id="QwvtsuVSe3DLaxzFYj3Bi7" Name="Input 2" Kind="InputPin" />
+              <Pin Id="Jn99iePp8BrOHaNhVGTKKM" Name="Output" Kind="OutputPin" />
+            </Node>
+            <Node Bounds="1428,768,62,19" Id="BV3wAknKq1sQKJ1PnnL7Mp">
+              <p:NodeReference LastCategoryFullName="System.Conversion" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="ToFloat32" />
+              </p:NodeReference>
+              <Pin Id="MeYEGZnFstDPJiZiX9Uc7H" Name="Input" Kind="InputPin" />
+              <Pin Id="BhfqssrZGofNDl5sjd5EG3" Name="Result" Kind="OutputPin" />
+            </Node>
+            <Link Id="C8v6BMpEj8HNzZrAoXeMmE" Ids="Jn99iePp8BrOHaNhVGTKKM,MeYEGZnFstDPJiZiX9Uc7H" />
+            <Link Id="V1UkZYHXioQLchiHNpsbVc" Ids="P926nze7rJIOUlaavAedys,QwvtsuVSe3DLaxzFYj3Bi7" />
+            <Link Id="VY2DRmta1WhQSqg7HmDq35" Ids="ISPYWvURbGQNp3tEUozwot,K3cHs2C62BgMc6u2l8dS1j" />
+            <Link Id="DanqPEgTLi4NeeJ4iwtPaJ" Ids="BhfqssrZGofNDl5sjd5EG3,UHJpDv3oSq8QVXVZSlpnfb" />
+            <ControlPoint Id="TMn9EcXVGBuNFuzFU2RRJz" Bounds="1355,850" />
+            <Link Id="S0BetQAKEZ2Pxyzn8erhVn" Ids="EweMNexFjBZMyDiAlLvN43,TMn9EcXVGBuNFuzFU2RRJz" />
+            <Pin Id="Ct8SqQgytCjNPRLy8Dljet" Name="Result" Kind="OutputPin" Bounds="1354,956" />
+            <Link Id="PPcIlfbUGoWN6NEOHEo7d8" Ids="TMn9EcXVGBuNFuzFU2RRJz,Ct8SqQgytCjNPRLy8Dljet" IsHidden="true" />
+            <Node Bounds="1283,498,60,19" Id="R0tf0WH99tlPcctzQWoNK9">
+              <p:NodeReference LastCategoryFullName="OpenCV.Conversion" LastSymbolSource="VL.OpenCV.vl">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <Choice Kind="OperationCallFlag" Name="ToPoint2f (Spread)" />
+              </p:NodeReference>
+              <Pin Id="JNyglIQT29CM3DO2F6EMWB" Name="Input" Kind="InputPin" />
+              <Pin Id="E0xddtbBOeJMXzEsHo70Vg" Name="Output" Kind="OutputPin" />
+            </Node>
+            <Link Id="UYFeuloqdkKOyBXHbK4Gcy" Ids="JZIhEegf8z3NxJhfsOJ27Y,JNyglIQT29CM3DO2F6EMWB" />
+            <Link Id="PNYg5Rpquh0L706CqRgldU" Ids="E0xddtbBOeJMXzEsHo70Vg,ReJAvNRaimnQSTXxO6jf1x" />
           </Patch>
         </Node>
       </Canvas>
@@ -36150,7 +36284,7 @@
                 <Patch Id="Qdk5E2yXYoMOK7fKCUOwMJ" ManuallySortedPins="true">
                   <Patch Id="UAM7yghVbvWOi7Y3BWRvrz" Name="Create" ManuallySortedPins="true" />
                   <Patch Id="S1PC5bQusEvMIuA9QAih01" Name="Then" ManuallySortedPins="true" />
-                  <Node Bounds="589,334,241,319" Id="Ku5UdzuSSsjN0ToJA1opTI">
+                  <Node Bounds="588,334,237,320" Id="Ku5UdzuSSsjN0ToJA1opTI">
                     <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
                       <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                       <Choice Kind="ProcessStatefulRegion" Name="Cache" />
@@ -36188,7 +36322,7 @@
                         <Pin Id="LxfgpQvohofOrbkyHicf2Z" Name="Contours" Kind="OutputPin" />
                         <Pin Id="HAipkhgXYVrOAAGV2DfekK" Name="Hierarchy" Kind="OutputPin" />
                       </Node>
-                      <Node Bounds="641,460,177,173" Id="DEZNmTS9PuIPVjJYnJmTL6">
+                      <Node Bounds="640,460,173,174" Id="DEZNmTS9PuIPVjJYnJmTL6">
                         <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
                           <Choice Kind="RegionFlag" Name="Region" Fixed="true" />
                           <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
@@ -44299,9 +44433,9 @@
   <PlatformDependency Id="M1N4SojOni0Osyx2gZ4x10" Location="./lib/net472/VL.OpenCV.dll" />
   <PlatformDependency Id="UrxLbPlbKmVP94Zx5YWsQo" Location="System" />
   <PlatformDependency Id="KKd4psddv1PM1JDnyYS5Lv" Location="System.Drawing" />
-  <NugetDependency Id="FdCsKtXFebcMEdaadN2Tyv" Location="VL.Lang" Version="2020.3.0-0117-g7ff15c23b7" />
+  <NugetDependency Id="FdCsKtXFebcMEdaadN2Tyv" Location="VL.Lang" Version="2020.3.0-0129-g9910d9a3ec" />
   <PlatformDependency Id="Ee0UUmfqOVWPSXM6OSY7rA" Location="System.Windows.Forms" />
   <NugetDependency Id="ADJDL5iVBfnO3Fh7QYjn9j" Location="OpenCvSharp4.runtime.win" Version="4.0.1.20190326" />
-  <NugetDependency Id="RhOWo82WyqnOWc3NKXTVr9" Location="VL.CoreLib" Version="2020.3.0-0117-g7ff15c23b7" />
-  <NugetDependency Id="TwpzOT0OmmELnR6LDENtVA" Location="VL.CoreLib.Windows" Version="2020.3.0-0117-g7ff15c23b7" />
+  <NugetDependency Id="RhOWo82WyqnOWc3NKXTVr9" Location="VL.CoreLib" Version="2020.3.0-0129-g9910d9a3ec" />
+  <NugetDependency Id="TwpzOT0OmmELnR6LDENtVA" Location="VL.CoreLib.Windows" Version="2020.3.0-0129-g9910d9a3ec" />
 </Document>
