@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="AEE6Cfg0i8wOlKpLCt1WJp" LanguageVersion="2020.1.0.53" Version="0.128">
+<Document xmlns:p="property" Id="AEE6Cfg0i8wOlKpLCt1WJp" LanguageVersion="2020.3.0.128" Version="0.128">
   <Patch Id="VOJ8Gg4KYVfOa20dp4sCNr">
     <Canvas Id="CRaRwQfSLh7P9Gm953CwLa" DefaultCategory="VVVV" CanvasType="FullCategory" />
     <!--
@@ -24,7 +24,6 @@
             <Pin Id="V5MJRbbcTHTMQSvXaHuJbo" Name="Height" Kind="InputPin" />
             <Pin Id="L0T2f5VszxOPN3uCl9Aa28" Name="FPS" Kind="InputPin" />
             <Pin Id="IduiQaDsRWYONvQvyITm7s" Name="FourCC" Kind="InputPin" />
-            <Pin Id="NPhJSPD7F83K9wgqavWdkh" Name="Show Properties" Kind="InputPin" />
             <Pin Id="BWfQxofr2vuNn2OgV48COB" Name="Enabled" Kind="InputPin" />
             <Pin Id="AlUfl7do5B9MDI2SkIsvfp" Name="Image" Kind="OutputPin" />
             <Pin Id="SxjAqm9BdmbMPwtPB2qeGG" Name="Supported Formats" Kind="OutputPin" />
@@ -35,7 +34,7 @@
               <Choice Kind="ProcessAppFlag" Name="Renderer" />
             </p:NodeReference>
             <Pin Id="LpRZMhNO4sDPe9F1LGpMhV" Name="Bounds" Kind="InputPin" DefaultValue="1183, 62, 505, 405">
-              <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
+              <p:TypeAnnotation LastCategoryFullName="System.Windows" LastSymbolSource="VL.CoreLib.Windows.vl">
                 <Choice Kind="TypeFlag" Name="Rectangle" />
               </p:TypeAnnotation>
             </Pin>
@@ -59,7 +58,7 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="OpenCV" />
               <CategoryReference Kind="Category" Name="Tracking" />
-              <Choice Kind="ProcessAppFlag" Name="Tracker (KCF)" />
+              <Choice Kind="ProcessAppFlag" Name="Tracker (CSRT)" />
             </p:NodeReference>
             <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
             <Pin Id="EbYe4rk4lOzOZkvJ1nOKqs" Name="Input" Kind="InputPin" />
@@ -79,28 +78,11 @@
             <Pin Id="NXW3obgNJWZPsKHUju3Ksu" Name="Color" Kind="InputPin" />
             <Pin Id="AiEKVTsdR25OTePCYREfBu" Name="Thickness" Kind="InputPin" />
             <Pin Id="F99GW6IM2xsLJ6XFSwHiaI" Name="Line Type" Kind="InputPin" />
-            <Pin Id="BOiUkRLXgMHM73IYRL5bLo" Name="Enabled" Kind="InputPin">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
-                <Choice Kind="TypeFlag" Name="Boolean" />
-              </p:TypeAnnotation>
-            </Pin>
+            <Pin Id="BOiUkRLXgMHM73IYRL5bLo" Name="Enabled" Kind="InputPin" />
             <Pin Id="QiOC7LwgsRXOk58cgIZZZB" Name="Output" Kind="OutputPin" />
           </Node>
           <Pad Id="GBdZ8oAxnTZMU5z2O7CfnY" Comment="Tracked" Bounds="279,330,40,19" ShowValueBox="true" isIOBox="true" />
-          <Node Bounds="481,240,65,19" Id="AB2qRIlCsAdLjywKg7PEM2">
-            <p:NodeReference LastCategoryFullName="OpenCV.Tracking" LastSymbolSource="VL.OpenCV.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="Tracker (Boosting)" />
-            </p:NodeReference>
-            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
-            <Pin Id="HAAzM5Ddn52NQf2nPnsZu9" Name="Input" Kind="InputPin" />
-            <Pin Id="LCbzZ9pwTb6MoRu9M76bzA" Name="ROI" Kind="InputPin" />
-            <Pin Id="Bna7Rma54S4L0B17VHAK1u" Name="Initialize" Kind="InputPin" />
-            <Pin Id="RKgbtBXmIFQOhMZImK0NV7" Name="Enabled" Kind="InputPin" />
-            <Pin Id="CK2SXcV61CzPDW77LI2Mtj" Name="Rectangle" Kind="OutputPin" />
-            <Pin Id="Hq0jTnR2Zp1MCkflxbwVpL" Name="Tracked" Kind="OutputPin" />
-          </Node>
-          <Node Bounds="481,281,65,19" Id="PmZRMZPvqoYL3HKIibsbae">
+          <Node Bounds="481,279,65,19" Id="PmZRMZPvqoYL3HKIibsbae">
             <p:NodeReference LastCategoryFullName="OpenCV.Tracking" LastSymbolSource="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Tracker (GOTURN)" />
@@ -113,20 +95,7 @@
             <Pin Id="Rnfc2dtUUUJPTOlTiccuAm" Name="Rectangle" Kind="OutputPin" />
             <Pin Id="OanMUIFld0VO1YbeWxGA5p" Name="Tracked" Kind="OutputPin" />
           </Node>
-          <Node Bounds="481,322,65,19" Id="HPdd95h5mPhLboA4Ncz4pD">
-            <p:NodeReference LastCategoryFullName="OpenCV.Tracking" LastSymbolSource="VL.OpenCV.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="Tracker (MedianFlow)" />
-            </p:NodeReference>
-            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
-            <Pin Id="KFiAaEehcIMM5nhLUxdU0l" Name="Input" Kind="InputPin" />
-            <Pin Id="AbKE29BF34YPRn9UQWp7bD" Name="ROI" Kind="InputPin" />
-            <Pin Id="Ve8ylyHJNxRLz6n5QnzsEA" Name="Initialize" Kind="InputPin" />
-            <Pin Id="IaxxcRKpArtPGbz8wItHEA" Name="Enabled" Kind="InputPin" />
-            <Pin Id="GQN4stVzibZOrqqadMwfoI" Name="Rectangle" Kind="OutputPin" />
-            <Pin Id="OgH2eUsb2SmQFHZpHNYz0B" Name="Tracked" Kind="OutputPin" />
-          </Node>
-          <Node Bounds="481,363,65,19" Id="B03mG7ZLeCAPhrB8QGHwGQ">
+          <Node Bounds="481,317,65,19" Id="B03mG7ZLeCAPhrB8QGHwGQ">
             <p:NodeReference LastCategoryFullName="OpenCV.Tracking" LastSymbolSource="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Tracker (MIL)" />
@@ -138,19 +107,6 @@
             <Pin Id="T6hsHUZP7EQODZ2Tx3AvQv" Name="Enabled" Kind="InputPin" />
             <Pin Id="IijcJBFJTHoOjtR7owEHkv" Name="Rectangle" Kind="OutputPin" />
             <Pin Id="UnqTZ8mDKv0Qcqv2jOvahs" Name="Tracked" Kind="OutputPin" />
-          </Node>
-          <Node Bounds="481,404,65,19" Id="S7SaVqRQYu0LUGW7IamY7K">
-            <p:NodeReference LastCategoryFullName="OpenCV.Tracking" LastSymbolSource="VL.OpenCV.vl">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessAppFlag" Name="Tracker (TLD)" />
-            </p:NodeReference>
-            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
-            <Pin Id="Qm5BKwlE0RuPv67cS9kjeJ" Name="Input" Kind="InputPin" />
-            <Pin Id="LDzqTo8JTXsL2yLjtgbvfH" Name="ROI" Kind="InputPin" />
-            <Pin Id="QhSKP1pGViyNBD5ExWp9ZT" Name="Initialize" Kind="InputPin" />
-            <Pin Id="N1msJZX7YJJOiMDdAV4CiV" Name="Enabled" Kind="InputPin" />
-            <Pin Id="Enjwk4NnbysLQEIBzrooNh" Name="Rectangle" Kind="OutputPin" />
-            <Pin Id="ScLZITmnanqLjgwhE4hnZ7" Name="Tracked" Kind="OutputPin" />
           </Node>
           <Pad Id="TMdMMGrshyVNHEFRX1fUJU" Comment="Initialize" Bounds="249,259,40,19" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
@@ -201,14 +157,10 @@
             </Pin>
             <Pin Id="CFLIjpLW0gbPubKpG8N5Mx" Name="Thickness" Kind="InputPin" />
             <Pin Id="GVCMQGxYUeeMm5JAWQR2RE" Name="Line Type" Kind="InputPin" />
-            <Pin Id="PRQsqSibkZfMj88pO07n85" Name="Enabled" Kind="InputPin">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
-                <Choice Kind="TypeFlag" Name="Boolean" />
-              </p:TypeAnnotation>
-            </Pin>
+            <Pin Id="PRQsqSibkZfMj88pO07n85" Name="Enabled" Kind="InputPin" />
             <Pin Id="PV1onQnWWF3LNM9U5L9q9n" Name="Output" Kind="OutputPin" />
           </Node>
-          <Pad Id="B6p6XifABHfQWqQ3DCf4cK" Bounds="550,246,86,22" ShowValueBox="true" isIOBox="true" Value="&lt; Boosting">
+          <Pad Id="DetcKJTnUGlNrFMERRJZVf" Bounds="550,284,90,22" ShowValueBox="true" isIOBox="true" Value="&lt; GOTURN">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -217,7 +169,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="DetcKJTnUGlNrFMERRJZVf" Bounds="550,287,90,22" ShowValueBox="true" isIOBox="true" Value="&lt; GOTURN">
+          <Pad Id="KU7NHC1HNADMRgEQt0tRp0" Bounds="550,323,58,22" ShowValueBox="true" isIOBox="true" Value="&lt; MIL">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -226,34 +178,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="MIUZ8a2lwxyNJwQVqGJYNs" Bounds="550,328,104,22" ShowValueBox="true" isIOBox="true" Value="&lt; MedianFlow">
-            <p:TypeAnnotation>
-              <Choice Kind="TypeFlag" Name="String" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:fontsize p:Type="Int32">9</p:fontsize>
-              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
-            </p:ValueBoxSettings>
-          </Pad>
-          <Pad Id="KU7NHC1HNADMRgEQt0tRp0" Bounds="550,369,58,22" ShowValueBox="true" isIOBox="true" Value="&lt; MIL">
-            <p:TypeAnnotation>
-              <Choice Kind="TypeFlag" Name="String" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:fontsize p:Type="Int32">9</p:fontsize>
-              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
-            </p:ValueBoxSettings>
-          </Pad>
-          <Pad Id="SEztxMC4DCmO6RrqvIPlhe" Bounds="550,410,58,22" ShowValueBox="true" isIOBox="true" Value="&lt; TLD">
-            <p:TypeAnnotation>
-              <Choice Kind="TypeFlag" Name="String" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:fontsize p:Type="Int32">9</p:fontsize>
-              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
-            </p:ValueBoxSettings>
-          </Pad>
-          <Pad Id="AZPPewPQSOzOXesUyHRdfc" Bounds="473,488,444,18" ShowValueBox="true" isIOBox="true" Value="https://www.learnopencv.com/object-tracking-using-opencv-cpp-python/">
+          <Pad Id="AZPPewPQSOzOXesUyHRdfc" Bounds="473,443,444,19" ShowValueBox="true" isIOBox="true" Value="https://www.learnopencv.com/object-tracking-using-opencv-cpp-python/">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -262,7 +187,29 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="BHNAwQ9ILnWM0oXslqY0Jv" Bounds="473,466,382,17" ShowValueBox="true" isIOBox="true" Value="To learn more about the differences between the trackers, see:">
+          <Pad Id="BHNAwQ9ILnWM0oXslqY0Jv" Bounds="473,421,382,19" ShowValueBox="true" isIOBox="true" Value="To learn more about the differences between the trackers, see:">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Node Bounds="481,241,65,19" Id="Qf4KZarMiKIORlTDqBMpAM">
+            <p:NodeReference LastCategoryFullName="OpenCV.Tracking" LastSymbolSource="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="Tracker (KCF)" />
+            </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
+            <Pin Id="HWZpIEUokTiMCHV9SsLTlv" Name="Input" Kind="InputPin" />
+            <Pin Id="LzFyvy0Y9NuQZsItxAfEEF" Name="ROI" Kind="InputPin" />
+            <Pin Id="DLEOJmp8SYBOHbZc8b8GxB" Name="Initialize" Kind="InputPin" />
+            <Pin Id="MejAHRwyMYyN7iRB4uq7Yw" Name="Enabled" Kind="InputPin" />
+            <Pin Id="GurYMFCBXzdLyPQRD8MDwC" Name="Rectangle" Kind="OutputPin" />
+            <Pin Id="TSiHjOrbvqLLt0kZh8DIBE" Name="Tracked" Kind="OutputPin" />
+          </Node>
+          <Pad Id="CdJRH2lsCT7PIon3tlJLjo" Bounds="550,245,90,22" ShowValueBox="true" isIOBox="true" Value="&lt; KCF">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -292,6 +239,6 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="Gw1gnQpkwNqNLQmokm4zvk" Location="VL.CoreLib" Version="2020.1.0" />
-  <NugetDependency Id="PyNNKzrTal4LZ7eSxV6Iah" Location="VL.OpenCV" Version="0.0.0.0" />
+  <NugetDependency Id="Gw1gnQpkwNqNLQmokm4zvk" Location="VL.CoreLib" Version="2020.3.0-0128-g397be8c5ee" />
+  <NugetDependency Id="PyNNKzrTal4LZ7eSxV6Iah" Location="VL.OpenCV" Version="1.0.0" />
 </Document>
