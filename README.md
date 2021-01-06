@@ -9,6 +9,10 @@ In order to use this library with vl you have to install the nuget that is avail
 
     nuget install VL.OpenCV
 
+For pre-release versions use this instead:
+
+	nuget install VL.OpenCV -pre
+
 Once the VL.OpenCV nuget is installed and referenced in your vl document you'll see the category "OpenCV" in the nodebrowser. From there explore the nodes in its main sub-categories:
 
 - Source (VideoIn, ImageReader,...)
