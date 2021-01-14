@@ -1,10 +1,10 @@
-name: push_nuget
+name: push_prerelease_nuget
 
 # on push on master
 on:
   push:
     branches:
-      - main
+      - dev
     paths-ignore:
       - README.md
 
@@ -25,7 +25,7 @@ jobs:
       uses: vvvv/PublishVLNuget@1.0.27-alpha
       with:
         csproj: src\VL.OpenCV.csproj
-        nuspec: deployment\main.VL.OpenCV.nuspec
+        nuspec: deployment\dev.VL.OpenCV.nuspec
         icon-src: https://raw.githubusercontent.com/vvvv/PublicContent/master/nugeticon.png
         icon-dst: ./deployment/nugeticon.png
         nuget-key: ${{ secrets.NUGET_KEY }}
