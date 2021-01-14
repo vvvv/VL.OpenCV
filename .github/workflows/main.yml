@@ -4,7 +4,7 @@ name: push_nuget
 on:
   push:
     branches:
-      - master
+      - main
     paths-ignore:
       - README.md
 
@@ -25,7 +25,37 @@ jobs:
       uses: vvvv/PublishVLNuget@1.0.27-alpha
       with:
         csproj: src\VL.OpenCV.csproj
-        nuspec: deployment\VL.OpenCV.nuspec
+        nuspec: deployment\main.VL.OpenCV.nuspec
+        icon-src: https://raw.githubusercontent.com/vvvv/PublicContent/master/nugeticon.png
+        icon-dst: ./deployment/nugeticon.png
+        nuget-key: ${{ secrets.NUGET_KEY }}
+
+# on push on master
+on:
+  push:
+    branches:
+      - dev
+    paths-ignore:
+      - README.md
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Git Checkout
+      uses: actions/checkout@master
+    
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Setup Nuget.exe
+      uses: nuget/setup-nuget@v1
+      
+    - name: Publish VL Nuget
+      uses: vvvv/PublishVLNuget@1.0.27-alpha
+      with:
+        csproj: src\VL.OpenCV.csproj
+        nuspec: deployment\dev.VL.OpenCV.nuspec
         icon-src: https://raw.githubusercontent.com/vvvv/PublicContent/master/nugeticon.png
         icon-dst: ./deployment/nugeticon.png
         nuget-key: ${{ secrets.NUGET_KEY }}
