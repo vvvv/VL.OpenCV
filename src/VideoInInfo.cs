@@ -20,14 +20,21 @@ namespace VL.OpenCV
 
         public static string GetSupportedFormats(int deviceIndex)
         {
-            return String.Join(Environment.NewLine, EnumerateSupportedFormats(deviceIndex)
-                .OrderByDescending(x => x.w)
-                .ThenByDescending(x => x.h)
-                .ThenByDescending(x => x.fr)
-                .ThenByDescending(x => x.format)
-                .Select(x => $"{x.format} {x.w}x{x.h} @ {x.fr:F2}")
-                .Distinct()
-                .ToArray());
+            try
+            {
+                return String.Join(Environment.NewLine, EnumerateSupportedFormats(deviceIndex)
+                    .OrderByDescending(x => x.w)
+                    .ThenByDescending(x => x.h)
+                    .ThenByDescending(x => x.fr)
+                    .ThenByDescending(x => x.format)
+                    .Select(x => $"{x.format} {x.w}x{x.h} @ {x.fr:F2}")
+                    .Distinct()
+                    .ToArray());
+            }
+            catch (Exception e)
+            {
+                return "Error: Your device does not allow listing of supported formats.";
+            }
         }
 
         static IEnumerable<Format> EnumerateSupportedFormats(int deviceIndex)
