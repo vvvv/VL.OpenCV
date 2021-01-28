@@ -31,7 +31,7 @@ namespace VL.OpenCV
                     .Distinct()
                     .ToArray());
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return "Error: Your device does not allow listing of supported formats.";
             }

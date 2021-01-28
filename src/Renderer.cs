@@ -57,9 +57,13 @@ namespace VL.OpenCV
                     aspectRatio = (double)image.Cols / (double)image.Rows;
                     if (image != null)
                     {
-                        if (image.Width + image.Height + image.Channels + image.Mat.Type().Value != imageID)
+                        if (image.Width + image.Height + image.Channels + image.InputArray.Type() != imageID)
                             HandleResize();
-                        RefreshIplImage(image?.Mat);
+                        using(Mat m = image.InputArray.GetMat())
+                        {
+                            RefreshIplImage(m);
+                        }
+                        
                     }
                     loaded = true;
                     AddText();
@@ -153,8 +157,11 @@ namespace VL.OpenCV
 
         private void Renderer_Load(object sender, EventArgs e)
         {
-            pictureBox.ImageIpl = Image?.Mat;
-            Controls.Add(pictureBox);
+            using (Mat m = image?.InputArray.GetMat())
+            {
+                pictureBox.ImageIpl = m;
+                Controls.Add(pictureBox);
+            }
         }
 
         public void Enable(bool enabled)

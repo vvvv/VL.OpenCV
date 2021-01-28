@@ -1,6 +1,7 @@
 ﻿using System;
 using VL.Lib.Reactive;
 using OpenCvSharp;
+using OpenCvSharp.Extensions;
 
 namespace VL.OpenCV
 {
@@ -22,8 +23,25 @@ namespace VL.OpenCV
         protected override void CopyTo(CvImage source, ref CvImage destination)
         {
             if (destination == null)
-                destination = new CvImage(new Mat());
-            source.Mat.CopyTo(destination.Mat);
+            {
+                if (source.InputArray.IsMat())
+                    destination = new CvImage(new Mat(1,1, OpenCvSharp.MatType.CV_8UC3, Scalar.Gray));
+                else if (source.InputArray.IsUMat())
+                    destination = new CvImage(new UMat(1, 1, OpenCvSharp.MatType.CV_8UC3, Scalar.Gray));
+            }
+                
+            if (source.InputArray.IsMat())
+            {
+                var copy = destination.InputArray.GetMat();
+                source.InputArray.CopyTo(copy);
+                destination = new CvImage(copy);
+            }
+            else if (source.InputArray.IsUMat())
+            {
+                var copy = destination.InputArray.GetUMat();
+                source.InputArray.CopyTo(copy);
+                destination = new CvImage(copy);
+            }
         }
     }
 }

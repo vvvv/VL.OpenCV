@@ -9,18 +9,18 @@ namespace VL.OpenCV
 {
     public static class Converters
     {
-        class MatImage : IImage
+        class InputArrayImage : IImage
         {
             public unsafe class Data : MemoryManager<byte>, IImageData
             {
                 readonly IntPtr FPointer;
                 readonly int FLength;
 
-                public Data(Mat mat)
+                public Data(InputArray inputArray)
                 {
-                    FPointer = mat.Data;
-                    FLength = (int)(mat.Total() * mat.ElemSize());
-                    ScanSize = (int)mat.Step();
+                    FPointer = inputArray.CvPtr;
+                    FLength = (int)(inputArray.Rows() * inputArray.Step());//TODO: double check if this works properly in all dimension variations
+                    ScanSize = (int)inputArray.Step(); 
                 }
 
                 public int ScanSize { get; }
@@ -47,35 +47,35 @@ namespace VL.OpenCV
                 }
             }
 
-            readonly Mat FMat;
+            readonly InputArray FInputArray;
             readonly PixelFormat FFormat;
             readonly bool FIsOwner;
 
-            public MatImage(Mat mat, PixelFormat format, bool isOwner)
+            public InputArrayImage(InputArray inputArray, PixelFormat format, bool isOwner)
             {
-                FMat = mat;
+                FInputArray = inputArray;
                 FFormat = format;
                 FIsOwner = isOwner;
             }
 
-            public ImageInfo Info => new ImageInfo(FMat.Width, FMat.Height, FFormat);
+            public ImageInfo Info => new ImageInfo(FInputArray.Cols(), FInputArray.Rows(), FFormat);
 
             public bool IsVolatile => !FIsOwner;
 
             public void Dispose()
             {
                 if (FIsOwner)
-                    FMat.Dispose();
+                    FInputArray.Dispose();
             }
 
-            public IImageData GetData() => new Data(FMat);
+            public IImageData GetData() => new Data(FInputArray);
         }
 
         public static IImage ToImage(this CvImage input, PixelFormat pixelFormat, bool takeOwnership)
         {
             if (input == CvImage.Damon)
                 takeOwnership = false;
-            return new MatImage(input.Mat, pixelFormat, takeOwnership);
+            return new InputArrayImage(input.InputArray, pixelFormat, takeOwnership);
         }
 
         public static Mat ToMat(this IImage input)
@@ -96,7 +96,7 @@ namespace VL.OpenCV
             var type = info.Format.ToMatType(info.OriginalFormat);
             dstMat.Create(info.Height, info.Width, type);
             using (var srcData = input.GetData())
-            using (var dstData = new MatImage.Data(dstMat))
+            using (var dstData = new InputArrayImage.Data(dstMat))
             {
                 ImageExtensions.CopyTo(srcData, dstData);
             }
@@ -210,7 +210,7 @@ namespace VL.OpenCV
         {
             Matrix result = Matrix.Identity;
             if ((rotationVector != null && translationVector != null)
-                && (CvImage.Damon.Mat != rotationVector && CvImage.Damon.Mat != rotationVector))
+                && (CvImage.Damon.InputArray != (InputArray)rotationVector && CvImage.Damon.InputArray != (InputArray)rotationVector)) //TODO: This check needs review with new inputArray approach
             {
                 Mat rotationMatrix = new Mat();
                 Cv2.Rodrigues(rotationVector, rotationMatrix);

@@ -22,15 +22,34 @@ namespace VL.OpenCV
             SpreadBuilder<int> detectedClassSB = Spread.CreateBuilder<int>();
             SpreadBuilder<float> classProbabilitySB = Spread.CreateBuilder<float>();
             SpreadBuilder<string> labelSB = Spread.CreateBuilder<string>();
+
+            double scaleFactor = 1 / 255.0;
+            Size size = new Size(544, 544);
+            Scalar mean = new Scalar();
+            bool swapRB = true;
+            bool crop = false;
             if (enabled && image != CvImage.Damon)
             {
+                if (net == null || net.IsDisposed)
+                    net = CvDnn.ReadNetFromDarknet(cfg, model);
+
                 var w = image.Width;
                 var h = image.Height;
                 //setting blob, parameter are important
-                var blob = CvDnn.BlobFromImage(image.Mat, 1 / 255.0, new Size(544, 544), new Scalar(), true, false);
-                if (net == null || net.IsDisposed)
-                    net = CvDnn.ReadNetFromDarknet(cfg, model);
-                net.SetInput(blob, "data");
+                if (image.InputArray.IsMat())
+                {
+                    var blob = new Mat();
+                    CvDnn.BlobFromImage(image.InputArray, blob, scaleFactor, size, mean, swapRB, crop);
+                    net.SetInput(blob, "data");
+                }
+                else if (image.InputArray.IsUMat())
+                {
+                    var blob = new UMat();
+                    CvDnn.BlobFromImage(image.InputArray, blob, scaleFactor, size, mean, swapRB, crop);
+                    net.SetInput(blob, "data");
+                }
+                
+                
 
                 //forward model
                 var prob = net.Forward();

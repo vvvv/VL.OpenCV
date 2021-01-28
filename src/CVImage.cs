@@ -1,59 +1,53 @@
 ﻿using OpenCvSharp;
 using System;
-using VL.Lib.Basics.Imaging;
 
 namespace VL.OpenCV
 {
     public class CvImage
     {
-        public static readonly CvImage Damon = new CvImage(new Mat(new int[] { 1, 1 }, OpenCvSharp.MatType.CV_8UC3, Scalar.Gray), true);
+        public static readonly CvImage Damon = new CvImage(new UMat(1, 1, OpenCvSharp.MatType.CV_8UC3, Scalar.Gray));
+        private static readonly CvImage Gray = new CvImage(new UMat(1, 1, OpenCvSharp.MatType.CV_8UC1, Scalar.Gray));
 
-        private readonly Mat _image;
-        private readonly bool _readOnly;
-        private static readonly CvImage Gray = new CvImage(new Mat(new int[] { 1, 1 }, OpenCvSharp.MatType.CV_8UC1, Scalar.Gray));
-
-        public CvImage(Mat mat)
-            : this(mat, false)
+        private readonly InputArray _inputArray;
+        public CvImage(InputArray inputArray)
         {
-        }
-
-        private CvImage(Mat mat, bool readOnly)
-        {
-            if (mat == null)
+            if (inputArray == null)
                 throw new ArgumentNullException("Mat cannot be null.");
-            _image = mat;
-            _readOnly = readOnly;
+            _inputArray = inputArray;
         }
 
-        public Mat Mat => _image;
+        public InputArray InputArray => _inputArray;
 
-        public int Width => _image.Width;
+        public int Width => _inputArray.Cols();
 
-        public int Height => _image.Height;
+        public int Height => _inputArray.Rows();
 
-        public int Rows => _image.Rows;
+        public int Rows => _inputArray.Rows();
 
-        public int Cols => _image.Cols;
+        public int Cols => _inputArray.Cols();
 
-        public int Channels => _image.Channels();
+        public int Channels => _inputArray.Channels();
 
-        public InputArray GetInputArray()
+        public CvImage Clone()
         {
-            return _image;
+            if (_inputArray.IsMat())
+            {
+                var copy = new Mat();
+                _inputArray.CopyTo(copy);
+                return new CvImage(copy);
+            }
+            else if (_inputArray.IsUMat())
+            {
+                var copy = new UMat();
+                _inputArray.CopyTo(copy);
+                return new CvImage(copy);
+            }
+            return null;
         }
 
-        public InputOutputArray GetInputOutputArray()
+        public void CopyTo(OutputArray outputArray)
         {
-            if (_readOnly)
-                throw new InvalidOperationException("Cannot generate InputOutputArray for readonly Mat.");
-            return _image;
-        }
-
-        public OutputArray GetOutputArray()
-        {
-            if (_readOnly)
-                throw new InvalidOperationException("Cannot generate OutputArray for readonly Mat.");
-            return _image;
+            _inputArray.CopyTo(outputArray);
         }
 
         public static CvImage EnforceGrayDefault(CvImage img) => img != Damon ? img : Gray;
