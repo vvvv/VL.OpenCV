@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="Gbpr4HOVNduLxkGvGBeUU4" LanguageVersion="2021.3.0.21" Version="0.128">
-  <NugetDependency Id="PwSulMgVFRBMS3d3qcrDw2" Location="VL.CoreLib" Version="2021.3.0-0021-g44253d2755" />
+<Document xmlns:p="property" Id="Gbpr4HOVNduLxkGvGBeUU4" LanguageVersion="2021.3.0.11" Version="0.128">
+  <NugetDependency Id="PwSulMgVFRBMS3d3qcrDw2" Location="VL.CoreLib" Version="2021.3.0-0011-g574fa9e203" />
   <Patch Id="MFCWG2oxrUOQOCBX2ICKsT">
     <Canvas Id="MogEs9YHgQ8M5iD54docQA" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -104,7 +104,7 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Renderer" />
             </p:NodeReference>
-            <Pin Id="Al9sTUmgwUKPSwpQbU65QH" Name="Bounds" Kind="InputPin" DefaultValue="1184, 61, 506, 406">
+            <Pin Id="Al9sTUmgwUKPSwpQbU65QH" Name="Bounds" Kind="InputPin" DefaultValue="1184, 61, 506, 314">
               <p:TypeAnnotation LastCategoryFullName="System.Windows" LastSymbolSource="VL.CoreLib.Windows.vl">
                 <Choice Kind="TypeFlag" Name="Rectangle" />
               </p:TypeAnnotation>
@@ -204,27 +204,19 @@
                 </p:NodeReference>
                 <Pin Id="RcSHjrJgJLOQAnM93zeJ1t" Name="File Name" Kind="InputPin" />
                 <Pin Id="FktIoLO8ZyrMBFksQlvVi4" Name="Flags" Kind="InputPin" />
-                <Pin Id="Oi3GMbwLsVzPAiSfQSZWLY" Name="Load" Kind="InputPin" />
+                <Pin Id="Oi3GMbwLsVzPAiSfQSZWLY" Name="Load" Kind="InputPin" DefaultValue="False">
+                  <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                    <Choice Kind="TypeFlag" Name="Boolean" />
+                  </p:TypeAnnotation>
+                </Pin>
                 <Pin Id="SjnZoiVhVSUPOiYyJUOhn3" Name="Output" Kind="OutputPin" />
               </Node>
             </Patch>
             <ControlPoint Id="OYKke0LAZuTPIR5jUGtyau" Bounds="593,370" Alignment="Top" />
             <ControlPoint Id="OfzFjxguaE4NPGKW27brr9" Bounds="593,439" Alignment="Bottom" />
+            <ControlPoint Id="VARFyNkSdTnPuUqP0Ei9QN" Bounds="664,440" Alignment="Bottom" />
+            <ControlPoint Id="QelQqDHwue5M88WPl48wNZ" Bounds="664,370" Alignment="Top" />
           </Node>
-          <Pad Id="Anl8yHoXM4jNMDLRhCU0Sf" Comment="" Bounds="593,302,35,49" ShowValueBox="true" isIOBox="true">
-            <p:TypeAnnotation LastCategoryFullName="Collections" LastSymbolSource="VL.Collections.vl">
-              <Choice Kind="TypeFlag" Name="Spread" />
-              <p:TypeArguments>
-                <TypeReference LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="TypeFlag" Name="Path" />
-                </TypeReference>
-              </p:TypeArguments>
-            </p:TypeAnnotation>
-            <p:Value>
-              <Item>C:\Users\seb\Documents\dev\vvvv\libraries\VL.OpenCV\content\assets\aruco_01.png</Item>
-              <Item>C:\Users\seb\Documents\dev\vvvv\libraries\VL.OpenCV\content\assets\aruco_05.png</Item>
-            </p:Value>
-          </Pad>
           <Pad Id="KD6sdDFCmvsLXnNHdb6kiJ" Comment="" Bounds="593,470,157,284" ShowValueBox="true" isIOBox="true">
             <p:Value />
           </Pad>
@@ -263,6 +255,26 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
+          <Pad Id="FeHiy2jCGeGMHJllh9ipyy" Comment="" Bounds="579,300,35,15" ShowValueBox="true" isIOBox="true" Value="..\..\..\content\assets\aruco_01.png">
+            <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Path" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="HkCoF0o0O7jMh6hwMWS0KQ" Comment="" Bounds="640,300,35,15" ShowValueBox="true" isIOBox="true" Value="..\..\..\content\assets\aruco_05.png">
+            <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Path" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Node Bounds="591,324,39,19" Id="M1MV9uTjCl0NEr1SspenPb">
+            <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Collections.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="Cons" />
+              <CategoryReference Kind="RecordType" Name="Spread" NeedsToBeDirectParent="true" />
+            </p:NodeReference>
+            <Pin Id="JVPpCW80BUNNC3axTM5pKK" Name="Input" Kind="InputPin" />
+            <Pin Id="RyxQlfLCFuKPb3gumYxhxx" Name="Input 2" Kind="InputPin" />
+            <Pin Id="MTmCAYfQEDQMmJvFb3XP4A" Name="Result" Kind="OutputPin" />
+          </Node>
         </Canvas>
         <Patch Id="IJ0HOFfmfPPLOkvZzmmQgI" Name="Create" />
         <Patch Id="IbP5b71zqIfLsvZYXhYKgc" Name="Update" />
@@ -279,11 +291,14 @@
         <Link Id="HjRNp59g61gPgbQcrBnuCG" Ids="OYARdSlZB2hPnz7axUQvRE,EI7SiNjS19pMbJLGKikC3W" />
         <Link Id="HIgguUBNHnMLBcb5QBMYmE" Ids="Erwf3ayJuTYMRgao7OqhO0,Fe4jnv3lV7GLrQ4RCQ76d3" />
         <Link Id="KSFvo25FKc2PqE7S6WE4c2" Ids="OYKke0LAZuTPIR5jUGtyau,RcSHjrJgJLOQAnM93zeJ1t" />
-        <Link Id="JLoUVG5szDVLxcfLkgSBwC" Ids="Anl8yHoXM4jNMDLRhCU0Sf,OYKke0LAZuTPIR5jUGtyau" />
         <Link Id="IVfdqC286t7O7DqjVUOMpP" Ids="SjnZoiVhVSUPOiYyJUOhn3,OfzFjxguaE4NPGKW27brr9" />
         <Link Id="ENTgveerOvjPGuBAmtddUT" Ids="OfzFjxguaE4NPGKW27brr9,KD6sdDFCmvsLXnNHdb6kiJ" />
         <Link Id="ARk0PoOTUpFPC1BGMsQ3WV" Ids="GvDkaMzq0OvLzKDFF3jcLE,SQuVRKHE0sCPm9Vjw8tP3z" />
         <Link Id="OsDyGk2czpQLceihpPRbJC" Ids="GvDkaMzq0OvLzKDFF3jcLE,BihIJ2YXAIONs0oj9xrjDa" />
+        <Link Id="A6I9f7qXi91NfhXT7hbzVy" Ids="QelQqDHwue5M88WPl48wNZ,VARFyNkSdTnPuUqP0Ei9QN" IsFeedback="true" />
+        <Link Id="GCL5z430kCsN47W17ej3aj" Ids="FeHiy2jCGeGMHJllh9ipyy,JVPpCW80BUNNC3axTM5pKK" />
+        <Link Id="UuOqYsENaWvNpEYMmwU0JE" Ids="HkCoF0o0O7jMh6hwMWS0KQ,RyxQlfLCFuKPb3gumYxhxx" />
+        <Link Id="Lc7a8d42RkcPu5AYrp46rt" Ids="MTmCAYfQEDQMmJvFb3XP4A,OYKke0LAZuTPIR5jUGtyau" />
       </Patch>
     </Node>
   </Patch>
