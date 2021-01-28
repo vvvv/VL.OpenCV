@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="Je4IbfZMERCP34kCIjiUgn" LanguageVersion="2021.3.0.31" Version="0.128">
-  <NugetDependency Id="GSZXe4oHP9APKcUIUgAhWc" Location="VL.CoreLib" Version="2021.3.0-0031-geaf1d21c5d" />
+<Document xmlns:p="property" Id="Je4IbfZMERCP34kCIjiUgn" LanguageVersion="2021.3.0.11" Version="0.128">
+  <NugetDependency Id="GSZXe4oHP9APKcUIUgAhWc" Location="VL.CoreLib" Version="2021.3.0-0011-g574fa9e203" />
   <Patch Id="MpoFMioDdZlPAtjxcIJhfC">
     <Canvas Id="FHmELHV0DwENZ9oK9l0odi" DefaultCategory="Main" CanvasType="FullCategory">
       <!--
@@ -1215,7 +1215,11 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="VideoIn" />
             </p:NodeReference>
-            <Pin Id="MtoEvHEp8B8MxwlRlT6HRL" Name="Video Input Device" Kind="InputPin" />
+            <Pin Id="MtoEvHEp8B8MxwlRlT6HRL" Name="Video Input Device" Kind="InputPin" DefaultValue="USB2.0 HD UVC WebCam">
+              <p:TypeAnnotation LastCategoryFullName="OpenCV.Source" LastSymbolSource="VL.OpenCV.vl">
+                <Choice Kind="TypeFlag" Name="VideoInputDevice" />
+              </p:TypeAnnotation>
+            </Pin>
             <Pin Id="BXDLwFjBva1OlP0N6LBmJE" Name="Width" Kind="InputPin" />
             <Pin Id="NJNhCcrqNl4No431NMS7RV" Name="Height" Kind="InputPin" />
             <Pin Id="KRMfjTYj5pnPszNCcoaVjf" Name="FPS" Kind="InputPin" />
@@ -1230,7 +1234,7 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Renderer" />
             </p:NodeReference>
-            <Pin Id="IAOTs05WcQeNFP6vwQqEYR" Name="Bounds" Kind="InputPin" DefaultValue="1027, 406, 800, 627">
+            <Pin Id="IAOTs05WcQeNFP6vwQqEYR" Name="Bounds" Kind="InputPin" DefaultValue="-2854, -244, 800, 627">
               <p:TypeAnnotation LastCategoryFullName="System.Windows" LastSymbolSource="VL.CoreLib.Windows.vl">
                 <Choice Kind="TypeFlag" Name="Rectangle" />
               </p:TypeAnnotation>
@@ -1259,7 +1263,7 @@
             <Pin Id="KptXZh3zy51MLZ2jxxF9Cq" Name="Board Size X" Kind="InputPin" />
             <Pin Id="CIxAo25UJ1aLJ6cCnstiOc" Name="Board Size Y" Kind="InputPin" />
             <Pin Id="Af9U3GC2P4ILvWkhW1digv" Name="Flags" Kind="InputPin" />
-            <Pin Id="OgT3ocjwcdcLobe2j7uyRi" Name="Enabled" Kind="InputPin" DefaultValue="False">
+            <Pin Id="OgT3ocjwcdcLobe2j7uyRi" Name="Enabled" Kind="InputPin" DefaultValue="True">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
@@ -1278,7 +1282,7 @@
             <Pin Id="NRvvwypSSLcMHhK1jgrlcP" Name="Board Size X" Kind="InputPin" />
             <Pin Id="AjAI7O0OXhgNEea2yV7N3B" Name="Board Size Y" Kind="InputPin" />
             <Pin Id="F4i1e9pG10iNmk97O20Ahh" Name="Pattern Was Found" Kind="InputPin" />
-            <Pin Id="BvZH3FCROovQJ8znEFSANz" Name="Enabled" Kind="InputPin" DefaultValue="False">
+            <Pin Id="BvZH3FCROovQJ8znEFSANz" Name="Enabled" Kind="InputPin" DefaultValue="True">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
@@ -1386,7 +1390,7 @@
             </Pin>
             <Pin Id="DKAjlJpkqnYQb1EmGYfz0l" Name="Output" Kind="OutputPin" />
           </Node>
-          <Pad Id="GRg9Sj84V7GQawtRnCGLoS" Bounds="452,587,391,61" ShowValueBox="true" isIOBox="true" Value="Read pre-baked Intrinsics from local file. To create your own file see: &quot;Calibrate a camera&quot; in the help browser's VL.OpenCV &quot;Calibration&quot; category, or bang the Open Patch IOBox below :&#xD;&#xA;">
+          <Pad Id="GRg9Sj84V7GQawtRnCGLoS" Bounds="452,587,391,61" ShowValueBox="true" isIOBox="true" Value="Read pre-baked Intrinsics from local file. To create your own file see: &quot;Calibrate a camera&quot; in the help browser's VL.OpenCV &quot;Calibration&quot; category, or bang the Open Patch IOBox at the top.&#xD;&#xA;">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -1497,7 +1501,7 @@
             <Pin Id="GmX9mVHJBXqPU7W7827SYH" Name="Camera Component" Kind="OutputPin" />
           </Node>
           <Node Bounds="135,1435,205,19" Id="J2kHoo6DZs3PoZwOwQpbIA">
-            <p:NodeReference LastCategoryFullName="Stride" LastSymbolSource="VL.Stride.Engine.vl">
+            <p:NodeReference LastCategoryFullName="Stride" LastSymbolSource="VL.Stride.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="SceneWindow" />
             </p:NodeReference>
@@ -1904,9 +1908,9 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="DPiFKqVXKkUO6j1P8r9ltd" Location="VL.Stride" Version="0.9.49-g80160751fb" />
+  <NugetDependency Id="DPiFKqVXKkUO6j1P8r9ltd" Location="VL.Stride" Version="0.9.25-g4f410ca43d" />
   <NugetDependency Id="VmWOoRSjqf1P5AvBeuXQmW" Location="VL.OpenCV" Version="0.0.0.0" />
-  <NugetDependency Id="T8GRxALUTRTMuImhyFuV24" Location="VL.Skia" Version="2021.3.0-0031-geaf1d21c5d" />
+  <NugetDependency Id="T8GRxALUTRTMuImhyFuV24" Location="VL.Skia" Version="2021.3.0-0011-g574fa9e203" />
   <PlatformDependency Id="Ah0nxy6a8dFPHc7iX4VnRz" Location="../../../../../Program Files/vvvv/vvvv_gamma_2020.3.0-0080-gc288cbe120/lib/Stride.Rendering.dll" />
-  <NugetDependency Id="KSvL8JtC2RqOIxyo98897f" Location="VL.Lang" Version="2021.3.0-0031-geaf1d21c5d" />
+  <NugetDependency Id="KSvL8JtC2RqOIxyo98897f" Location="VL.Lang" Version="2021.3.0-0011-g574fa9e203" />
 </Document>
