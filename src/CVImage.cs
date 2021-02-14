@@ -45,6 +45,21 @@ namespace VL.OpenCV
             return null;
         }
 
+        public void CopyTo(CvImage image)
+        {
+            OutputArray outputArray;
+            if (image.InputArray.IsMat())
+            {
+                outputArray = image.InputArray.GetMat();
+                CopyTo(outputArray);
+            }
+            else if (image.InputArray.IsUMat())
+            {
+                outputArray = image.InputArray.GetUMat();
+                CopyTo(outputArray);
+            }
+        }
+
         public void CopyTo(OutputArray outputArray)
         {
             _inputArray.CopyTo(outputArray);
