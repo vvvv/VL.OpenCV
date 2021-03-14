@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:p="property" Id="H91nUKoGS3kQQny1cQionH" LanguageVersion="2021.3.0.3" Version="0.128">
+  <NugetDependency Id="KZd3WfZ5wfjOh66IIGl1ov" Location="VL.CoreLib" Version="2021.3.0-0003-g2d0532f332" />
+  <Patch Id="NygcGUU1Ne4OU9xMUFUw7A">
+    <Canvas Id="LvfwhmPt3irONDBZxxOukw" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="Lp6cS7AsZIxLYmOlpQg1AN">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="FvZTfRGAwIYLl3nxe76j4P">
+        <Canvas Id="V6sVl7mn6w0Ot0yD2N9ZhG" CanvasType="Group">
+          <Pad Id="K3YshRuX1RSNq69NjL672K" Bounds="300,385,280,102" ShowValueBox="true" isIOBox="true" Value="An explanation patch about the drawing pipeline : drawing nodes must take a CVImage as input and pass it to the next node, which is different from the &quot;classic&quot; vvvv pipeline.">
+            <p:TypeAnnotation>
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+        </Canvas>
+        <Patch Id="JNDTPTQ54RwM7oG4qRKQ2r" Name="Create" />
+        <Patch Id="KUTf2ENWS7OMSb8cApLIgf" Name="Update" />
+        <!--
+
+    ************************  ************************
+
+-->
+        <ProcessDefinition Id="LPfyTK1eZMaPrDA4HJVX2w">
+          <Fragment Id="GqnMulBj1KqNyJzqeCXUho" Patch="JNDTPTQ54RwM7oG4qRKQ2r" Enabled="true" />
+          <Fragment Id="MjIsBWZ6bjfMFK1s2MOOfh" Patch="KUTf2ENWS7OMSb8cApLIgf" Enabled="true" />
+        </ProcessDefinition>
+      </Patch>
+    </Node>
+  </Patch>
+</Document>
