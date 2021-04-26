@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:p="property" Id="Pao2QFq2L9FQBBJYDOrv9F" LanguageVersion="2021.3.2.109" Version="0.128">
+  <NugetDependency Id="OB7UTIxc4SWQUCCuwzQSgO" Location="VL.CoreLib" Version="2021.3.2" />
+  <Patch Id="KPqIATyKBw4QQUgJgLwAHC">
+    <Canvas Id="Eb1Cjt5jWijOcEITzVtckz" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="SJU9Mw6jTQRN0u89hTpXmF">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="IRJHbI92nJkMCo0nwbA1pE">
+        <Canvas Id="RHOjSKkenjlMhYoEMffk4r" CanvasType="Group">
+          <Node Bounds="119,524,105,19" Id="BxQsT1LOh3UNzY4Ul0PNyD">
+            <p:NodeReference LastCategoryFullName="OpenCV.Detection" LastSymbolSource="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="FacemarkDetector" />
+            </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
+            <Pin Id="Im1YZMoVyo1MlYZODRGMmJ" Name="Input" Kind="InputPin" />
+            <Pin Id="VCGMP4metioMcNOuMrOSFa" Name="Model" Kind="InputPin" />
+            <Pin Id="HT5Hm18JJFOQbYyGNWmRcs" Name="Scale Factor" Kind="InputPin" />
+            <Pin Id="NVHYG88WsKbNAhCTOaBAdu" Name="Min Neighbors" Kind="InputPin" />
+            <Pin Id="QYEw1gWVbcWMlH4zNB6TCi" Name="Flags" Kind="InputPin" />
+            <Pin Id="Lj3fGjeHHDuLXtk4EeU4Tv" Name="Enabled" Kind="InputPin" DefaultValue="True">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Boolean" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="TqiKZr1XfBVMhjSaHInrzF" Name="Output" Kind="OutputPin" />
+            <Pin Id="FRRjekMvRZmNqaP1OeHfh6" Name="Rectangles" Kind="OutputPin" />
+          </Node>
+          <Pad Id="Df0QPCZGZ1zM0H7I001vhc" Comment="Model" Bounds="141,494,140,15" ShowValueBox="true" isIOBox="true" Value="..\..\..\..\..\..\..\..\Downloads\lbfmodel.yaml">
+            <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="Path" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Node Bounds="100,339,125,19" Id="QTvCMYYcG4EP7YsFM3CzeM">
+            <p:NodeReference LastCategoryFullName="OpenCV.Source" LastSymbolSource="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="VideoIn" />
+            </p:NodeReference>
+            <Pin Id="LI57Ytl2GwJLPH55oY8UY2" Name="Video Input Device" Kind="InputPin" />
+            <Pin Id="LRHrixNKzyFM2HC3Cm9Qff" Name="Width" Kind="InputPin" />
+            <Pin Id="V3xMlx9q80gMlX9qciUUun" Name="Height" Kind="InputPin" />
+            <Pin Id="RnhmChbZlvHPMjRrk2aSeA" Name="FPS" Kind="InputPin" />
+            <Pin Id="AP4UX3JYkxoLQWlWapNGNM" Name="FourCC" Kind="InputPin" />
+            <Pin Id="VfDu1jaE8xdLHBOoLmG92s" Name="Show Properties" Kind="InputPin" />
+            <Pin Id="Km0EGOLXbdXMq0WwkHnvFs" Name="Enabled" Kind="InputPin" />
+            <Pin Id="H7M92TUnOBiPtZaMv5DvZc" Name="Image" Kind="OutputPin" />
+            <Pin Id="ECwT3xxr8auLqX1uMEkLiR" Name="Supported Formats" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="99,660,125,19" Id="Vj2bxt1kqmbOxe35r6XGkt">
+            <p:NodeReference LastCategoryFullName="OpenCV.Drawing" LastSymbolSource="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="DrawCircles" />
+            </p:NodeReference>
+            <Pin Id="DoSYCOyzz2kQTZB4srV944" Name="Input" Kind="InputPin" />
+            <Pin Id="E5beK2RGF4ALmgBLAJc0uR" Name="Centers" Kind="InputPin" />
+            <Pin Id="QwydNEjrnGhM54THFiCPv3" Name="Radii" Kind="InputPin" DefaultValue="3">
+              <p:TypeAnnotation LastCategoryFullName="Collections" LastSymbolSource="VL.Collections.vl">
+                <Choice Kind="TypeFlag" Name="Spread" />
+                <p:TypeArguments>
+                  <TypeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                    <Choice Kind="TypeFlag" Name="Integer32" />
+                  </TypeReference>
+                </p:TypeArguments>
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="FWE7TN5D9JKLeqoYE69VBJ" Name="Color" Kind="InputPin" />
+            <Pin Id="PXwA2LRUBLGNIdIayIRdrO" Name="Thickness" Kind="InputPin" />
+            <Pin Id="LucnT4qTq29N4VPYc73sL7" Name="Line Type" Kind="InputPin" />
+            <Pin Id="UeO50Jj7KzQQQmXgEGYLgf" Name="Enabled" Kind="InputPin" />
+            <Pin Id="E0hABmCml69L1IIJNEHb1H" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="119,595,47,19" Id="OxJphlEminWO85ahLN5eM4">
+            <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Collections.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="Flatten" />
+              <CategoryReference Kind="RecordType" Name="Spread" NeedsToBeDirectParent="true" />
+            </p:NodeReference>
+            <Pin Id="K6QmHZJiir1LFAOfX2Gf7G" Name="Input" Kind="StateInputPin" />
+            <Pin Id="GtPuctM7IsxPZ9B7aUZLe9" Name="Output" Kind="StateOutputPin" />
+          </Node>
+          <Node Bounds="59,710,125,19" Id="F4urfSp5A3sPcdAO6LZKJs">
+            <p:NodeReference LastCategoryFullName="OpenCV.Sink" LastSymbolSource="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="Renderer" />
+            </p:NodeReference>
+            <Pin Id="R0JwN7sHPfgOyu0DZCqqKk" Name="Bounds" Kind="InputPin" DefaultValue="1050, 316, 512, 318">
+              <p:TypeAnnotation LastCategoryFullName="System.Windows" LastSymbolSource="VL.CoreLib.Windows.vl">
+                <Choice Kind="TypeFlag" Name="Rectangle" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="EZi0feIBHC0MDIPDjpMuiV" Name="Bound to Document" Kind="InputPin" DefaultValue="True">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                <Choice Kind="TypeFlag" Name="Boolean" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="Cy2LA3Yz9TzLL1RqN5eGwh" Name="Input" Kind="InputPin" />
+            <Pin Id="Ksh06gu4C4JLWa4ZmuvnA8" Name="Title" Kind="InputPin" />
+            <Pin Id="NMLrMYd6zUkMqulJJdDK2a" Name="Renderer Mode" Kind="InputPin" />
+            <Pin Id="KiJ7PYcRVWlMGQ2Y6SAh0j" Name="Show Info" Kind="InputPin" />
+            <Pin Id="LHzAc7LTiEUPi5NzHKtAmk" Name="Enabled" Kind="InputPin" />
+          </Node>
+          <Pad Id="KuUEPbaXpzCN7oMVt29AaA" Bounds="58,487,27,27" ShowValueBox="true" isIOBox="true" Value="1.">
+            <p:TypeAnnotation>
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">13</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="Cs5NgJQIxSKNu6m4vlIAzj" Bounds="366,360,27,27" ShowValueBox="true" isIOBox="true" Value="1.">
+            <p:TypeAnnotation>
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">13</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="GPBedLqwJ2NQakbOSwqDoY" Bounds="396,362,287,40" ShowValueBox="true" isIOBox="true" Value="For this one to work, you'll have to download the lbfmodel yaml file from this location :">
+            <p:TypeAnnotation>
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="QBlmtPpnoDxL4uAS3Nt9ba" Bounds="396,403,331,19" ShowValueBox="true" isIOBox="true" Value="https://raw.githubusercontent.com/kurnianggoro/GSOC2017/master/data/lbfmodel.yaml">
+            <p:TypeAnnotation>
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="SXybfb3UJvQO7FFase5E7z" Bounds="401,439,325,62" ShowValueBox="true" isIOBox="true" Value="Simply drop it somewhere and reference its path in the Model input pin. You should then be able to run the FacemarkDetector">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Node Bounds="119,397,60,19" Id="DcIVqI8rPfgObzQjdnLbOe">
+            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="GrayScale" />
+            </p:NodeReference>
+            <Pin Id="QbaBkNZS5OiNi5egTUjfwc" Name="Input" Kind="InputPin" />
+            <Pin Id="DImvyoR64VMPsYHC0DcDWp" Name="Source Format" Kind="InputPin" />
+            <Pin Id="O8HdQbknBQ8L9KWT7N66yB" Name="Apply" Kind="InputPin" />
+            <Pin Id="M5u337Yv1CJLoZBiwXJWSh" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Pad Id="K7zD7QmR5mcLKA46LGP2yB" Bounds="95,247,319,36" ShowValueBox="true" isIOBox="true" Value="FacemarkDetector allows to detect facial landmarks in a given image.">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+        </Canvas>
+        <Patch Id="Rh1WCZP62tOMAxuRWQRq1z" Name="Create" />
+        <Patch Id="FHLRZxerjfZN4ut43JobSt" Name="Update" />
+        <ProcessDefinition Id="V05CvtGF6hML4fkok6VXqW">
+          <Fragment Id="POWUT0CeMfeMxf4h2gJlt1" Patch="Rh1WCZP62tOMAxuRWQRq1z" Enabled="true" />
+          <Fragment Id="OYHaCgqDIdULMGIcJnLrB0" Patch="FHLRZxerjfZN4ut43JobSt" Enabled="true" />
+        </ProcessDefinition>
+        <Link Id="MI63Q99QawRLsZw0rzAAVI" Ids="Df0QPCZGZ1zM0H7I001vhc,VCGMP4metioMcNOuMrOSFa" />
+        <Link Id="GqhnQvmIfIeLSfBEtyabW3" Ids="TqiKZr1XfBVMhjSaHInrzF,K6QmHZJiir1LFAOfX2Gf7G" />
+        <Link Id="FmhPEXvY9fGOJRjSfIa4kO" Ids="GtPuctM7IsxPZ9B7aUZLe9,E5beK2RGF4ALmgBLAJc0uR" />
+        <Link Id="JpyXsKJwsmOMJgJ80hUeth" Ids="H7M92TUnOBiPtZaMv5DvZc,DoSYCOyzz2kQTZB4srV944" />
+        <Link Id="TPuQUkgmTr8QQD6PR3bPfg" Ids="E0hABmCml69L1IIJNEHb1H,Cy2LA3Yz9TzLL1RqN5eGwh" />
+        <Link Id="EjRoF0QoWKLPgp6tFo3VXf" Ids="H7M92TUnOBiPtZaMv5DvZc,QbaBkNZS5OiNi5egTUjfwc" />
+        <Link Id="STnws8Fv3MmNuCYxaVN6uT" Ids="M5u337Yv1CJLoZBiwXJWSh,Im1YZMoVyo1MlYZODRGMmJ" />
+      </Patch>
+    </Node>
+  </Patch>
+  <NugetDependency Id="SB7iRLLMIxSQJtUDuT6QRO" Location="VL.CoreLib" Version="2021.3.2" />
+  <NugetDependency Id="Oz3uJFB0Us7PDoBqDMqOat" Location="VL.OpenCV" Version="0.0.0.0" />
+</Document>
