@@ -1,6 +1,5 @@
 ﻿using OpenCvSharp;
 using OpenCvSharp.Dnn;
-using System.Linq;
 using VL.Lib.Collections;
 
 namespace VL.OpenCV

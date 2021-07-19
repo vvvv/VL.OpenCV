@@ -2,14 +2,13 @@
 using System.IO;
 using System.Reactive;
 using System.Reactive.Linq;
-using System.Reflection;
 
 namespace VL.OpenCV
 {
     public static class DirectoryChangedEvents
     {
         static readonly FileSystemWatcher fsw;
-        
+
         static readonly IObservable<EventPattern<FileSystemEventArgs>> FileCreatedObservable;
 
         static readonly IObservable<EventPattern<FileSystemEventArgs>> FileDeletedObservable;

@@ -173,7 +173,7 @@ namespace VL.OpenCV
                     if (Size.Width != 613 || Size.Height != 613)
                         ClientSize = new System.Drawing.Size(ClientSize.Width, (int)(ClientSize.Width / aspectRatio));
                     //if (rendererMode == RendererMode.SizeFromImage)
-                        //MaximumSize = MinimumSize = SizeFromClientSize(ClientSize);
+                    //MaximumSize = MinimumSize = SizeFromClientSize(ClientSize);
                 }
                 else
                 {

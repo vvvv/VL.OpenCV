@@ -1,9 +1,8 @@
 ﻿using OpenCvSharp;
 using Stride.Core.Mathematics;
 using System;
-using System.Runtime.CompilerServices;
-using VL.Lib.Basics.Imaging;
 using System.Buffers;
+using VL.Lib.Basics.Imaging;
 
 namespace VL.OpenCV
 {

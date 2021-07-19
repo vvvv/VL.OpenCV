@@ -1,5 +1,5 @@
-﻿using SharpDX.MediaFoundation;
-using DirectShowLib;
+﻿using DirectShowLib;
+using SharpDX.MediaFoundation;
 using SharpDX.Multimedia;
 using System;
 using System.Collections.Generic;

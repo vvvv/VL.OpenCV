@@ -1,6 +1,6 @@
-﻿using System;
+﻿using OpenCvSharp;
+using System;
 using VL.Lib.Reactive;
-using OpenCvSharp;
 
 namespace VL.OpenCV
 {

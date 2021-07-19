@@ -1,6 +1,5 @@
 ﻿using OpenCvSharp;
 using System;
-using VL.Lib.Basics.Imaging;
 
 namespace VL.OpenCV
 {

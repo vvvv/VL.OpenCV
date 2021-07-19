@@ -74,7 +74,7 @@ namespace VL.OpenCV
         {
             OpenCvSharp.MatType format = source.Type();
             var depth = format.Depth;
-            
+
             uint channelCount = (uint)source.Channels();
 
             if (channelCount == 0)
