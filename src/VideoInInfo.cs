@@ -31,7 +31,7 @@ namespace VL.OpenCV
                     .Distinct()
                     .ToArray());
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return "Error: Your device does not allow listing of supported formats.";
             }
@@ -43,7 +43,6 @@ namespace VL.OpenCV
             if (deviceIndex < devices.Length)
             {
                 var device = devices[deviceIndex];
-                var name = device.Get(CaptureDeviceAttributeKeys.FriendlyName);
                 var mediaSource = device.ActivateObject<MediaSource>();
                 mediaSource.CreatePresentationDescriptor(out PresentationDescriptor descriptor);
                 var streamDescriptor = descriptor.GetStreamDescriptorByIndex(0, out SharpDX.Mathematics.Interop.RawBool _);
@@ -84,7 +83,6 @@ namespace VL.OpenCV
             for (int i = 0; i < mediaFoundationActivates.Length; i++)
             {
                 var friendlyName = mediaFoundationActivates[i].Get(CaptureDeviceAttributeKeys.FriendlyName);
-                var finalName = friendlyName;
                 var suffix = ""; //used to handle multiple devices listed with the same name
                 var counter = 1;
                 for (int j = 0; j < capDevicesDS.Length; j++)
