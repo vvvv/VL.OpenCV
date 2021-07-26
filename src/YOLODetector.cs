@@ -28,7 +28,10 @@ namespace VL.OpenCV
                 //setting blob, parameter are important
                 var blob = CvDnn.BlobFromImage(image.Mat, 1 / 255.0, new Size(544, 544), new Scalar(), true, false);
                 if (net == null || net.IsDisposed)
+                {
                     net = CvDnn.ReadNetFromDarknet(cfg, model);
+                }
+
                 net.SetInput(blob, "data");
 
                 //forward model
@@ -69,13 +72,14 @@ namespace VL.OpenCV
                 }
             }
 
-            YOLODescriptor result = new YOLODescriptor();
-
-            result.confidence = confidenceSB.ToSpread();
-            result.detectedClass = detectedClassSB.ToSpread();
-            result.classProbability = classProbabilitySB.ToSpread();
-            result.classLabel = labelSB.ToSpread();
-            result.rectangles = rectSB.ToSpread<Rect>();
+            YOLODescriptor result = new YOLODescriptor
+            {
+                confidence = confidenceSB.ToSpread(),
+                detectedClass = detectedClassSB.ToSpread(),
+                classProbability = classProbabilitySB.ToSpread(),
+                classLabel = labelSB.ToSpread(),
+                rectangles = rectSB.ToSpread<Rect>()
+            };
 
             return result;
         }
