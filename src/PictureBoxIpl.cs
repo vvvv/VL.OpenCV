@@ -51,7 +51,7 @@ namespace OpenCvSharp.UserInterface
         [DefaultValue(null)]
         public Mat ImageIpl
         {
-            get { return imageIpl; }
+            get => imageIpl;
             set
             {
                 if (value != null && value.IsDisposed)

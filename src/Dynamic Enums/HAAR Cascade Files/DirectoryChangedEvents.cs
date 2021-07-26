@@ -25,8 +25,10 @@ namespace VL.OpenCV
             var haarcascadesDir = HAARCascadeResolver.ResolveHaarcascadesDirectory();
             if (haarcascadesDir != null)
             {
-                fsw = new FileSystemWatcher(haarcascadesDir);
-                fsw.EnableRaisingEvents = true;
+                fsw = new FileSystemWatcher(haarcascadesDir)
+                {
+                    EnableRaisingEvents = true
+                };
 
                 FileCreatedObservable = Observable.FromEventPattern<FileSystemEventArgs>(fsw, "Created");
                 FileCreatedObservable.Subscribe();

@@ -22,7 +22,10 @@ namespace VL.OpenCV
         protected override void CopyTo(CvImage source, ref CvImage destination)
         {
             if (destination == null)
+            {
                 destination = new CvImage(new Mat());
+            }
+
             source.Mat.CopyTo(destination.Mat);
         }
     }

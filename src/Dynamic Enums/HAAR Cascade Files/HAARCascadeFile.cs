@@ -12,6 +12,9 @@ namespace VL.OpenCV
         }
 
         //this method needs to be imported in VL to set the default
-        public static HAARCascadeFile CreateDefault() => CreateDefaultBase("No HAAR cascade files found");
+        public static HAARCascadeFile CreateDefault()
+        {
+            return CreateDefaultBase("No HAAR cascade files found");
+        }
     }
 }

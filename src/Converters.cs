@@ -64,16 +64,24 @@ namespace VL.OpenCV
             public void Dispose()
             {
                 if (FIsOwner)
+                {
                     FMat.Dispose();
+                }
             }
 
-            public IImageData GetData() => new Data(FMat);
+            public IImageData GetData()
+            {
+                return new Data(FMat);
+            }
         }
 
         public static IImage ToImage(this CvImage input, PixelFormat pixelFormat, bool takeOwnership)
         {
             if (input == CvImage.Damon)
+            {
                 takeOwnership = false;
+            }
+
             return new MatImage(input.Mat, pixelFormat, takeOwnership);
         }
 
@@ -128,7 +136,10 @@ namespace VL.OpenCV
                     return OpenCvSharp.MatType.CV_8UC4;
                 case PixelFormat.Unknown:
                     if (originalFormat.Equals("bgr", StringComparison.OrdinalIgnoreCase)) // HACK
+                    {
                         return OpenCvSharp.MatType.CV_8UC3;
+                    }
+
                     break;
             }
             throw new UnsupportedPixelFormatException(format);
@@ -147,9 +158,13 @@ namespace VL.OpenCV
             var code = sourceCode + "2" + targetCode;
             ColorConversionCodes result;
             if (Enum.TryParse(code, out result))
+            {
                 Cv2.CvtColor(input, output, result, channels);
+            }
             else
+            {
                 throw new Exception("Specified conversion code does not exist: " + code);
+            }
         }
 
         #region Transformation related code

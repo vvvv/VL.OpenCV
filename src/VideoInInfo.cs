@@ -119,7 +119,7 @@ namespace VL.OpenCV
         {
             var numerator = (int)(value >> 32);
             var denominator = (int)(value & 0x00000000FFFFFFFF);
-            return (float)(numerator * 100 / denominator) / 100f;
+            return numerator * 100 / denominator / 100f;
         }
 
         private static string GetVideoFormat(SharpDX.MediaFoundation.MediaType mediaType)
