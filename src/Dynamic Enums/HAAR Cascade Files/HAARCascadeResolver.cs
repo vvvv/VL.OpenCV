@@ -12,12 +12,16 @@ namespace VL.OpenCV
             {
                 var insidePackagesFolder = Path.Combine(thisDir, "..", "..", "content", "haarcascades");
                 if (Directory.Exists(insidePackagesFolder))
+                {
                     return insidePackagesFolder;
+                }
             }
             {
                 var insideBuildOutputFolder = Path.Combine(thisDir, "content", "haarcascades");
                 if (Directory.Exists(insideBuildOutputFolder))
+                {
                     return insideBuildOutputFolder;
+                }
             }
             return null;
         }

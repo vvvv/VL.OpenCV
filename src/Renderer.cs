@@ -47,18 +47,21 @@ namespace VL.OpenCV
 
         public CvImage Image
         {
-            get { return image; }
+            get => image;
             set
             {
                 if (enabled && value != image && value != null && (value.Width > 0 && value.Height > 0))
                 {
                     loaded = false;
                     image = value;
-                    aspectRatio = (double)image.Cols / (double)image.Rows;
+                    aspectRatio = image.Cols / (double)image.Rows;
                     if (image != null)
                     {
                         if (image.Width + image.Height + image.Channels + image.Mat.Type().Value != imageID)
+                        {
                             HandleResize();
+                        }
+
                         RefreshIplImage(image?.Mat);
                     }
                     loaded = true;
@@ -87,7 +90,7 @@ namespace VL.OpenCV
 
         public RendererMode RendererMode
         {
-            get { return rendererMode; }
+            get => rendererMode;
             set
             {
                 rendererMode = value;
@@ -171,9 +174,11 @@ namespace VL.OpenCV
                 {
                     pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     if (Size.Width != 613 || Size.Height != 613)
+                    {
                         ClientSize = new System.Drawing.Size(ClientSize.Width, (int)(ClientSize.Width / aspectRatio));
+                    }
                     //if (rendererMode == RendererMode.SizeFromImage)
-                        //MaximumSize = MinimumSize = SizeFromClientSize(ClientSize);
+                    //MaximumSize = MinimumSize = SizeFromClientSize(ClientSize);
                 }
                 else
                 {
@@ -236,7 +241,9 @@ namespace VL.OpenCV
             {
                 var boundsinPix = DIPHelpers.DIPToPixel(bounds);
                 if (boundsinPix != Bounds)
+                {
                     Bounds = boundsinPix;
+                }
             }
         }
 
@@ -245,7 +252,10 @@ namespace VL.OpenCV
             base.OnResize(e);
             BoundsChanged.OnNext(DIPHelpers.DIP(Bounds));
             if (loaded)
+            {
                 Text = "cw: " + ClientSize.Width + "   ch: " + ClientSize.Height;
+            }
+
             pictureBox.ClientSize = ClientSize;
         }
 

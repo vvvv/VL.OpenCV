@@ -12,6 +12,9 @@ namespace VL.OpenCV
         }
 
         //this method needs to be imported in VL to set the default
-        public static VideoInputDevice CreateDefault() => CreateDefaultBase("No video input device found");
+        public static VideoInputDevice CreateDefault()
+        {
+            return CreateDefaultBase("No video input device found");
+        }
     }
 }

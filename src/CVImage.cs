@@ -1,6 +1,5 @@
 ﻿using OpenCvSharp;
 using System;
-using VL.Lib.Basics.Imaging;
 
 namespace VL.OpenCV
 {
@@ -20,7 +19,10 @@ namespace VL.OpenCV
         private CvImage(Mat mat, bool readOnly)
         {
             if (mat == null)
+            {
                 throw new ArgumentNullException("Mat cannot be null.");
+            }
+
             _image = mat;
             _readOnly = readOnly;
         }
@@ -45,17 +47,26 @@ namespace VL.OpenCV
         public InputOutputArray GetInputOutputArray()
         {
             if (_readOnly)
+            {
                 throw new InvalidOperationException("Cannot generate InputOutputArray for readonly Mat.");
+            }
+
             return _image;
         }
 
         public OutputArray GetOutputArray()
         {
             if (_readOnly)
+            {
                 throw new InvalidOperationException("Cannot generate OutputArray for readonly Mat.");
+            }
+
             return _image;
         }
 
-        public static CvImage EnforceGrayDefault(CvImage img) => img != Damon ? img : Gray;
+        public static CvImage EnforceGrayDefault(CvImage img)
+        {
+            return img != Damon ? img : Gray;
+        }
     }
 }

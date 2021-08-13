@@ -1,8 +1,8 @@
-﻿using System;
+﻿using OpenCvSharp.Extensions;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using OpenCvSharp.Extensions;
 
 namespace OpenCvSharp.UserInterface
 {
@@ -51,7 +51,7 @@ namespace OpenCvSharp.UserInterface
         [DefaultValue(null)]
         public Mat ImageIpl
         {
-            get { return imageIpl; }
+            get => imageIpl;
             set
             {
                 if (value != null && value.IsDisposed)

@@ -74,7 +74,7 @@ namespace VL.OpenCV
         {
             OpenCvSharp.MatType format = source.Type();
             var depth = format.Depth;
-            
+
             uint channelCount = (uint)source.Channels();
 
             if (channelCount == 0)
@@ -96,7 +96,7 @@ namespace VL.OpenCV
                         byte* d = (byte*)source.Data.ToPointer();
                         for (uint channel = 0; channel < channelCount; channel++)
                         {
-                            output[(int)channel] = (float)d[(column + row * width) * channelCount + channel];
+                            output[(int)channel] = d[(column + row * width) * channelCount + channel];
                         }
                         break;
                     }
@@ -106,7 +106,7 @@ namespace VL.OpenCV
                         float* d = (float*)source.Data.ToPointer();
                         for (uint channel = 0; channel < channelCount; channel++)
                         {
-                            output[(int)channel] = (float)d[(column + row * width) * channelCount + channel];
+                            output[(int)channel] = d[(column + row * width) * channelCount + channel];
                         }
                         break;
                     }
