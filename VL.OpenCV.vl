@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="AwLbD6sm3YSNSEVWaY0WST" LanguageVersion="2021.4.0.235" Version="0.128">
+<Document xmlns:p="property" Id="AwLbD6sm3YSNSEVWaY0WST" LanguageVersion="2021.4.7.906" Version="0.128">
   <Patch Id="C8nwPmC7mFvNATECRj2wt9">
     <Canvas Id="EatS5Y30OYxLELRQyBVMYE" DefaultCategory="OpenCV" CanvasType="FullCategory">
       <Canvas Id="N9r0bl4Ys0kMbfba5Gfahv" Name="Utils" Position="185,546" DefaultCategory="OpenCV.Utils">
@@ -15299,7 +15299,7 @@
               <Patch Id="ESYP276dJshN8oGaLjrz3G" Name="Create" />
               <Patch Id="I7yB20hrEc7PEgqCzJWuV7" Name="Update">
                 <Pin Id="Lb5RTvrLj5yNJFuNaqs1yN" Name="Input" Kind="InputPin" Bounds="171,247" Summary="Input Mat: 8-bit unsigned, 16-bit unsigned ( CV_16UC... ), or single-precision floating-point." />
-                <Pin Id="DJ3n2mtbV81NeNMJbtR9fi" Name="MatType" Kind="InputPin" Bounds="609,303" DefaultValue="3" Summary="Number of channels in the output Mat. If the parameter is 0, the number of the channels is derived automatically from Input and Code." />
+                <Pin Id="DJ3n2mtbV81NeNMJbtR9fi" Name="MatType" Kind="InputPin" Bounds="609,303" Summary="Number of channels in the output Mat. If the parameter is 0, the number of the channels is derived automatically from Input and Code." />
                 <Pin Id="JjzBSwi0gFMMJUqZp72Rzs" Name="Output" Kind="OutputPin" Bounds="476,342" />
               </Patch>
               <ProcessDefinition Id="BmdgJUce9PhPmmNFiivPPJ">
@@ -16108,6 +16108,98 @@
               </Pin>
               <Pin Id="J8NbX8d8ng1NMzAnMv8NaK" Name="Output" Kind="OutputPin" Bounds="476,342" />
             </Patch>
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ Thinning ************************
+
+-->
+        <Node Name="Thinning" Bounds="332,388" Id="KfG4XN0OTY4NCyorH6xL8J" Summary="Applies a binary blob thinning operation, to achieve a skeletization of the input image." Remarks="Requires an 8bit binary image as input" Tags="skeletonize">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
+            <Choice Kind="ContainerDefinition" Name="Process" />
+          </p:NodeReference>
+          <Patch Id="QTiv52P8OpON0qM2TibGrJ">
+            <Canvas Id="QnqSjdrHTeYN52rI5BTQs8" CanvasType="Group">
+              <ControlPoint Id="AqToJTSByjQLGIAEa4zOc1" Bounds="592,271" />
+              <ControlPoint Id="LGqNikqOkhJN5YBxUzLUjO" Bounds="321,472" />
+              <ControlPoint Id="Pog6ED7OxwFLTVMC6yq16y" Bounds="324,274" />
+              <Node Bounds="250,302,356,158" Id="Qy5PpdYFUSjOPKSbX64I0u">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <Choice Kind="ProcessStatefulRegion" Name="Cache" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <Pin Id="Lrdliv9mReAPcazGro5roz" Name="Force" Kind="InputPin" />
+                <Pin Id="TpTQsms2UXcODnXsV2Yr86" Name="Dispose Cached Outputs" Kind="InputPin" />
+                <Pin Id="PI0pMQ0ckHhNSjxLwkt2bH" Name="Has Changed" Kind="OutputPin" />
+                <ControlPoint Id="LAvWNOrjWDYO6kznXPyTZE" Bounds="324,454" Alignment="Bottom" />
+                <ControlPoint Id="IFnXHYvVcFUPbN0J7TXJVW" Bounds="327,308" Alignment="Top" />
+                <ControlPoint Id="CmRj5Lj0kPoMuWntFWdIWy" Bounds="591,308" Alignment="Top" />
+                <Patch Id="IPtEo4RI38OOPKb0wBFHM4" ManuallySortedPins="true">
+                  <Patch Id="NaIPkypb2i3Qd2h3NBGZ29" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="Ix2ulNLm6dyNcv8R9xWQIQ" Name="Then" ManuallySortedPins="true" />
+                  <Node Bounds="323,340,191,81" Id="PSDR1py9LiFMpEN2l4D98A">
+                    <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
+                      <Choice Kind="RegionFlag" Name="Region (Stateless)" Fixed="true" />
+                      <Choice Kind="ProcessAppFlag" Name="Filter (1-&gt;1)" />
+                    </p:NodeReference>
+                    <Pin Id="NsZyTI4wn1SNPrq9JCg6En" Name="Apply" Kind="InputPin" />
+                    <Pin Id="TWIRgUrHFbqNTAheLIihdA" Name="Input" Kind="InputPin" />
+                    <Pin Id="OJhkSRS580JMqOMNMlw3XD" Name="Output" Kind="OutputPin" />
+                    <Patch Id="BxEOfh4xhNMMYruz0Deslk" Name="Operation" ManuallySortedPins="true">
+                      <Pin Id="CMqmgwJmOwLMQMJuIYJmbp" Name="Arg 1" Kind="InputPin" />
+                      <Pin Id="DVaNtAthz9qOy2ytRJRcw7" Name="Arg 2" Kind="InputPin" />
+                      <ControlPoint Id="Vzab6tZnLmqNGqWA2ijmqH" Bounds="337,348" />
+                      <ControlPoint Id="U2xdJmFmF6GPu3YFNKDhmY" Bounds="420,356" />
+                      <Node Bounds="335,382,167,19" Id="BCo9XXOIpjtLGUMYKOkCDj">
+                        <p:NodeReference LastCategoryFullName="OpenCvSharp.XImgProc.CvXImgProc" LastSymbolSource="OpenCvSharp.dll">
+                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                          <Choice Kind="OperationCallFlag" Name="Thinning" />
+                          <CategoryReference Kind="AssemblyCategory" Name="CvXImgProc" NeedsToBeDirectParent="true" />
+                        </p:NodeReference>
+                        <Pin Id="K9C9aYnVcQpLhBrKGPBT6M" Name="Src" Kind="InputPin" />
+                        <Pin Id="CCXDhmN0qrJMZFrxXg3soN" Name="Dst" Kind="InputPin" />
+                        <Pin Id="K0Mw0gnRDBcNKOP6kW44aB" Name="Thinning Type" Kind="InputPin" />
+                      </Node>
+                    </Patch>
+                  </Node>
+                </Patch>
+                <ControlPoint Id="TRvH3mPmrijMKz0cp16FB2" Bounds="497,308" Alignment="Top" />
+              </Node>
+              <ControlPoint Id="ICEW4Wig8IEQVVHSQlT3YI" Bounds="491,268" />
+            </Canvas>
+            <ProcessDefinition Id="NnocPHRGiEKNLm7xXZ2i4o">
+              <Fragment Id="E7TSisnGCYqNTzVAeH0mYo" Patch="DcR3SeQcLf2OFFZyuL6Kx1" Enabled="true" />
+              <Fragment Id="IQIr1y8d6MiOnkaCOtA6tV" Patch="LwG3wNul6gOL40G49bkFht" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="KFchQDX8r1bQRUw319Z4E1" Ids="Jkbbdk513iGN79pGKmvJvf,AqToJTSByjQLGIAEa4zOc1" IsHidden="true" />
+            <Link Id="S0Zpabn4IkjPQkl5a7jakB" Ids="LGqNikqOkhJN5YBxUzLUjO,B6FVMnjJObCNsWUKxgg2kg" IsHidden="true" />
+            <Link Id="U4E49PMbNHWNuN9BbRM9lp" Ids="NY3Xiq40Q7hLf2gZIWR1Pu,Pog6ED7OxwFLTVMC6yq16y" IsHidden="true" />
+            <Link Id="EerARyZMAllNIyJixqa0eb" Ids="CMqmgwJmOwLMQMJuIYJmbp,Vzab6tZnLmqNGqWA2ijmqH" IsHidden="true" />
+            <Link Id="JXNkec1CjrMLxzE27ue8aM" Ids="DVaNtAthz9qOy2ytRJRcw7,U2xdJmFmF6GPu3YFNKDhmY" IsHidden="true" />
+            <Link Id="VeiNaqNGOPPOuoFzaSbcIg" Ids="Vzab6tZnLmqNGqWA2ijmqH,K9C9aYnVcQpLhBrKGPBT6M" />
+            <Link Id="TqXVPY0Rao4NUu3sWC4xmT" Ids="U2xdJmFmF6GPu3YFNKDhmY,CCXDhmN0qrJMZFrxXg3soN" />
+            <Link Id="P1PWxFW3UoHMKecDelhgon" Ids="OJhkSRS580JMqOMNMlw3XD,LAvWNOrjWDYO6kznXPyTZE" />
+            <Link Id="O13lgBPRK7KOKFfOSlpe5B" Ids="LAvWNOrjWDYO6kznXPyTZE,LGqNikqOkhJN5YBxUzLUjO" />
+            <Link Id="DPn9DcIJ7SCQdlfjgB9UYE" Ids="Pog6ED7OxwFLTVMC6yq16y,IFnXHYvVcFUPbN0J7TXJVW" />
+            <Link Id="LJbG4RNPersOC1LsWOUQyO" Ids="IFnXHYvVcFUPbN0J7TXJVW,NsZyTI4wn1SNPrq9JCg6En" />
+            <Link Id="Ex3qaeMjvhoLuYYKgIY0kJ" Ids="AqToJTSByjQLGIAEa4zOc1,CmRj5Lj0kPoMuWntFWdIWy" />
+            <Link Id="RPMcLTldxPgLCqsdesgKxZ" Ids="CmRj5Lj0kPoMuWntFWdIWy,TWIRgUrHFbqNTAheLIihdA" />
+            <Patch Id="DcR3SeQcLf2OFFZyuL6Kx1" Name="Create" />
+            <Patch Id="LwG3wNul6gOL40G49bkFht" Name="Update" ManuallySortedPins="true">
+              <Pin Id="Jkbbdk513iGN79pGKmvJvf" Name="Input" Kind="InputPin" Bounds="171,247" Summary="Input Mat.. The number of channels can be arbitrary, but the depth should be one of CV_8U, CV_16U, CV_16S, CV_32F or CV_64F." />
+              <Pin Id="Fu4BhtNXJQPNWfWDFq0lUv" Name="Thinning Type" Kind="InputPin" Bounds="491,268" />
+              <Pin Id="NY3Xiq40Q7hLf2gZIWR1Pu" Name="Apply" Kind="InputPin" Bounds="136,367" DefaultValue="True">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Boolean" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="B6FVMnjJObCNsWUKxgg2kg" Name="Output" Kind="OutputPin" Bounds="476,342" />
+            </Patch>
+            <Link Id="U7IJeWkbSaLLjWjpcr9gWk" Ids="TRvH3mPmrijMKz0cp16FB2,K0Mw0gnRDBcNKOP6kW44aB" />
+            <Link Id="EY7JE6Q9FcWLxnk7F0e9Ad" Ids="ICEW4Wig8IEQVVHSQlT3YI,TRvH3mPmrijMKz0cp16FB2" />
+            <Link Id="VImCRzljmrqLuo9OMjLle6" Ids="Fu4BhtNXJQPNWfWDFq0lUv,ICEW4Wig8IEQVVHSQlT3YI" IsHidden="true" />
           </Patch>
         </Node>
       </Canvas>
@@ -19035,7 +19127,7 @@
               <Pin Id="EcshkDTCdvrOkN3PCcfsnI" Name="Filename" Kind="InputPin" Bounds="554,128" />
               <Pin Id="AjwTFltiDeZOR8p7mURxeB" Name="Reload" Kind="InputPin" Bounds="674,220" />
               <Pin Id="QKzDoFuK65cPSw3dj5Cshb" Name="Speed" Kind="InputPin" Bounds="328,513" />
-              <Pin Id="LTqfnzheA60Oy5SdV0osoE" Name="Loop" Kind="InputPin" Bounds="577,412" DefaultValue="False" />
+              <Pin Id="LTqfnzheA60Oy5SdV0osoE" Name="Loop" Kind="InputPin" Bounds="577,412" />
               <Pin Id="RaSkDWJxqGoN8zAM6HGdIP" Name="Seek" Kind="InputPin" Bounds="611,384" />
               <Pin Id="BntlpGr2NMnQIrYsc7pm6T" Name="Play" Kind="InputPin" Bounds="470,560" />
               <Pin Id="EibVi5qZykSPvPhvSrgvtk" Name="Image" Kind="OutputPin" Bounds="494,499" />
@@ -20701,8 +20793,8 @@
                     </Node>
                     <Node Bounds="195,92,109,68" Id="CZEoJWHRfzMN4Vx63N6uWZ">
                       <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                        <Choice Kind="ProcessAppFlag" Name="ManageProcess" />
                         <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                        <Choice Kind="ProcessStatefulRegion" Name="ManageProcess (1 Output)" />
                       </p:NodeReference>
                       <Pin Id="LDToteVbRtqLieSl1NXqq5" Name="Enabled" Kind="InputPin" />
                       <Pin Id="O3K7xb1dMmYNepC3HNxZfn" Name="Reset" Kind="InputPin" />
@@ -24105,8 +24197,8 @@
                 <Choice Kind="OperationCallFlag" Name="TryParse" />
               </p:NodeReference>
               <Pin Id="ETsvmIa7DGHMAXcczaJDEG" Name="String" Kind="InputPin" />
-              <Pin Id="FO1FU4r5XviPsu6gDxr0uj" Name="Success" Kind="OutputPin" />
               <Pin Id="GHyt3JwoahJNwtzQjIyzIy" Name="Value" Kind="OutputPin" />
+              <Pin Id="FO1FU4r5XviPsu6gDxr0uj" Name="Success" Kind="OutputPin" />
             </Node>
             <Pad Id="Hj9UNEpD52ZO2uQl97vmHk" Comment="" Bounds="872,342,20,19" ShowValueBox="true" isIOBox="true" Value="XZ">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
@@ -24133,8 +24225,8 @@
                 <Choice Kind="OperationCallFlag" Name="TryParse" />
               </p:NodeReference>
               <Pin Id="CteVaTrtZpJPAA6xe8T1In" Name="String" Kind="InputPin" />
-              <Pin Id="QGqmzfFzCLCMkuTDNdUQQO" Name="Success" Kind="OutputPin" />
               <Pin Id="Qt3K55hr3jePlYa47jzD9T" Name="Value" Kind="OutputPin" />
+              <Pin Id="QGqmzfFzCLCMkuTDNdUQQO" Name="Success" Kind="OutputPin" />
             </Node>
             <Pad Id="LxyDd7UsbXMNeWegm3zjxO" Comment="" Bounds="963,342,20,19" ShowValueBox="true" isIOBox="true" Value="ZY">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
@@ -24160,8 +24252,8 @@
                 <Choice Kind="OperationCallFlag" Name="TryParse" />
               </p:NodeReference>
               <Pin Id="Ll1nAaJKhBDNjcNA6kxBnj" Name="String" Kind="InputPin" />
-              <Pin Id="TqdKTJH6zBCNgbCF7njRDp" Name="Success" Kind="OutputPin" />
               <Pin Id="BikKci3L6StLDaU4O7Derw" Name="Value" Kind="OutputPin" />
+              <Pin Id="TqdKTJH6zBCNgbCF7njRDp" Name="Success" Kind="OutputPin" />
             </Node>
             <Pad Id="PW246gsnpjaOxR0n7i3pIR" Comment="" Bounds="791,342,20,19" ShowValueBox="true" isIOBox="true" Value="XY">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
@@ -37522,8 +37614,8 @@
               <ControlPoint Id="OH4uHCiO5VhNfA7BcF3dMT" Bounds="366,116" />
               <Node Bounds="135,214,416,278" Id="MkUzrB6f6KxPaQUnwXKanV">
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="ProcessAppFlag" Name="ManageProcess" />
                   <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <Choice Kind="ProcessStatefulRegion" Name="ManageProcess (1 Output)" />
                 </p:NodeReference>
                 <Pin Id="BuH5habZN4UNruJIkq2Clh" Name="Enabled" Kind="InputPin" DefaultValue="False">
                   <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
@@ -45171,10 +45263,10 @@
   <PlatformDependency Id="M1N4SojOni0Osyx2gZ4x10" Location="./lib/net472/VL.OpenCV.dll" />
   <PlatformDependency Id="UrxLbPlbKmVP94Zx5YWsQo" Location="System" />
   <PlatformDependency Id="KKd4psddv1PM1JDnyYS5Lv" Location="System.Drawing" />
-  <NugetDependency Id="FdCsKtXFebcMEdaadN2Tyv" Location="VL.Lang" Version="2021.4.0-0235-g444c2a15b2" />
+  <NugetDependency Id="FdCsKtXFebcMEdaadN2Tyv" Location="VL.Lang" Version="2021.4.7" />
   <PlatformDependency Id="Ee0UUmfqOVWPSXM6OSY7rA" Location="System.Windows.Forms" />
-  <NugetDependency Id="RhOWo82WyqnOWc3NKXTVr9" Location="VL.CoreLib" Version="2021.4.0-0235-g444c2a15b2" />
-  <NugetDependency Id="TwpzOT0OmmELnR6LDENtVA" Location="VL.CoreLib.Windows" Version="2021.4.0-0235-g444c2a15b2" />
+  <NugetDependency Id="RhOWo82WyqnOWc3NKXTVr9" Location="VL.CoreLib" Version="2021.4.7" />
+  <NugetDependency Id="TwpzOT0OmmELnR6LDENtVA" Location="VL.CoreLib.Windows" Version="2021.4.7" />
   <NugetDependency Id="F4rimzHBtAGLdwuyU70Lxy" Location="OpenCvSharp4.runtime.win" Version="4.5.3.20210725" />
   <NugetDependency Id="A13HOrTwDgsLxp65iajkZ3" Location="OpenCvSharp4" Version="4.5.3.20210725" />
 </Document>
