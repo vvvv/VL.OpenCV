@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="BEqXkdwjmtFLK8mVJKm6vJ" LanguageVersion="2020.3.0.128" Version="0.128">
-  <NugetDependency Id="Hi47E6sghb8OXxc2ZVjIa1" Location="VL.CoreLib" Version="2020.3.0-0128-g397be8c5ee" />
+<Document xmlns:p="property" Id="BEqXkdwjmtFLK8mVJKm6vJ" LanguageVersion="2021.4.7.903" Version="0.128">
+  <NugetDependency Id="Hi47E6sghb8OXxc2ZVjIa1" Location="VL.CoreLib" Version="2021.4.7" />
   <Patch Id="NMVXXwAy1kOL8xokqga7Al">
     <Canvas Id="HWXUcd075bWPC2fz9gftjk" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -35,6 +35,7 @@
             <Pin Id="NBBf4ijKkv3LOcX3kaCt1w" Name="Height" Kind="InputPin" />
             <Pin Id="ABfOApsuDtgP3G8Ey6XR8O" Name="FPS" Kind="InputPin" />
             <Pin Id="RAaayuGXIsbQC7KYjiNYoN" Name="FourCC" Kind="InputPin" />
+            <Pin Id="AmiRjp3pkB0PPeMy5rVHbz" Name="Show Properties" Kind="InputPin" />
             <Pin Id="RO81yHNgAiaOAcjPmFFoYG" Name="Enabled" Kind="InputPin" />
             <Pin Id="ApuxTYzsoz6LXnqdNbUgMA" Name="Image" Kind="OutputPin" />
             <Pin Id="QxleSj17qEWNHhGyfe4vMu" Name="Supported Formats" Kind="OutputPin" />
@@ -67,7 +68,7 @@
             <Pin Id="SAgb8TYjpM4MITGRgXbY7U" Name="Size" Kind="InputPin" />
             <Pin Id="IanZ026WBKvNdQFWhCWG6k" Name="Line Type" Kind="InputPin" />
             <Pin Id="Lgest3Qs0rSMLWG0tgV0hw" Name="Thickness" Kind="InputPin" DefaultValue="4">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.vl">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Integer32" />
               </p:TypeAnnotation>
             </Pin>
@@ -183,7 +184,7 @@
           <Node Bounds="979,645,122,19" Id="ACEZbusKlsVQE97eiuk8Xv">
             <p:NodeReference LastCategoryFullName="OpenCV.Transform" LastSymbolSource="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="OperationCallFlag" Name="ExtrinsicsToViewMatrix" />
+              <Choice Kind="OperationCallFlag" Name="ExtrinsicsToMatrix (CV to Stride)" />
             </p:NodeReference>
             <Pin Id="CZWhYKzS4znNjEJSW2IsJd" Name="Input" Kind="InputPin" />
             <Pin Id="IdCcRBetMjANqZH1RBncGb" Name="View" Kind="OutputPin" />
@@ -242,6 +243,7 @@
             <Pin Id="QeVZKse86cZNyZxSJCbb3w" Name="View Matrix" Kind="InputPin" />
             <Pin Id="RQgoAWmrW8kPPIlrDANMSy" Name="Projection" Kind="InputPin" />
             <Pin Id="QtTHaISYlurNaMpVXjTO1b" Name="Vertical Field Of View" Kind="InputPin" />
+            <Pin Id="M2DdTUNHZvnLi2aQ9LLJtN" Name="Orthographic Size" Kind="InputPin" />
             <Pin Id="SwpHBV4yNlQORaTHF0KcqX" Name="Use Custom Aspect Ratio" Kind="InputPin" DefaultValue="True">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Boolean" />
@@ -250,14 +252,9 @@
             <Pin Id="SOo0fYnL58LN2WOWNvGjZu" Name="Aspect Ratio" Kind="InputPin" />
             <Pin Id="JZKZAx99a8LQPCt5wsLj9y" Name="Near Clip Plane" Kind="InputPin" />
             <Pin Id="GnG66NXqSIJMTnq0YnZxRA" Name="Far Clip Plane" Kind="InputPin" />
-            <Pin Id="CyWPt7WYPMdMv3n9wnKY2N" Name="Use Custom Projection Matrix" Kind="InputPin" DefaultValue="True">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                <Choice Kind="TypeFlag" Name="Boolean" />
-              </p:TypeAnnotation>
-            </Pin>
-            <Pin Id="JxIGfTVzQcjPowxa2PpkRA" Name="Projection Matrix" Kind="InputPin" />
             <Pin Id="BB3ITWSBHEYLM6mHi2ANXC" Name="Show Helper" Kind="InputPin" />
             <Pin Id="BpI6OjAYGLpNnXPlUxitWM" Name="Enabled" Kind="InputPin" />
+            <Pin Id="JxIGfTVzQcjPowxa2PpkRA" Name="Projection Matrix" Kind="InputPin" />
             <Pin Id="SQd9z3l7rgENnmLjl2hl2h" Name="Output" Kind="OutputPin" />
             <Pin Id="PqBeiCn3dHsOntUriEL4Op" Name="Camera Component" Kind="OutputPin" />
           </Node>
@@ -273,11 +270,11 @@
             <Pin Id="Km054yHv1NWLwb0gKKnrYq" Name="Output" Kind="OutputPin" />
           </Node>
           <Node Bounds="474,1278,205,19" Id="VKQ47YQsLfyNbDQSY7l5pW">
-            <p:NodeReference LastCategoryFullName="Stride" LastSymbolSource="VL.Stride.vl">
+            <p:NodeReference LastCategoryFullName="Stride" LastSymbolSource="VL.Stride.Engine.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="SceneWindow" />
             </p:NodeReference>
-            <Pin Id="Vwju6cjlENPNqwPZqAjg5q" Name="Bounds" Kind="InputPin" />
+            <Pin Id="Vwju6cjlENPNqwPZqAjg5q" Name="Bounds" Kind="InputPin" DefaultValue="1000, 40, 786, 622.5" />
             <Pin Id="CmY5GDEawe2PLXqxHq94q9" Name="Input" Kind="InputPin" />
             <Pin Id="Fg1M7VgLoLyQOOANUUDIfN" Name="Camera" Kind="InputPin" />
             <Pin Id="J9OxoOWInDWNUHyN3GjIJJ" Name="Enable Default Camera" Kind="InputPin" />
@@ -353,7 +350,7 @@
             <Pin Id="LyWbz09OPkvNMW3urDhq7y" Name="Output" Kind="OutputPin" />
             <Pin Id="UNff8qDBN8fPofOr7f0C4w" Name="Changed" Kind="OutputPin" />
           </Node>
-          <Pad Id="PWwHKQu7zzVNKVWJVn9Xdb" Comment="Marker Length" Bounds="1054,399,35,15" ShowValueBox="true" isIOBox="true" Value="0.09999999">
+          <Pad Id="PWwHKQu7zzVNKVWJVn9Xdb" Comment="Marker Length" Bounds="1054,399,35,15" ShowValueBox="true" isIOBox="true" Value="0.1">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
@@ -456,7 +453,7 @@
             <Pin Id="B0bITZDbKAnNaY91jcJqH2" Name="Translation" Kind="InputPin" />
             <Pin Id="NaDEoZzKalrMBDKLMhT8A7" Name="Output" Kind="OutputPin" />
           </Node>
-          <Pad Id="F9UoN6RHukCOoj6BUtHMnd" Comment="Translation" Bounds="1033,790,35,43" ShowValueBox="true" isIOBox="true" Value="0, 0, -0.25">
+          <Pad Id="F9UoN6RHukCOoj6BUtHMnd" Comment="Translation" Bounds="1033,790,35,43" ShowValueBox="true" isIOBox="true" Value="0, 0, 0.4">
             <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Vector3" />
             </p:TypeAnnotation>
@@ -521,7 +518,7 @@
               <Choice Kind="ProcessAppFlag" Name="Renderer" />
               <CategoryReference Kind="Category" Name="Sink" NeedsToBeDirectParent="true" />
             </p:NodeReference>
-            <Pin Id="Q3uwSnhUZYDQYgfYJedUIb" Name="Bounds" Kind="InputPin" DefaultValue="1233, 479, 512, 411">
+            <Pin Id="Q3uwSnhUZYDQYgfYJedUIb" Name="Bounds" Kind="InputPin" DefaultValue="1233, 479, 512, 409">
               <p:TypeAnnotation LastCategoryFullName="System.Windows" LastSymbolSource="VL.CoreLib.Windows.vl">
                 <Choice Kind="TypeFlag" Name="Rectangle" />
               </p:TypeAnnotation>
@@ -553,7 +550,7 @@
             <Pin Id="E08mKWwy0qgQUcCEzOMja4" Name="Rotation" Kind="InputPin" />
             <Pin Id="GYGYI6QYqTJNIDgrPCXzA8" Name="Output" Kind="OutputPin" />
           </Node>
-          <Pad Id="HjPv9pYzo6NMYnVFD0IQcX" Comment="Rotation" Bounds="1020,908,35,43" ShowValueBox="true" isIOBox="true" Value="-0.25, 0, 0">
+          <Pad Id="HjPv9pYzo6NMYnVFD0IQcX" Comment="Rotation" Bounds="1020,908,35,43" ShowValueBox="true" isIOBox="true" Value="0.25, 0, 0">
             <p:TypeAnnotation LastCategoryFullName="3D" LastSymbolSource="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Vector3" />
             </p:TypeAnnotation>
@@ -692,6 +689,6 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="DnLfimH12OAPP8TapiEQAM" Location="VL.Stride" Version="0.8.141-g0403ffa1ed" />
+  <NugetDependency Id="DnLfimH12OAPP8TapiEQAM" Location="VL.Stride" Version="2021.4.7" />
   <NugetDependency Id="LJb2pmu6GrwNALtF7KU7R5" Location="VL.OpenCV" Version="0.0.0.0" />
 </Document>
