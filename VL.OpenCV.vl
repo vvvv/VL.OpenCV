@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="AwLbD6sm3YSNSEVWaY0WST" LanguageVersion="2021.4.0.235" Version="0.128">
+<Document xmlns:p="property" Id="AwLbD6sm3YSNSEVWaY0WST" LanguageVersion="2021.4.8.947" Version="0.128">
   <Patch Id="C8nwPmC7mFvNATECRj2wt9">
     <Canvas Id="EatS5Y30OYxLELRQyBVMYE" DefaultCategory="OpenCV" CanvasType="FullCategory">
       <Canvas Id="N9r0bl4Ys0kMbfba5Gfahv" Name="Utils" Position="185,546" DefaultCategory="OpenCV.Utils">
@@ -15299,7 +15299,7 @@
               <Patch Id="ESYP276dJshN8oGaLjrz3G" Name="Create" />
               <Patch Id="I7yB20hrEc7PEgqCzJWuV7" Name="Update">
                 <Pin Id="Lb5RTvrLj5yNJFuNaqs1yN" Name="Input" Kind="InputPin" Bounds="171,247" Summary="Input Mat: 8-bit unsigned, 16-bit unsigned ( CV_16UC... ), or single-precision floating-point." />
-                <Pin Id="DJ3n2mtbV81NeNMJbtR9fi" Name="MatType" Kind="InputPin" Bounds="609,303" DefaultValue="3" Summary="Number of channels in the output Mat. If the parameter is 0, the number of the channels is derived automatically from Input and Code." />
+                <Pin Id="DJ3n2mtbV81NeNMJbtR9fi" Name="MatType" Kind="InputPin" Bounds="609,303" Summary="Number of channels in the output Mat. If the parameter is 0, the number of the channels is derived automatically from Input and Code." />
                 <Pin Id="JjzBSwi0gFMMJUqZp72Rzs" Name="Output" Kind="OutputPin" Bounds="476,342" />
               </Patch>
               <ProcessDefinition Id="BmdgJUce9PhPmmNFiivPPJ">
@@ -16108,6 +16108,98 @@
               </Pin>
               <Pin Id="J8NbX8d8ng1NMzAnMv8NaK" Name="Output" Kind="OutputPin" Bounds="476,342" />
             </Patch>
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ Thinning ************************
+
+-->
+        <Node Name="Thinning" Bounds="332,388" Id="KfG4XN0OTY4NCyorH6xL8J" Summary="Applies a binary blob thinning operation, to achieve a skeletization of the input image." Remarks="Requires an 8bit binary image as input" Tags="skeletonize">
+          <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="Builtin" LastDependency="VL.OpenCVSharp.vl">
+            <Choice Kind="ContainerDefinition" Name="Process" />
+          </p:NodeReference>
+          <Patch Id="QTiv52P8OpON0qM2TibGrJ">
+            <Canvas Id="QnqSjdrHTeYN52rI5BTQs8" CanvasType="Group">
+              <ControlPoint Id="AqToJTSByjQLGIAEa4zOc1" Bounds="592,271" />
+              <ControlPoint Id="LGqNikqOkhJN5YBxUzLUjO" Bounds="321,472" />
+              <ControlPoint Id="Pog6ED7OxwFLTVMC6yq16y" Bounds="324,274" />
+              <Node Bounds="250,302,356,158" Id="Qy5PpdYFUSjOPKSbX64I0u">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <Choice Kind="ProcessStatefulRegion" Name="Cache" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <Pin Id="Lrdliv9mReAPcazGro5roz" Name="Force" Kind="InputPin" />
+                <Pin Id="TpTQsms2UXcODnXsV2Yr86" Name="Dispose Cached Outputs" Kind="InputPin" />
+                <Pin Id="PI0pMQ0ckHhNSjxLwkt2bH" Name="Has Changed" Kind="OutputPin" />
+                <ControlPoint Id="LAvWNOrjWDYO6kznXPyTZE" Bounds="324,454" Alignment="Bottom" />
+                <ControlPoint Id="IFnXHYvVcFUPbN0J7TXJVW" Bounds="327,308" Alignment="Top" />
+                <ControlPoint Id="CmRj5Lj0kPoMuWntFWdIWy" Bounds="591,308" Alignment="Top" />
+                <Patch Id="IPtEo4RI38OOPKb0wBFHM4" ManuallySortedPins="true">
+                  <Patch Id="NaIPkypb2i3Qd2h3NBGZ29" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="Ix2ulNLm6dyNcv8R9xWQIQ" Name="Then" ManuallySortedPins="true" />
+                  <Node Bounds="323,340,191,81" Id="PSDR1py9LiFMpEN2l4D98A">
+                    <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
+                      <Choice Kind="RegionFlag" Name="Region (Stateless)" Fixed="true" />
+                      <Choice Kind="ProcessAppFlag" Name="Filter (1-&gt;1)" />
+                    </p:NodeReference>
+                    <Pin Id="NsZyTI4wn1SNPrq9JCg6En" Name="Apply" Kind="InputPin" />
+                    <Pin Id="TWIRgUrHFbqNTAheLIihdA" Name="Input" Kind="InputPin" />
+                    <Pin Id="OJhkSRS580JMqOMNMlw3XD" Name="Output" Kind="OutputPin" />
+                    <Patch Id="BxEOfh4xhNMMYruz0Deslk" Name="Operation" ManuallySortedPins="true">
+                      <Pin Id="CMqmgwJmOwLMQMJuIYJmbp" Name="Arg 1" Kind="InputPin" />
+                      <Pin Id="DVaNtAthz9qOy2ytRJRcw7" Name="Arg 2" Kind="InputPin" />
+                      <ControlPoint Id="Vzab6tZnLmqNGqWA2ijmqH" Bounds="337,348" />
+                      <ControlPoint Id="U2xdJmFmF6GPu3YFNKDhmY" Bounds="420,356" />
+                      <Node Bounds="335,382,167,19" Id="BCo9XXOIpjtLGUMYKOkCDj">
+                        <p:NodeReference LastCategoryFullName="OpenCvSharp.XImgProc.CvXImgProc" LastSymbolSource="OpenCvSharp.dll">
+                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                          <Choice Kind="OperationCallFlag" Name="Thinning" />
+                          <CategoryReference Kind="AssemblyCategory" Name="CvXImgProc" NeedsToBeDirectParent="true" />
+                        </p:NodeReference>
+                        <Pin Id="K9C9aYnVcQpLhBrKGPBT6M" Name="Src" Kind="InputPin" />
+                        <Pin Id="CCXDhmN0qrJMZFrxXg3soN" Name="Dst" Kind="InputPin" />
+                        <Pin Id="K0Mw0gnRDBcNKOP6kW44aB" Name="Thinning Type" Kind="InputPin" />
+                      </Node>
+                    </Patch>
+                  </Node>
+                </Patch>
+                <ControlPoint Id="TRvH3mPmrijMKz0cp16FB2" Bounds="497,308" Alignment="Top" />
+              </Node>
+              <ControlPoint Id="ICEW4Wig8IEQVVHSQlT3YI" Bounds="491,268" />
+            </Canvas>
+            <ProcessDefinition Id="NnocPHRGiEKNLm7xXZ2i4o">
+              <Fragment Id="E7TSisnGCYqNTzVAeH0mYo" Patch="DcR3SeQcLf2OFFZyuL6Kx1" Enabled="true" />
+              <Fragment Id="IQIr1y8d6MiOnkaCOtA6tV" Patch="LwG3wNul6gOL40G49bkFht" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="KFchQDX8r1bQRUw319Z4E1" Ids="Jkbbdk513iGN79pGKmvJvf,AqToJTSByjQLGIAEa4zOc1" IsHidden="true" />
+            <Link Id="S0Zpabn4IkjPQkl5a7jakB" Ids="LGqNikqOkhJN5YBxUzLUjO,B6FVMnjJObCNsWUKxgg2kg" IsHidden="true" />
+            <Link Id="U4E49PMbNHWNuN9BbRM9lp" Ids="NY3Xiq40Q7hLf2gZIWR1Pu,Pog6ED7OxwFLTVMC6yq16y" IsHidden="true" />
+            <Link Id="EerARyZMAllNIyJixqa0eb" Ids="CMqmgwJmOwLMQMJuIYJmbp,Vzab6tZnLmqNGqWA2ijmqH" IsHidden="true" />
+            <Link Id="JXNkec1CjrMLxzE27ue8aM" Ids="DVaNtAthz9qOy2ytRJRcw7,U2xdJmFmF6GPu3YFNKDhmY" IsHidden="true" />
+            <Link Id="VeiNaqNGOPPOuoFzaSbcIg" Ids="Vzab6tZnLmqNGqWA2ijmqH,K9C9aYnVcQpLhBrKGPBT6M" />
+            <Link Id="TqXVPY0Rao4NUu3sWC4xmT" Ids="U2xdJmFmF6GPu3YFNKDhmY,CCXDhmN0qrJMZFrxXg3soN" />
+            <Link Id="P1PWxFW3UoHMKecDelhgon" Ids="OJhkSRS580JMqOMNMlw3XD,LAvWNOrjWDYO6kznXPyTZE" />
+            <Link Id="O13lgBPRK7KOKFfOSlpe5B" Ids="LAvWNOrjWDYO6kznXPyTZE,LGqNikqOkhJN5YBxUzLUjO" />
+            <Link Id="DPn9DcIJ7SCQdlfjgB9UYE" Ids="Pog6ED7OxwFLTVMC6yq16y,IFnXHYvVcFUPbN0J7TXJVW" />
+            <Link Id="LJbG4RNPersOC1LsWOUQyO" Ids="IFnXHYvVcFUPbN0J7TXJVW,NsZyTI4wn1SNPrq9JCg6En" />
+            <Link Id="Ex3qaeMjvhoLuYYKgIY0kJ" Ids="AqToJTSByjQLGIAEa4zOc1,CmRj5Lj0kPoMuWntFWdIWy" />
+            <Link Id="RPMcLTldxPgLCqsdesgKxZ" Ids="CmRj5Lj0kPoMuWntFWdIWy,TWIRgUrHFbqNTAheLIihdA" />
+            <Patch Id="DcR3SeQcLf2OFFZyuL6Kx1" Name="Create" />
+            <Patch Id="LwG3wNul6gOL40G49bkFht" Name="Update" ManuallySortedPins="true">
+              <Pin Id="Jkbbdk513iGN79pGKmvJvf" Name="Input" Kind="InputPin" Bounds="171,247" Summary="Input Mat.. The number of channels can be arbitrary, but the depth should be one of CV_8U, CV_16U, CV_16S, CV_32F or CV_64F." />
+              <Pin Id="Fu4BhtNXJQPNWfWDFq0lUv" Name="Thinning Type" Kind="InputPin" Bounds="491,268" />
+              <Pin Id="NY3Xiq40Q7hLf2gZIWR1Pu" Name="Apply" Kind="InputPin" Bounds="136,367" DefaultValue="True">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Boolean" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="B6FVMnjJObCNsWUKxgg2kg" Name="Output" Kind="OutputPin" Bounds="476,342" />
+            </Patch>
+            <Link Id="U7IJeWkbSaLLjWjpcr9gWk" Ids="TRvH3mPmrijMKz0cp16FB2,K0Mw0gnRDBcNKOP6kW44aB" />
+            <Link Id="EY7JE6Q9FcWLxnk7F0e9Ad" Ids="ICEW4Wig8IEQVVHSQlT3YI,TRvH3mPmrijMKz0cp16FB2" />
+            <Link Id="VImCRzljmrqLuo9OMjLle6" Ids="Fu4BhtNXJQPNWfWDFq0lUv,ICEW4Wig8IEQVVHSQlT3YI" IsHidden="true" />
           </Patch>
         </Node>
       </Canvas>
@@ -19035,7 +19127,7 @@
               <Pin Id="EcshkDTCdvrOkN3PCcfsnI" Name="Filename" Kind="InputPin" Bounds="554,128" />
               <Pin Id="AjwTFltiDeZOR8p7mURxeB" Name="Reload" Kind="InputPin" Bounds="674,220" />
               <Pin Id="QKzDoFuK65cPSw3dj5Cshb" Name="Speed" Kind="InputPin" Bounds="328,513" />
-              <Pin Id="LTqfnzheA60Oy5SdV0osoE" Name="Loop" Kind="InputPin" Bounds="577,412" DefaultValue="False" />
+              <Pin Id="LTqfnzheA60Oy5SdV0osoE" Name="Loop" Kind="InputPin" Bounds="577,412" />
               <Pin Id="RaSkDWJxqGoN8zAM6HGdIP" Name="Seek" Kind="InputPin" Bounds="611,384" />
               <Pin Id="BntlpGr2NMnQIrYsc7pm6T" Name="Play" Kind="InputPin" Bounds="470,560" />
               <Pin Id="EibVi5qZykSPvPhvSrgvtk" Name="Image" Kind="OutputPin" Bounds="494,499" />
@@ -20701,8 +20793,8 @@
                     </Node>
                     <Node Bounds="195,92,109,68" Id="CZEoJWHRfzMN4Vx63N6uWZ">
                       <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                        <Choice Kind="ProcessAppFlag" Name="ManageProcess" />
                         <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                        <Choice Kind="ProcessStatefulRegion" Name="ManageProcess (1 Output)" />
                       </p:NodeReference>
                       <Pin Id="LDToteVbRtqLieSl1NXqq5" Name="Enabled" Kind="InputPin" />
                       <Pin Id="O3K7xb1dMmYNepC3HNxZfn" Name="Reset" Kind="InputPin" />
@@ -24105,8 +24197,8 @@
                 <Choice Kind="OperationCallFlag" Name="TryParse" />
               </p:NodeReference>
               <Pin Id="ETsvmIa7DGHMAXcczaJDEG" Name="String" Kind="InputPin" />
-              <Pin Id="FO1FU4r5XviPsu6gDxr0uj" Name="Success" Kind="OutputPin" />
               <Pin Id="GHyt3JwoahJNwtzQjIyzIy" Name="Value" Kind="OutputPin" />
+              <Pin Id="FO1FU4r5XviPsu6gDxr0uj" Name="Success" Kind="OutputPin" />
             </Node>
             <Pad Id="Hj9UNEpD52ZO2uQl97vmHk" Comment="" Bounds="872,342,20,19" ShowValueBox="true" isIOBox="true" Value="XZ">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
@@ -24133,8 +24225,8 @@
                 <Choice Kind="OperationCallFlag" Name="TryParse" />
               </p:NodeReference>
               <Pin Id="CteVaTrtZpJPAA6xe8T1In" Name="String" Kind="InputPin" />
-              <Pin Id="QGqmzfFzCLCMkuTDNdUQQO" Name="Success" Kind="OutputPin" />
               <Pin Id="Qt3K55hr3jePlYa47jzD9T" Name="Value" Kind="OutputPin" />
+              <Pin Id="QGqmzfFzCLCMkuTDNdUQQO" Name="Success" Kind="OutputPin" />
             </Node>
             <Pad Id="LxyDd7UsbXMNeWegm3zjxO" Comment="" Bounds="963,342,20,19" ShowValueBox="true" isIOBox="true" Value="ZY">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
@@ -24160,8 +24252,8 @@
                 <Choice Kind="OperationCallFlag" Name="TryParse" />
               </p:NodeReference>
               <Pin Id="Ll1nAaJKhBDNjcNA6kxBnj" Name="String" Kind="InputPin" />
-              <Pin Id="TqdKTJH6zBCNgbCF7njRDp" Name="Success" Kind="OutputPin" />
               <Pin Id="BikKci3L6StLDaU4O7Derw" Name="Value" Kind="OutputPin" />
+              <Pin Id="TqdKTJH6zBCNgbCF7njRDp" Name="Success" Kind="OutputPin" />
             </Node>
             <Pad Id="PW246gsnpjaOxR0n7i3pIR" Comment="" Bounds="791,342,20,19" ShowValueBox="true" isIOBox="true" Value="XY">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
@@ -37522,8 +37614,8 @@
               <ControlPoint Id="OH4uHCiO5VhNfA7BcF3dMT" Bounds="366,116" />
               <Node Bounds="135,214,416,278" Id="MkUzrB6f6KxPaQUnwXKanV">
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="ProcessAppFlag" Name="ManageProcess" />
                   <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <Choice Kind="ProcessStatefulRegion" Name="ManageProcess (1 Output)" />
                 </p:NodeReference>
                 <Pin Id="BuH5habZN4UNruJIkq2Clh" Name="Enabled" Kind="InputPin" DefaultValue="False">
                   <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
@@ -38029,14 +38121,14 @@
                 <Pin Id="CeOnY1Bbd0lNQ1bt2fy4QD" Name="Result" Kind="OutputPin" />
               </Node>
               <ControlPoint Id="SFIgrfsVgHYMkheAg7t1y3" Bounds="293,1185" />
-              <Node Bounds="215,787,191,182" Id="IiU8q3VDJFWOCqGwYrqnw4">
+              <Node Bounds="215,704,263,265" Id="IiU8q3VDJFWOCqGwYrqnw4">
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
                   <Choice Kind="ApplicationStatefulRegion" Name="If" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="NU4uWBBGMDjLkPZFaJj6T3" Name="Condition" Kind="InputPin" />
                 <ControlPoint Id="AE2n6LHEyOrM5Qns7WREJa" Bounds="281,963" Alignment="Bottom" />
-                <ControlPoint Id="AeO67v7mevVOS2R071A48X" Bounds="256,794" Alignment="Top" />
+                <ControlPoint Id="AeO67v7mevVOS2R071A48X" Bounds="257,711" Alignment="Top" />
                 <Patch Id="BDSSHT6BTxfQGd83NTKQvb" ManuallySortedPins="true">
                   <Patch Id="JIFPmZMdU6xMhQ3OlafRj0" Name="Create" ManuallySortedPins="true" />
                   <Patch Id="RcMYwX1g9HyLDEKPrLEPJA" Name="Then" ManuallySortedPins="true" />
@@ -38084,25 +38176,25 @@
                     <ControlPoint Id="TqbPszRVFG0MVhyUIzJeNw" Bounds="322,814" Alignment="Top" />
                     <ControlPoint Id="KblbpxE60OHN1N8tiUAHLh" Bounds="281,943" Alignment="Bottom" />
                   </Node>
+                  <Node Bounds="280,729,145,19" Id="JYN7pNN8dgJOBrjT4OWO6D">
+                    <p:NodeReference LastCategoryFullName="OpenCV.Conversion" LastSymbolSource="VL.OpenCV.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="ProcessNode" Name="FromChannelsToColumns" />
+                    </p:NodeReference>
+                    <Pin Id="Sos7cDErpGnOWwcvXidKuG" Name="Input" Kind="InputPin" />
+                    <Pin Id="PCcZ3WmHmEXLp1W4T5ApB9" Name="Output" Kind="OutputPin" />
+                  </Node>
+                  <Node Bounds="321,767,145,19" Id="VbuDwmenTbQPtIo9nrmy7H">
+                    <p:NodeReference LastCategoryFullName="OpenCV.Conversion" LastSymbolSource="VL.OpenCV.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="ProcessNode" Name="FromChannelsToColumns" />
+                    </p:NodeReference>
+                    <Pin Id="MD0WVOVwY4GMGg9Ktm44xr" Name="Input" Kind="InputPin" />
+                    <Pin Id="Vql5sbuJMy8ONxGScOTQNz" Name="Output" Kind="OutputPin" />
+                  </Node>
                 </Patch>
               </Node>
-              <Node Bounds="278,719,145,19" Id="JYN7pNN8dgJOBrjT4OWO6D">
-                <p:NodeReference LastCategoryFullName="OpenCV.Conversion" LastSymbolSource="VL.OpenCV.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="ProcessNode" Name="FromChannelsToColumns" />
-                </p:NodeReference>
-                <Pin Id="Sos7cDErpGnOWwcvXidKuG" Name="Input" Kind="InputPin" />
-                <Pin Id="PCcZ3WmHmEXLp1W4T5ApB9" Name="Output" Kind="OutputPin" />
-              </Node>
-              <Node Bounds="319,757,145,19" Id="VbuDwmenTbQPtIo9nrmy7H">
-                <p:NodeReference LastCategoryFullName="OpenCV.Conversion" LastSymbolSource="VL.OpenCV.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="ProcessNode" Name="FromChannelsToColumns" />
-                </p:NodeReference>
-                <Pin Id="MD0WVOVwY4GMGg9Ktm44xr" Name="Input" Kind="InputPin" />
-                <Pin Id="Vql5sbuJMy8ONxGScOTQNz" Name="Output" Kind="OutputPin" />
-              </Node>
-              <Node Bounds="364,204,46,22" Id="KSvGjN1flJJMwJVgjIb8eN">
+              <Node Bounds="438,174,58,19" Id="KSvGjN1flJJMwJVgjIb8eN">
                 <p:NodeReference LastCategoryFullName="OpenCV.Calibration" LastSymbolSource="VL.OpenCV.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="OperationCallFlag" Name="Intrinsics (Split)" />
@@ -38111,7 +38203,7 @@
                 <Pin Id="Qlsq0RdlMW5NC5zUmOrMMu" Name="Camera Matrix" Kind="OutputPin" />
                 <Pin Id="IwUyW1Av95aNXJ2sC3nouI" Name="Distortion Coefficients" Kind="OutputPin" />
               </Node>
-              <ControlPoint Id="AlWINwsJKzTLcksiq1Zvi1" Bounds="365,172" />
+              <ControlPoint Id="AlWINwsJKzTLcksiq1Zvi1" Bounds="439,142" />
               <Node Bounds="279,1067,114,98" Id="R3ermGQD3iCQOgybLcoCIt">
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
                   <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
@@ -38205,6 +38297,35 @@
                 <Pin Id="CZt7u7LmZHZNFdmipbJ9l6" Name="Result" Kind="OutputPin" />
                 <Pin Id="BaPzj4LcvOfOEMPDZ2SxXg" Name="Not Assigned" Kind="OutputPin" />
               </Node>
+              <Node Bounds="366,213,65,19" Id="Uz2yTbZTB1TP6kpajJZpRh">
+                <p:NodeReference LastCategoryFullName="Primitive.Object" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="IsAssigned" />
+                </p:NodeReference>
+                <Pin Id="UiqQrkijXfbMHDUmmIRgkZ" Name="X" Kind="InputPin" />
+                <Pin Id="QIbuPB2YRLgLu1dGwICmgz" Name="Result" Kind="OutputPin" />
+                <Pin Id="OPn4ecEwz4pLnre1i8ZdEG" Name="Not Assigned" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="216,247,37,19" Id="B3IKVHbFLyYNQp7MyLDAbA">
+                <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="AND" />
+                  <CategoryReference Kind="BooleanType" Name="Boolean" NeedsToBeDirectParent="true" />
+                </p:NodeReference>
+                <Pin Id="GzhXXlKWGGmP3f0DF5z0pU" Name="Input" Kind="StateInputPin" />
+                <Pin Id="NAFActCI72GOryo35vIZSN" Name="Input 2" Kind="InputPin" />
+                <Pin Id="F769G7Vsa3FQEzusHRNPSA" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="A41Yrxgab1yLX0nQyO7kqi" Name="Input 3" Kind="InputPin" />
+              </Node>
+              <Node Bounds="446,214,65,19" Id="RGuxMnOQ1rPOS4zLE7m6bX">
+                <p:NodeReference LastCategoryFullName="Primitive.Object" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="IsAssigned" />
+                </p:NodeReference>
+                <Pin Id="Ndk6t6EmC2eMe6qQOn42rO" Name="X" Kind="InputPin" />
+                <Pin Id="CvYL6o5y8N1O7Df693vOvk" Name="Result" Kind="OutputPin" />
+                <Pin Id="FYvVHG6C0aeOODvztDzJ6h" Name="Not Assigned" Kind="OutputPin" />
+              </Node>
             </Canvas>
             <ProcessDefinition Id="Tm03EJxG6VGP7zy8W08kOO">
               <Fragment Id="L2qszOuEhEILutlVA8yHyL" Patch="TJwutQlULI4Pcg7Iu3wMSr" Enabled="true" />
@@ -38220,7 +38341,7 @@
             <Link Id="FfA3WwKJ99vOyEipRvBcMj" Ids="U2dgp0TJ1DUMZ0UjuQpV6K,OZVGq04aschL8BGYac2JmZ" />
             <Link Id="NjSwjegFKJWOnZ2d17qJjb" Ids="DOa8jJWhQZANMGHBGCfOWZ,Ixy3grfbaPHN2qLA2R3HMg" />
             <Link Id="IOydgwcKvfXLc3GXW3sjHJ" Ids="Rop6EAsZfw6Lbx6ISjaO1e,KYu7g9nIHZJNffwFDofRN9" />
-            <Link Id="UzPZBeUX8kWO3TPrlsXRa9" Ids="U2hgv4XdZChPAbHSJaUMJa,ELsqq9WmMpYMmLEiKWzG1v" />
+            <Link Id="UzPZBeUX8kWO3TPrlsXRa9" Ids="U2hgv4XdZChPAbHSJaUMJa,GzhXXlKWGGmP3f0DF5z0pU" />
             <Link Id="P5R0ohwTviDMm9BO9O0kTV" Ids="Fr0lBqUGfNTNVZqat4ulbc,U2hgv4XdZChPAbHSJaUMJa" IsHidden="true" />
             <Link Id="Evrpo49N7KHNJf2CypEifg" Ids="Od9nHzhISiZNYy61I0J3TJ,Uxfn6LTDxkXMa2X30nBxZE" IsFeedback="true" />
             <Link Id="FZ1yFGd4MbANKqw2ZfOK67" Ids="BJMLxgzeJ6eLBPpccZUo9n,HerLmnLzx26N0TrVkuCkYq" IsFeedback="true" />
@@ -38244,7 +38365,6 @@
             <Link Id="V2qNMis1brhMwf4kqSkvX0" Ids="KblbpxE60OHN1N8tiUAHLh,AE2n6LHEyOrM5Qns7WREJa" />
             <Link Id="Ht3LpxkdCFKPaAm4VkG3ot" Ids="PCcZ3WmHmEXLp1W4T5ApB9,A0t7OYZaG7hPAYKlFqfCMp" />
             <Link Id="SEWGioq8XbhNifO8l0gTVp" Ids="Vql5sbuJMy8ONxGScOTQNz,TqbPszRVFG0MVhyUIzJeNw" />
-            <Link Id="DVfADVIzL6JNDcsQiuW5Dt" Ids="U2hgv4XdZChPAbHSJaUMJa,NU4uWBBGMDjLkPZFaJj6T3" />
             <Link Id="FVxJZxbTIaqMCEMRB3MxMe" Ids="A0t7OYZaG7hPAYKlFqfCMp,H2qnf48V997OcxO4hDTAeI" />
             <Link Id="KPQ78XQEMv9OO57BE0Kght" Ids="TqbPszRVFG0MVhyUIzJeNw,SLOao8enIMfMGG3ntPIMe4" />
             <Link Id="ETg5rwEDFHYMhGqG2YToMB" Ids="Qlsq0RdlMW5NC5zUmOrMMu,Twjd2rr8UW1MW4YsPJ3RQP" />
@@ -38267,7 +38387,6 @@
             <Link Id="IEasjmz43tTMXxjKQOsU7r" Ids="NqKy7UvX69pNIwBHJoktL0,LlNCVcNnu6tNbow77lq9fv" IsFeedback="true" />
             <Link Id="N2ZPAovPlbwQELqtBcGdWo" Ids="JCOtN1ztShXNyG0Viao4Of,LlNCVcNnu6tNbow77lq9fv" />
             <Link Id="NOSgRwadqr6NYMiGXSC1lc" Ids="LlNCVcNnu6tNbow77lq9fv,IlzERxVEzE4ODhyMGRbF0L" />
-            <Link Id="QL4njVdIIMIP57czhiTk3L" Ids="U2hgv4XdZChPAbHSJaUMJa,Bf5xQLW4j9zNJQlJja20Le" />
             <Link Id="INotwuvATurNO5ZtVeseZM" Ids="Ewz1cvqJSAKNONoto3y9Gs,I0ieTmttyQ9LkgllzAHTwC" />
             <Link Id="AJ3HNqHf0jNM7B526UZ7ob" Ids="CZt7u7LmZHZNFdmipbJ9l6,BmXCpMpuP6hMVNH0LZMY5T" />
             <Link Id="KzgSMdUN7EoMbfbgxTf7eN" Ids="O6DbpUMbGpZMLKpJZSEK66,Jo5z0ACjzlAP99cIF21Dkh" />
@@ -38303,6 +38422,13 @@
               <Pin Id="OaF9hx8JWYGNNHTRvYFGRD" Name="Extrinsics" Kind="OutputPin" Bounds="671,859" />
               <Pin Id="OHoM1jklGZxPSy3WEAc7O6" Name="Object Points" Kind="OutputPin" Bounds="692,519" />
             </Patch>
+            <Link Id="Vz5Jz2vcFGwOzOvQBqMVGG" Ids="F769G7Vsa3FQEzusHRNPSA,ELsqq9WmMpYMmLEiKWzG1v" />
+            <Link Id="Dg24mzpOCg5NyPAGHQTprS" Ids="QIbuPB2YRLgLu1dGwICmgz,NAFActCI72GOryo35vIZSN" />
+            <Link Id="GbcYgCLxi5MMrEk8nMbGoK" Ids="F769G7Vsa3FQEzusHRNPSA,NU4uWBBGMDjLkPZFaJj6T3" />
+            <Link Id="OMy0euksWqmO3MrhFahYEl" Ids="F769G7Vsa3FQEzusHRNPSA,Bf5xQLW4j9zNJQlJja20Le" />
+            <Link Id="KglGwARqOaIOB8JXLF3d8Q" Ids="Qlsq0RdlMW5NC5zUmOrMMu,UiqQrkijXfbMHDUmmIRgkZ" />
+            <Link Id="SY0r6dz0AJoPa5ucGoYFlk" Ids="IwUyW1Av95aNXJ2sC3nouI,Ndk6t6EmC2eMe6qQOn42rO" />
+            <Link Id="GncLdXJNkHFL5pTGHkkcM2" Ids="CvYL6o5y8N1O7Df693vOvk,A41Yrxgab1yLX0nQyO7kqi" />
           </Patch>
         </Node>
         <!--
@@ -42360,9 +42486,9 @@
           </p:NodeReference>
           <Patch Id="SvCOYbAkOvuL5apnKb1rlV">
             <Canvas Id="B6zgObAm3CBPPiQhAYDpjV" CanvasType="Group">
-              <ControlPoint Id="Aam2oyPsnFlN6ewrZrWFrz" Bounds="156,503" />
-              <ControlPoint Id="R7nPvb9TqvnMBlp8XoCFF8" Bounds="428,944" />
-              <Node Bounds="262,325,76,26" Id="Rol3zAMAW9tQL1fxHuGuFi">
+              <ControlPoint Id="Aam2oyPsnFlN6ewrZrWFrz" Bounds="229,230" />
+              <ControlPoint Id="R7nPvb9TqvnMBlp8XoCFF8" Bounds="456,741" />
+              <Node Bounds="341,129,76,26" Id="Rol3zAMAW9tQL1fxHuGuFi">
                 <p:NodeReference LastCategoryFullName="OpenCvSharp.QRCodeDetector" LastSymbolSource="OpenCvSharp.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <CategoryReference Kind="AssemblyCategory" Name="QRCodeDetector" />
@@ -42370,25 +42496,25 @@
                 </p:NodeReference>
                 <Pin Id="DbCNFMz5G8BPFMO2aWwCI2" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Pad Id="GKCPyralMIJO0tgrxc30mK" Bounds="265,387" />
-              <ControlPoint Id="QSy8E2VvC6dLWmRnEJii6L" Bounds="316,944" />
-              <ControlPoint Id="CRDxOJkNUyoPuN3t221jBT" Bounds="341,503" />
-              <ControlPoint Id="Vy5AuSjkoJnMdMeprCNVkO" Bounds="423,503" />
-              <Node Bounds="72,535,494,385" Id="ForCIgkiI1bPYop3I7CFIV">
+              <Pad Id="GKCPyralMIJO0tgrxc30mK" Bounds="344,191" />
+              <ControlPoint Id="QSy8E2VvC6dLWmRnEJii6L" Bounds="302,741" />
+              <ControlPoint Id="CRDxOJkNUyoPuN3t221jBT" Bounds="414,230" />
+              <ControlPoint Id="Vy5AuSjkoJnMdMeprCNVkO" Bounds="496,230" />
+              <Node Bounds="150,262,431,451" Id="ForCIgkiI1bPYop3I7CFIV">
                 <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
                   <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                   <Choice Kind="ApplicationStatefulRegion" Name="If" />
                   <FullNameCategoryReference ID="Primitive" />
                 </p:NodeReference>
                 <Pin Id="AsCTH0xaN15O4M94y0rz0S" Name="Condition" Kind="InputPin" />
-                <ControlPoint Id="MbuhVRMzG7XMwupoIC3ESc" Bounds="314,922" Alignment="Bottom" />
-                <ControlPoint Id="QpS4hlOOhLFOOPJUQShX5j" Bounds="314,542" Alignment="Top" />
-                <ControlPoint Id="C2JKWYvOpjkO2Sy0399UtH" Bounds="429,922" Alignment="Bottom" />
-                <ControlPoint Id="Fo1uEq1FnTvLIs1AXxQGtw" Bounds="429,542" Alignment="Top" />
+                <ControlPoint Id="MbuhVRMzG7XMwupoIC3ESc" Bounds="302,708" Alignment="Bottom" />
+                <ControlPoint Id="QpS4hlOOhLFOOPJUQShX5j" Bounds="387,269" Alignment="Top" />
+                <ControlPoint Id="C2JKWYvOpjkO2Sy0399UtH" Bounds="456,708" Alignment="Bottom" />
+                <ControlPoint Id="Fo1uEq1FnTvLIs1AXxQGtw" Bounds="502,269" Alignment="Top" />
                 <Patch Id="GCPZbFnSypXMEcofgx8grX" ManuallySortedPins="true">
                   <Patch Id="StDp71FA2OXLG6r78QNDEW" Name="Create" ManuallySortedPins="true" />
                   <Patch Id="IuxpwSy5ZRmLw0UxUzxE2T" Name="Then" ManuallySortedPins="true" />
-                  <Node Bounds="142,567,371,341" Id="PEeeC6yFKDsOKcaLcsXoIq">
+                  <Node Bounds="194,288,375,395" Id="PEeeC6yFKDsOKcaLcsXoIq">
                     <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
                       <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                       <Choice Kind="ProcessStatefulRegion" Name="Cache" />
@@ -42397,15 +42523,15 @@
                     <Pin Id="P9cW3o4SHnNPZRGsK25Xg8" Name="Force" Kind="InputPin" />
                     <Pin Id="NcjgaUP8nv7LKBjngozwCj" Name="Dispose Cached Outputs" Kind="InputPin" />
                     <Pin Id="TpwEX4pr2WfNiO0CvWuYkB" Name="Has Changed" Kind="OutputPin" />
-                    <ControlPoint Id="RzGmarJ8psvN5kKfSau6N0" Bounds="156,568" Alignment="Top" />
-                    <ControlPoint Id="MXgxPkx6UcvNAVdx1ngCiP" Bounds="428,901" Alignment="Bottom" />
-                    <ControlPoint Id="Q3iAo2MFlcVMOytqKUXmOf" Bounds="316,901" Alignment="Bottom" />
-                    <ControlPoint Id="NBwGmpa9X9QPxVhRwgqlZl" Bounds="341,568" Alignment="Top" />
-                    <ControlPoint Id="FM3ZI1DbMP8OoUkpsDEcYK" Bounds="424,568" Alignment="Top" />
+                    <ControlPoint Id="RzGmarJ8psvN5kKfSau6N0" Bounds="229,295" Alignment="Top" />
+                    <ControlPoint Id="MXgxPkx6UcvNAVdx1ngCiP" Bounds="456,678" Alignment="Bottom" />
+                    <ControlPoint Id="Q3iAo2MFlcVMOytqKUXmOf" Bounds="302,678" Alignment="Bottom" />
+                    <ControlPoint Id="NBwGmpa9X9QPxVhRwgqlZl" Bounds="414,295" Alignment="Top" />
+                    <ControlPoint Id="FM3ZI1DbMP8OoUkpsDEcYK" Bounds="497,295" Alignment="Top" />
                     <Patch Id="T4i2ZjtwRwyNajJMNCfbfJ" ManuallySortedPins="true">
                       <Patch Id="V0T2OOaXuUIQVkJoRS7W2m" Name="Create" ManuallySortedPins="true" />
                       <Patch Id="LwhW21x1XTPP7Ok6GJseoz" Name="Then" ManuallySortedPins="true" />
-                      <Node Bounds="414,797,87,89" Id="Dm87gbovePNQPnqTdqWXlc">
+                      <Node Bounds="442,524,87,90" Id="Dm87gbovePNQPnqTdqWXlc">
                         <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
                           <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                           <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
@@ -42416,7 +42542,7 @@
                           <Patch Id="A8zlB73vP8wPkxyKntSiDj" Name="Create" ManuallySortedPins="true" />
                           <Patch Id="CN0JfhVynDWLIEHfnu7ypt" Name="Update" ManuallySortedPins="true" />
                           <Patch Id="GnL2WzUcb3JLh6uVvnM1Y5" Name="Dispose" ManuallySortedPins="true" />
-                          <Node Bounds="426,832,63,19" Id="TXEURRPdR1GMshjpquOdEg">
+                          <Node Bounds="454,559,63,19" Id="TXEURRPdR1GMshjpquOdEg">
                             <p:NodeReference LastCategoryFullName="OpenCV.Conversion" LastSymbolSource="VL.OpenCV.vl">
                               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                               <Choice Kind="OperationCallFlag" Name="ToVector2" />
@@ -42433,10 +42559,10 @@
                             <Pin Id="GV3GnTtyaiJNcRJV1kEypE" Name="Output" Kind="OutputPin" />
                           </Node>
                         </Patch>
-                        <ControlPoint Id="S1Khu7npAWzM9faBQ4vS99" Bounds="428,881" Alignment="Bottom" />
-                        <ControlPoint Id="SFz2XcTrxaZOMb0eEZqPI3" Bounds="428,804" Alignment="Top" />
+                        <ControlPoint Id="S1Khu7npAWzM9faBQ4vS99" Bounds="456,609" Alignment="Bottom" />
+                        <ControlPoint Id="SFz2XcTrxaZOMb0eEZqPI3" Bounds="456,531" Alignment="Top" />
                       </Node>
-                      <Node Bounds="154,636,80,26" Id="VX2wETmFINmPYO5lFYwj9h">
+                      <Node Bounds="227,363,80,26" Id="VX2wETmFINmPYO5lFYwj9h">
                         <p:NodeReference LastCategoryFullName="OpenCV.Utils.CvImage" LastSymbolSource="VL.OpenCV.vl">
                           <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                           <CategoryReference Kind="ClassType" Name="CvImage" />
@@ -42446,20 +42572,7 @@
                         <Pin Id="QiW9A84hFkBNNP6FSavqXy" Name="Output" Kind="StateOutputPin" />
                         <Pin Id="BaPMI25VST8NKLzjWPd4Zs" Name="Result" Kind="OutputPin" />
                       </Node>
-                      <Node Bounds="270,747,98,26" Id="HliTnm7Td2hO7g4apurEWq">
-                        <p:NodeReference LastCategoryFullName="OpenCvSharp.QRCodeDetector" LastSymbolSource="OpenCvSharp.dll">
-                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                          <CategoryReference Kind="AssemblyCategory" Name="QRCodeDetector" />
-                          <Choice Kind="OperationCallFlag" Name="DetectAndDecode" />
-                        </p:NodeReference>
-                        <Pin Id="MRt7BQylidCQS6X19VXZPW" Name="Input" Kind="StateInputPin" />
-                        <Pin Id="A4D4tKMXqO6PEOWulHOOOg" Name="Img" Kind="InputPin" />
-                        <Pin Id="BmnBtfIUWI6Mxj7ccOpn65" Name="Straight Qr Code" Kind="InputPin" />
-                        <Pin Id="VYgCKg0ER7eNeHOo87Ju9j" Name="Output" Kind="StateOutputPin" />
-                        <Pin Id="HE95NQXxPN8PN6zDQ233na" Name="Result" Kind="OutputPin" />
-                        <Pin Id="JOaJGRkTEftLavSgvSn7Aq" Name="Points" Kind="OutputPin" />
-                      </Node>
-                      <Node Bounds="268,637,76,26" Id="QSp7k7sHIrTO4n5dXfv2kN">
+                      <Node Bounds="341,364,76,26" Id="QSp7k7sHIrTO4n5dXfv2kN">
                         <p:NodeReference LastCategoryFullName="OpenCvSharp.QRCodeDetector" LastSymbolSource="OpenCvSharp.dll">
                           <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                           <Choice Kind="OperationCallFlag" Name="SetEpsX" />
@@ -42468,7 +42581,7 @@
                         <Pin Id="AYruiFgAxGvQIGZMsBHStS" Name="Eps X" Kind="InputPin" />
                         <Pin Id="OVRNRJrrH2dL3p6fGrwIsr" Name="Output" Kind="StateOutputPin" />
                       </Node>
-                      <Node Bounds="269,689,76,26" Id="JQzXM6DS28EMBcS5BGAMOf">
+                      <Node Bounds="342,416,76,26" Id="JQzXM6DS28EMBcS5BGAMOf">
                         <p:NodeReference LastCategoryFullName="OpenCvSharp.QRCodeDetector" LastSymbolSource="OpenCvSharp.dll">
                           <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                           <Choice Kind="OperationCallFlag" Name="SetEpsY" />
@@ -42477,7 +42590,7 @@
                         <Pin Id="UXBi6rAO2saPIu4AS9aU1o" Name="Eps Y" Kind="InputPin" />
                         <Pin Id="U7fAB9ZER1XNSzK5zVaWJL" Name="Output" Kind="StateOutputPin" />
                       </Node>
-                      <Node Bounds="339,606,62,19" Id="LxvP222j7wuMqlq9H1DY1F">
+                      <Node Bounds="412,333,62,19" Id="LxvP222j7wuMqlq9H1DY1F">
                         <p:NodeReference LastCategoryFullName="System.Conversion" LastSymbolSource="CoreLibBasics.vl">
                           <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                           <Choice Kind="OperationCallFlag" Name="ToFloat64" />
@@ -42485,7 +42598,7 @@
                         <Pin Id="LJ7uzLR90o5MWQqHHTQZz1" Name="Input" Kind="InputPin" />
                         <Pin Id="KbuWEOFSE2cPrrMKegBJC0" Name="Result" Kind="OutputPin" />
                       </Node>
-                      <Node Bounds="422,656,62,19" Id="E8YWnOs9IiQOmnOlmqxOkG">
+                      <Node Bounds="495,383,62,19" Id="E8YWnOs9IiQOmnOlmqxOkG">
                         <p:NodeReference LastCategoryFullName="System.Conversion" LastSymbolSource="CoreLibBasics.vl">
                           <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                           <Choice Kind="OperationCallFlag" Name="ToFloat64" />
@@ -42493,11 +42606,57 @@
                         <Pin Id="VBoBwynO9Y8Ort7DzRX3zV" Name="Input" Kind="InputPin" />
                         <Pin Id="DXQokJRaDAaPAwR60r757v" Name="Result" Kind="OutputPin" />
                       </Node>
+                      <Node Bounds="228,476,76,26" Id="QahKMYWcbaPNhPLdCTX9Lf">
+                        <p:NodeReference LastCategoryFullName="OpenCvSharp.QRCodeDetector" LastSymbolSource="OpenCvSharp.dll">
+                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                          <Choice Kind="OperationCallFlag" Name="DetectMulti" />
+                        </p:NodeReference>
+                        <Pin Id="NQnWQ6xwt21PfaBho6z97W" Name="Input" Kind="StateInputPin" />
+                        <Pin Id="TOnpEI5S49nNkfHXL9SYl0" Name="Img" Kind="InputPin" />
+                        <Pin Id="APhYs5OI3gtNNBiqGIcVYw" Name="Output" Kind="StateOutputPin" />
+                        <Pin Id="DT8zuDossovOeRZxDuSf7y" Name="Result" Kind="OutputPin" />
+                        <Pin Id="A0GEPULZn33OgG0zfy5Pb6" Name="Points" Kind="OutputPin" />
+                      </Node>
+                      <Node Bounds="217,532,178,124" Id="DDch4rHt0BONSKyij66WnE">
+                        <p:NodeReference>
+                          <Choice Kind="ApplicationStatefulRegion" Name="If" />
+                          <FullNameCategoryReference ID="Primitive" />
+                        </p:NodeReference>
+                        <Pin Id="Na5moRvPUO2PIiaLWV48fF" Name="Condition" Kind="InputPin" />
+                        <Patch Id="AlepS4Vne4tLWLnlbY4icj" ManuallySortedPins="true">
+                          <Patch Id="Dz8WXGk7YSiMoM3YIrBjrP" Name="Create" ManuallySortedPins="true" />
+                          <Patch Id="RLcYuL9RupzOBbu02thRS2" Name="Then" ManuallySortedPins="true" />
+                          <Node Bounds="229,560,76,26" Id="BIqXzDelLGNNAWVItsD5BI">
+                            <p:NodeReference LastCategoryFullName="OpenCvSharp.QRCodeDetector" LastSymbolSource="OpenCvSharp.dll">
+                              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                              <CategoryReference Kind="AssemblyCategory" Name="QRCodeDetector" />
+                              <Choice Kind="OperationCallFlag" Name="DecodeMulti" />
+                            </p:NodeReference>
+                            <Pin Id="VDFf6cJhP55LaAGpyeVDaZ" Name="Input" Kind="StateInputPin" />
+                            <Pin Id="FQUjoEyxTmvOv5ufNl3mIx" Name="Img" Kind="InputPin" />
+                            <Pin Id="TKC54EKCN73MNTRpPDnOoc" Name="Points" Kind="InputPin" />
+                            <Pin Id="UTjH6SaFm3qMlPJpfo8NuC" Name="Output" Kind="StateOutputPin" />
+                            <Pin Id="Tx43HMF03tVO7WEmSLhxhR" Name="Result" Kind="OutputPin" />
+                            <Pin Id="Lhl6SxdNLFkPDm8KsusahG" Name="Decoded Info" Kind="OutputPin" />
+                          </Node>
+                          <Node Bounds="300,598,83,26" Id="PGUoIU0x5JDMLahjank4VT">
+                            <p:NodeReference LastCategoryFullName="Collections.Spread" LastSymbolSource="VL.Collections.vl">
+                              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                              <Choice Kind="OperationCallFlag" Name="FromSequence" />
+                              <CategoryReference Kind="RecordType" Name="Spread" NeedsToBeDirectParent="true" />
+                            </p:NodeReference>
+                            <Pin Id="R9ERnCiRTSONzACzNDsQNP" Name="Input" Kind="StateInputPin" />
+                            <Pin Id="Mnc34lG7550LPcAN5nEk6Z" Name="Result" Kind="OutputPin" />
+                          </Node>
+                        </Patch>
+                        <ControlPoint Id="KejCHgqNMhiOf3m6fnGqdE" Bounds="302,651" Alignment="Bottom" />
+                        <ControlPoint Id="IZO0eiaAASFMTA19Yl4Vzw" Bounds="346,539" Alignment="Top" />
+                      </Node>
                     </Patch>
                   </Node>
                 </Patch>
               </Node>
-              <ControlPoint Id="FX6kRQxZZeYM6YuyDqvjrM" Bounds="62,470" />
+              <ControlPoint Id="FX6kRQxZZeYM6YuyDqvjrM" Bounds="135,197" />
             </Canvas>
             <Patch Id="O4d9NcMdyirMPxK4Jj8GL1" Name="Create" ParticipatingElements="Rol3zAMAW9tQL1fxHuGuFi" />
             <Patch Id="HdAURznxYEmMxxDo87h5Bq" Name="Update" ManuallySortedPins="true">
@@ -42537,12 +42696,8 @@
             <Link Id="SBtOZcZjawKLymzfRfAPyo" Ids="GV3GnTtyaiJNcRJV1kEypE,S1Khu7npAWzM9faBQ4vS99" />
             <Link Id="NEe1bfSXSZnMvefw5a6sub" Ids="RzGmarJ8psvN5kKfSau6N0,Q2ldJ3PC14kNPbo7COc9qR" />
             <Link Id="MpwckBWXjl3MYRKMClCtPf" Ids="S1Khu7npAWzM9faBQ4vS99,MXgxPkx6UcvNAVdx1ngCiP" />
-            <Link Id="F7EWmFEOyHXMEvs7kKTgci" Ids="BaPMI25VST8NKLzjWPd4Zs,A4D4tKMXqO6PEOWulHOOOg" />
-            <Link Id="OKh2yfcXPN9PEBo4sMvURN" Ids="HE95NQXxPN8PN6zDQ233na,Q3iAo2MFlcVMOytqKUXmOf" />
-            <Link Id="QKIOKaP6eWWMXAhMvOkKGE" Ids="JOaJGRkTEftLavSgvSn7Aq,SFz2XcTrxaZOMb0eEZqPI3" />
             <Link Id="RpfJHpTVk6EMOik0IsiQeP" Ids="SFz2XcTrxaZOMb0eEZqPI3,FfJwlvMUFn6Obhl17yv8uE" />
             <Link Id="KGmaIWbsbBGNmVpcpEsXyJ" Ids="OVRNRJrrH2dL3p6fGrwIsr,T7pxOX23uPlPCJ6aZyTgHz" />
-            <Link Id="K5PAo2RBO84PcwtZTXa0jM" Ids="U7fAB9ZER1XNSzK5zVaWJL,MRt7BQylidCQS6X19VXZPW" />
             <Link Id="PPRDSF0EL0ALQenDOTN5Re" Ids="KbuWEOFSE2cPrrMKegBJC0,AYruiFgAxGvQIGZMsBHStS" />
             <Link Id="F3YSgXC5dqyOfmFAVrp8g3" Ids="NBwGmpa9X9QPxVhRwgqlZl,LJ7uzLR90o5MWQqHHTQZz1" />
             <Link Id="VzklOzWblOqNS2Y28TbbAD" Ids="FM3ZI1DbMP8OoUkpsDEcYK,VBoBwynO9Y8Ort7DzRX3zV" />
@@ -42555,6 +42710,17 @@
             <Link Id="RPzus8K0W7fN88PBsYBKzv" Ids="Fo1uEq1FnTvLIs1AXxQGtw,C2JKWYvOpjkO2Sy0399UtH" IsFeedback="true" />
             <Link Id="BNTN5gJ080NN53hFfz84f7" Ids="MXgxPkx6UcvNAVdx1ngCiP,C2JKWYvOpjkO2Sy0399UtH" />
             <Link Id="Tl9P2FlQAAUPLbo7Bnn6EW" Ids="C2JKWYvOpjkO2Sy0399UtH,R7nPvb9TqvnMBlp8XoCFF8" />
+            <Link Id="ITlDpXqJ9RELr0bdrmuitR" Ids="BaPMI25VST8NKLzjWPd4Zs,TOnpEI5S49nNkfHXL9SYl0" />
+            <Link Id="TmF7lxZNaEgPInmQYHwjxX" Ids="A0GEPULZn33OgG0zfy5Pb6,TKC54EKCN73MNTRpPDnOoc" />
+            <Link Id="VozNLreSBlbNLqgkaQzHVu" Ids="A0GEPULZn33OgG0zfy5Pb6,SFz2XcTrxaZOMb0eEZqPI3" />
+            <Link Id="QP52bOPvnhuOcGeXlc11Ms" Ids="U7fAB9ZER1XNSzK5zVaWJL,NQnWQ6xwt21PfaBho6z97W" />
+            <Link Id="UNGlHu9jLo1LB4TmPDpRVS" Ids="DT8zuDossovOeRZxDuSf7y,Na5moRvPUO2PIiaLWV48fF" />
+            <Link Id="B12DeMsXstjPinV5oXAcvH" Ids="BaPMI25VST8NKLzjWPd4Zs,FQUjoEyxTmvOv5ufNl3mIx" />
+            <Link Id="R8hz5kGXtXaLzTuGC07xbT" Ids="IZO0eiaAASFMTA19Yl4Vzw,KejCHgqNMhiOf3m6fnGqdE" IsFeedback="true" />
+            <Link Id="Bihar7mdlkrOkqJXhCGFJc" Ids="Lhl6SxdNLFkPDm8KsusahG,R9ERnCiRTSONzACzNDsQNP" />
+            <Link Id="IKUGe7D6KfXMccQZ2Rk7JK" Ids="KejCHgqNMhiOf3m6fnGqdE,Q3iAo2MFlcVMOytqKUXmOf" />
+            <Link Id="UiEGMYpmMsONWQuc1xKaXJ" Ids="APhYs5OI3gtNNBiqGIcVYw,VDFf6cJhP55LaAGpyeVDaZ" />
+            <Link Id="OdFH7BlkDUTObBl8aqtcod" Ids="Mnc34lG7550LPcAN5nEk6Z,KejCHgqNMhiOf3m6fnGqdE" />
           </Patch>
         </Node>
         <!--
@@ -45171,10 +45337,10 @@
   <PlatformDependency Id="M1N4SojOni0Osyx2gZ4x10" Location="./lib/net472/VL.OpenCV.dll" />
   <PlatformDependency Id="UrxLbPlbKmVP94Zx5YWsQo" Location="System" />
   <PlatformDependency Id="KKd4psddv1PM1JDnyYS5Lv" Location="System.Drawing" />
-  <NugetDependency Id="FdCsKtXFebcMEdaadN2Tyv" Location="VL.Lang" Version="2021.4.0-0235-g444c2a15b2" />
+  <NugetDependency Id="FdCsKtXFebcMEdaadN2Tyv" Location="VL.Lang" Version="2021.4.8" />
   <PlatformDependency Id="Ee0UUmfqOVWPSXM6OSY7rA" Location="System.Windows.Forms" />
-  <NugetDependency Id="RhOWo82WyqnOWc3NKXTVr9" Location="VL.CoreLib" Version="2021.4.0-0235-g444c2a15b2" />
-  <NugetDependency Id="TwpzOT0OmmELnR6LDENtVA" Location="VL.CoreLib.Windows" Version="2021.4.0-0235-g444c2a15b2" />
+  <NugetDependency Id="RhOWo82WyqnOWc3NKXTVr9" Location="VL.CoreLib" Version="2021.4.8" />
+  <NugetDependency Id="TwpzOT0OmmELnR6LDENtVA" Location="VL.CoreLib.Windows" Version="2021.4.8" />
   <NugetDependency Id="F4rimzHBtAGLdwuyU70Lxy" Location="OpenCvSharp4.runtime.win" Version="4.5.3.20210725" />
   <NugetDependency Id="A13HOrTwDgsLxp65iajkZ3" Location="OpenCvSharp4" Version="4.5.3.20210725" />
 </Document>
