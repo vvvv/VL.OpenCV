@@ -24,7 +24,7 @@ Demo patches can be found using the Help Browser, or navigating here:
 
     "\lib\packs\VL.OpenCV...\help\"
 
-And vvvv demo patches are somewhat hidden here:
+And vvvv beta demo patches are somewhat hidden here:
 
     "\lib\packs\VL.OpenCV...\vvvv\girlpower\"
 
