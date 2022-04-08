@@ -39,7 +39,7 @@ namespace VL.OpenCV
         private bool showText = false;
         private bool enabled = true;
         private bool loaded = false;
-        private int imageID = 0;
+        private long imageID = 0;
 
         double aspectRatio = 1;
         System.Drawing.Size sizeDelta;
@@ -85,6 +85,27 @@ namespace VL.OpenCV
             {
                 showText = value;
                 AddText();
+            }
+        }
+
+        private bool _showCursor = true;
+        public bool ShowCursor
+        {
+            get
+            {
+                return _showCursor;
+            }
+            set
+            {
+                if (value == _showCursor)
+                    return;
+                
+                if (value)
+                    Cursor.Show();
+                else
+                    Cursor.Hide();
+
+                _showCursor = value;
             }
         }
 
@@ -140,12 +161,12 @@ namespace VL.OpenCV
             if (img == null || pictureBox.Image == null)
             {
                 pictureBox.ImageIpl = img;
-                imageID = -img.Width + img.Height + img.Channels() + img.Type().Value;
+                imageID = img.Width + img.Height + img.Channels() + img.Type().Value;
             }
-            else if (-img.Width + img.Height + img.Channels() + img.Type().Value != imageID)
+            else if (img.Width + img.Height + img.Channels() + img.Type().Value != imageID)
             {
                 pictureBox.ImageIpl = img;
-                imageID = -img.Width + img.Height + img.Channels() + img.Type().Value;
+                imageID = img.Width + img.Height + img.Channels() + img.Type().Value;
             }
             else
             {
