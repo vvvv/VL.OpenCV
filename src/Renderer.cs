@@ -88,6 +88,27 @@ namespace VL.OpenCV
             }
         }
 
+        private bool _showCursor = true;
+        public bool ShowCursor
+        {
+            get
+            {
+                return _showCursor;
+            }
+            set
+            {
+                if (value == _showCursor)
+                    return;
+                
+                if (value)
+                    Cursor.Show();
+                else
+                    Cursor.Hide();
+
+                _showCursor = value;
+            }
+        }
+
         public RendererMode RendererMode
         {
             get => rendererMode;
