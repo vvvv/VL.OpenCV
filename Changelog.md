@@ -3,6 +3,22 @@ All notable changes to the VL.OpenCV repository will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+# [2.4.0] - 18/04/2022
+
+## Added
+* Ridge filter
+* MarkerDiamondDetector (Experimental)
+
+## Changed
+* OpenCVSharp updated from version 4.5.3.20210725 to 4.5.5.20211231
+* Updated "HowTo Estimate the pose of Aruco markers"
+
+## Fixed
+* Renderer now properly calculates imageID for square images (again)
+* Fixed IntrinsicsReader to not return bogus results if file was not read
+* Fixed Undistort node not to crash in case it receives a 0x0 mat as Intrinsics input
+* Fixed for help-patch removing obsolete pin on Camera node
+
 # [2.3.0] - 07/04/2022
 
 ## Added
