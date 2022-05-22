@@ -39,7 +39,7 @@ namespace VL.OpenCV
         private bool showText = false;
         private bool enabled = true;
         private bool loaded = false;
-        private long imageID = long.MinValue;
+        private ValueTuple<int, int, int, int> imageID;
 
         double aspectRatio = 1;
         System.Drawing.Size sizeDelta;
@@ -175,9 +175,9 @@ namespace VL.OpenCV
             pictureBox.Invalidate();
         }
 
-        private long GetImageID(Mat img)
+        private ValueTuple<int, int, int, int> GetImageID(Mat img)
         {
-            return (img.Width << 48) | (img.Height << 32) | (img.Channels() << 16) | img.Type().Value;
+            return (img.Width, img.Height, img.Channels() , img.Type().Value);
         }
 
         private void Renderer_Load(object sender, EventArgs e)
