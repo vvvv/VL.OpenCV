@@ -3,6 +3,19 @@ All notable changes to the VL.OpenCV repository will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+# [2.5.0] - 25/05/2022
+
+## Added
+* Add OpenCvSharp4.Extensions reference
+
+## Changed
+* Improve Renderer's ImageID calculation performance and reliability
+* Update SharpDX.MediaFoundation version from 4.0.1 to 4.2.0
+* Update OpenCvSharp4 references from 4.5.3.20210725 to 4.5.5.20211231
+* Update VL.Core reference from 2020.2.1 to 2021.4.8
+* Replace nodes marked as obsolete
+* Help patch cleanup and obsolete node removal
+
 # [2.4.0] - 18/04/2022
 
 ## Added
