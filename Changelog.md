@@ -3,6 +3,17 @@ All notable changes to the VL.OpenCV repository will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+# [2.5.4] - 10/04/2024
+
+## Added
+* HowTo Draw OpenCV in Skia help patch (thanks untone)
+
+## Changed
+* Updated Contributing section in README.md
+
+## Fixed
+* Serialization exception in VideoWriter
+
 # [2.5.0] - 25/05/2022
 
 ## Added
