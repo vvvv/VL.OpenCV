@@ -3,6 +3,19 @@ All notable changes to the VL.OpenCV repository will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+# [2.6.0] - 16/04/2024
+
+## Added
+* OCR Text Detection node (thanks sebl)
+* HowTo Detect text using OCR help patch (thanks sebl)
+
+## Changed
+* OpenCVSharp updated from version 4.5.5.20211231 to 4.9.0.20240103
+* Improved DrawChessboard node's performance
+* Exposed Dicitonary IOBox in Tutorial Calculate a camera position using Aruco to prevent mismatch issues
+* Removed modified VideoIn input pin from Tutorial Calculate a camera position using SolvePnP
+* Teamcity's nuget source now uses https
+
 # [2.5.4] - 10/04/2024
 
 ## Added
