@@ -1,4 +1,5 @@
 ﻿using OpenCvSharp;
+using OpenCvSharp.Aruco;
 using System.Collections.Generic;
 
 namespace VL.OpenCV
@@ -68,6 +69,11 @@ namespace VL.OpenCV
                 default:
                     return -1;
             }
+        }
+
+        public static DetectorParameters GetDetectorParametersInstance()
+        {
+            return new DetectorParameters();
         }
 
         public static unsafe IEnumerable<float> GetPixelAsFloats(Mat source, uint column, uint row)
