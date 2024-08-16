@@ -15,17 +15,18 @@
       </p:NodeReference>
       <Patch Id="Kmqf4pVnPGnNBSM83kJ5zj">
         <Canvas Id="CS9RXv4RIYFQIIi1OmEgtf" CanvasType="Group">
-          <Node Bounds="103,458,71,19" Id="NJqEAIeDjUZLuGOj2SVPKj">
+          <Node Bounds="62,478,85,19" Id="NJqEAIeDjUZLuGOj2SVPKj">
             <p:NodeReference LastCategoryFullName="OpenCV.Detection" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="DetectFaces" />
             </p:NodeReference>
             <Pin Id="CGEP6IP9c47PNMYcDFvCY3" Name="Node Context" Kind="InputPin" IsHidden="true" />
-            <Pin Id="HSiGhhpTsOYNDOmR3dc2pN" Name="CvImage" Kind="InputPin" />
+            <Pin Id="Ll5OJLcwebsOv0Dq7hw8NH" Name="Input" Kind="InputPin" />
             <Pin Id="O1unGJyPvYyPdXmgk1pJno" Name="ConfigProtoTxtFilePath" Kind="InputPin" />
             <Pin Id="Bkvfx4sMcfuLgnrrVNtA4X" Name="FaceModelFilePath" Kind="InputPin" />
             <Pin Id="AIn0O5zKaTNNBy95nFVlNl" Name="Rectangles" Kind="OutputPin" />
             <Pin Id="UGrpOprEIwQNFnpxAHpwAQ" Name="Faces" Kind="OutputPin" />
+            <Pin Id="JMquPXfhZlqQQT3H4d2j4R" Name="Confidence Threshold" Kind="InputPin" />
           </Node>
           <Node Bounds="41,268,125,19" Id="CrxaOGP6CaNPp4ChA9FMgX">
             <p:NodeReference LastCategoryFullName="OpenCV.Source" LastDependency="VL.OpenCV.vl">
@@ -195,17 +196,17 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="FrXLqGmTY9eOLty9zEB7f8" Comment="ConfigProtoTxtFilePath" Bounds="131,358,140,15" ShowValueBox="true" isIOBox="true" Value="deploy.prototxt">
+          <Pad Id="FrXLqGmTY9eOLty9zEB7f8" Comment="ConfigProtoTxtFilePath" Bounds="91,348,140,15" ShowValueBox="true" isIOBox="true" Value="deploy.prototxt">
             <p:TypeAnnotation LastCategoryFullName="IO" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Path" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="KAgFF14eTaCOsB0nZoZsFT" Comment="FaceModelFilePath" Bounds="171,427,140,15" ShowValueBox="true" isIOBox="true" Value="res10_300x300_ssd_iter_140000_fp16.caffemodel">
+          <Pad Id="KAgFF14eTaCOsB0nZoZsFT" Comment="FaceModelFilePath" Bounds="118,417,140,15" ShowValueBox="true" isIOBox="true" Value="res10_300x300_ssd_iter_140000_fp16.caffemodel">
             <p:TypeAnnotation LastCategoryFullName="IO" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Path" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="SQg7A9zK1j6OGepIwhwIQI" Bounds="119,324,176,19" ShowValueBox="true" isIOBox="true" Value=" A) Load file deploy.prototxt">
+          <Pad Id="SQg7A9zK1j6OGepIwhwIQI" Bounds="79,314,176,19" ShowValueBox="true" isIOBox="true" Value=" A) Load file deploy.prototxt">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -214,7 +215,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="P7ABh6PNJAZNZNbfTVpLBU" Bounds="154,397,452,25" ShowValueBox="true" isIOBox="true" Value="B) Load file res10_300x300_ssd_iter_140000_fp16.caffemodel">
+          <Pad Id="P7ABh6PNJAZNZNbfTVpLBU" Bounds="101,387,452,25" ShowValueBox="true" isIOBox="true" Value="B) Load file res10_300x300_ssd_iter_140000_fp16.caffemodel">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -241,6 +242,11 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
+          <Pad Id="P38ewuSXt5WPsFYcBdoeG9" Comment="Confidence Threshold" Bounds="144,456,35,15" ShowValueBox="true" isIOBox="true" Value="0.7">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="Float32" />
+            </p:TypeAnnotation>
+          </Pad>
         </Canvas>
         <Patch Id="Rp2RodpEqyvL5aEQDJKD5s" Name="Create" />
         <Patch Id="VKhExyjEaT7QBfzvtECrbJ" Name="Update" />
@@ -248,12 +254,13 @@
           <Fragment Id="Dp8paVvvWIrPMMnGQe80ft" Patch="Rp2RodpEqyvL5aEQDJKD5s" Enabled="true" />
           <Fragment Id="EZknCLoBU9bLE4AEpnXLPN" Patch="VKhExyjEaT7QBfzvtECrbJ" Enabled="true" />
         </ProcessDefinition>
-        <Link Id="VjKjGAEjOL2Mb4LS8qOtuj" Ids="Rqpk4dzRJhXLDHIgbdH7V5,HSiGhhpTsOYNDOmR3dc2pN" />
         <Link Id="QYyYoE8kq77OVEtZ2G9Jj2" Ids="AIn0O5zKaTNNBy95nFVlNl,IRFb8g8NokdLVS0Pp1wOdk" />
         <Link Id="Fqk9cGGkRAALqUP4nXuN9G" Ids="Rqpk4dzRJhXLDHIgbdH7V5,R2AnyGSY1YJPLn21KAMYHR" />
         <Link Id="DLCxao0GO1uPcuA3FX21xC" Ids="O7lXAD81h77MlYy3jcF319,A6wfarB3dxDPVCPPmqkwfw" />
         <Link Id="RGSy5l0qiZdNrGmEgmnSfh" Ids="FrXLqGmTY9eOLty9zEB7f8,O1unGJyPvYyPdXmgk1pJno" />
         <Link Id="JBsgeKz8RKMQGkLkr8hkrG" Ids="KAgFF14eTaCOsB0nZoZsFT,Bkvfx4sMcfuLgnrrVNtA4X" />
+        <Link Id="HhiQ4xZi8MSMEvgUitv0d0" Ids="Rqpk4dzRJhXLDHIgbdH7V5,Ll5OJLcwebsOv0Dq7hw8NH" />
+        <Link Id="BHBZ1WAhqCsLYyP57udutV" Ids="P38ewuSXt5WPsFYcBdoeG9,JMquPXfhZlqQQT3H4d2j4R" />
       </Patch>
     </Node>
   </Patch>
