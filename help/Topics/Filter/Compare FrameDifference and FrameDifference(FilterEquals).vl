@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:p="property" xmlns:r="reflection" Id="RL96cpmsqPhLakHfHltfSo" LanguageVersion="2024.6.6" Version="0.128">
+  <NugetDependency Id="NjKBgf3LaqCLvJskp0YE04" Location="VL.CoreLib" Version="2024.6.6" />
+  <Patch Id="AQKtKsFlzHgPDcwqouW18Y">
+    <Canvas Id="Cs3r1hFarjHQd7iyO9uuBP" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="MhxgUZ4LN13LLAENsvZtvL">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <CategoryReference Kind="Category" Name="Primitive" />
+      </p:NodeReference>
+      <Patch Id="Qr3eKJsJdEHP6htsc4AQuF">
+        <Canvas Id="PRn5XAUVZU0McRjsVZtp5h" CanvasType="Group">
+          <Node Bounds="154,220,125,19" Id="Q51ASYwxDuZQA4xCzKslpI">
+            <p:NodeReference LastCategoryFullName="OpenCV.Source" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="VideoIn" />
+            </p:NodeReference>
+            <Pin Id="O6wn252v8OzQdU2Gj7AH6E" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="SYZb8HcsW1gPANWjIbloTD" Name="Video Input Device" Kind="InputPin" />
+            <Pin Id="B7TKccnxcalOj4sSiR2xnk" Name="Width" Kind="InputPin" />
+            <Pin Id="G2EPQIqAlv5Ocx4HMZ1ZkC" Name="Height" Kind="InputPin" />
+            <Pin Id="GKt4qqKa7BNOb2VwOX8pJR" Name="FPS" Kind="InputPin" />
+            <Pin Id="DizRwZuRuUAOJKoPiErq6n" Name="FourCC" Kind="InputPin" />
+            <Pin Id="Opk60mZhmguOXY55bWc0wz" Name="Show Properties" Kind="InputPin" />
+            <Pin Id="ECthuU8MId7LK90iwOTpNm" Name="Preferred API" Kind="InputPin" IsHidden="true" />
+            <Pin Id="OKth05uLLuRPWD2jhnP7On" Name="Video Acceleration" Kind="InputPin" IsHidden="true" />
+            <Pin Id="NFOjYJXA3CfOmAHUNFfNpA" Name="Hardware Device Index" Kind="InputPin" IsHidden="true" />
+            <Pin Id="Q6WDESF24fALtOkOy0Nzz5" Name="Enabled" Kind="InputPin" />
+            <Pin Id="IluU3KeGH1jL4VrmzOfPKf" Name="Image" Kind="OutputPin" />
+            <Pin Id="OmnuyUfDQNNObGflzySpOO" Name="Supported Formats" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="154,345,91,19" Id="RiWY2dPyR40MLDBVIFo4az">
+            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <CategoryReference Kind="Category" Name="Filter" NeedsToBeDirectParent="true" />
+              <Choice Kind="ProcessAppFlag" Name="FrameDifference" />
+            </p:NodeReference>
+            <Pin Id="A3H6lkTtqdMMrmQOlV4st4" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="NahVBFWx7J1LiC5KwO2kyn" Name="Input" Kind="InputPin" />
+            <Pin Id="JbpSfH95aIEQcqY7xrMmHY" Name="Apply" Kind="InputPin" />
+            <Pin Id="FelqzgaIbgBNaQwBMX3bhp" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="154,258,60,19" Id="GeZJ9Jb8CcENNPd1bl4rCj">
+            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="GrayScale" />
+            </p:NodeReference>
+            <Pin Id="AQNijhErqdUNUmpk0S0SfB" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="H9fnsVyYgrlOG1EIJsRoiV" Name="Input" Kind="InputPin" />
+            <Pin Id="LaWu7HMTeDNMrF2sdB5lPj" Name="Source Format" Kind="InputPin" />
+            <Pin Id="UieKA1FgBbNLIdKlSURkfa" Name="Apply" Kind="InputPin" />
+            <Pin Id="NSxDwnZoe1LMl0L3utS0ER" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Pad Id="RdpDOwRPvD2PChu9BVH0vQ" Comment="" Bounds="156,435,190,132" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="GGONwdjClbkOt9hovGFyQT" Comment="" Bounds="392,435,190,132" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="TcLplUkHODHMzYXIYUPUYy" Bounds="400,399,269,19" ShowValueBox="true" isIOBox="true" Value=" FrameDifference (cached) remove flickering">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="KXjGmxGVoa8P0GrkQOLt72" Bounds="485,354,258,26" ShowValueBox="true" isIOBox="true" Value=" &lt;- FrameDifference (FilterEquals)">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Node Bounds="390,345,91,19" Id="NZEcBJav7MlLD1JxJVPkPV">
+            <p:NodeReference LastCategoryFullName="Main.Filter" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="FrameDifference (FilterEquals)" />
+            </p:NodeReference>
+            <Pin Id="PJ2RWOSIZ88OaYng8LUM5p" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="Tawibec6mDILrJtf2Q5Xpn" Name="Input" Kind="InputPin" />
+            <Pin Id="PPsY6bMihIINOFAvL7Ui8G" Name="FilterSameFrames" Kind="InputPin" IsHidden="true" />
+            <Pin Id="EPAvbSNnMe3Npnf1avlaq9" Name="Apply" Kind="InputPin" />
+            <Pin Id="QcuF3m2Vl3rQEq9t4we27L" Name="Output" Kind="OutputPin" />
+          </Node>
+        </Canvas>
+        <Patch Id="T5TLjDGSayMN1yskZ7VePc" Name="Create" />
+        <Patch Id="Th4w6E4XRqMPciTc6baztP" Name="Update" />
+        <ProcessDefinition Id="LDYn3kdy6OAO6kIdFJNlM9">
+          <Fragment Id="U2zR76ghqG1P17vI3mHbDq" Patch="T5TLjDGSayMN1yskZ7VePc" Enabled="true" />
+          <Fragment Id="CqpR84EIZzPNmVw5JcPjDY" Patch="Th4w6E4XRqMPciTc6baztP" Enabled="true" />
+        </ProcessDefinition>
+        <Link Id="Nhta7USChaqQZ9fLP3Vw5i" Ids="IluU3KeGH1jL4VrmzOfPKf,H9fnsVyYgrlOG1EIJsRoiV" />
+        <Link Id="VsmMndMG2gHMwmeC9LdllS" Ids="NSxDwnZoe1LMl0L3utS0ER,NahVBFWx7J1LiC5KwO2kyn" />
+        <Link Id="NeEUxzRxquVOxhQFSV2z5m" Ids="FelqzgaIbgBNaQwBMX3bhp,RdpDOwRPvD2PChu9BVH0vQ" />
+        <Link Id="SPymz5sizp5Ng166mawqf6" Ids="NSxDwnZoe1LMl0L3utS0ER,Tawibec6mDILrJtf2Q5Xpn" />
+        <Link Id="NoJaPeq408JPyOMTbJYaKi" Ids="QcuF3m2Vl3rQEq9t4we27L,GGONwdjClbkOt9hovGFyQT" />
+      </Patch>
+    </Node>
+  </Patch>
+  <NugetDependency Id="Hi4rZzMuONzNbS4uNvk3Gt" Location="VL.OpenCV" Version="0.0.0" />
+</Document>
