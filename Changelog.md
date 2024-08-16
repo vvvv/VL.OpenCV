@@ -3,6 +3,16 @@ All notable changes to the VL.OpenCV repository will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+# [2.6.2] - 16/08/2024
+
+## Added
+* FrameDifferenc(FilterEquals) node and help patch
+* Yolo3Detector with non-maximum suppression and help patch
+* Face Detector with Caffe Model and help patch
+* Added S+H (OpenCV) node and help patch
+
+Big thanks to dani217s for these additions!
+
 # [2.6.1] - 23/04/2024
 
 ## Changed
