@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:p="property" xmlns:r="reflection" Id="S8WA4cZGFR0OZHpeh63aSb" LanguageVersion="2024.6.7-0143-g89582ae8a4" Version="0.128">
+  <Patch Id="TdsnqpUZKTxMuoMDGPFpHJ">
+    <Canvas Id="UTJhLYLzuRbNgWcBPskgBP" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="IBONiB2GO1jNjr641TEOGK">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <CategoryReference Kind="Category" Name="Primitive" />
+      </p:NodeReference>
+      <Patch Id="LjVVIICUM17MqfN1mfmlZ5">
+        <Canvas Id="LvmMDyplSMpOFJeLFbazQs" CanvasType="Group">
+          <Node Bounds="292,785,145,19" Id="DfYI3RTmA8lMGQmVfhfhQJ">
+            <p:NodeReference LastCategoryFullName="OpenCV.FaceRecognition" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="FaceRecognizerTrainer (LBPH)" />
+            </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
+            <Pin Id="JeZAgosObjUOSwu1xd0C1f" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="RDSi57w9YcuQVKzGYZIvUs" Name="Radius" Kind="InputPin" />
+            <Pin Id="KA0XULtyEUBL90k6Oplclp" Name="Neighbors" Kind="InputPin" />
+            <Pin Id="Be1fefMNeu1MzOGhPDWJ7J" Name="Grid X" Kind="InputPin" />
+            <Pin Id="NryCpJNwM8bOLzeuufRAax" Name="Grid Y" Kind="InputPin" />
+            <Pin Id="C6mxUyFE1xiLUr5BkeoLAs" Name="Threshold" Kind="InputPin" />
+            <Pin Id="PKHCGM1jM1KMeFQ5IQ8IlQ" Name="Training Images" Kind="InputPin" />
+            <Pin Id="S8pfbr11KbNOmn4ldcOk0p" Name="Training Labels" Kind="InputPin" />
+            <Pin Id="RC7bq4E9EYXORKIiC2MnKA" Name="Train" Kind="InputPin" />
+            <Pin Id="AECD4TLgio6OaN17K9sqb0" Name="FaceRecognizer" Kind="OutputPin" />
+            <Pin Id="HwSLVG0WEfhQQXfQ4FmJC6" Name="Is Trained" Kind="OutputPin" />
+          </Node>
+          <Pad Id="F8XSAAVMIuMLPuiXCUHy9L" Comment="Training Labels" Bounds="624,340,42,60" ShowValueBox="true" isIOBox="true" Value="0, 0">
+            <p:TypeAnnotation LastCategoryFullName="Collections" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="Spread" />
+              <p:TypeArguments>
+                <TypeReference LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Integer32" />
+                </TypeReference>
+              </p:TypeArguments>
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="CZcCZi5iRKSNeLL9vmdeyR" Bounds="672,361,156,49" ShowValueBox="true" isIOBox="true" Value="&lt; Every image should correspond to a Label">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="DezkA1fiY0JMHuFmWw8sc1" Comment="Train" Bounds="434,733,35,35" ShowValueBox="true" isIOBox="true" Value="false">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="KnUMOraApcjQJDdvwJaF79" Comment="Is Trained" Bounds="434,823,35,35" ShowValueBox="true" isIOBox="true" />
+          <Node Bounds="293,927,114,19" Id="Ff3EgNnrNXOL9ttTrAuQJl">
+            <p:NodeReference LastCategoryFullName="OpenCV.FaceRecognition" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="FaceRecognizerWriter" />
+            </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
+            <Pin Id="NL1nZa6SsdCOEww7SgCdqD" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="Ahk4Bxc0SPaN08sj15YpeC" Name="FaceRecognizer" Kind="InputPin" />
+            <Pin Id="GzWOoGB8Rz2NQoEmxaHG6n" Name="File Name" Kind="InputPin" />
+            <Pin Id="QCB3os4BhNfPV02mCUKJvm" Name="Write" Kind="InputPin" />
+          </Node>
+          <Pad Id="FQN70ngswmOPWo2jK2dTFv" Comment="File Name" Bounds="349,860,35,15" ShowValueBox="true" isIOBox="true" Value="">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="PA8tlLgLGyIMZ2ww97KQAT" Comment="Write" Bounds="404,886,35,35" ShowValueBox="true" isIOBox="true" Value="false">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="F3vwqK2bBzkOF4YW4Hpt1d" Bounds="478,884,202,30" ShowValueBox="true" isIOBox="true" Value="&lt; Store your trained Recognizer">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="Rajq71ay1ZyLCBWYiVVEA4" Bounds="515,732,132,19" ShowValueBox="true" isIOBox="true" Value="&lt; This will take time">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Overlay Id="G3uaYwsnFK5PjaohcOpwHa" Name="Images and their Labels" Bounds="211,244,629,331" />
+          <Pad Id="RuxwPFZQsm3P2JDfmDX36C" Bounds="210,295,397,22" ShowValueBox="true" isIOBox="true" Value="Provide a spread of images and their labels to train a Recognizer.">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="MQy1TjGYQjVMzoXtlQHgSb" Comment="Image Paths" Bounds="395,342,123,65" ShowValueBox="true" isIOBox="true">
+            <p:TypeAnnotation LastCategoryFullName="Collections" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="Spread" />
+              <p:TypeArguments>
+                <TypeReference LastCategoryFullName="IO" LastDependency="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="Path" />
+                </TypeReference>
+              </p:TypeArguments>
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:maxvisibleentries p:Type="Int32">3</p:maxvisibleentries>
+            </p:ValueBoxSettings>
+            <p:Value>
+              <Item>face1.jpg</Item>
+              <Item>face2jpg</Item>
+            </p:Value>
+          </Pad>
+          <Overlay Id="HcNhNQMN4V4PPsqXcwB3pM" Name="Train a Recognizer" Bounds="212,586,500,388" />
+          <Node Bounds="937,821,128,19" Id="VJHd3ngjLHhM8Up336mvra">
+            <p:NodeReference LastCategoryFullName="OpenCV.FaceRecognition" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="FaceRecognizerPredictor" />
+            </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
+            <Pin Id="MfHyDR01YXZMnXu3aMEpDg" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="ELlQa86DvhHQP6tdvgT5Mv" Name="FaceRecognizer" Kind="InputPin" />
+            <Pin Id="CPNWdizf5uDLFLqoxtwGSz" Name="Predict Image" Kind="InputPin" />
+            <Pin Id="GBHm4uRJz3cLLQqsufleeL" Name="Predict" Kind="InputPin" />
+            <Pin Id="Ouf9nvZQGsSMxOBdKsNpRz" Name="Label" Kind="OutputPin" />
+            <Pin Id="Kghic78fKXgMfwrmMJxl1K" Name="Confidence" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="937,741,118,19" Id="OCxLJpXjbUKNs8MWPS57SI">
+            <p:NodeReference LastCategoryFullName="OpenCV.FaceRecognition" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="FaceRecognizerReader (LBPH)" />
+            </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
+            <Pin Id="JB2rp9NdGAsQM90020JQp3" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="OzFyG79JPWKOf0BNZyKfrP" Name="File Name" Kind="InputPin" />
+            <Pin Id="VZHWaR0uzRrNA3ykmsdcX9" Name="Read" Kind="InputPin" />
+            <Pin Id="IySYQRkxCr8QEbjysp98zj" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Pad Id="BKPDr7xRNoAOzrepjZEXak" Comment="File Name" Bounds="939,657,34,15" ShowValueBox="true" isIOBox="true" Value="">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="BqdufAQl204Oadi6icYk8d" Bounds="1037,655,166,19" ShowValueBox="true" isIOBox="true" Value="&lt; Your trained Recognizer">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="SePH0i1wDlvPiAUjybYriG" Bounds="146,247,51,56" ShowValueBox="true" isIOBox="true" Value="1.">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">26</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="USIWj9zRjxXMDDJBNzYUQG" Bounds="155,589,51,56" ShowValueBox="true" isIOBox="true" Value="2.">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">26</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="OO8376JXmcTMEdFx129i8Q" Bounds="727,585,51,56" ShowValueBox="true" isIOBox="true" Value="3.">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">26</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="CkJouiXbxnzOLJiWIzGGIT" Comment="Read" Bounds="1081,704,35,35" ShowValueBox="true" isIOBox="true" Value="false">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="GuAmdaFAfWnN7jwZ3gjLkp" Comment="Predict Image" SlotId="FWKByl5GiADN0khB3Gkr1W" Bounds="1000,788" />
+          <Pad Id="M8SSWsYtYodNT55A5EgLl7" Comment="Predict" Bounds="1081,783,35,35" ShowValueBox="true" isIOBox="true" Value="false">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="Mdyz0HxejUnLxUJ8Osg1VI" Comment="Label" Bounds="939,893,38,15" ShowValueBox="true" isIOBox="true" />
+          <Overlay Id="B624LyKFDFMNoBVyDtsROK" Name="Recognize" Bounds="787,585,557,387" />
+          <Node Bounds="381,425,175,98" Id="OodFcNJZghfO91spOwV1Wz">
+            <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
+              <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+              <CategoryReference Kind="Category" Name="Primitive" />
+              <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
+            </p:NodeReference>
+            <Pin Id="Fg973g8SVvmM3lK86rEUuf" Name="Break" Kind="OutputPin" />
+            <Patch Id="JenLb3nnB8iNxaSpjgQ6zU" ManuallySortedPins="true">
+              <Patch Id="R1v2xfNtOBDOih1cgQVgLu" Name="Create" ManuallySortedPins="true" />
+              <Patch Id="O1ARtw0A3SLL46XbhhC7Ep" Name="Update" ManuallySortedPins="true" />
+              <Patch Id="KZ4ZUpzZDesPQEo0RLTsR2" Name="Dispose" ManuallySortedPins="true" />
+              <Node Bounds="393,484,75,19" Id="GRDL0FDZyqKPW7MCZ7XW8P">
+                <p:NodeReference LastCategoryFullName="OpenCV.Source" LastDependency="VL.OpenCV.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="Category" Name="OpenCV" />
+                  <Choice Kind="ProcessAppFlag" Name="ImageReader" />
+                </p:NodeReference>
+                <Pin Id="TlLU73SH2XSO6lOdMxpfFv" Name="Node Context" Kind="InputPin" IsHidden="true" />
+                <Pin Id="BGRndzdXXnGOzM40wzq6zT" Name="File Name" Kind="InputPin" />
+                <Pin Id="Rj8fAclIzevM46sUvweVpR" Name="Flags" Kind="InputPin" />
+                <Pin Id="OdSwrw6ZUu0PKL4e96wY7s" Name="Load" Kind="InputPin" />
+                <Pin Id="QkvxBnWXzMSMf6jF8yihsK" Name="Output" Kind="OutputPin" />
+              </Node>
+              <Pad Id="MwdkGy6xWOyN1rplqbu42v" Comment="Load" Bounds="465,453,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+                  <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+                </p:TypeAnnotation>
+                <p:ValueBoxSettings>
+                  <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
+                </p:ValueBoxSettings>
+              </Pad>
+            </Patch>
+            <ControlPoint Id="UUObKt1KBHuNxch7PiJvzS" Bounds="395,431" Alignment="Top" />
+            <ControlPoint Id="UMYA7C14UUQN5q6bqclvjS" Bounds="395,517" Alignment="Bottom" />
+          </Node>
+          <ControlPoint Id="V1DCNxfeL1gP6H7Ly4DmoJ" Bounds="624,556" />
+          <ControlPoint Id="BCpFd6H6wq2Pq0Zh8nWC6e" Bounds="414,686" />
+          <Pad Id="HbalqoeKyD9MrRTfk0UWrs" Bounds="154,63,287,42" ShowValueBox="true" isIOBox="true" Value="Use FaceRecognizer">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">20</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="HH4G1SzttoYOrvixDxnc1i" Bounds="155,200,400,19" ShowValueBox="true" isIOBox="true" Value="https://docs.opencv.org/4.10.0/da/d60/tutorial_face_main.html">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Link</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="UnBTEEssIgJL7IPFK4YNDY" Bounds="1080,830,204,73" ShowValueBox="true" isIOBox="true" Value="&lt; The Predictor accepts all types of FaceRecognizers (LBPH, Eigen, Fischer).">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="OMTwVfox3tzQIHvWocamWY" Bounds="155,113,490,82" ShowValueBox="true" isIOBox="true" Value="OpenCV comes with 3 algorithms for the Face Recognition: Eigen, Fischer, LBPH.&#xD;&#xA;Here is an overview on how to train and use them.&#xD;&#xA;Note, the training set of images should be carefully prepared.&#xD;&#xA;For more information see OpenCV's explanations:&#xD;&#xA;&#xD;&#xA;">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="DwuOlKqbw0sL1H9j0xfGKX" Bounds="203,1003,63,19" ShowValueBox="true" isIOBox="true" Value="See also:">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Node Bounds="214,1040,118,19" Id="TVuwZbSwATtLYUorvduXWV">
+            <p:NodeReference LastCategoryFullName="OpenCV.FaceRecognition" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="FaceRecognizerReader (Eigen)" />
+            </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">Low</p:HelpFocus>
+            <Pin Id="JVk7XA0yX5uNjlkeUXhm2x" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="B3XNbjc8q5VOU00Ud6PpAX" Name="File Name" Kind="InputPin" />
+            <Pin Id="Dn7nCuLed49MtLGgXUL0hu" Name="Read" Kind="InputPin" />
+            <Pin Id="EgAJIUKyJ6LLiUgkEaHiKS" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="214,1065,118,19" Id="TztV7RJFm6XOHKubWic9aX">
+            <p:NodeReference LastCategoryFullName="OpenCV.FaceRecognition" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="FaceRecognizerReader (Fisher)" />
+            </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">Low</p:HelpFocus>
+            <Pin Id="FFy8O2mYgKDLZbh5XrlGuA" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="MuUBhJQ7zsLNgcDvMQPefp" Name="File Name" Kind="InputPin" />
+            <Pin Id="D8B1e0IwvY0M8R7L3czf1d" Name="Read" Kind="InputPin" />
+            <Pin Id="Dq6D9hGEbMMLymTiWN933q" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Pad Id="KtXW4FkxIx1N3wWQyfYxgg" Bounds="337,1046,64,19" ShowValueBox="true" isIOBox="true" Value="(Eigen)">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="VDWFo7JVuCGMZAHcJpkoFE" Bounds="337,1071,64,19" ShowValueBox="true" isIOBox="true" Value="(Fischer)">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Node Bounds="215,1103,119,19" Id="EkrDhEJTSX8PRaMHhrJu8B">
+            <p:NodeReference LastCategoryFullName="OpenCV.FaceRecognition" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="FaceRecognizerTrainer (Eigen)" />
+            </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">Low</p:HelpFocus>
+            <Pin Id="AenDsHr85D6Lvsxfhagiic" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="DoOXeW8ozXiO4kgYwwGeLo" Name="Num Components" Kind="InputPin" />
+            <Pin Id="VHlircto6voQYyYgJXDleB" Name="Threshold" Kind="InputPin" />
+            <Pin Id="LpNuHwnqY59N6QzzlcZdQM" Name="Training Images" Kind="InputPin" />
+            <Pin Id="VjFrxxkn4TeLhJtIby1UDd" Name="Training Labels" Kind="InputPin" />
+            <Pin Id="HqS6hYtBRtRLHKdBQDB7nN" Name="Train" Kind="InputPin" />
+            <Pin Id="Jwra4S2p6W1QR1aiyUFZyY" Name="FaceRecognizer" Kind="OutputPin" />
+            <Pin Id="Kg4P4URvRvCMzigQeB74ea" Name="Is Trained" Kind="OutputPin" />
+          </Node>
+          <Pad Id="AEwvAoFAk9nLuzSDoalBRB" Bounds="337,1108,64,19" ShowValueBox="true" isIOBox="true" Value="(Eigen)">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="ApXGJRYQyaON6XSwl305qg" Bounds="337,1135,64,19" ShowValueBox="true" isIOBox="true" Value="(Fischer)">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Node Bounds="215,1129,119,19" Id="S0BPmAsjGjRLnJwlTUnQxL">
+            <p:NodeReference LastCategoryFullName="OpenCV.FaceRecognition" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="FaceRecognizerTrainer (Fisher)" />
+            </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">Low</p:HelpFocus>
+            <Pin Id="VTOdy7QFQvtObcGAgjD3yN" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="AnbkOEhHGJvOUSaCyGd1S4" Name="Num Components" Kind="InputPin" />
+            <Pin Id="Ur5qQF3Yk0OLVIEnQqLpK1" Name="Threshold" Kind="InputPin" />
+            <Pin Id="UX6EZLY5ndRMb3cjIMqdUR" Name="Training Images" Kind="InputPin" />
+            <Pin Id="DiHOLV2KBtqLvM9SXgZe0E" Name="Training Labels" Kind="InputPin" />
+            <Pin Id="LV9W2mfe6n1LHsooBn2Omq" Name="Train" Kind="InputPin" />
+            <Pin Id="LLNoMQ5fWFiLKry9lbe8BV" Name="FaceRecognizer" Kind="OutputPin" />
+            <Pin Id="AZvBsSswbFtMMjTLXS0JwG" Name="Is Trained" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="215,1172,119,19" Id="Jvz8A0yLHtDLBwcBOs55JC">
+            <p:NodeReference LastCategoryFullName="OpenCV.FaceRecognition" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="FaceRecognizerUpdate" />
+            </p:NodeReference>
+            <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">Low</p:HelpFocus>
+            <Pin Id="SSLPwE2j26YOtu0YrMRCAS" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="CddiYBjVmZ5MoKUjodY7de" Name="Input" Kind="InputPin" />
+            <Pin Id="Re8t1vizs2YOb3M6ZTn1dd" Name="Training Images" Kind="InputPin" />
+            <Pin Id="Ep6V2jC1fPZMmWxywq6aE5" Name="Training Labels" Kind="InputPin" />
+            <Pin Id="MIjZBWc1wrML79FOrYecFu" Name="Update" Kind="InputPin" />
+            <Pin Id="H1sPAiNmIeKQRxu4NudB6r" Name="Output" Kind="OutputPin" />
+            <Pin Id="FETsPCbmRc6OgjQxHk9OGw" Name="Updated" Kind="OutputPin" />
+          </Node>
+          <Pad Id="PEXkZdi2xauLLen8S48vqq" Bounds="337,1179,94,19" ShowValueBox="true" isIOBox="true" Value="only (LBPH)!">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+        </Canvas>
+        <Patch Id="HqMiH9KcSQ4PyNFNu8a8ut" Name="Create" />
+        <Patch Id="M1rHPv3MTOmMRa3PaEUaTz" Name="Update" />
+        <ProcessDefinition Id="UrFW0nHVg1MNBc6jiDgEje">
+          <Fragment Id="IyOi1wEh8kiMaoIE5miju2" Patch="HqMiH9KcSQ4PyNFNu8a8ut" Enabled="true" />
+          <Fragment Id="F8gtaX5HXOQNqhltvPF35n" Patch="M1rHPv3MTOmMRa3PaEUaTz" Enabled="true" />
+        </ProcessDefinition>
+        <Link Id="Lu9SCTv33ttNiai6P4AMNa" Ids="DezkA1fiY0JMHuFmWw8sc1,RC7bq4E9EYXORKIiC2MnKA" />
+        <Link Id="SwXPhgiYIc9OfpJH9qfGf0" Ids="HwSLVG0WEfhQQXfQ4FmJC6,KnUMOraApcjQJDdvwJaF79" />
+        <Link Id="DudQKTX6tokNBarlYOeF1h" Ids="AECD4TLgio6OaN17K9sqb0,Ahk4Bxc0SPaN08sj15YpeC" />
+        <Link Id="GCjbLpl92cdP0zCI0uOceo" Ids="FQN70ngswmOPWo2jK2dTFv,GzWOoGB8Rz2NQoEmxaHG6n" />
+        <Link Id="DhJ9fIDE8MnNdePwZgaC72" Ids="PA8tlLgLGyIMZ2ww97KQAT,QCB3os4BhNfPV02mCUKJvm" />
+        <Link Id="ElRNl7o2vaLLrafxE0pGnb" Ids="BKPDr7xRNoAOzrepjZEXak,OzFyG79JPWKOf0BNZyKfrP" />
+        <Link Id="NKSnvimqT9gLGh9fpnKRg6" Ids="CkJouiXbxnzOLJiWIzGGIT,VZHWaR0uzRrNA3ykmsdcX9" />
+        <Link Id="JiJa5pvBnGoPc649yBr9Wv" Ids="IySYQRkxCr8QEbjysp98zj,ELlQa86DvhHQP6tdvgT5Mv" />
+        <Link Id="DoMxEoBjid7OKIhrR7wRpy" Ids="GuAmdaFAfWnN7jwZ3gjLkp,CPNWdizf5uDLFLqoxtwGSz" />
+        <Slot Id="FWKByl5GiADN0khB3Gkr1W" Name="Image to Recognize">
+          <p:TypeAnnotation p:Type="TypeReference" LastCategoryFullName="OpenCV.Utils" LastDependency="VL.OpenCV.vl">
+            <Choice Kind="TypeFlag" Name="CvImage" />
+          </p:TypeAnnotation>
+        </Slot>
+        <Link Id="IsOVupNT8VoOl01lfhUeHz" Ids="M8SSWsYtYodNT55A5EgLl7,GBHm4uRJz3cLLQqsufleeL" />
+        <Link Id="JvcTlHeLBooLZdGumT9uu1" Ids="Ouf9nvZQGsSMxOBdKsNpRz,Mdyz0HxejUnLxUJ8Osg1VI" />
+        <Link Id="GZRZDC8Pl7mQRReqPJpj3c" Ids="UUObKt1KBHuNxch7PiJvzS,BGRndzdXXnGOzM40wzq6zT" />
+        <Link Id="GIPH8lfTUkJLNbAVWU8vD9" Ids="MwdkGy6xWOyN1rplqbu42v,OdSwrw6ZUu0PKL4e96wY7s" />
+        <Link Id="NQ7pkEItkKtNT6dTnvvHwl" Ids="QkvxBnWXzMSMf6jF8yihsK,UMYA7C14UUQN5q6bqclvjS" />
+        <Link Id="SP8wQpelgZbNEWyJrohRfp" Ids="MQy1TjGYQjVMzoXtlQHgSb,UUObKt1KBHuNxch7PiJvzS" />
+        <Link Id="HzDe2KmJUKuO1JQZ5B9fVA" Ids="F8XSAAVMIuMLPuiXCUHy9L,V1DCNxfeL1gP6H7Ly4DmoJ,BCpFd6H6wq2Pq0Zh8nWC6e,S8pfbr11KbNOmn4ldcOk0p" />
+        <Link Id="UFgfDp92XTKP6dFFZsWMsh" Ids="UMYA7C14UUQN5q6bqclvjS,PKHCGM1jM1KMeFQ5IQ8IlQ" />
+      </Patch>
+    </Node>
+  </Patch>
+  <PlatformDependency Id="L8tTQZ3WzquMPcoYEZJMlY" Location="C:/Program Files/vvvv/vvvv_gamma_6.7-0136-ga34ff89f71/packs/TestGame/Bin/Windows/Debug/Stride.Core.Mathematics.dll" />
+  <NugetDependency Id="ChoalJNlSqLNaVsk4y8HAO" Location="VL.OpenCV" Version="0.0.0" />
+</Document>
