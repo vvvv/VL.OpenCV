@@ -3,6 +3,11 @@ All notable changes to the VL.OpenCV repository will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+# [2.6.3] - 05/10/2024
+
+## Added
+* HowTo Recognize Faces help patch (thanks untone)
+
 # [2.6.2] - 16/08/2024
 
 ## Added
