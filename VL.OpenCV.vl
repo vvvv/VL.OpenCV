@@ -16935,6 +16935,116 @@
             <Link Id="Qjd8XqKUsQ3N8NDzrvILZo" Ids="KSWDTOCK5xvQdzCabKO3cp,SVZA95cB8e8O8alK3JbMZG" />
           </Patch>
         </Node>
+        <!--
+
+    ************************ Bilateral ************************
+
+-->
+        <Node Name="Bilateral" Bounds="528,324" Id="HuBiXg7btxeO6il7HmJoxY" Summary="Applies the bilateral filter to an image." Remarks="BilateralFilter can reduce unwanted noise very well while keeping edges fairly sharp. However, it is very slow compared to most filters.">
+          <p:NodeReference>
+            <Choice Kind="ContainerDefinition" />
+          </p:NodeReference>
+          <Patch Id="VVeD3ug7aVmOvCzPO90PN9">
+            <Canvas Id="Ktes8FwS2KuLezWfjYMfQw" CanvasType="Group">
+              <Node Bounds="504,377,379,117" Id="B4uvHrQg2nYPDKtcaYrEXs">
+                <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <CategoryReference Kind="Category" Name="Primitive" />
+                  <Choice Kind="ProcessStatefulRegion" Name="Cache" />
+                </p:NodeReference>
+                <Pin Id="HQaGGxi4g55LxiqgFBbcYe" Name="Force" Kind="InputPin" />
+                <Pin Id="T2RECI8yjU6O4AgeIcUX0b" Name="Dispose Cached Outputs" Kind="InputPin" />
+                <Pin Id="IvXbLcdWCzCPpC7p1eM9Lp" Name="Has Changed" Kind="OutputPin" />
+                <Patch Id="KxnpCHLiRZ8OMgkMY8J7oB" ManuallySortedPins="true">
+                  <Patch Id="AN7KFjJs6eFOhffpmWW2f6" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="BtvRWh1DyzQMBh7ZgHmObd" Name="Then" ManuallySortedPins="true" />
+                  <Node Bounds="543,398,328,76" Id="J8k3Zwxb1CFLAq14MEhhyz">
+                    <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastDependency="VL.OpenCV.vl">
+                      <Choice Kind="RegionFlag" Name="Region (Stateless)" Fixed="true" />
+                      <Choice Kind="ProcessAppFlag" Name="Filter (1-&gt;1)" />
+                    </p:NodeReference>
+                    <Pin Id="K36jRMUax9UOpUqS06giRm" Name="Node Context" Kind="InputPin" IsHidden="true" />
+                    <Pin Id="DRfBBHOwhzpOgo8fVnxQpg" Name="Apply" Kind="InputPin" />
+                    <Pin Id="EGgZMvwfhhkLxL4r1oBlsF" Name="Input" Kind="InputPin" />
+                    <Pin Id="UVy8EsnNFwTMJCXlpXDZeG" Name="Output" Kind="OutputPin" />
+                    <Patch Id="NIpHlruxGKLNVwuggD27Hp" Name="Operation" ManuallySortedPins="true">
+                      <Pin Id="FlzT2yI99lLMvzabaorxZG" Name="Input 1" Kind="InputPin" />
+                      <Pin Id="RkA0cg7cQFHOML1HyVpHvH" Name="Input 2" Kind="InputPin" />
+                      <ControlPoint Id="KGnAFSaqyybPlHiJx8zGxH" Bounds="557,406" />
+                      <ControlPoint Id="Iegm5EWYKf9O9ZCHDeqKrs" Bounds="617,406" />
+                      <Node Bounds="555,435,304,19" Id="V5LskgRuZFNNtFVxdxhmHB">
+                        <p:NodeReference LastCategoryFullName="OpenCvSharp.Cv2" LastDependency="OpenCvSharp.dll">
+                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                          <CategoryReference Kind="AssemblyCategory" Name="Cv2" NeedsToBeDirectParent="true" />
+                          <Choice Kind="OperationCallFlag" Name="BilateralFilter" />
+                        </p:NodeReference>
+                        <Pin Id="FxhccQ4gsEcP8DzokdVcgw" Name="Src" Kind="InputPin" />
+                        <Pin Id="PItT7AnUvjGPvqhP6ExeoR" Name="Dst" Kind="InputPin" />
+                        <Pin Id="HNOEcugtYQsN5zHnXkmfbl" Name="D" Kind="InputPin" />
+                        <Pin Id="Iycotzgkns9LVdfDeOVtmz" Name="Sigma Color" Kind="InputPin" />
+                        <Pin Id="HlBMbVzUDz1P7vkK8aaqwW" Name="Sigma Space" Kind="InputPin" />
+                        <Pin Id="H5iBcbAtpccLhxvMlQ1UtI" Name="Border Type" Kind="InputPin" />
+                      </Node>
+                    </Patch>
+                  </Node>
+                </Patch>
+                <ControlPoint Id="IPOzHw6ENeJLwh7KzPpqBO" Bounds="677,383" Alignment="Top" />
+                <ControlPoint Id="MS65zB0Sr9IMuBPzAfkJSO" Bounds="737,383" Alignment="Top" />
+                <ControlPoint Id="E3DqTa4VYGeNgoklca82c7" Bounds="796,383" Alignment="Top" />
+                <ControlPoint Id="MtgUqW6hkWRLVbwIW4Z59a" Bounds="856,383" Alignment="Top" />
+                <ControlPoint Id="FDbijlhvskrQYxg3Ct8LbR" Bounds="545,383" Alignment="Top" />
+                <ControlPoint Id="Q7eYATQB8TrPzoS7xO5T5a" Bounds="546,488" Alignment="Bottom" />
+                <ControlPoint Id="SuTfxvIk5EtNosXMQzu39d" Bounds="868,383" Alignment="Top" />
+              </Node>
+              <ControlPoint Id="J2GiiU98e5XL7CLxHvqIUW" Bounds="677,249" />
+              <ControlPoint Id="HfvGXnP8xnlMSDWBYRShWp" Bounds="737,249" />
+              <ControlPoint Id="ByvM8haVgH9MK6VqfWgTI3" Bounds="796,281" />
+              <ControlPoint Id="TxIiyorGobhQUCvPQNpzag" Bounds="856,314" />
+              <ControlPoint Id="SJxu5gBUxw2PnjmWs9xweL" Bounds="545,240" />
+              <ControlPoint Id="H5ogbbWnW3dPpmGVLXDjae" Bounds="546,524" />
+              <ControlPoint Id="RuSrUuJ5mVSO94bzhy7cf7" Bounds="868,347" />
+            </Canvas>
+            <Patch Id="Mxc3H1kFRytLYAUQRWx4mU" Name="Create" />
+            <Patch Id="UtfxCA5sMQAMbU5p8A6OLa" Name="Update" ManuallySortedPins="true">
+              <Pin Id="EHNy4PywBGOO1XUWH84iYi" Name="Input" Kind="InputPin" Summary="Source 8-bit or floating-point, 1-channel or 3-channel image." />
+              <Pin Id="C5do0Ajjg8kMxeZj7cRD6i" Name="D" Kind="InputPin" Summary="Diameter of each pixel neighborhood that is used during filtering. If it is non-positive, it is computed from sigmaSpace." />
+              <Pin Id="PoySvXFRJ3iMoQOBLkKrX7" Name="Sigma Color" Kind="InputPin" Summary="Filter sigma in the color space. A larger value of the parameter means that farther colors within the pixel neighborhood (see sigmaSpace) will be mixed together, resulting in larger areas of semi-equal color." />
+              <Pin Id="JEYbexct2VhMALRwd8BMSW" Name="Sigma Space" Kind="InputPin" Summary="Filter sigma in the coordinate space. A larger value of the parameter means that farther pixels will influence each other as long as their colors are close enough (see sigmaColor ). When d&gt;0, it specifies the neighborhood size regardless of sigmaSpace. Otherwise, d is proportional to sigmaSpace." />
+              <Pin Id="ON3FGh7A7wtNPhALqEXR0e" Name="Border Type" Kind="InputPin" Visibility="Hidden" />
+              <Pin Id="NMIIXTa1dnIQLLgFRBhI9l" Name="Output" Kind="OutputPin" Summary="Destination image of the same size and type as src." />
+              <Pin Id="TtBPLzZIhCSPwcN4oEayXH" Name="Apply" Kind="InputPin" DefaultValue="True" />
+            </Patch>
+            <ProcessDefinition Id="HmVMNbrpbCSPQ70HRcEoE8">
+              <Fragment Id="TGP727FyYz0Ljx1fFSODgP" Patch="Mxc3H1kFRytLYAUQRWx4mU" Enabled="true" />
+              <Fragment Id="MEaBfYkOKU3NjkMNkArDhg" Patch="UtfxCA5sMQAMbU5p8A6OLa" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="I29UKEjuNaGMQm7tTJ4Wbs" Ids="FlzT2yI99lLMvzabaorxZG,KGnAFSaqyybPlHiJx8zGxH" IsHidden="true" />
+            <Link Id="O0YMVcN2lkZNFhksppRPLv" Ids="RkA0cg7cQFHOML1HyVpHvH,Iegm5EWYKf9O9ZCHDeqKrs" IsHidden="true" />
+            <Link Id="ABfOmZatLGVL5aYN6t8dI8" Ids="KGnAFSaqyybPlHiJx8zGxH,FxhccQ4gsEcP8DzokdVcgw" />
+            <Link Id="CxnQvSxHgm2N6H90cnLTbI" Ids="Iegm5EWYKf9O9ZCHDeqKrs,PItT7AnUvjGPvqhP6ExeoR" />
+            <Link Id="R9eeRt5HNMtQKtch6AyeHn" Ids="IPOzHw6ENeJLwh7KzPpqBO,HNOEcugtYQsN5zHnXkmfbl" />
+            <Link Id="LBzcAwcvWPBLAAiwA4fKcd" Ids="J2GiiU98e5XL7CLxHvqIUW,IPOzHw6ENeJLwh7KzPpqBO" />
+            <Link Id="AFEzxmNsxpfNc3rqZ5AZtn" Ids="C5do0Ajjg8kMxeZj7cRD6i,J2GiiU98e5XL7CLxHvqIUW" IsHidden="true" />
+            <Link Id="PrWpCGkQPERNb0RcC1s7my" Ids="MS65zB0Sr9IMuBPzAfkJSO,Iycotzgkns9LVdfDeOVtmz" />
+            <Link Id="Pb8o225d9H0MwYRnUZCSEr" Ids="HfvGXnP8xnlMSDWBYRShWp,MS65zB0Sr9IMuBPzAfkJSO" />
+            <Link Id="GblQNBABCyQLtk8Hoq51BD" Ids="PoySvXFRJ3iMoQOBLkKrX7,HfvGXnP8xnlMSDWBYRShWp" IsHidden="true" />
+            <Link Id="K3mwryjgetyQF4jgIxmBjE" Ids="E3DqTa4VYGeNgoklca82c7,HlBMbVzUDz1P7vkK8aaqwW" />
+            <Link Id="S7UxZtw3nmWMwD90Fbo0oW" Ids="ByvM8haVgH9MK6VqfWgTI3,E3DqTa4VYGeNgoklca82c7" />
+            <Link Id="NDAoMAYyzbEMjFWdorymxD" Ids="JEYbexct2VhMALRwd8BMSW,ByvM8haVgH9MK6VqfWgTI3" IsHidden="true" />
+            <Link Id="Tu478zucKpMNjwTTLXiTxt" Ids="MtgUqW6hkWRLVbwIW4Z59a,H5iBcbAtpccLhxvMlQ1UtI" />
+            <Link Id="TeK2dmD1jThQVasL1UTHXu" Ids="TxIiyorGobhQUCvPQNpzag,MtgUqW6hkWRLVbwIW4Z59a" />
+            <Link Id="QCjXN43yXVyPRlGo1jKrTT" Ids="ON3FGh7A7wtNPhALqEXR0e,TxIiyorGobhQUCvPQNpzag" IsHidden="true" />
+            <Link Id="MZ8V3hBFGyHOJxtdM1fwQQ" Ids="FDbijlhvskrQYxg3Ct8LbR,DRfBBHOwhzpOgo8fVnxQpg" />
+            <Link Id="OnHmpwCsKVOLhMjcAscKFe" Ids="SJxu5gBUxw2PnjmWs9xweL,FDbijlhvskrQYxg3Ct8LbR" />
+            <Link Id="BBx4jtggzJoPeqvixZxxoi" Ids="TtBPLzZIhCSPwcN4oEayXH,SJxu5gBUxw2PnjmWs9xweL" IsHidden="true" />
+            <Link Id="Gc80i2tmzMzLzJw7P8wAWW" Ids="UVy8EsnNFwTMJCXlpXDZeG,Q7eYATQB8TrPzoS7xO5T5a" />
+            <Link Id="Sjzxox0wfTWL3ozevqai0L" Ids="Q7eYATQB8TrPzoS7xO5T5a,H5ogbbWnW3dPpmGVLXDjae" />
+            <Link Id="GarF2wzOmQRO6Pu96VycdA" Ids="H5ogbbWnW3dPpmGVLXDjae,NMIIXTa1dnIQLLgFRBhI9l" IsHidden="true" />
+            <Link Id="G5JbZn09vNtN6sZpp1dSGd" Ids="SuTfxvIk5EtNosXMQzu39d,EGgZMvwfhhkLxL4r1oBlsF" />
+            <Link Id="Gf78Y1YeLdrQdMsjtMzBRP" Ids="RuSrUuJ5mVSO94bzhy7cf7,SuTfxvIk5EtNosXMQzu39d" />
+            <Link Id="LkycQZX8sRLNaEF1gFPBWB" Ids="EHNy4PywBGOO1XUWH84iYi,RuSrUuJ5mVSO94bzhy7cf7" IsHidden="true" />
+          </Patch>
+        </Node>
       </Canvas>
       <Canvas Id="MCFxDpvMlxtLNZGiJnFnFG" Name="Source" Position="185,417">
         <!--
