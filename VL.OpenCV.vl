@@ -16783,6 +16783,158 @@
             <Link Id="JLcfzdA4ASINxWUgDe7g5f" Ids="GpomjHKrOH2MC9mcTju5Ln,GOEnTECHZ6uMt42VAM5alw" />
           </Patch>
         </Node>
+        <!--
+
+    ************************ MorphologyEx ************************
+
+-->
+        <Node Name="MorphologyEx" Bounds="470,388" Id="BtfqxleJumiNas4TTvUlUw" Summary="Performs advanced morphological transformations." Remarks="Can perform advanced morphological transformations using an erosion and dilation as basic operations. Any of the operations can be done in-place. In case of multi-channel images, each channel is processed independently.">
+          <p:NodeReference>
+            <Choice Kind="ContainerDefinition" />
+          </p:NodeReference>
+          <Patch Id="TmdDeuPJvn5Po1p2bfy3Ne">
+            <Canvas Id="McXa2h3Ir14LBFp7JLvLDB" CanvasType="Group">
+              <ControlPoint Id="TrmsL5ZNHOEOke8p576Eub" Bounds="247,210" />
+              <ControlPoint Id="ThW6K6ovI1LQIDZRgixWv3" Bounds="307,234" />
+              <ControlPoint Id="GTL48Ol07vMMUlahiEYAiR" Bounds="159,869" />
+              <ControlPoint Id="Gpy2bzqDLZlMycJH6Cy1NW" Bounds="159,210" />
+              <Node Bounds="305,266,35,19" Id="FhlctA8K5TcPwV3iRRYXGB">
+                <p:NodeReference LastCategoryFullName="Math" LastDependency="VL.CoreLib.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <FullNameCategoryReference ID="Math" />
+                  <Choice Kind="OperationCallFlag" Name="Max" />
+                </p:NodeReference>
+                <Pin Id="Rjsg9tMvqHBNDce7sSNn6m" Name="Input" Kind="InputPin" />
+                <Pin Id="Pqi0xvioerhP1tMxRFLswU" Name="Input 2" Kind="InputPin" DefaultValue="1" />
+                <Pin Id="OU5eYpDqoUQNNZv89dTggC" Name="Output" Kind="OutputPin" />
+              </Node>
+              <ControlPoint Id="R0VqHOVFVTqMZd6P9qE5cO" Bounds="421,239" />
+              <ControlPoint Id="KSWDTOCK5xvQdzCabKO3cp" Bounds="513,239" />
+              <Node Bounds="118,404,410,345" Id="RVCEhMos3SqLj8BTHxRM1R">
+                <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <CategoryReference Kind="Category" Name="Primitive" />
+                  <Choice Kind="ProcessStatefulRegion" Name="Cache" />
+                </p:NodeReference>
+                <Pin Id="SlMYBYOP2HYPWA83nsvTUh" Name="Force" Kind="InputPin" />
+                <Pin Id="ADKLhtcGReSNTL3lDYqBqW" Name="Dispose Cached Outputs" Kind="InputPin" />
+                <Pin Id="P6FwaUD7wl7Mj1zlLN7uFp" Name="Has Changed" Kind="OutputPin" />
+                <Patch Id="KUpNvQmZGiiMM2XGpSAr9g" ManuallySortedPins="true">
+                  <Patch Id="EuBIlk6vnLYOzR1nN00bL9" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="NcUqhgMuqhRLTI4xQgoSop" Name="Then" ManuallySortedPins="true" />
+                  <Node Bounds="157,602,205,127" Id="OmzLXaqC9gCN8MRLqcTQNe">
+                    <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastDependency="VL.OpenCV.vl">
+                      <Choice Kind="RegionFlag" Name="Region (Stateless)" Fixed="true" />
+                      <Choice Kind="ProcessAppFlag" Name="Filter (1-&gt;1)" />
+                    </p:NodeReference>
+                    <Pin Id="LGaB43VF6fUQS3zTv2d4nu" Name="Node Context" Kind="InputPin" IsHidden="true" />
+                    <Pin Id="UMrCArd3k1vLcSrgODOjxV" Name="Apply" Kind="InputPin" />
+                    <Pin Id="UTuKHk6jeAFMMdu1pe7UdO" Name="Input" Kind="InputPin" />
+                    <Pin Id="UROR7vpU36TPza5V4omtzP" Name="Output" Kind="OutputPin" />
+                    <Patch Id="H8t05gUVKqVPGUqLHoPwI9" Name="Operation" ManuallySortedPins="true">
+                      <Pin Id="SpGU9k34eWILwSTDFgfuqy" Name="Input 1" Kind="InputPin" />
+                      <Pin Id="Uij7zyGc6HpONGW6UThtBi" Name="Input 2" Kind="InputPin" />
+                      <ControlPoint Id="MfkUYdCO7FUP6pDCykxbLm" Bounds="161,611" />
+                      <ControlPoint Id="LSfWNMMDZrMNqd0XSWZcbn" Bounds="227,610" />
+                      <Node Bounds="205,690,145,19" Id="NWqCGhRR5B5PDPMB7ZMs4G">
+                        <p:NodeReference LastCategoryFullName="OpenCvSharp.Cv2" LastDependency="OpenCvSharp.dll">
+                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                          <CategoryReference Kind="AssemblyCategory" Name="OpenCvSharp" />
+                          <CategoryReference Kind="AssemblyCategory" Name="Cv2" NeedsToBeDirectParent="true" />
+                          <Choice Kind="OperationCallFlag" Name="MorphologyEx" />
+                        </p:NodeReference>
+                        <Pin Id="QFMegUIOiNENthqYrrEPqy" Name="Src" Kind="InputPin" />
+                        <Pin Id="CeX2BB2bfVHOLVrk4dUjcZ" Name="Dst" Kind="InputPin" />
+                        <Pin Id="QE5ygggEVhRPE1UypVmoIR" Name="Op" Kind="InputPin" />
+                        <Pin Id="DY5mwheE50vMJRAhJZz3c4" Name="Element" Kind="InputPin" />
+                        <Pin Id="IKKHGRyJL7aNNS2s38LyTT" Name="Anchor" Kind="InputPin" />
+                        <Pin Id="MJcwEVs8cbIL5vUTawikQS" Name="Iterations" Kind="InputPin" />
+                        <Pin Id="Ll61EnMmXsMPsKdckjy3qi" Name="Border Type" Kind="InputPin" />
+                        <Pin Id="DmiJf0rnJDuObsfewBaCwr" Name="Border Value" Kind="InputPin" />
+                      </Node>
+                    </Patch>
+                  </Node>
+                  <Node Bounds="419,427,97,19" Id="Qfkb8YWIv5dNXQFTNF9aYg">
+                    <p:NodeReference LastCategoryFullName="OpenCV.Filter.MorphologyEx" LastDependency="VL.OpenCV.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="ProcessAppFlag" Name="Kernel" />
+                    </p:NodeReference>
+                    <Pin Id="IMNM5CsWLldPYv3xkwVZDI" Name="Node Context" Kind="InputPin" IsHidden="true" />
+                    <Pin Id="J071cHxrzQ8LmiFL8Zsr84" Name="Kernel Shape" Kind="InputPin" />
+                    <Pin Id="Nq4yOknpa4rLcut6KPiePV" Name="Kernel Size" Kind="InputPin" />
+                    <Pin Id="AYA9ucA7fM2OCoVafugaCQ" Name="Result" Kind="OutputPin" />
+                  </Node>
+                  <Node Bounds="419,477,80,26" Id="QMl13cCbySdPvOKAWJnURn">
+                    <p:NodeReference LastCategoryFullName="OpenCV.Utils.CvImage" LastDependency="VL.OpenCV.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="ClassType" Name="CvImage" />
+                      <Choice Kind="OperationCallFlag" Name="GetInputArray" />
+                    </p:NodeReference>
+                    <Pin Id="LOHRA4vQzfMLdhgIvPVoZK" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="U0E383LOLBBQCaMBrttD6Z" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="SgLpanmaArqQGAh3bk33Iw" Name="Result" Kind="OutputPin" />
+                  </Node>
+                </Patch>
+                <ControlPoint Id="MpZYOTTKrbMPRSAKm8LHLE" Bounds="159,743" Alignment="Bottom" />
+                <ControlPoint Id="THAWmjQPC4BMYdMDDKMu0R" Bounds="359,410" Alignment="Top" />
+                <ControlPoint Id="QziGzZ0RNHKQbGXAOpOIjS" Bounds="327,410" Alignment="Top" />
+                <ControlPoint Id="HsimG86yXw7LIwJ4g8g4DT" Bounds="307,410" Alignment="Top" />
+                <ControlPoint Id="HqFDIAJ4rJhQWLldlycrjh" Bounds="247,410" Alignment="Top" />
+                <ControlPoint Id="MRwoUrfJHs8OSIIb1OB8q3" Bounds="159,410" Alignment="Top" />
+                <ControlPoint Id="SWgCUFwCOHPO5svlHFJ8uv" Bounds="421,410" Alignment="Top" />
+                <ControlPoint Id="SVZA95cB8e8O8alK3JbMZG" Bounds="513,410" Alignment="Top" />
+              </Node>
+              <ControlPoint Id="IhggOIMIsfPMThjzHfLhsF" Bounds="327,354" />
+              <ControlPoint Id="Bz6XhXWmElsLYyoKDrikoE" Bounds="359,383" />
+            </Canvas>
+            <Patch Id="CWrPodL2p0wMO5KQQ0x2Vs" Name="Create" />
+            <Patch Id="MtKgaildolMO6b68DE6kRR" Name="Update" ManuallySortedPins="true">
+              <Pin Id="GMRzoMuzmSGLMFLjTeWOZ1" Name="Input" Kind="InputPin" Summary="The number of channels can be arbitrary. The depth should be one of CV_8U, CV_16U, CV_16S, CV_32F or CV_64F." />
+              <Pin Id="MizK1uoCxncOPWNRscvaRr" Name="Operation" Kind="InputPin" DefaultValue="Open" />
+              <Pin Id="JybGXsyOcchOEzgOpftalB" Name="Output" Kind="OutputPin" Summary="Destination image of the same size and type as source image." />
+              <Pin Id="Dxr04zHI0baO4OUyFNyj28" Name="Iterations" Kind="InputPin" DefaultValue="1" Summary="Number of times erosion and dilation are applied." />
+              <Pin Id="SJtgtLGALYONvI2ublNiww" Name="Kernel Size" Kind="InputPin" DefaultValue="1" />
+              <Pin Id="Hlzp2WXhzgTLnyRSwktLH2" Name="Kernel Shape" Kind="InputPin" />
+              <Pin Id="CZGg4He9KpZNWAY3NOsUIQ" Name="Border Type" Kind="InputPin" Visibility="Hidden" />
+              <Pin Id="EYvG87lPt6POyegSo8n9rF" Name="Apply" Kind="InputPin" DefaultValue="True" />
+            </Patch>
+            <ProcessDefinition Id="POP6fwC9BFbOyrO0yJEHXP">
+              <Fragment Id="Ql6aYSkjBSALRnQwV9ukoE" Patch="CWrPodL2p0wMO5KQQ0x2Vs" Enabled="true" />
+              <Fragment Id="F57hOlCTfL7LTnLIwmr6k6" Patch="MtKgaildolMO6b68DE6kRR" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="NE9s2vHY56HMPptHaDhjWK" Ids="MizK1uoCxncOPWNRscvaRr,TrmsL5ZNHOEOke8p576Eub" IsHidden="true" />
+            <Link Id="CPtQZfkC9LbL2BlhTFYCrA" Ids="ThW6K6ovI1LQIDZRgixWv3,Rjsg9tMvqHBNDce7sSNn6m" />
+            <Link Id="UYgcNN9kvyfM0fHeICcTSV" Ids="Dxr04zHI0baO4OUyFNyj28,ThW6K6ovI1LQIDZRgixWv3" IsHidden="true" />
+            <Link Id="JJqjg4fIIMQNtns7M13KxP" Ids="GTL48Ol07vMMUlahiEYAiR,JybGXsyOcchOEzgOpftalB" IsHidden="true" />
+            <Link Id="SCurkpSaZRcMzkHAc5HjRr" Ids="EYvG87lPt6POyegSo8n9rF,Gpy2bzqDLZlMycJH6Cy1NW" IsHidden="true" />
+            <Link Id="QfLIUbXLbApM1XWar1bDug" Ids="Hlzp2WXhzgTLnyRSwktLH2,R0VqHOVFVTqMZd6P9qE5cO" IsHidden="true" />
+            <Link Id="SjiftwxnqMlLanXPczxcv1" Ids="SJtgtLGALYONvI2ublNiww,KSWDTOCK5xvQdzCabKO3cp" IsHidden="true" />
+            <Link Id="JdShmFc7OgILxkl6p0qldX" Ids="SpGU9k34eWILwSTDFgfuqy,MfkUYdCO7FUP6pDCykxbLm" IsHidden="true" />
+            <Link Id="Vws4RDYulkSL3zCyFI1o3N" Ids="Uij7zyGc6HpONGW6UThtBi,LSfWNMMDZrMNqd0XSWZcbn" IsHidden="true" />
+            <Link Id="TZSUReHzXW7OVlwtrAdNma" Ids="MfkUYdCO7FUP6pDCykxbLm,QFMegUIOiNENthqYrrEPqy" />
+            <Link Id="ROVepklU4xaNtR4hVc6IPc" Ids="LSfWNMMDZrMNqd0XSWZcbn,CeX2BB2bfVHOLVrk4dUjcZ" />
+            <Link Id="AbGPk8XkZneO0c6ebK2S0u" Ids="AYA9ucA7fM2OCoVafugaCQ,LOHRA4vQzfMLdhgIvPVoZK" />
+            <Link Id="UjwftWd9MyUMEctZJvD346" Ids="SgLpanmaArqQGAh3bk33Iw,DY5mwheE50vMJRAhJZz3c4" />
+            <Link Id="O3Pd1kPaGLfPl9zwummvc9" Ids="UROR7vpU36TPza5V4omtzP,MpZYOTTKrbMPRSAKm8LHLE" />
+            <Link Id="HCSrJ5Tv9hEMkWeOo7k0F5" Ids="MpZYOTTKrbMPRSAKm8LHLE,GTL48Ol07vMMUlahiEYAiR" />
+            <Link Id="SwMpBgrRN2RP54Jfsvr9vb" Ids="CZGg4He9KpZNWAY3NOsUIQ,IhggOIMIsfPMThjzHfLhsF" IsHidden="true" />
+            <Link Id="PkJAEL3UypfQYZ5Jdobuq8" Ids="GMRzoMuzmSGLMFLjTeWOZ1,Bz6XhXWmElsLYyoKDrikoE" IsHidden="true" />
+            <Link Id="CGsfGD17FdPQEunPrXdWeX" Ids="Bz6XhXWmElsLYyoKDrikoE,THAWmjQPC4BMYdMDDKMu0R" />
+            <Link Id="NkqIurA9mBzPqA33fOktjq" Ids="THAWmjQPC4BMYdMDDKMu0R,UTuKHk6jeAFMMdu1pe7UdO" />
+            <Link Id="Asec5bAVgrePG7eazXJjGO" Ids="IhggOIMIsfPMThjzHfLhsF,QziGzZ0RNHKQbGXAOpOIjS" />
+            <Link Id="CHuONkzjnX6NbOhrURyHYd" Ids="QziGzZ0RNHKQbGXAOpOIjS,Ll61EnMmXsMPsKdckjy3qi" />
+            <Link Id="Cf1ypI1ZjUWOgUN1yniFAP" Ids="OU5eYpDqoUQNNZv89dTggC,HsimG86yXw7LIwJ4g8g4DT" />
+            <Link Id="MosHXZR4anCMiBOY5moM2F" Ids="HsimG86yXw7LIwJ4g8g4DT,MJcwEVs8cbIL5vUTawikQS" />
+            <Link Id="ESa05usfbCTLwCUhWbIscC" Ids="TrmsL5ZNHOEOke8p576Eub,HqFDIAJ4rJhQWLldlycrjh" />
+            <Link Id="HwJ3ymDfqp2LB122mrRWYf" Ids="HqFDIAJ4rJhQWLldlycrjh,QE5ygggEVhRPE1UypVmoIR" />
+            <Link Id="Elxmwl3zrSDQWKMCRHDY89" Ids="Gpy2bzqDLZlMycJH6Cy1NW,MRwoUrfJHs8OSIIb1OB8q3" />
+            <Link Id="DHCLDHmR4lzOfVoGaJI3hI" Ids="MRwoUrfJHs8OSIIb1OB8q3,UMrCArd3k1vLcSrgODOjxV" />
+            <Link Id="U0KXR4jxRv3OgV75HQnfpT" Ids="R0VqHOVFVTqMZd6P9qE5cO,SWgCUFwCOHPO5svlHFJ8uv" />
+            <Link Id="MgrxK60cBRINuOdJcCHc5C" Ids="SWgCUFwCOHPO5svlHFJ8uv,J071cHxrzQ8LmiFL8Zsr84" />
+            <Link Id="DhjjAR4gLVtPJRj94ym7iQ" Ids="SVZA95cB8e8O8alK3JbMZG,Nq4yOknpa4rLcut6KPiePV" />
+            <Link Id="Qjd8XqKUsQ3N8NDzrvILZo" Ids="KSWDTOCK5xvQdzCabKO3cp,SVZA95cB8e8O8alK3JbMZG" />
+          </Patch>
+        </Node>
       </Canvas>
       <Canvas Id="MCFxDpvMlxtLNZGiJnFnFG" Name="Source" Position="185,417">
         <!--
