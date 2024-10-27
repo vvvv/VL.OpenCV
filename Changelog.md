@@ -3,6 +3,16 @@ All notable changes to the VL.OpenCV repository will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+# [2.6.4] - 26/10/2024
+
+## Added
+* MorphologyEx filter node
+* Bilateral filter node
+
+## Changed
+* Exposed Kernel Shape, Kernel Size and Border Type in Erode and Dilate filters
+* Exposed Convert RGB pin in all VideoIn variants (including Index ones)
+
 # [2.6.3] - 05/10/2024
 
 ## Added
