@@ -1,8 +1,8 @@
-﻿using SharpDX.MediaFoundation;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using VL.Lib;
 using VL.Lib.Collections;
+using static Windows.Win32.PInvoke;
 
 namespace VL.OpenCV
 {
@@ -12,21 +12,22 @@ namespace VL.OpenCV
     public class VideoInputDeviceDefinition : DynamicEnumDefinitionBase<VideoInputDeviceDefinition>
     {
         //return the current enum entries
-        protected override IReadOnlyDictionary<string, object> GetEntries()
+        protected override unsafe IReadOnlyDictionary<string, object> GetEntries()
         {
             // Get the collection of video devices
-            Activate[] capDevices = VideoInInfo.EnumerateVideoDevices();
+            var capDevices = VideoInInfo.EnumerateVideoDevices();
             Dictionary<string, object> devices = new Dictionary<string, object>(capDevices.Length);
             for (int i = 0; i < capDevices.Length; i++)
             {
                 var j = 1;
-                var friendlyName = capDevices[i].Get(CaptureDeviceAttributeKeys.FriendlyName);
+                var friendlyName = VideoInInfo.GetString(capDevices[i], in MF_DEVSOURCE_ATTRIBUTE_FRIENDLY_NAME);
                 var finalName = friendlyName;
                 while (devices.ContainsKey(finalName))
                 {
                     finalName = friendlyName + " #" + j++;
                 }
                 devices[finalName] = i;
+                capDevices[i]->Release();
             }
             return devices;
         }
