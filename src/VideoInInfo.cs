@@ -1,9 +1,6 @@
-﻿using SharpDX.Multimedia;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
-using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.Media.DirectShow;
 using Windows.Win32.Media.MediaFoundation;
@@ -202,8 +199,18 @@ namespace VL.OpenCV
             // https://docs.microsoft.com/en-us/windows/desktop/medfound/video-subtype-guids
             mediaType->GetGUID(MF_MT_SUBTYPE, out var subTypeId);
             var fourccEncoded = BitConverter.ToInt32(subTypeId.ToByteArray(), 0);
-            var fourcc = new FourCC(fourccEncoded);
-            return fourcc.ToString();
+            return FourCCToString(fourccEncoded);
+        }
+
+        private static string FourCCToString(int value)
+        {
+            return string.Format("{0}", new string(new[]
+            {
+            (char) (value & 0xFF),
+            (char) (value >> 8 & 0xFF),
+            (char) (value >> 16 & 0xFF),
+            (char) (value >> 24 & 0xFF),
+        }));
         }
 
         internal static unsafe string GetString(IMFActivate* activate, in Guid guid)
