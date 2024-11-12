@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using FeralTic.DX11.Geometry;
-using OpenCvSharp;
+﻿using OpenCvSharp;
 using OpenCvSharp.Dnn;
 using Stride.Core.Mathematics;
-using VL.Lib.Collections;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 /// <summary>
 /// OpenCvSharp V4 with YOLO v3
