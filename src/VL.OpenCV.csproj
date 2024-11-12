@@ -2,56 +2,33 @@
 <Project Sdk="Microsoft.NET.Sdk">
  
   <PropertyGroup>
-    <ProjectGuid>{BF6BC14C-CC1F-4F5F-B491-452662B4D4A1}</ProjectGuid>
-    <RootNamespace>VL.OpenCV</RootNamespace>
-    <AssemblyName>VL.OpenCV</AssemblyName>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <OutputPath>..\lib\</OutputPath>
-    <Version>2.5.0</Version>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Version>3.0.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <NoWarn>1701;1702;MSB3270;MSB3026</NoWarn>
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Remove="packages\**" />
-    <EmbeddedResource Remove="packages\**" />
-    <None Remove="packages\**" />
-  </ItemGroup>
   <ItemGroup>
     <Reference Include="FeralTic">
       <HintPath>..\lib\dx11\FeralTic.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Management" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Windows" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
     <Reference Include="VVVV.DX11.Core">
       <HintPath>..\lib\dx11\VVVV.DX11.Core.dll</HintPath>
     </Reference>
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DirectShowLib" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.46-beta">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="OpenCvSharp4.Extensions" Version="4.9.0.20240103" />
     <PackageReference Include="OpenCvSharp4.Windows" Version="4.9.0.20240103" />
-    <PackageReference Include="SharpDX.MediaFoundation" Version="4.2.0" />
-    <PackageReference Include="VL.Core" Version="2021.4.8" />
+    <PackageReference Include="SharpDX" Version="4.2.0" />
+    <!-- CoreLib is a development dependency, it's always shipped by vvvv itself -->
+    <PackageReference Include="VL.CoreLib" Version="2024.6.6" PrivateAssets="all" />
   </ItemGroup>
 
 </Project>

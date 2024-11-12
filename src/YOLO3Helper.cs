@@ -6,7 +6,6 @@ using System.Linq;
 using FeralTic.DX11.Geometry;
 using OpenCvSharp;
 using OpenCvSharp.Dnn;
-using SharpDX.Direct3D9;
 using Stride.Core.Mathematics;
 using VL.Lib.Collections;
 

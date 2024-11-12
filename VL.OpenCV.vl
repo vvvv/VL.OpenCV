@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Document xmlns:p="property" xmlns:r="reflection" Id="AwLbD6sm3YSNSEVWaY0WST" LanguageVersion="2024.6.6" Version="0.128">
   <Patch Id="C8nwPmC7mFvNATECRj2wt9">
     <Canvas Id="EatS5Y30OYxLELRQyBVMYE" DefaultCategory="OpenCV" CanvasType="FullCategory">
@@ -21339,6 +21339,91 @@
             <Link Id="PjYxi1cn8q9NITNE00XGb1" Ids="NjAv9hDrpZdMNrMcpY0Rf8,MRjj6A50sXbM4uIgtwLVhj" />
           </Patch>
         </Node>
+        <!--
+
+    ************************ VideoSourceToCvImage ************************
+
+-->
+        <Node Name="VideoSourceToCvImage" Bounds="210,786" Id="R231iKH8a8BMhyh0f9zMYe">
+          <p:NodeReference>
+            <Choice Kind="ContainerDefinition" />
+          </p:NodeReference>
+          <Patch Id="FRwl0fujKbvMb1Q8Yynhai">
+            <Canvas Id="TpZam8ztoP5QUV4lJMOFDM" CanvasType="Group">
+              <ControlPoint Id="I5OO39XG2ASN1H0LeNW8Uq" Bounds="453,226" />
+              <ControlPoint Id="Jap5vf80hZ4MnD1YjpGXjc" Bounds="633,600" />
+              <ControlPoint Id="SYZUMEz7oTxPq7P4b3FX6g" Bounds="627,226" />
+              <Node Bounds="406,396,100,26" Id="EOQI3re7XfJPtzI4NccgG8">
+                <p:NodeReference LastCategoryFullName="VL.OpenCV.VideoSourceToCvImage" LastDependency="VL.OpenCV.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="AssemblyCategory" Name="VideoSourceToCvImage" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationCallFlag" Name="Create" />
+                </p:NodeReference>
+                <Pin Id="QMEzWcHfKVMQYpQSMuSD9t" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="VIZldNIlE4tOCcgpXeseMI" Name="Node Context" Kind="InputPin" />
+              </Node>
+              <Node Bounds="536,509,105,26" Id="K8SEEVfJZ5HNfgxt8ZMG1L">
+                <p:NodeReference LastCategoryFullName="VL.Lib.Video.VideoSourceToImage`1" LastDependency="VL.CoreLib.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="AssemblyCategory" Name="VideoSourceToImage`1" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationCallFlag" Name="Update" />
+                </p:NodeReference>
+                <Pin Id="HhAPRS6t1weN20XcP7MIkz" Name="Input" Kind="StateInputPin" />
+                <Pin Id="IH1ajiTeQmNLupXjpDucpr" Name="Video Source" Kind="InputPin" />
+                <Pin Id="CROBIpG4qS8QAS9DMCVebf" Name="Fallback" Kind="InputPin" />
+                <Pin Id="Ro63x5dRsfwP1ePHsrRgAT" Name="Mipmapped" Kind="InputPin" />
+                <Pin Id="KxHFuRFMSZjPobAvl3ZMxy" Name="Prefer Push" Kind="InputPin" />
+                <Pin Id="FR9mos3txtUNnmfNccYrL0" Name="Prefer Gpu" Kind="InputPin" />
+                <Pin Id="BcXfd0NueNCNP3oyx81LMW" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="SxfvHIyPx4PON5xtcNCkOY" Name="Result" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="406,509,100,26" Id="BAIdMknFUjyO7WVbdkmgeD">
+                <p:NodeReference LastCategoryFullName="VL.Lib.Video.VideoSourceToImage`1" LastDependency="VL.CoreLib.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="AssemblyCategory" Name="VideoSourceToImage`1" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationCallFlag" Name="Dispose" />
+                </p:NodeReference>
+                <Pin Id="U4RWh7NrBUUP0OPQMtlGwx" Name="Input" Kind="StateInputPin" />
+                <Pin Id="RX28eG9uhwCN3O7xgnL8X5" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <Pad Id="DiTz3eUtC1ZNxy7eb0l3tO" SlotId="Snvh031cfDGMIBX9scTilr" Bounds="408,459" />
+              <ControlPoint Id="S4KOzuFZXJ3ONIjrVb3kwz" Bounds="856,230" />
+            </Canvas>
+            <Patch Id="T27FmaqslHBM5xY9CTUq13" Name="Create" ParticipatingElements="EOQI3re7XfJPtzI4NccgG8" />
+            <Patch Id="KB62Ygx4ExKPjjwRV94SGl" Name="Update">
+              <Pin Id="Cc0OcLwGuEiOBdnZcKCui0" Name="Input" Kind="InputPin" Bounds="396,148">
+                <p:TypeAnnotation LastCategoryFullName="Video" LastDependency="VL.CoreLib.vl">
+                  <Choice Kind="TypeFlag" Name="IVideoSource" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="UwLUtPhHwNlNmypORxRBxo" Name="Fallback" Kind="InputPin" Bounds="627,155" />
+              <Pin Id="KPTvhHrcIi6LYNjFAywP2N" Name="Output" Kind="OutputPin" Bounds="480,460" />
+              <Pin Id="HdUo2Z4bdLjOKttRMQFDLr" Name="Prefer Push" Kind="InputPin" Bounds="801,163" />
+            </Patch>
+            <!--
+
+    ************************  ************************
+
+-->
+            <ProcessDefinition Id="DV9ER7tZ7akO983aUuAcCS">
+              <Fragment Id="FJmavZtZg2QMFmXrfczyib" Patch="T27FmaqslHBM5xY9CTUq13" Enabled="true" />
+              <Fragment Id="THg4kiXGPhHPPZR1NQr0eF" Patch="KB62Ygx4ExKPjjwRV94SGl" Enabled="true" />
+            </ProcessDefinition>
+            <Slot Id="Snvh031cfDGMIBX9scTilr" Name="Impl" />
+            <Patch Id="GAc4g0S6M60QUlKjlvlRiS" Name="Dispose" ParticipatingElements="BAIdMknFUjyO7WVbdkmgeD" />
+            <Link Id="Q3YoEE2gixDPby8rka1X9O" Ids="Cc0OcLwGuEiOBdnZcKCui0,I5OO39XG2ASN1H0LeNW8Uq" IsHidden="true" />
+            <Link Id="DKE05HBOZYPLbCTr6efHHQ" Ids="Jap5vf80hZ4MnD1YjpGXjc,KPTvhHrcIi6LYNjFAywP2N" IsHidden="true" />
+            <Link Id="UBNnPiOwHPlQGYzAI6bEDQ" Ids="UwLUtPhHwNlNmypORxRBxo,SYZUMEz7oTxPq7P4b3FX6g" IsHidden="true" />
+            <Link Id="QC9rPs1wKKnMrNG5itgLJT" Ids="QMEzWcHfKVMQYpQSMuSD9t,DiTz3eUtC1ZNxy7eb0l3tO" />
+            <Link Id="CZaZsKgOdhBPp3yJbZe1sN" Ids="DiTz3eUtC1ZNxy7eb0l3tO,HhAPRS6t1weN20XcP7MIkz" />
+            <Link Id="CYxV71nn53zL4ffkE0OHRM" Ids="DiTz3eUtC1ZNxy7eb0l3tO,U4RWh7NrBUUP0OPQMtlGwx" />
+            <Link Id="HPKkWc1z4n8N2NVRp8ahCs" Ids="I5OO39XG2ASN1H0LeNW8Uq,IH1ajiTeQmNLupXjpDucpr" />
+            <Link Id="UWQR33FLhSRQPJy8FEwcWb" Ids="SYZUMEz7oTxPq7P4b3FX6g,CROBIpG4qS8QAS9DMCVebf" />
+            <Link Id="EsiWaj4S0muODM24wKhdJD" Ids="SxfvHIyPx4PON5xtcNCkOY,Jap5vf80hZ4MnD1YjpGXjc" />
+            <Link Id="CQAl9M8eLhLNd689FZEBJf" Ids="S4KOzuFZXJ3ONIjrVb3kwz,KxHFuRFMSZjPobAvl3ZMxy" />
+            <Link Id="KNvOsqhmXiOLwHCwT6k2bR" Ids="HdUo2Z4bdLjOKttRMQFDLr,S4KOzuFZXJ3ONIjrVb3kwz" IsHidden="true" />
+          </Patch>
+        </Node>
       </Canvas>
       <Canvas Id="QpYsmGeGpdtLyGdVbwMSbw" Name="Tracking" Position="185,460">
         <!--
@@ -21779,7 +21864,6 @@
                           <Pin Id="E2X6U3iL7vKPEPd0Trw3ut" Name="Tracker" Kind="OutputPin" />
                         </Node>
                         <Patch Id="LStcrQnZ8D7NtiW2ppMshu" Name="Dispose" />
-                        <Patch Id="VWOB2kRVfHsPK8id7fUOwd" Name="Dispose" />
                       </Patch>
                     </Node>
                     <Node Bounds="236,233,48,19" Id="PF64GTQnSx2N0bVzE2Ga6O">
@@ -26689,7 +26773,6 @@
                         </Patch>
                       </Node>
                       <Patch Id="KG81KiVY6U5PtneJ08TgzN" Name="Dispose" />
-                      <Patch Id="AMWf9ZIGIdsPnJdy5Y6Lbh" Name="Dispose" />
                     </Patch>
                     <Pin Id="E4c7pfMH3QiN14878kLNcx" Name="Node Context" Kind="InputPin" IsHidden="true" />
                     <Pin Id="RHC1B4NRtGdLBZkQvhTWp9" Name="User Exceptions Channel" Kind="InputPin" IsHidden="true" />
@@ -39204,7 +39287,6 @@
                     </p:TypeAnnotation>
                   </Pad>
                   <Patch Id="HDgsQBgGFa1Lzv9WCrH6L9" Name="Dispose" />
-                  <Patch Id="DSOfwe3jeTjPzp8bFLsPCu" Name="Dispose" />
                 </Patch>
                 <Pin Id="IbLJTfqYhSsPvQIWUyMSUb" Name="Node Context" Kind="InputPin" IsHidden="true" />
                 <Pin Id="BuH5habZN4UNruJIkq2Clh" Name="Enabled" Kind="InputPin" DefaultValue="False">
@@ -49097,11 +49179,11 @@
       <Pin Id="Mrou8fkpIQtLSG8SpOrYsW" MergeId="19725" Name="Rejected Areas" Kind="OutputPin" Bounds="503,958" Summary="Contains the Points of those squares whose inner code has not a correct codification. Useful for debugging purposes." />
     </Patch>
   </Patch>
-  <PlatformDependency Id="M1N4SojOni0Osyx2gZ4x10" Location="./lib/net472/VL.OpenCV.dll" />
+  <PlatformDependency Id="M1N4SojOni0Osyx2gZ4x10" Location="./lib/net8.0-windows/VL.OpenCV.dll" />
   <PlatformDependency Id="UrxLbPlbKmVP94Zx5YWsQo" Location="System" />
   <PlatformDependency Id="KKd4psddv1PM1JDnyYS5Lv" Location="System.Drawing" />
   <PlatformDependency Id="Ee0UUmfqOVWPSXM6OSY7rA" Location="System.Windows.Forms" />
-  <NugetDependency Id="RhOWo82WyqnOWc3NKXTVr9" Location="VL.CoreLib" Version="2024.6.6" />
+  <NugetDependency Id="RhOWo82WyqnOWc3NKXTVr9" Location="VL.CoreLib" Version="2024.6.6" IsFriend="true" />
   <NugetDependency Id="TwpzOT0OmmELnR6LDENtVA" Location="VL.CoreLib.Windows" Version="2024.6.6" />
   <NugetDependency Id="F4rimzHBtAGLdwuyU70Lxy" Location="OpenCvSharp4.runtime.win" Version="4.9.0.20240103" />
   <NugetDependency Id="A13HOrTwDgsLxp65iajkZ3" Location="OpenCvSharp4" Version="4.9.0.20240103" />
