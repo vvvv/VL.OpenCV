@@ -3,15 +3,17 @@ All notable changes to the VL.OpenCV repository will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+# [3.0.2] - 18/11/2024
+
+## Fixed 
+* Nuget icon issue
+
 # [3.0.1] - 18/11/2024
 
 ## Fixed
 * Restored missing VL.OpenCV.dll file
 * Fixed corrupt nuget icon file
 * Fix path in exported dll
-
-## Removed
-* All vvvv beta related files and dependencies
 
 # [3.0.0] - 12/11/2024
 
