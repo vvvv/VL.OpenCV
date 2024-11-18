@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## Fixed
 * Restored missing VL.OpenCV.dll file
 * Fixed corrupt nuget icon file
+* Fix path in exported dll
 
 ## Removed
 * All vvvv beta related files and dependencies
