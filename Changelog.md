@@ -3,6 +3,11 @@ All notable changes to the VL.OpenCV repository will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+# [3.0.3] - 18/11/2024
+
+## Changed 
+* Remove unused files
+
 # [3.0.2] - 18/11/2024
 
 ## Fixed 
