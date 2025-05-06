@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:p="property" xmlns:r="reflection" Id="F3VfljzJWsENtxSsd4fAEu" LanguageVersion="2025.7.0-0331-g9df6dd8d92" Version="0.128">
+  <NugetDependency Id="OuAdILwf8yRLzy4vVm0Hu1" Location="VL.CoreLib" Version="2025.7.0-0331-g9df6dd8d92" />
+  <Patch Id="BCMjyFtOipROQnEMRSMxkj">
+    <Canvas Id="RxE1IClrhz0NoZyOI7bJBR" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="CNkn83VeaQDO3WyjqASlV6">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="E1BYqR4C88FL8IQpL24oRM">
+        <Canvas Id="MJYa6TMJUWNMWjQJGxaLp5" CanvasType="Group">
+          <Pad Id="E6whE5nNCkfNu6PzxhstIV" Bounds="363,574,419,276" ShowValueBox="true" isIOBox="true" Value="This let's you change what type of data the image stores. &#xD;&#xA;&#xD;&#xA;So in type CV_8UC3 you have :&#xD;&#xA;- the amount of bits (8)&#xD;&#xA;- the type of data (UC = unsigned char = byte)&#xD;&#xA;- the amount of channels (3)&#xD;&#xA;&#xD;&#xA;If you want a regular image 8UC3 is usually the right choice.&#xD;&#xA;&#xD;&#xA;For images with an alpha channel 8UC4 is your best bet.&#xD;&#xA;&#xD;&#xA;Grayscale images are usually 8UC1.&#xD;&#xA;&#xD;&#xA;The other types are for more advanced scenarios.">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="CBHRVDZqtxcPxnnSqJvqDz" Bounds="174,118,627,310" ShowValueBox="true" isIOBox="true" Value="OpenCV uses an internal structure called a &quot;Mat&quot; (short for matrix) to store it's data. &#xD;&#xA;&#xD;&#xA;So for example a 2x4 pixel image with three channels (BGR) is represented as a 6x4 matrix containing one value for the intensity of each pixel on each channel, 3 values per pixel, 2 columns, 4 rows:&#xD;&#xA;&#xD;&#xA;&#x9;b g r   b g r&#xD;&#xA;&#x9;b g r   b g r&#xD;&#xA;&#x9;b g r   b g r&#xD;&#xA;&#x9;b g r   b g r&#xD;&#xA;&#xD;&#xA;However Mats are not limited to storing image data, they can contain all sorts of data in different amounts of channels which makes them useful for storing things like transformation matrices, or machine learning weights just to name a few.&#xD;&#xA;&#xD;&#xA;Understanding what type of Mat you are working with at any moment in time can make the difference between being able to fix a problem or not.">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Node Bounds="181,632,65,19" Id="MtBBlTYsAHPP0g5OrHqzvo">
+            <p:NodeReference LastCategoryFullName="OpenCV.Source" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="CvImage (Array)" />
+            </p:NodeReference>
+            <Pin Id="VYe6Ci3GEoPMSgWVEiLqvb" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="CrrL4PPibWMO0nxiYJYsSc" Name="Rows" Kind="InputPin" />
+            <Pin Id="OPRE6Nu3WUJO0dw5LZkuos" Name="Cols" Kind="InputPin" />
+            <Pin Id="JF2UEr86mI2O2EQ8zTISOR" Name="Type" Kind="InputPin" />
+            <Pin Id="T4MYc75ozKmPz9q3xJpV5H" Name="Data" Kind="InputPin" />
+            <Pin Id="HZ8n5ZzZbLpNgGNIy7rSTL" Name="Image" Kind="OutputPin" />
+          </Node>
+          <Pad Id="S64EeEvmSRpLrI2HAaHg1E" Comment="Type" Bounds="223,576,76,15" ShowValueBox="true" isIOBox="true" Value="CV_8UC3">
+            <p:TypeAnnotation LastCategoryFullName="OpenCV.Utils" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="TypeFlag" Name="MatType" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Node Bounds="212,1022,65,19" Id="Qkf8tDUEpfiL0H5Xi5wmAR">
+            <p:NodeReference LastCategoryFullName="OpenCV.Utils" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="Info" />
+              <CategoryReference Kind="Category" Name="Utils" NeedsToBeDirectParent="true" />
+            </p:NodeReference>
+            <Pin Id="GNl9bDuKh7HPkbX2ai7YmZ" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="P0BVsGD4ebRLEGCPALxk7r" Name="Input" Kind="InputPin" />
+            <Pin Id="VQg8NkyK944PuCVPl9ktX8" Name="Enabled" Kind="InputPin" />
+            <Pin Id="D7GIuB3I7kUMe79fXFW1cK" Name="Width" Kind="OutputPin" />
+            <Pin Id="DJYXJ2AWKkQMaZBOXbFgtV" Name="Height" Kind="OutputPin" />
+            <Pin Id="Te3zpjYfVldOgVBUvZ4XzL" Name="Channels" Kind="OutputPin" />
+            <Pin Id="PHq1RxptapnLmLsgHej44S" Name="Format" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="212,954,75,19" Id="IhmAqpx9CkDPoqegaAz4DY">
+            <p:NodeReference LastCategoryFullName="OpenCV.Source" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="ImageReader" />
+            </p:NodeReference>
+            <Pin Id="SYhes8vrGdSQX4fYn9ewJ0" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="JDrTNohQsqVNb0XtXWYVhF" Name="File Name" Kind="InputPin" DefaultValue="..\..\content\assets\MargaretHamilton.jpg">
+              <p:TypeAnnotation LastCategoryFullName="IO" LastDependency="VL.CoreLib.vl">
+                <Choice Kind="TypeFlag" Name="Path" />
+              </p:TypeAnnotation>
+            </Pin>
+            <Pin Id="AV9SbujxrECQGgZQSHR9dr" Name="Flags" Kind="InputPin" />
+            <Pin Id="SZiFaEwOtnYNiNIM7BaEeG" Name="Load" Kind="InputPin" />
+            <Pin Id="Cvfgr0E1uLQLdMpLH9twks" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Pad Id="EYSSGfw2q4bMS2JZRJNNq8" Comment="Format" Bounds="274,1079,55,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="E1olvwhxUROLHyruCQd5l2" Bounds="392,1302,136,76" ShowValueBox="true" isIOBox="true">
+            <p:TypeAnnotation LastCategoryFullName="Collections" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="Spread" />
+              <p:TypeArguments>
+                <TypeReference LastCategoryFullName="Collections" LastDependency="VL.Collections.vl">
+                  <Choice Kind="TypeFlag" Name="Spread" />
+                  <p:TypeArguments>
+                    <TypeReference LastCategoryFullName="Primitive" LastDependency="CoreLibBasics.vl">
+                      <Choice Kind="TypeFlag" Name="Float64" />
+                    </TypeReference>
+                  </p:TypeArguments>
+                </TypeReference>
+              </p:TypeArguments>
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:precision p:Type="Int32">1</p:precision>
+            </p:ValueBoxSettings>
+            <p:Value>
+              <Item>320, 0, 320</Item>
+              <Item>0, 240, 240</Item>
+              <Item>0, 0, 1</Item>
+            </p:Value>
+          </Pad>
+          <Node Bounds="390,1393,47,19" Id="IhACwVL0HkBPVVTPwHhPlh">
+            <p:NodeReference LastCategoryFullName="Collections.Spread" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="Flatten" />
+              <CategoryReference Kind="RecordType" Name="Spread" NeedsToBeDirectParent="true" />
+            </p:NodeReference>
+            <Pin Id="F1SQlmZ4Q4lOX3dEVXd822" Name="Input" Kind="StateInputPin" />
+            <Pin Id="DUHInM9eS5XPvkLI7vXr7a" Name="Output" Kind="StateOutputPin" />
+          </Node>
+          <Pad Id="CNIHUNrXYxwODQmj440f76" Comment="Rows" Bounds="181,1257,20,15" ShowValueBox="true" isIOBox="true" Value="3">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="Integer32" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="UXSORz70OI3QMVgrMkXG60" Comment="Cols" Bounds="252,1257,20,15" ShowValueBox="true" isIOBox="true" Value="3">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="Integer32" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="EGqDdHXCXK6LFiBu01DfTE" Comment="Type" Bounds="321,1257,76,15" ShowValueBox="true" isIOBox="true" Value="CV_64FC1">
+            <p:TypeAnnotation LastCategoryFullName="OpenCV.Utils" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="TypeFlag" Name="MatType" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Pad Id="TOrqb18kFOVLf3Huko5tpa" Bounds="563,1291,311,210" ShowValueBox="true" isIOBox="true" Value="This is an example of a potential Camera Matrix which uses a single channel 64 float Mat type.&#xD;&#xA;&#xD;&#xA;We are using a spread of values to populate the Mat. &#xD;&#xA;&#xD;&#xA;This is not an image and therefore what you would see in a renderer or a tooltip is not meant to make sense.&#xD;&#xA;&#xD;&#xA;Note: Do not use Flatten for large spreads of data!">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Overlay Id="BlDbQPTQL9HPYBOJikLe9U" Name="Advanced Example - Creating a camera matrix" Bounds="138,1175,773,369" />
+          <Overlay Id="EXc6IMy4x0SNkXQwQK3Alv" Name="Checking a CvImage's type" Bounds="137,886,486,242" />
+          <Pad Id="M3jf0wV8OlpQDFVNVfRtjG" Bounds="342,983,233,47" ShowValueBox="true" isIOBox="true" Value="The Info node's last output pin is a string with the CvImage's type">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Overlay Id="SP15wFCRCcDQVF57yN23oz" Name="Decoding a CvImage's type string" Bounds="136,500,629,339" />
+          <Overlay Id="BtH7UcaZJNqL8pHRwcuEtH" Name="CvImage Types Explained" Bounds="137,57,693,396" />
+          <Node Bounds="179,1453,216,19" Id="BKQoWseLLnnN5LIO1DM65a">
+            <p:NodeReference LastCategoryFullName="OpenCV.Source" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="CvImage" />
+            </p:NodeReference>
+            <Pin Id="NU30PLqcP5ZO0ERzmZBOVY" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="NqVjRQDPdFkQGZUxHes8NL" Name="Width" Kind="InputPin" />
+            <Pin Id="Kpg6huwLX42OuKA5zbqF0u" Name="Height" Kind="InputPin" />
+            <Pin Id="T73Wl11PiRiQEkz3wqxdZq" Name="Type" Kind="InputPin" />
+            <Pin Id="U6zBxNUzD3eMzuWNrbL2wu" Name="Data" Kind="InputPin" />
+            <Pin Id="VUI7luiT35bN3dSVsWm0gc" Name="Image" Kind="OutputPin" />
+          </Node>
+          <Pad Id="C0vfFz8JSRMM4hKiFmWoes" Bounds="381,855,119,19" ShowValueBox="true" isIOBox="true" Value="Continues below">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
+        </Canvas>
+        <Patch Id="S1JQrYWT2ktNc9lQhsMCnd" Name="Create" />
+        <Patch Id="JqMMArsAN0hMkpHRJjKWYN" Name="Update" />
+        <ProcessDefinition Id="CJd8UVtwAjkN3Wr1TLvSTt">
+          <Fragment Id="HTveIXBMS2UNFpW2Pswsiw" Patch="S1JQrYWT2ktNc9lQhsMCnd" Enabled="true" />
+          <Fragment Id="JtiX0LpezXuP4wdpCEwuZr" Patch="JqMMArsAN0hMkpHRJjKWYN" Enabled="true" />
+        </ProcessDefinition>
+        <Link Id="S3r9xP7jQroMjSXrt9rSfZ" Ids="S64EeEvmSRpLrI2HAaHg1E,JF2UEr86mI2O2EQ8zTISOR" />
+        <Link Id="USqUxcQ7Kh0OoUeqbSkHOQ" Ids="Cvfgr0E1uLQLdMpLH9twks,P0BVsGD4ebRLEGCPALxk7r" />
+        <Link Id="AYhE7pEDmDyO9dTCDZ02ZN" Ids="PHq1RxptapnLmLsgHej44S,EYSSGfw2q4bMS2JZRJNNq8" />
+        <Link Id="THlre33PqvqL1Uy6HJOQFk" Ids="E1olvwhxUROLHyruCQd5l2,F1SQlmZ4Q4lOX3dEVXd822" />
+        <Link Id="SgpRwbbVGU3Pwq2tYWHT3T" Ids="DUHInM9eS5XPvkLI7vXr7a,U6zBxNUzD3eMzuWNrbL2wu" />
+        <Link Id="M9cRDe0133HMeyu02o7xeZ" Ids="CNIHUNrXYxwODQmj440f76,NqVjRQDPdFkQGZUxHes8NL" />
+        <Link Id="KP0jbkFtBz7NuJqNaFLGMv" Ids="UXSORz70OI3QMVgrMkXG60,Kpg6huwLX42OuKA5zbqF0u" />
+        <Link Id="DKCIklJOBoNPvoVjmhysqN" Ids="EGqDdHXCXK6LFiBu01DfTE,T73Wl11PiRiQEkz3wqxdZq" />
+      </Patch>
+    </Node>
+  </Patch>
+  <NugetDependency Id="Oo9yUGMbti2PIeVBZMoIjj" Location="VL.OpenCV" Version="0.0.0.0" />
+</Document>
