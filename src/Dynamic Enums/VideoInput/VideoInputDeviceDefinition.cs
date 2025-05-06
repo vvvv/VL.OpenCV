@@ -17,6 +17,11 @@ namespace VL.OpenCV
             // Get the collection of video devices
             var capDevices = VideoInInfo.EnumerateVideoDevices();
             Dictionary<string, object> devices = new Dictionary<string, object>(capDevices.Length);
+            if (capDevices.Length > 0)
+            {
+                devices["Default"] = 0;
+            }
+            
             for (int i = 0; i < capDevices.Length; i++)
             {
                 var j = 1;
