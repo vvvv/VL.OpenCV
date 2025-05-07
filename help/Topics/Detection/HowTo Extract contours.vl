@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="AEE6Cfg0i8wOlKpLCt1WJp" LanguageVersion="2021.4.9.977" Version="0.128">
-  <NugetDependency Id="Gw1gnQpkwNqNLQmokm4zvk" Location="VL.CoreLib" Version="2021.4.9-0977-g9cd91ffb6d" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="C67mcO2EoVUPoBgedkPM48" LanguageVersion="2025.7.0-0340-g1b1e5767de" Version="0.128">
+  <NugetDependency Id="Gw1gnQpkwNqNLQmokm4zvk" Location="VL.CoreLib" Version="2025.7.0-0340-g1b1e5767de" />
   <NugetDependency Id="SvX0SMoqGc1OMycshaqtj6" Location="VL.OpenCV" Version="1.0.0" />
   <Patch Id="VOJ8Gg4KYVfOa20dp4sCNr">
     <Canvas Id="CRaRwQfSLh7P9Gm953CwLa" DefaultCategory="VVVV" CanvasType="FullCategory">
@@ -38,38 +38,41 @@
       <Patch Id="EXTtmJyn9neNCrJbXCUNZG">
         <Canvas Id="Fr1UKTShe8RMdAfptLaGp8" CanvasType="Group">
           <Node Bounds="75,258,125,19" Id="M5zXdxd5B0BMNWjymQvG2V">
-            <p:NodeReference LastCategoryFullName="OpenCV.Source" LastSymbolSource="VL.OpenCV.vl">
+            <p:NodeReference LastCategoryFullName="OpenCV.Source" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="VideoIn" />
             </p:NodeReference>
-            <Pin Id="FlyfhKlOvI4O8gfc65Vunk" Name="Video Input Device" Kind="InputPin" />
-            <Pin Id="MmAb5lAGl4uQbXWflprf5L" Name="Width" Kind="InputPin" />
-            <Pin Id="VQdjpEZDRNrN1zgvCk8huk" Name="Height" Kind="InputPin" />
-            <Pin Id="UBZXuTlfsrwOeXmhv8ZYHw" Name="FPS" Kind="InputPin" />
+            <Pin Id="T9N4UcR0T54M98helJZ5zj" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="I43MUofMAPXMdvQcegaX41" Name="Device" Kind="InputPin" />
+            <Pin Id="G9lRnDI8OrhPsysmFnzERK" Name="Preferred Size" Kind="InputPin" />
+            <Pin Id="RNvJDwBVMBqMwuX1oszdWU" Name="Preferred FPS" Kind="InputPin" />
             <Pin Id="IqggewATDu3MO7dn05kaSt" Name="FourCC" Kind="InputPin" />
             <Pin Id="DSiM1rV2s6SLl4MYRPYdTG" Name="Show Properties" Kind="InputPin" />
+            <Pin Id="SNzN49DzXvSMSkOFoZfMrr" Name="Convert RGB" Kind="InputPin" IsHidden="true" />
+            <Pin Id="QQ4ITBglMnsNPo3XxX3OEh" Name="Blocking" Kind="InputPin" />
             <Pin Id="TE6tfHkeg6QPPtPgsVjqMq" Name="Enabled" Kind="InputPin" />
-            <Pin Id="SqWyr8n9J3KM6aVHFFnUVk" Name="Image" Kind="OutputPin" />
+            <Pin Id="FsvsbbhhOnvMMV38R04OmP" Name="Output" Kind="OutputPin" />
             <Pin Id="MvvZ9fSvlRULUqsxShu8yn" Name="Supported Formats" Kind="OutputPin" />
           </Node>
-          <Node Bounds="35,674,125,19" Id="Ax7F1gxNtVSQczgeSEarH5">
-            <p:NodeReference LastCategoryFullName="OpenCV.Sink" LastSymbolSource="VL.OpenCV.vl">
+          <Node Bounds="35,674,145,19" Id="Ax7F1gxNtVSQczgeSEarH5">
+            <p:NodeReference LastCategoryFullName="OpenCV.Sink" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Renderer" />
             </p:NodeReference>
-            <Pin Id="FDpoOoAWiMKM1EhSwbAPOr" Name="Bounds" Kind="InputPin" DefaultValue="1014, 54, 416, 339">
-              <p:TypeAnnotation LastCategoryFullName="System.Windows" LastSymbolSource="VL.CoreLib.Windows.vl">
+            <Pin Id="FDpoOoAWiMKM1EhSwbAPOr" Name="Bounds" Kind="InputPin" DefaultValue="1013, 53, 416, 263">
+              <p:TypeAnnotation LastCategoryFullName="System.Windows" LastDependency="VL.CoreLib.Windows.vl">
                 <Choice Kind="TypeFlag" Name="Rectangle" />
               </p:TypeAnnotation>
             </Pin>
             <Pin Id="SnDHaXBb555LqFQHr3ZxAL" Name="Bound to Document" Kind="InputPin" DefaultValue="True">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
             </Pin>
+            <Pin Id="NK1Guej2BpdQVhMXIXv9Po" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="J0HLJYpnsfCPabR5GLo4GW" Name="Input" Kind="InputPin" />
             <Pin Id="DIQq6Pe770WLlYzcozwrEb" Name="Title" Kind="InputPin" DefaultValue="Detect contour">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="String" />
               </p:TypeAnnotation>
             </Pin>
@@ -79,13 +82,14 @@
             <Pin Id="Rzjkroo5RKbQNg8o40meKg" Name="Enabled" Kind="InputPin" />
           </Node>
           <Node Bounds="106,534,129,19" Id="ByPOtBGyKRXOh4HHVg5JxK">
-            <p:NodeReference LastCategoryFullName="OpenCV.Detection" LastSymbolSource="VL.OpenCV.vl">
+            <p:NodeReference LastCategoryFullName="OpenCV.Detection" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="OpenCV" />
               <CategoryReference Kind="Category" Name="Detection" />
               <Choice Kind="ProcessAppFlag" Name="Contours" />
             </p:NodeReference>
             <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
+            <Pin Id="G7M5Ne0FrvgMMTEmWQDM9N" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="CHzGzY87v5ZNFJtjSuhLec" Name="Input" Kind="InputPin" />
             <Pin Id="DOVtz3n1yutLtnAap2kEcV" Name="Method" Kind="InputPin" />
             <Pin Id="GaPaKqNukhVQKiQ8djuPDw" Name="Mode" Kind="InputPin" />
@@ -94,20 +98,22 @@
             <Pin Id="CwFCHaJgy3jMxAjRckOmW2" Name="Hierarchy" Kind="OutputPin" />
           </Node>
           <Node Bounds="106,375,45,19" Id="OI0eJNyZJE5MXnNDp13t3z">
-            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
+            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="&lt; (Scalar)" />
             </p:NodeReference>
+            <Pin Id="Gwu2cipgQPbNQhx8smEyiA" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="J7RrEbnMhKoPuNFEEflMua" Name="Input" Kind="InputPin" />
             <Pin Id="LVP63JMDefCQdPOGUC9EEt" Name="Threshold" Kind="InputPin" />
             <Pin Id="HrrEqcO6gC0QIVA8M2yE6h" Name="Apply" Kind="InputPin" />
             <Pin Id="ASBFzvpxwIyMJrB8xdHs8D" Name="Output" Kind="OutputPin" />
           </Node>
           <Node Bounds="75,611,193,19" Id="VUEEtlEnN7iPC3nd33fzXH">
-            <p:NodeReference LastCategoryFullName="OpenCV.Drawing" LastSymbolSource="VL.OpenCV.vl">
+            <p:NodeReference LastCategoryFullName="OpenCV.Drawing" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="DrawContours" />
             </p:NodeReference>
+            <Pin Id="QwCA1wBZdmeMZuAKBT0wat" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="Cq5BFmzvuszO4vf62YQBnR" Name="Input" Kind="InputPin" />
             <Pin Id="DmMJz3wWRiXPnCDDxnuyaQ" Name="Contours" Kind="InputPin" />
             <Pin Id="A6bTCNMHpoFP8MLfz78oTF" Name="Contour Id" Kind="InputPin" />
@@ -118,24 +124,25 @@
             <Pin Id="UaT7xSSTfscMcvdyq54kJy" Name="Output" Kind="OutputPin" />
           </Node>
           <Pad Id="PthmqiVUzWwLn0Z50CNMhR" Comment="Threshold" Bounds="128,350,33,19" ShowValueBox="true" isIOBox="true" Value="0.5">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
           </Pad>
           <Node Bounds="105,308,70,19" Id="EvIWSj9QRv1O0qD7NjUZ9w">
-            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
+            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Name="OpenCV" />
               <CategoryReference Name="Filter" />
               <Choice Kind="ProcessAppFlag" Name="GrayScale" />
             </p:NodeReference>
+            <Pin Id="CKgSjSwkeBrLLAml1yxn9b" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="NIYgx6aI8MWQdEUhB3ZzRT" Name="Input" Kind="InputPin" />
             <Pin Id="SJw21IEaPy4P2QF2iToT56" Name="Source Format" Kind="InputPin" />
             <Pin Id="PYf0e75cBiyQGWy4gFdjbN" Name="Apply" Kind="InputPin" />
             <Pin Id="IgtVSDdBDkUPSkD15eXGW0" Name="Output" Kind="OutputPin" />
           </Node>
           <Pad Id="Vo6J83JY9gmPrfvpC92I9u" Bounds="24,347,24,27" ShowValueBox="true" isIOBox="true" Value="1.">
-            <p:TypeAnnotation>
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
             <p:ValueBoxSettings>
@@ -144,17 +151,17 @@
             </p:ValueBoxSettings>
           </Pad>
           <Pad Id="URvzoeyRNC5Mr09ilwkRt2" Comment="Method" Bounds="149,453,111,15" ShowValueBox="true" isIOBox="true" Value="ApproxSimple">
-            <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
+            <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastDependency="OpenCvSharp.dll">
               <Choice Kind="TypeFlag" Name="ContourApproximationModes" />
             </p:TypeAnnotation>
           </Pad>
           <Pad Id="OxqVWL1OmyNLucf9gkj9XN" Comment="Mode" Bounds="191,485,67,15" ShowValueBox="true" isIOBox="true" Value="List">
-            <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastSymbolSource="OpenCvSharp.dll">
+            <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastDependency="OpenCvSharp.dll">
               <Choice Kind="TypeFlag" Name="RetrievalModes" />
             </p:TypeAnnotation>
           </Pad>
           <Pad Id="UwrfxrR6XyrQODWoFYVFQj" Bounds="24,457,24,27" ShowValueBox="true" isIOBox="true" Value="2.">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
             <p:ValueBoxSettings>
@@ -162,9 +169,9 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Overlay Id="SSG21ZmZLmuOy8VpJhYPV8" Name="" Bounds="15,430,605,137" />
+          <Overlay Id="SSG21ZmZLmuOy8VpJhYPV8" Name="" Bounds="15,430,355,137" />
           <Pad Id="DwY8B5VfWi3QYXRxfbCbCr" Bounds="66,181,267,19" ShowValueBox="true" isIOBox="true" Value="Allows to detect contours in an input image">
-            <p:TypeAnnotation>
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
             <p:ValueBoxSettings>
@@ -172,8 +179,8 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="KmZFEK3jvg6Nyl6IJmpFRk" Bounds="351,302,243,66" ShowValueBox="true" isIOBox="true" Value="Contours need a single channel input. Therefore, we use a node like &lt; to get a black and white image.">
-            <p:TypeAnnotation>
+          <Pad Id="KmZFEK3jvg6Nyl6IJmpFRk" Bounds="256,313,243,66" ShowValueBox="true" isIOBox="true" Value="Contours need a single channel input. Therefore, we use a node like &lt; to get a black and white image.">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
             <p:ValueBoxSettings>
@@ -190,13 +197,13 @@
         </ProcessDefinition>
         <Link Id="DnyVannXm9XOsMQQAkinlw" Ids="A7mpJsyK03TMiBNKeel1YN,DmMJz3wWRiXPnCDDxnuyaQ" />
         <Link Id="PxKCHdZ7tsZPRe1rn3GLe9" Ids="PthmqiVUzWwLn0Z50CNMhR,LVP63JMDefCQdPOGUC9EEt" />
-        <Link Id="OGd9Ycd7OZFPz9j6tf3goA" Ids="SqWyr8n9J3KM6aVHFFnUVk,Cq5BFmzvuszO4vf62YQBnR" />
-        <Link Id="UCD0ZpFvNElLLODZdrb7QQ" Ids="SqWyr8n9J3KM6aVHFFnUVk,NIYgx6aI8MWQdEUhB3ZzRT" />
         <Link Id="NxdNasqT11ROtXJLsnXnsO" Ids="ASBFzvpxwIyMJrB8xdHs8D,CHzGzY87v5ZNFJtjSuhLec" />
         <Link Id="DFKI3LWcIBGOFQopaW6HHK" Ids="IgtVSDdBDkUPSkD15eXGW0,J7RrEbnMhKoPuNFEEflMua" />
         <Link Id="CImmhXFzCZZNv1TU3JtxQm" Ids="UaT7xSSTfscMcvdyq54kJy,J0HLJYpnsfCPabR5GLo4GW" />
         <Link Id="TFyayWpfgrLOKQrGixN2V1" Ids="URvzoeyRNC5Mr09ilwkRt2,DOVtz3n1yutLtnAap2kEcV" />
         <Link Id="D1AYzmUUf6YQPcn3q9MXVU" Ids="OxqVWL1OmyNLucf9gkj9XN,GaPaKqNukhVQKiQ8djuPDw" />
+        <Link Id="G2B8Io4XdpkLho5fibUjE5" Ids="FsvsbbhhOnvMMV38R04OmP,Cq5BFmzvuszO4vf62YQBnR" />
+        <Link Id="NYzS0Br6L7ZQCcrq9ZWOGt" Ids="FsvsbbhhOnvMMV38R04OmP,NIYgx6aI8MWQdEUhB3ZzRT" />
       </Patch>
     </Node>
   </Patch>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="TEnaJubaNoDOmTsIzA0MEK" LanguageVersion="2021.4.9.977" Version="0.128">
-  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="2021.4.9-0977-g9cd91ffb6d" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="TEnaJubaNoDOmTsIzA0MEK" LanguageVersion="2025.7.0-0340-g1b1e5767de" Version="0.128">
+  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="2025.7.0-0340-g1b1e5767de" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
     <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VVVV" CanvasType="FullCategory" />
     <!--
@@ -16,35 +16,38 @@
       <Patch Id="Fk63wli7kbDNpEU7pAdqiv">
         <Canvas Id="A1bv15ls90rQSuoWG1a17Y" CanvasType="Group">
           <Node Bounds="74,77,125,19" Id="JYiohCjFXo7LGk9sl4Vblj">
-            <p:NodeReference LastCategoryFullName="OpenCV.Source" LastSymbolSource="VL.OpenCV.vl">
+            <p:NodeReference LastCategoryFullName="OpenCV.Source" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="VideoIn" />
             </p:NodeReference>
-            <Pin Id="FShpoQXKQN6L8ZRYiLscjw" Name="Video Input Device" Kind="InputPin" />
-            <Pin Id="O7QuCE8kpthMky9h4fJCau" Name="Width" Kind="InputPin" />
-            <Pin Id="ThrB6QXibrTMuhUrfvnzQV" Name="Height" Kind="InputPin" />
-            <Pin Id="QZsWibSXLKgO3ITXrlJXmd" Name="FPS" Kind="InputPin" />
+            <Pin Id="JINVupGAAdGN0pGfY9eGr7" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="OPr8Lw1fxvOQMtkXnCnIUf" Name="Device" Kind="InputPin" />
+            <Pin Id="SpGRXSgfB2gLD8RijOdkJj" Name="Preferred Size" Kind="InputPin" />
+            <Pin Id="InDpc2US81LMUQw9pqBRec" Name="Preferred FPS" Kind="InputPin" />
             <Pin Id="N6YaTI9twaOPcVMhWpklQz" Name="FourCC" Kind="InputPin" />
             <Pin Id="KzFfyn3CttwMKrFNLUaq16" Name="Show Properties" Kind="InputPin" />
+            <Pin Id="L85uCTa6u8ZPisAPXFIGVb" Name="Convert RGB" Kind="InputPin" IsHidden="true" />
+            <Pin Id="GFTtV605hgTMcqNK2QufyL" Name="Blocking" Kind="InputPin" />
             <Pin Id="TXbTpbjrZj3ON96vRdNm7g" Name="Enabled" Kind="InputPin" />
-            <Pin Id="FPYIAWd0N8VPLLNEA9ni7u" Name="Image" Kind="OutputPin" />
+            <Pin Id="KngfwhKB9ifN3AWls6VsyF" Name="Output" Kind="OutputPin" />
             <Pin Id="AtIqZA8R7gcLhGqNZqSxyA" Name="Supported Formats" Kind="OutputPin" />
           </Node>
-          <Node Bounds="34,846,125,19" Id="QPcRmgCTjyTPSMoxI0A3Tu">
-            <p:NodeReference LastCategoryFullName="OpenCV.Sink" LastSymbolSource="VL.OpenCV.vl">
+          <Node Bounds="34,846,145,19" Id="QPcRmgCTjyTPSMoxI0A3Tu">
+            <p:NodeReference LastCategoryFullName="OpenCV.Sink" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Renderer" />
             </p:NodeReference>
-            <Pin Id="KNBgb3kMoDzQIMeMpFNfoa" Name="Bounds" Kind="InputPin" DefaultValue="1012, 53, 425, 346">
-              <p:TypeAnnotation LastCategoryFullName="System.Windows" LastSymbolSource="VL.CoreLib.Windows.vl">
+            <Pin Id="KNBgb3kMoDzQIMeMpFNfoa" Name="Bounds" Kind="InputPin" DefaultValue="1012, 52, 424, 268">
+              <p:TypeAnnotation LastCategoryFullName="System.Windows" LastDependency="VL.CoreLib.Windows.vl">
                 <Choice Kind="TypeFlag" Name="Rectangle" />
               </p:TypeAnnotation>
             </Pin>
             <Pin Id="JM4dEIuH1NhP7eH9eeS0QU" Name="Bound to Document" Kind="InputPin" DefaultValue="True">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
             </Pin>
+            <Pin Id="BqO9uIulw49OMSGbnquK0h" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="D8vrbJKcINiNu5XfzmYoJr" Name="Input" Kind="InputPin" />
             <Pin Id="KCV2w6ZJLZNM9gUnEYTaTU" Name="Title" Kind="InputPin" />
             <Pin Id="L0hZjkoigOwO0BkdEgmwOK" Name="Renderer Mode" Kind="InputPin" />
@@ -53,21 +56,22 @@
             <Pin Id="ViUucBBuD4rL4hMtQ1yyEd" Name="Enabled" Kind="InputPin" />
           </Node>
           <Node Bounds="74,790,45,19" Id="Tj6ZlsItaGTNKFS03tntos">
-            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
+            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="LUT" />
             </p:NodeReference>
             <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
+            <Pin Id="HakXjaS956dQQhYi9tlThN" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="NtA0z8eqoooN6SjOhXR0qH" Name="Input" Kind="InputPin" />
             <Pin Id="UTEavqKoTMzMjY869iyOtB" Name="Colors" Kind="InputPin" />
             <Pin Id="JdckohLXHR8MexOmlNsE5x" Name="Apply" Kind="InputPin" />
             <Pin Id="SFBHZ80Oeb1PnrpKrmND3C" Name="Output" Kind="OutputPin" />
           </Node>
           <Pad Id="QcY74WdsTHeQNBEjIj3VxP" Comment="Lookup Table" Bounds="96,247,156,509" ShowValueBox="true" isIOBox="true">
-            <p:TypeAnnotation LastCategoryFullName="Collections" LastSymbolSource="VL.Collections.vl">
+            <p:TypeAnnotation LastCategoryFullName="Collections" LastDependency="VL.Collections.vl">
               <Choice Kind="TypeFlag" Name="Spread" />
               <p:TypeArguments>
-                <TypeReference LastCategoryFullName="Color" LastSymbolSource="CoreLibBasics.vl">
+                <TypeReference LastCategoryFullName="Color" LastDependency="CoreLibBasics.vl">
                   <Choice Kind="TypeFlag" Name="RGBA" />
                 </TypeReference>
               </p:TypeArguments>
@@ -335,35 +339,37 @@
             </p:Value>
           </Pad>
           <Node Bounds="74,149,60,19" Id="LnT5Lwd0YamLWQi5BWkLvs">
-            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
+            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="GrayScale" />
             </p:NodeReference>
+            <Pin Id="RcFYAp5ZECROJvjDuans29" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="AplGVG0LCcLPyKFQAGaZNP" Name="Input" Kind="InputPin" />
             <Pin Id="D7FS27wueZOOiwmbHPjxkg" Name="Source Format" Kind="InputPin" />
             <Pin Id="JrTKQ6U53yXL9tk91m871m" Name="Apply" Kind="InputPin" />
             <Pin Id="T34oWfOtrzuNgVlnLLRFBn" Name="Output" Kind="OutputPin" />
           </Node>
           <Node Bounds="74,182,85,19" Id="UMvoMzrTw5JQQCikk4xF86">
-            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
+            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="OpenCV" />
               <CategoryReference Kind="Category" Name="Filter" />
               <Choice Kind="ProcessAppFlag" Name="ConvertColor" />
             </p:NodeReference>
+            <Pin Id="Ifwxb82ew7GN2XMQgnY6yv" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="AOCbDwUXYliOTaL0U6txFV" Name="Input" Kind="InputPin" />
             <Pin Id="RZDwivlKnlOLgFPKixUXaU" Name="Source Format" Kind="InputPin" />
             <Pin Id="OZCveRxBIJPPsjIxMoex6V" Name="Target Format" Kind="InputPin" />
             <Pin Id="LqwO3x3teZTPBrMeObsY7K" Name="Destination Channels" Kind="InputPin" />
             <Pin Id="RO9yL3HaUrTMm79KX2M1OQ" Name="Apply" Kind="InputPin" DefaultValue="True">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
             </Pin>
             <Pin Id="JFOKRB1O3rCNTxSDbgnqFU" Name="Output" Kind="OutputPin" />
           </Node>
           <Pad Id="Urp71e3yAWPPNVBWRGCuIh" Bounds="176,160,205,42" ShowValueBox="true" isIOBox="true" Value="Converts to a color image with each pixel having a shade of gray">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
             <p:ValueBoxSettings>
@@ -372,7 +378,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Pad Id="KfRyOsy5cjLOYCQDrf56QC" Bounds="367,397,391,135" ShowValueBox="true" isIOBox="true" Value="A LUT (Lookup Table) allows to match each shade of gray of your input image to a new color.&#xD;&#xA;&#xD;&#xA;Here, we feed the LUT node with our webcam feed converted to a color image made of shades of gray, and a spread of 256 colors. A pixel with a value of (0;0;0) will take the color located in slice 0, a pixel of (1, 1, 1) will take slice 1, and so on.">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
             <p:ValueBoxSettings>
@@ -389,11 +395,11 @@
           <Fragment Id="FWI1SwO6qOvMkGBMLDjuBG" Patch="BpBNcTxHioePjLn2sEMfvF" Enabled="true" />
           <Fragment Id="FNAin4MRfwxNAxCk6POtip" Patch="MdWZFnwwUvzPBJs3FBXt5e" Enabled="true" />
         </ProcessDefinition>
-        <Link Id="PW9mYsqAyaWLtUrDIpcKeC" Ids="FPYIAWd0N8VPLLNEA9ni7u,AplGVG0LCcLPyKFQAGaZNP" />
         <Link Id="TudhC2kqBlWLWee9mioc8X" Ids="SFBHZ80Oeb1PnrpKrmND3C,D8vrbJKcINiNu5XfzmYoJr" />
         <Link Id="T7S11Vx4qA1QGk8ot2BpoG" Ids="T34oWfOtrzuNgVlnLLRFBn,AOCbDwUXYliOTaL0U6txFV" />
         <Link Id="S08hYfnD0GLNgKwipDs9Zn" Ids="QcY74WdsTHeQNBEjIj3VxP,UTEavqKoTMzMjY869iyOtB" />
         <Link Id="EchbJ00Tw8dOKflsgBGiCu" Ids="JFOKRB1O3rCNTxSDbgnqFU,NtA0z8eqoooN6SjOhXR0qH" />
+        <Link Id="DjTLGDKhoOOMPwDvU6SACd" Ids="KngfwhKB9ifN3AWls6VsyF,AplGVG0LCcLPyKFQAGaZNP" />
       </Patch>
     </Node>
   </Patch>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="S8WA4cZGFR0OZHpeh63aSb" LanguageVersion="2024.6.7-0181-gdf16f593e1" Version="0.128">
+<Document xmlns:p="property" xmlns:r="reflection" Id="S8WA4cZGFR0OZHpeh63aSb" LanguageVersion="2025.7.0-0340-g1b1e5767de" Version="0.128">
   <Patch Id="TdsnqpUZKTxMuoMDGPFpHJ">
     <Canvas Id="UTJhLYLzuRbNgWcBPskgBP" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -32,7 +32,7 @@
             <Pin Id="AECD4TLgio6OaN17K9sqb0" Name="FaceRecognizer" Kind="OutputPin" />
             <Pin Id="HwSLVG0WEfhQQXfQ4FmJC6" Name="Is Trained" Kind="OutputPin" />
           </Node>
-          <Pad Id="F8XSAAVMIuMLPuiXCUHy9L" Comment="Training Labels" Bounds="624,340,42,60" ShowValueBox="true" isIOBox="true" Value="0, 0">
+          <Pad Id="F8XSAAVMIuMLPuiXCUHy9L" Comment="Training Labels" Bounds="624,321,42,65" ShowValueBox="true" isIOBox="true" Value="0, 0, 0">
             <p:TypeAnnotation LastCategoryFullName="Collections" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Spread" />
               <p:TypeArguments>
@@ -42,7 +42,7 @@
               </p:TypeArguments>
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="CZcCZi5iRKSNeLL9vmdeyR" Bounds="672,361,156,49" ShowValueBox="true" isIOBox="true" Value="&lt; Every image should correspond to a Label">
+          <Pad Id="CZcCZi5iRKSNeLL9vmdeyR" Bounds="672,342,156,49" ShowValueBox="true" isIOBox="true" Value="&lt; Every image should correspond to a Label">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -112,7 +112,7 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="MQy1TjGYQjVMzoXtlQHgSb" Comment="Image Paths" Bounds="395,342,123,65" ShowValueBox="true" isIOBox="true">
+          <Pad Id="MQy1TjGYQjVMzoXtlQHgSb" Comment="Image Paths" Bounds="395,321,139,65" ShowValueBox="true" isIOBox="true">
             <p:TypeAnnotation LastCategoryFullName="Collections" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Spread" />
               <p:TypeArguments>
@@ -125,8 +125,9 @@
               <p:maxvisibleentries p:Type="Int32">3</p:maxvisibleentries>
             </p:ValueBoxSettings>
             <p:Value>
-              <Item>face1.jpg</Item>
-              <Item>face2jpg</Item>
+              <Item></Item>
+              <Item></Item>
+              <Item></Item>
             </p:Value>
           </Pad>
           <Overlay Id="HcNhNQMN4V4PPsqXcwB3pM" Name="Train a Recognizer" Bounds="212,586,500,388" />
@@ -203,7 +204,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="GuAmdaFAfWnN7jwZ3gjLkp" Comment="Predict Image" SlotId="FWKByl5GiADN0khB3Gkr1W" Bounds="1000,788" />
+          <Pad Id="GuAmdaFAfWnN7jwZ3gjLkp" Comment="Predict Image" SlotId="FWKByl5GiADN0khB3Gkr1W" Bounds="1001,790" />
           <Pad Id="M8SSWsYtYodNT55A5EgLl7" Comment="Predict" Bounds="1081,783,35,35" ShowValueBox="true" isIOBox="true" Value="false">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
@@ -214,7 +215,7 @@
           </Pad>
           <Pad Id="Mdyz0HxejUnLxUJ8Osg1VI" Comment="Label" Bounds="939,893,38,15" ShowValueBox="true" isIOBox="true" />
           <Overlay Id="B624LyKFDFMNoBVyDtsROK" Name="Recognize" Bounds="787,585,557,387" />
-          <Node Bounds="381,425,175,98" Id="OodFcNJZghfO91spOwV1Wz">
+          <Node Bounds="381,403,218,120" Id="OodFcNJZghfO91spOwV1Wz">
             <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
               <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
               <CategoryReference Kind="Category" Name="Primitive" />
@@ -233,7 +234,7 @@
                 </p:NodeReference>
                 <Pin Id="TlLU73SH2XSO6lOdMxpfFv" Name="Node Context" Kind="InputPin" IsHidden="true" />
                 <Pin Id="BGRndzdXXnGOzM40wzq6zT" Name="File Name" Kind="InputPin" />
-                <Pin Id="Rj8fAclIzevM46sUvweVpR" Name="Flags" Kind="InputPin" />
+                <Pin Id="Rj8fAclIzevM46sUvweVpR" Name="Flags" Kind="InputPin" DefaultValue="Grayscale" />
                 <Pin Id="OdSwrw6ZUu0PKL4e96wY7s" Name="Load" Kind="InputPin" />
                 <Pin Id="QkvxBnWXzMSMf6jF8yihsK" Name="Output" Kind="OutputPin" />
               </Node>
@@ -245,8 +246,13 @@
                   <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
                 </p:ValueBoxSettings>
               </Pad>
+              <Pad Id="PogBfq2VyT0NEfVGeggeQq" Comment="Flags" Bounds="430,431,111,15" ShowValueBox="true" isIOBox="true" Value="Grayscale">
+                <p:TypeAnnotation LastCategoryFullName="OpenCvSharp" LastDependency="VL.OpenCV.vl">
+                  <Choice Kind="TypeFlag" Name="ImreadModes" />
+                </p:TypeAnnotation>
+              </Pad>
             </Patch>
-            <ControlPoint Id="UUObKt1KBHuNxch7PiJvzS" Bounds="395,431" Alignment="Top" />
+            <ControlPoint Id="UUObKt1KBHuNxch7PiJvzS" Bounds="395,409" Alignment="Top" />
             <ControlPoint Id="UMYA7C14UUQN5q6bqclvjS" Bounds="395,517" Alignment="Bottom" />
           </Node>
           <ControlPoint Id="V1DCNxfeL1gP6H7Ly4DmoJ" Bounds="624,556" />
@@ -407,6 +413,15 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
+          <Pad Id="VP0teodAukAN2mCS7GZK7K" Bounds="234,466,123,47" ShowValueBox="true" isIOBox="true" Value="Training images must be GrayScale">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.OpenCV.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:fontsize p:Type="Int32">9</p:fontsize>
+              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
+            </p:ValueBoxSettings>
+          </Pad>
         </Canvas>
         <Patch Id="HqMiH9KcSQ4PyNFNu8a8ut" Name="Create" />
         <Patch Id="M1rHPv3MTOmMRa3PaEUaTz" Name="Update" />
@@ -436,6 +451,7 @@
         <Link Id="SP8wQpelgZbNEWyJrohRfp" Ids="MQy1TjGYQjVMzoXtlQHgSb,UUObKt1KBHuNxch7PiJvzS" />
         <Link Id="HzDe2KmJUKuO1JQZ5B9fVA" Ids="F8XSAAVMIuMLPuiXCUHy9L,V1DCNxfeL1gP6H7Ly4DmoJ,BCpFd6H6wq2Pq0Zh8nWC6e,S8pfbr11KbNOmn4ldcOk0p" />
         <Link Id="UFgfDp92XTKP6dFFZsWMsh" Ids="UMYA7C14UUQN5q6bqclvjS,PKHCGM1jM1KMeFQ5IQ8IlQ" />
+        <Link Id="OSOajMJwbGRMpwp2WNwayE" Ids="PogBfq2VyT0NEfVGeggeQq,Rj8fAclIzevM46sUvweVpR" />
       </Patch>
     </Node>
   </Patch>
