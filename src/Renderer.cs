@@ -199,10 +199,7 @@ namespace VL.OpenCV
                 if (image == CvImage.Damon)
                 {
                     pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                    if (Size.Width != 613 || Size.Height != 613)
-                    {
-                        ClientSize = new System.Drawing.Size(ClientSize.Width, (int)(ClientSize.Width / aspectRatio));
-                    }
+                    ClientSize = new System.Drawing.Size(ClientSize.Width, (int)(ClientSize.Width / aspectRatio));
                 }
                 else
                 {
