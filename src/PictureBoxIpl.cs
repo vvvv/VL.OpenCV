@@ -34,6 +34,20 @@ namespace OpenCvSharp.UserInterface
             imageIpl = null;
         }
 
+        protected override void OnPaint(PaintEventArgs pe)
+        {
+            if (Image != null)
+            {
+                pe.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+                pe.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.Half;
+                pe.Graphics.DrawImage(Image, this.ClientRectangle);
+            }
+            else
+            {
+                base.OnPaint(pe);
+            }
+        }
+
 
 #if LANG_JP
         /// <summary>
