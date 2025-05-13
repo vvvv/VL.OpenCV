@@ -119,6 +119,7 @@ namespace VL.OpenCV
                 {
                     case RendererMode.SizeFromImage:
                         FormBorderStyle = FormBorderStyle.FixedSingle;
+                        pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
                         break;
                     case RendererMode.AspectRatioScale:
                         FormBorderStyle = FormBorderStyle.Sizable;
@@ -142,6 +143,7 @@ namespace VL.OpenCV
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox.ClientSize = ClientSize;
             Show();
+            MinimumSize = new System.Drawing.Size(1, 1);
             sizeDelta = Size - ClientSize;
             HandleResize();
         }
@@ -212,9 +214,7 @@ namespace VL.OpenCV
                     }
                     else if (rendererMode == RendererMode.AspectRatioScale)
                     {
-                        ClientSize = new System.Drawing.Size(ClientSize.Width, (int)(ClientSize.Width / aspectRatio));
-                        //needed to prevent underscaling when in AspectRatioScale mode
-                        MinimumSize = new System.Drawing.Size(2 * sizeDelta.Width, (int)((2 * sizeDelta.Width) / aspectRatio) + sizeDelta.Height);
+                        ClientSize = new System.Drawing.Size(ClientSize.Width, (int)(ClientSize.Width / aspectRatio)); 
                     }
                 }
             }
