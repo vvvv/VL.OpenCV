@@ -9,7 +9,7 @@ namespace VL.OpenCV
 
         private readonly Mat _image;
         private readonly bool _readOnly;
-        private static readonly CvImage Gray = new CvImage(new Mat(new int[] { 1, 1 }, OpenCvSharp.MatType.CV_8UC1, Scalar.Gray));
+        private static readonly CvImage Gray = new CvImage(new Mat(new int[] { 1, 1 }, OpenCvSharp.MatType.CV_8UC1, Scalar.Gray), true);
 
         public CvImage(Mat mat)
             : this(mat, false)
