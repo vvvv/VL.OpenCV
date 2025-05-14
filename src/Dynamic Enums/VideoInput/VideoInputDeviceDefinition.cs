@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using VL.Lib;
 using VL.Lib.Collections;
-using static Windows.Win32.PInvoke;
 
 namespace VL.OpenCV
 {
@@ -15,24 +14,23 @@ namespace VL.OpenCV
         protected override unsafe IReadOnlyDictionary<string, object> GetEntries()
         {
             // Get the collection of video devices
-            var capDevices = VideoInInfo.EnumerateVideoDevices();
-            Dictionary<string, object> devices = new Dictionary<string, object>(capDevices.Length);
-            if (capDevices.Length > 0)
+            var capDevices = VideoInInfo.EnumerateCaptureDevicesDS();
+            Dictionary<string, object> devices = new Dictionary<string, object>(capDevices.Count);
+            if (capDevices.Count > 0)
             {
-                devices["Default"] = 0;
+                devices["Default"] = capDevices[0];
             }
             
-            for (int i = 0; i < capDevices.Length; i++)
+            foreach (var device in capDevices)
             {
                 var j = 1;
-                var friendlyName = VideoInInfo.GetString(capDevices[i], in MF_DEVSOURCE_ATTRIBUTE_FRIENDLY_NAME);
+                var friendlyName = device.Name;
                 var finalName = friendlyName;
                 while (devices.ContainsKey(finalName))
                 {
                     finalName = friendlyName + " #" + j++;
                 }
-                devices[finalName] = i;
-                capDevices[i]->Release();
+                devices[finalName] = device;
             }
             return devices;
         }

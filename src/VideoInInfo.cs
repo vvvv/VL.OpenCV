@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using Windows.Win32.Foundation;
 using Windows.Win32.Media.DirectShow;
+using Windows.Win32.Media.KernelStreaming;
 using Windows.Win32.Media.MediaFoundation;
 using Windows.Win32.System.Com;
 using Windows.Win32.System.Com.StructuredStorage;
@@ -13,23 +15,32 @@ namespace VL.OpenCV
 {
     public unsafe class VideoInInfo
     {
-        public class Format
+        public record struct VideoDeviceInfo(string Name, int Index, ImmutableArray<Format> Formats)
         {
-            public int w, h;
-            public float fr;
-            public string format;
+            public override string ToString() => $"{Name} ({Index})";
         }
 
-        public static string GetSupportedFormats(int deviceIndex)
+        public record struct Format(int w, int h, float fr, string format)
         {
+            public override string ToString() => $"{format} {w}x{h} @ {fr:F2}";
+        }
+
+        public static string GetSupportedFormats(VideoInputDevice videoInputDevice)
+        {
+            if (videoInputDevice is null)
+                return string.Empty;
+
+            if (videoInputDevice.Tag is not VideoDeviceInfo deviceInfo)
+                return string.Empty;
+
             try
             {
-                return String.Join(Environment.NewLine, EnumerateSupportedFormats(deviceIndex)
+                return String.Join(Environment.NewLine, deviceInfo.Formats
                     .OrderByDescending(x => x.w)
                     .ThenByDescending(x => x.h)
                     .ThenByDescending(x => x.fr)
                     .ThenByDescending(x => x.format)
-                    .Select(x => $"{x.format} {x.w}x{x.h} @ {x.fr:F2}")
+                    .Select(x => x.ToString())
                     .Distinct()
                     .ToArray());
             }
@@ -39,116 +50,18 @@ namespace VL.OpenCV
             }
         }
 
-        static unsafe IEnumerable<Format> EnumerateSupportedFormats(int deviceIndex)
+        public static int GetDeviceIndex(VideoInputDevice videoInputDevice)
         {
-            var result = new List<Format>();
-            var devices = EnumerateVideoDevices();
-            if (deviceIndex < devices.Length)
-            {
-                var device = devices[deviceIndex];
-                var mediaSource = (IMFMediaSource*)device->ActivateObject(in IMFMediaSource.IID_Guid);
-
-                IMFPresentationDescriptor* descriptor = null;
-                IMFStreamDescriptor* streamDescriptor = null;
-                IMFMediaTypeHandler* handler = null;
-
-                try
-                {
-                    mediaSource->CreatePresentationDescriptor(&descriptor);
-                    descriptor->GetStreamDescriptorByIndex(0, out _, &streamDescriptor);
-                    streamDescriptor->GetMediaTypeHandler(&handler);
-                    handler->GetMediaTypeCount(out var mediaTypeCount);
-
-                    for (uint i = 0; i < mediaTypeCount; i++)
-                    {
-                        IMFMediaType* mediaType;
-                        handler->GetMediaTypeByIndex(i, &mediaType);
-                        try
-                        {
-                            mediaType->GetMajorType(out var majorType);
-                            if (majorType == MFMediaType_Video)
-                            {
-                                mediaType->GetUINT64(MF_MT_FRAME_RATE, out var fr);
-                                var frameRate = ParseFrameRate(fr);
-                                mediaType->GetUINT64(MF_MT_FRAME_SIZE, out var fs);
-                                ParseSize(fs, out int width, out int height);
-
-                                var format = GetVideoFormat(mediaType);
-
-                                result.Add(new Format() { w = width, h = height, fr = frameRate, format = format });
-                            }
-                        }
-                        finally
-                        {
-                            mediaType->Release();
-                        }
-                    }
-                }
-                finally
-                {
-                    handler->Release();
-                    streamDescriptor->Release();
-                    descriptor->Release();
-                    device->Release();
-                }
-            }
-            else
-            {
-                throw new IndexOutOfRangeException();
-            }
-            return result;
+            if (videoInputDevice is null)
+                return -1;
+            if (videoInputDevice.Tag is not VideoDeviceInfo deviceInfo)
+                return -1;
+            return deviceInfo.Index;
         }
 
-        internal static unsafe IMFActivate*[] EnumerateVideoDevices()
+        public static List<VideoDeviceInfo> EnumerateCaptureDevicesDS()
         {
-            IMFAttributes* attributes;
-            MFCreateAttributes(&attributes, 1).ThrowOnFailure();
-
-            attributes->SetGUID(MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE, MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_GUID);
-            MFEnumDeviceSources(attributes, out var devicePtr, out var count).ThrowOnFailure();
-
-            var result = new IMFActivate*[count];
-            for (int i = 0; i < result.Length; i++)
-                result[i] = devicePtr[i];
-
-            Dictionary<string, int[]> order = new Dictionary<string, int[]>();
-
-            var capDevicesDS = EnumerateCaptureDevicesDS();
-
-            //tries to match the order of the found devices in DirectShow and MediaFoundation
-            for (int i = 0; i < result.Length; i++)
-            {
-                var friendlyName = GetString(result[i], in MF_DEVSOURCE_ATTRIBUTE_FRIENDLY_NAME);
-                var suffix = ""; //used to handle multiple devices listed with the same name
-                var counter = 1;
-                for (int j = 0; j < capDevicesDS.Count; j++)
-                {
-                    var friendlyNameDS = capDevicesDS[j] + suffix;
-                    if (friendlyName + suffix == friendlyNameDS)
-                    {
-                        if (!order.ContainsKey(friendlyName + suffix))
-                        {
-                            order.Add(friendlyName + suffix, new int[] { i, j });
-                            var tmp = result[j];
-                            result[j] = result[i];
-                            result[i] = tmp;
-                            suffix = "";
-                            break;
-                        }
-                        else
-                        {
-                            suffix = counter++.ToString();
-                            continue;
-                        }
-                    }
-                }
-            }
-            return result;
-        }
-
-        private static List<string> EnumerateCaptureDevicesDS()
-        {
-            var capDevicesDS = new List<string>();
+            var capDevicesDS = new List<VideoDeviceInfo>();
             CoCreateInstance<ICreateDevEnum>(in CLSID_SystemDeviceEnum, null, CLSCTX.CLSCTX_INPROC_SERVER, out var devEnum).ThrowOnFailure();
 
             IEnumMoniker* pEnum = null;
@@ -156,6 +69,7 @@ namespace VL.OpenCV
             if (pEnum != null)
             {
                 IMoniker* moniker = null;
+                var index = 0;
                 while (pEnum->Next(1, &moniker, null) == HRESULT.S_OK)
                 {
                     try
@@ -166,9 +80,30 @@ namespace VL.OpenCV
                         VARIANT val = default;
                         VariantInit(&val);
                         propertyBag->Read("FriendlyName", ref val, null);
-                        capDevicesDS.Add(val.Anonymous.Anonymous.Anonymous.bstrVal.AsSpan().ToString());
+                        var name = val.Anonymous.Anonymous.Anonymous.bstrVal.AsSpan().ToString();
                         VariantClear(&val);
                         propertyBag->Release();
+
+                        id = typeof(IBaseFilter).GUID;
+                        moniker->BindToObject(null, null, in id, out var obj);
+                        var filter = (IBaseFilter*)obj;
+
+                        var formats = ImmutableArray<Format>.Empty;
+                        if (FindPinByCategory(filter, PIN_DIRECTION.PINDIR_OUTPUT, PIN_CATEGORY_CAPTURE, out var pin))
+                        {
+                            try
+                            {
+                                formats = GetVideoFormats(pin);
+                            }
+                            finally
+                            {
+                                pin->Release();
+                            }
+                        }
+
+                        capDevicesDS.Add(new VideoDeviceInfo(name, index++, formats));
+
+                        filter->Release();
                     }
                     finally
                     {
@@ -181,49 +116,105 @@ namespace VL.OpenCV
             return capDevicesDS;
         }
 
-        private static void ParseSize(ulong value, out int width, out int height)
+        private static ImmutableArray<Format> GetVideoFormats(IPin* pin)
         {
-            width = (int)(value >> 32);
-            height = (int)(value & 0x00000000FFFFFFFF);
-        }
+            var availableFormats = ImmutableArray.CreateBuilder<Format>();
 
-        private static float ParseFrameRate(ulong value)
-        {
-            var numerator = (int)(value >> 32);
-            var denominator = (int)(value & 0x00000000FFFFFFFF);
-            return numerator * 100 / denominator / 100f;
-        }
+            IEnumMediaTypes* pEnumMediaTypes;
+            pin->EnumMediaTypes(&pEnumMediaTypes);
 
-        private static string GetVideoFormat(IMFMediaType* mediaType)
-        {
-            // https://docs.microsoft.com/en-us/windows/desktop/medfound/video-subtype-guids
-            mediaType->GetGUID(MF_MT_SUBTYPE, out var subTypeId);
-            var fourccEncoded = BitConverter.ToInt32(subTypeId.ToByteArray(), 0);
-            return FourCCToString(fourccEncoded);
-        }
-
-        private static string FourCCToString(int value)
-        {
-            return string.Format("{0}", new string(new[]
+            try
             {
-            (char) (value & 0xFF),
-            (char) (value >> 8 & 0xFF),
-            (char) (value >> 16 & 0xFF),
-            (char) (value >> 24 & 0xFF),
-        }));
-        }
+                AM_MEDIA_TYPE* mediaType;
+                while (pEnumMediaTypes->Next(1, &mediaType) == HRESULT.S_OK)
+                {
+                    if (mediaType->formattype != FORMAT_VideoInfo)
+                        continue;
 
-        internal static unsafe string GetString(IMFActivate* activate, in Guid guid)
-        {
-            activate->GetStringLength(in guid, out var length);
-
-            Span<char> buffer = stackalloc char[(int)length + 1];
-            fixed (char* c = buffer)
+                    var v = (VIDEOINFOHEADER*)mediaType->pbFormat;
+                    if (v->bmiHeader.biSize != 0 && v->bmiHeader.biBitCount != 0)
+                    {
+                        var fps = (float)Math.Floor((1 / ((v->AvgTimePerFrame * 100) * 0.000000001)));
+                        var fourCC = FourCCToString(v->bmiHeader.biCompression);
+                        var format = new Format(v->bmiHeader.biWidth, v->bmiHeader.biHeight, fps, fourCC);
+                        availableFormats.Add(format);
+                    }
+                }
+            }
+            finally
             {
-                activate->GetString(in guid, new PWSTR(c), (uint)buffer.Length, &length);
+                pEnumMediaTypes->Release();
             }
 
-            return buffer.Slice(0, (int)length).ToString();
+            return availableFormats.ToImmutable();
+        }
+
+        // https://learn.microsoft.com/en-us/windows/win32/directshow/working-with-pin-categories
+        static bool FindPinByCategory(IBaseFilter* pFilter, PIN_DIRECTION PinDir, Guid Category, out IPin* pin)
+        {
+            pin = null;
+
+            IEnumPins* pEnum;
+            IPin* pPin;
+
+            pFilter->EnumPins(&pEnum);
+
+            try
+            {
+                while (pEnum->Next(1, &pPin) == HRESULT.S_OK)
+                {
+                    PIN_DIRECTION ThisPinDir;
+                    pPin->QueryDirection(&ThisPinDir);
+                    if ((ThisPinDir == PinDir) &&
+                        PinMatchesCategory(pPin, Category))
+                    {
+                        pin = pPin;
+                        return true;
+                    }
+                    pPin->Release();
+                }
+            }
+            finally
+            {
+                pEnum->Release();
+            }
+            return false;
+        }
+
+        // https://learn.microsoft.com/en-us/windows/win32/directshow/working-with-pin-categories
+        static bool PinMatchesCategory(IPin* pPin, Guid Category)
+        {
+            var hr = pPin->QueryInterface(typeof(IKsPropertySet).GUID, out var obj);
+            if (hr == HRESULT.S_OK)
+            {
+                var pKs = (IKsPropertySet*)obj;
+                try
+                {
+                    Guid PinCategory;
+                    pKs->Get(AMPROPSETID_Pin, (uint)AMPROPERTY_PIN.AMPROPERTY_PIN_CATEGORY, null, 0,
+                        &PinCategory, (uint)sizeof(Guid), out var cbReturned);
+                    if ((cbReturned == sizeof(Guid)))
+                    {
+                        return (PinCategory == Category);
+                    }
+                }
+                finally
+                {
+                    pKs->Release();
+                }
+            }
+            return false;
+        }
+
+        private static string FourCCToString(uint value)
+        {
+            return string.Format("{0}", new string(
+            [
+                (char) (value & 0xFF),
+                (char) (value >> 8 & 0xFF),
+                (char) (value >> 16 & 0xFF),
+                (char) (value >> 24 & 0xFF),
+            ]));
         }
     }
 }
