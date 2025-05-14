@@ -24,5 +24,5 @@ For use with vvvv, the visual live-programming environment for .NET: http://visu
 ## Credits
 
 * Based on [OpenCvSharp](https://github.com/shimat/opencvsharp)
-* Which in turn in based on [OpenCV 4.9.0](https://opencv.org)
+* Which in turn in based on [OpenCV 4.9.0](https://docs.opencv.org/4.9.0/)
 * Also using [SharpDX MediaFoundation](http://sharpdx.org/wiki/class-library-api/mediafoundation/)
