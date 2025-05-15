@@ -59,61 +59,65 @@ namespace VL.OpenCV
             return deviceInfo.Index;
         }
 
-        public static List<VideoDeviceInfo> EnumerateCaptureDevicesDS()
+        public static ImmutableArray<VideoDeviceInfo> EnumerateCaptureDevicesDS()
         {
-            var capDevicesDS = new List<VideoDeviceInfo>();
-            CoCreateInstance<ICreateDevEnum>(in CLSID_SystemDeviceEnum, null, CLSCTX.CLSCTX_INPROC_SERVER, out var devEnum).ThrowOnFailure();
+            CoCreateInstance<ICreateDevEnum>(in CLSID_SystemDeviceEnum, null, CLSCTX.CLSCTX_INPROC_SERVER, out var devEnum);
+            if (devEnum is null)
+                return ImmutableArray<VideoDeviceInfo>.Empty;
 
-            IEnumMoniker* pEnum = null;
-            var hr = devEnum->CreateClassEnumerator(in CLSID_VideoInputDeviceCategory, &pEnum, 0);
-            if (pEnum != null)
+            IEnumMoniker* pEnum;
+            devEnum->CreateClassEnumerator(in CLSID_VideoInputDeviceCategory, &pEnum, 0);
+            if (devEnum is null)
+                return ImmutableArray<VideoDeviceInfo>.Empty;
+
+            var capDevicesDS = ImmutableArray.CreateBuilder<VideoDeviceInfo>();
+            IMoniker* moniker;
+            var index = 0;
+            while (pEnum->Next(1, &moniker) == HRESULT.S_OK)
             {
-                IMoniker* moniker = null;
-                var index = 0;
-                while (pEnum->Next(1, &moniker, null) == HRESULT.S_OK)
+                try
                 {
-                    try
+                    moniker->BindToStorage(null, null, typeof(IPropertyBag).GUID, out var bag);
+                    var propertyBag = (IPropertyBag*)bag;
+                    VARIANT val = default;
+                    VariantInit(&val);
+                    propertyBag->Read("FriendlyName", ref val, null);
+                    var name = val.Anonymous.Anonymous.Anonymous.bstrVal.AsSpan().ToString();
+                    VariantClear(&val);
+                    propertyBag->Release();
+
+                    moniker->BindToObject(null, null, typeof(IBaseFilter).GUID, out var obj);
+                    var filter = (IBaseFilter*)obj;
+
+                    var formats = ImmutableArray<Format>.Empty;
+                    if (FindPinByCategory(filter, PIN_DIRECTION.PINDIR_OUTPUT, PIN_CATEGORY_CAPTURE, out var pin))
                     {
-                        var id = typeof(IPropertyBag).GUID;
-                        moniker->BindToStorage(null, null, in id, out var bag);
-                        var propertyBag = (IPropertyBag*)bag;
-                        VARIANT val = default;
-                        VariantInit(&val);
-                        propertyBag->Read("FriendlyName", ref val, null);
-                        var name = val.Anonymous.Anonymous.Anonymous.bstrVal.AsSpan().ToString();
-                        VariantClear(&val);
-                        propertyBag->Release();
-
-                        id = typeof(IBaseFilter).GUID;
-                        moniker->BindToObject(null, null, in id, out var obj);
-                        var filter = (IBaseFilter*)obj;
-
-                        var formats = ImmutableArray<Format>.Empty;
-                        if (FindPinByCategory(filter, PIN_DIRECTION.PINDIR_OUTPUT, PIN_CATEGORY_CAPTURE, out var pin))
+                        try
                         {
-                            try
-                            {
-                                formats = GetVideoFormats(pin);
-                            }
-                            finally
-                            {
-                                pin->Release();
-                            }
+                            formats = GetVideoFormats(pin);
                         }
-
-                        capDevicesDS.Add(new VideoDeviceInfo(name, index++, formats));
-
-                        filter->Release();
+                        finally
+                        {
+                            pin->Release();
+                        }
                     }
-                    finally
-                    {
-                        moniker->Release();
-                    }
+
+                    capDevicesDS.Add(new VideoDeviceInfo(name, index++, formats));
+
+                    filter->Release();
                 }
-                pEnum->Release();
+                catch
+                {
+                    // Ignore errors - if the device can't be opened, it will be skipped
+                }
+                finally
+                {
+                    moniker->Release();
+                }
             }
+            pEnum->Release();
             devEnum->Release();
-            return capDevicesDS;
+            return capDevicesDS.ToImmutable();
         }
 
         private static ImmutableArray<Format> GetVideoFormats(IPin* pin)
