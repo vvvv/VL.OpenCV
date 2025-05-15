@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="MVbYE8hDKCqONJXQx9ujCU" LanguageVersion="2021.4.9.977" Version="0.128">
-  <NugetDependency Id="QHjDOB0wt5pLNTvPTQiEmE" Location="VL.CoreLib" Version="2021.4.9-0977-g9cd91ffb6d" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="MVbYE8hDKCqONJXQx9ujCU" LanguageVersion="2024.6.7" Version="0.128">
+  <NugetDependency Id="QHjDOB0wt5pLNTvPTQiEmE" Location="VL.CoreLib" Version="2024.6.7" />
   <Patch Id="MLglIfC4T1gPs8T2BhT0je">
     <Canvas Id="MzsQiSFnC1PL8MgWj9Mc8u" DefaultCategory="Main" BordersChecked="false" CanvasType="FullCategory" />
     <!--
@@ -16,13 +16,14 @@
       <Patch Id="OwTFGVIWJ9yMAxNaehQWuV">
         <Canvas Id="Fkb2mecZRV6LmV0weL49eA" CanvasType="Group">
           <Node Bounds="102,708,294,19" Id="L6kL1IioyLuM35igaA3tGC">
-            <p:NodeReference LastCategoryFullName="OpenCV.Detection" LastSymbolSource="VL.OpenCV.vl">
+            <p:NodeReference LastCategoryFullName="OpenCV.Detection" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="OpenCV" />
               <CategoryReference Kind="Category" Name="Detection" />
               <Choice Kind="ProcessAppFlag" Name="FiducialDetector" />
             </p:NodeReference>
             <p:HelpFocus p:Assembly="VL.Lang" p:Type="VL.Model.HelpPriority">High</p:HelpFocus>
+            <Pin Id="RBmBydox7Y0Mt8ossnFxrn" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="A3SHrhAu68vLWy5wBRYqTs" Name="Input" Kind="InputPin" />
             <Pin Id="NzVKUIYxds6P4Zg4OTQsvp" Name="Enabled" Kind="InputPin" />
             <Pin Id="V8azmmeBItsMaok3ACKLIP" Name="Center" Kind="OutputPin" />
@@ -30,22 +31,24 @@
             <Pin Id="UaAvrFchdvTMnFLEifClcE" Name="ID" Kind="OutputPin" />
           </Node>
           <Node Bounds="102,645,70,19" Id="T7MXEOv6ek0OoyAzOtA4Wv">
-            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
+            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="GrayScale" />
             </p:NodeReference>
+            <Pin Id="CemS5YulDZ7QCr1WUlgvsC" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="J0tFcB3Il6WOc8yUBT8OAD" Name="Input" Kind="InputPin" />
             <Pin Id="P7UV8qZguDLNjflQwg7GGB" Name="Source Format" Kind="InputPin" />
             <Pin Id="AlDBBuHyroSPGPXEIeJK0Y" Name="Apply" Kind="InputPin" />
             <Pin Id="BATrY88R1JILVZKmc2NLK8" Name="Output" Kind="OutputPin" />
           </Node>
           <Node Bounds="102,252,75,19" Id="BnsCMMppK28OalLPxdYC0E">
-            <p:NodeReference LastCategoryFullName="OpenCV.Source" LastSymbolSource="VL.OpenCV.vl">
+            <p:NodeReference LastCategoryFullName="OpenCV.Source" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="ImageReader" />
             </p:NodeReference>
+            <Pin Id="EfELT7Gm9JQMM1bS1Mtuat" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="Fd72fFSDYf7PJpN4hq0Yoi" Name="File Name" Kind="InputPin" DefaultValue="..\..\..\content\assets\FiducialMarker.png">
-              <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
+              <p:TypeAnnotation LastCategoryFullName="IO" LastDependency="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Path" />
               </p:TypeAnnotation>
             </Pin>
@@ -56,24 +59,25 @@
           <Pad Id="QZesQn5ectzLdwWIYCy5lH" Comment="Angle" Bounds="248,760,40,34" ShowValueBox="true" isIOBox="true" />
           <Pad Id="VMkt8a1R2enOYUiktbZbFu" Comment="ID" Bounds="393,760,35,34" ShowValueBox="true" isIOBox="true" />
           <Pad Id="MskupPzj1ECQSmqiNVvs3i" Comment="Center" Bounds="104,760,86,34" ShowValueBox="true" isIOBox="true" />
-          <Node Bounds="282,539,125,19" Id="FHiK2rpRjv5Ln4BgMC9RVu">
-            <p:NodeReference LastCategoryFullName="OpenCV.Sink" LastSymbolSource="VL.OpenCV.vl">
+          <Node Bounds="282,539,145,19" Id="FHiK2rpRjv5Ln4BgMC9RVu">
+            <p:NodeReference LastCategoryFullName="OpenCV.Sink" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="Renderer" />
             </p:NodeReference>
-            <Pin Id="JRqbljeUX7ENALF7wtXT70" Name="Bounds" Kind="InputPin" DefaultValue="1015, 53, 174, 193">
-              <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
+            <Pin Id="JRqbljeUX7ENALF7wtXT70" Name="Bounds" Kind="InputPin" DefaultValue="1014, 52, 173, 193">
+              <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastDependency="System.Drawing.dll">
                 <Choice Kind="TypeFlag" Name="Rectangle" />
               </p:TypeAnnotation>
             </Pin>
             <Pin Id="RwlENB8ObvHMFWx6uisFnV" Name="Bound to Document" Kind="InputPin" DefaultValue="True">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Boolean" />
               </p:TypeAnnotation>
             </Pin>
+            <Pin Id="PIaZbpA8erhOKBa6EYp5oC" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="E62sys6SCI9OWiM03Lkbz2" Name="Input" Kind="InputPin" />
             <Pin Id="Cv2b29k3YtXOKCrzC50onN" Name="Title" Kind="InputPin" DefaultValue="Detect fiducial markers">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="String" />
               </p:TypeAnnotation>
             </Pin>
@@ -83,12 +87,13 @@
             <Pin Id="RfhuNwOkyjBQCUnZUs7CBW" Name="Enabled" Kind="InputPin" />
           </Node>
           <Node Bounds="102,462,125,19" Id="PSgagL6muKWNoE8DwJJ0Mv">
-            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastSymbolSource="VL.OpenCV.vl">
+            <p:NodeReference LastCategoryFullName="OpenCV.Filter" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="OpenCV" />
               <CategoryReference Kind="Category" Name="Filter" />
               <Choice Kind="ProcessAppFlag" Name="Transform" />
             </p:NodeReference>
+            <Pin Id="Mmv6cbLjPsxMAXM2BvUQIA" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="AujXvRM0umVPPXR3uVm2mq" Name="Input" Kind="InputPin" />
             <Pin Id="S4leuntwvwAPQ5uFyTq6tV" Name="Transform" Kind="InputPin" />
             <Pin Id="HjxHNMpJw1qN03iDrUl99g" Name="Use Center" Kind="InputPin" />
@@ -99,7 +104,7 @@
             <Pin Id="EFdh4xqyYF9Lfq6MR1cKgR" Name="Output" Kind="OutputPin" />
           </Node>
           <Node Bounds="122,425,80,19" Id="UfOxL7qElyzMIRaZg7wcKE">
-            <p:NodeReference LastCategoryFullName="2D.Transform" LastSymbolSource="CoreLibBasics.vl">
+            <p:NodeReference LastCategoryFullName="2D.Transform" LastDependency="CoreLibBasics.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="TransformSRT" />
               <CategoryReference Kind="Category" Name="Transform" NeedsToBeDirectParent="true">
@@ -113,10 +118,13 @@
             <Pin Id="HNtgVboAtVWLoXqQZ9lvxJ" Name="Output" Kind="OutputPin" />
           </Node>
           <Node Bounds="172,358,45,19" Id="VaWjhQVI3GlNFGgv0zokl9">
-            <p:NodeReference LastCategoryFullName="Animation" LastSymbolSource="CoreLibBasics.vl">
+            <p:NodeReference LastCategoryFullName="Animation" LastDependency="CoreLibBasics.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="LFO" />
             </p:NodeReference>
+            <Pin Id="DKb386Zi20dP53VQaOx74e" Name="Node Context" Kind="InputPin" IsHidden="true" />
+            <Pin Id="ANAO3WvKZqVOwIeK2vKfr0" Name="Clock" Kind="InputPin" IsHidden="true" />
+            <Pin Id="IDZ4thkhEDeM9H2qibS4Kp" Name="New Clock" Kind="InputPin" IsHidden="true" />
             <Pin Id="QUd7mHchDijO1eI4bzoYMc" Name="Period" Kind="InputPin" />
             <Pin Id="Aj3X831HvkVNKyjSJloFGC" Name="Pause" Kind="InputPin" />
             <Pin Id="TtaCvpd2cllLIARILOn2ab" Name="Reset" Kind="ApplyPin" />
@@ -125,7 +133,7 @@
             <Pin Id="LrAhcIge745PxV7lYnCBNh" Name="Cycles" Kind="OutputPin" />
           </Node>
           <Node Bounds="172,393,45,19" Id="B3MzSCHOVA5M2JkXRHvK8J">
-            <p:NodeReference LastCategoryFullName="Primitive.Float32" LastSymbolSource="CoreLibBasics.vl">
+            <p:NodeReference LastCategoryFullName="Primitive.Float32" LastDependency="CoreLibBasics.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="+" />
               <CategoryReference Kind="Float32Type" Name="Float32" NeedsToBeDirectParent="true" />
@@ -135,18 +143,18 @@
             <Pin Id="RgkZ9lVkTTXLKqvXfMeuBA" Name="Output" Kind="OutputPin" />
           </Node>
           <Pad Id="HeMuiwF4pGeOnxJdB3P7y3" Comment="Scaling" Bounds="149,300,35,28" ShowValueBox="true" isIOBox="true" Value="0.7, 0.7">
-            <p:TypeAnnotation LastCategoryFullName="2D" LastSymbolSource="CoreLibBasics.vl">
+            <p:TypeAnnotation LastCategoryFullName="2D" LastDependency="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Vector2" />
             </p:TypeAnnotation>
           </Pad>
           <Pad Id="FAANwt9SgTMM1fy3DLwFQs" Comment="Period" Bounds="174,340,35,15" ShowValueBox="true" isIOBox="true" Value="60">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="CoreLibBasics.vl">
               <Choice Kind="TypeFlag" Name="Float32" />
             </p:TypeAnnotation>
           </Pad>
           <Pad Id="OSIQ6KOvESzO1qDCGbwmpZ" Comment="" Bounds="625,396,133,167" ShowValueBox="true" isIOBox="true" />
           <Pad Id="CeNAodAiyqFOW2Bhrh1a8i" Bounds="94,200,317,19" ShowValueBox="true" isIOBox="true" Value="Fiducial markers have an ID, a center and a rotation.">
-            <p:TypeAnnotation>
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
             <p:ValueBoxSettings>
@@ -155,12 +163,13 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="623,338,75,19" Id="Q8OVEQoiOuDNcIwh9oNpOe">
-            <p:NodeReference LastCategoryFullName="OpenCV.Source" LastSymbolSource="VL.OpenCV.vl">
+            <p:NodeReference LastCategoryFullName="OpenCV.Source" LastDependency="VL.OpenCV.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="ImageReader" />
             </p:NodeReference>
+            <Pin Id="IWKVR3isPvJPW6UcddvvZr" Name="Node Context" Kind="InputPin" IsHidden="true" />
             <Pin Id="Ub1gj9Jz8ZrPKmy3mga3xt" Name="File Name" Kind="InputPin" DefaultValue="..\..\..\content\assets\FiducialMarker.png">
-              <p:TypeAnnotation LastCategoryFullName="IO" LastSymbolSource="CoreLibBasics.vl">
+              <p:TypeAnnotation LastCategoryFullName="IO" LastDependency="CoreLibBasics.vl">
                 <Choice Kind="TypeFlag" Name="Path" />
               </p:TypeAnnotation>
             </Pin>
