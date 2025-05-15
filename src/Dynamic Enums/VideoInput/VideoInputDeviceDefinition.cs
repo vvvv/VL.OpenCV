@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using VL.Lib;
 using VL.Lib.Collections;
 
@@ -14,25 +15,23 @@ namespace VL.OpenCV
         protected override unsafe IReadOnlyDictionary<string, object> GetEntries()
         {
             // Get the collection of video devices
-            var capDevices = VideoInInfo.EnumerateCaptureDevicesDS();
-            Dictionary<string, object> devices = new Dictionary<string, object>(capDevices.Count);
-            if (capDevices.Count > 0)
+            var devices = ImmutableArray.CreateBuilder<VideoInInfo.VideoDeviceInfo>();
+            VideoInInfo.EnumerateCaptureDevicesDS(devices);
+            VideoInInfo.EnumerateCaptureDevicesMF(devices);
+
+            var entries = new Dictionary<string, object>();
+            if (devices.Count > 0)
             {
-                devices["Default"] = capDevices[0];
+                entries["Default"] = devices[0];
             }
             
-            foreach (var device in capDevices)
+            foreach (var device in devices)
             {
-                var j = 1;
-                var friendlyName = device.Name;
-                var finalName = friendlyName;
-                while (devices.ContainsKey(finalName))
-                {
-                    finalName = friendlyName + " #" + j++;
-                }
-                devices[finalName] = device;
+                if (!entries.ContainsKey(device.Name))
+                    entries[device.Name] = device;
             }
-            return devices;
+
+            return entries;
         }
 
         //inform the system that the enum has changed
