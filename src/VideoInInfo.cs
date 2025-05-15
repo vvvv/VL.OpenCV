@@ -86,49 +86,57 @@ namespace VL.OpenCV
             static unsafe ImmutableArray<Format> GetVideoFormats(IMFActivate* device)
             {
                 var formats = ImmutableArray.CreateBuilder<Format>();
-                var mediaSource = (IMFMediaSource*)device->ActivateObject(in IMFMediaSource.IID_Guid);
-
-                IMFPresentationDescriptor* descriptor = null;
-                IMFStreamDescriptor* streamDescriptor = null;
-                IMFMediaTypeHandler* handler = null;
 
                 try
                 {
-                    mediaSource->CreatePresentationDescriptor(&descriptor);
-                    descriptor->GetStreamDescriptorByIndex(0, out _, &streamDescriptor);
-                    streamDescriptor->GetMediaTypeHandler(&handler);
-                    handler->GetMediaTypeCount(out var mediaTypeCount);
+                    var mediaSource = (IMFMediaSource*)device->ActivateObject(in IMFMediaSource.IID_Guid);
 
-                    for (uint i = 0; i < mediaTypeCount; i++)
+                    IMFPresentationDescriptor* descriptor = null;
+                    IMFStreamDescriptor* streamDescriptor = null;
+                    IMFMediaTypeHandler* handler = null;
+
+                    try
                     {
-                        IMFMediaType* mediaType;
-                        handler->GetMediaTypeByIndex(i, &mediaType);
-                        try
+                        mediaSource->CreatePresentationDescriptor(&descriptor);
+                        descriptor->GetStreamDescriptorByIndex(0, out _, &streamDescriptor);
+                        streamDescriptor->GetMediaTypeHandler(&handler);
+                        handler->GetMediaTypeCount(out var mediaTypeCount);
+
+                        for (uint i = 0; i < mediaTypeCount; i++)
                         {
-                            mediaType->GetMajorType(out var majorType);
-                            if (majorType == MFMediaType_Video)
+                            IMFMediaType* mediaType;
+                            handler->GetMediaTypeByIndex(i, &mediaType);
+                            try
                             {
-                                mediaType->GetUINT64(MF_MT_FRAME_RATE, out var fr);
-                                var frameRate = ParseFrameRate(fr);
-                                mediaType->GetUINT64(MF_MT_FRAME_SIZE, out var fs);
-                                ParseSize(fs, out int width, out int height);
+                                mediaType->GetMajorType(out var majorType);
+                                if (majorType == MFMediaType_Video)
+                                {
+                                    mediaType->GetUINT64(MF_MT_FRAME_RATE, out var fr);
+                                    var frameRate = ParseFrameRate(fr);
+                                    mediaType->GetUINT64(MF_MT_FRAME_SIZE, out var fs);
+                                    ParseSize(fs, out int width, out int height);
 
-                                var format = GetVideoFormat(mediaType);
+                                    var format = GetVideoFormat(mediaType);
 
-                                formats.Add(new Format(width, height, frameRate, format));
+                                    formats.Add(new Format(width, height, frameRate, format));
+                                }
+                            }
+                            finally
+                            {
+                                mediaType->Release();
                             }
                         }
-                        finally
-                        {
-                            mediaType->Release();
-                        }
+                    }
+                    finally
+                    {
+                        handler->Release();
+                        streamDescriptor->Release();
+                        descriptor->Release();
                     }
                 }
-                finally
+                catch (Exception)
                 {
-                    handler->Release();
-                    streamDescriptor->Release();
-                    descriptor->Release();
+                    // Ignore errors - if the device can't be opened, it will be skipped
                 }
 
                 return formats.ToImmutable();
