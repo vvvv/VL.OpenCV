@@ -211,7 +211,7 @@ namespace VL.OpenCV
                         }
                     }
 
-                    devices.Add(new VideoDeviceInfo(name, VideoCaptureAPIs.DSHOW, index++, formats));
+                    devices.Add(new VideoDeviceInfo(name, VideoCaptureAPIs.DSHOW, index, formats));
 
                     filter->Release();
                 }
@@ -222,6 +222,7 @@ namespace VL.OpenCV
                 finally
                 {
                     moniker->Release();
+                    index++;
                 }
             }
             pEnum->Release();
