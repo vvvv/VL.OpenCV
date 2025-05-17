@@ -3,6 +3,107 @@ All notable changes to the VL.OpenCV repository will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+# [3.1.0] - 14/05/2025
+
+## Added
+
+* Camera clibration tool example help patch in Calibration category
+* AR Water molecule help patch in Detection category
+* Sample calibration file for 1280x720 resolution
+* .Utils.Advanced.FromInternalMat node
+* .Utils.Advanced.GetInternalMat node
+
+## Changed 
+
+* VideoIn now has a 'Default' enum entry which points to the first camera detected
+* Help patches have been reorganized
+* VideoIn and related nodes have been refactored
+	* Removed Reactive version (breaking change)
+	* Merged blocking and non blocking versions (breaking change)
+	* Refactored internal nodes
+	* VideoIn now uses DSHOW as the default backend
+	* VideoIn Index no longer reports supported formats since they are backend dependent
+	* Input and output pins have been renamed to match other video input libraries (breaking change)
+	* Default Preferred Size is now 1280x720
+* VideoPlayer (Blocking) was refactored and renamed to VideoReader (breaking change)
+* Resize (Width Height) was renamed to Resize (breaking change)
+* All nodes that had separate integer Width and Height or similar inputs and outputs have been refactored to use Int2 instead, this affect the following nodes:
+	.Calibration
+		BoardCorners (breaking change)
+		FindChessboardCornersSB (breaking change)
+		FindChessboardCorners (breaking change)
+		CalibrateProjector (breaking change)
+		CalibrateCamera (breaking change)
+		CalibrationMatrixValues (breaking change)
+	.Drawing
+		DrawChessboardCorners (breaking change)
+	.Filter
+		Blur (breaking change)
+		GaussianBlur (breaking change)
+		Resize (breaking change)
+	.Sink
+		VideoWriter (Append) (breaking change)
+		VideoWriter (breaking change)
+	.Transform
+		PixelToNormalizedSpace (breaking change)
+		Perspective (RH) (breaking change)
+		IntrinsicsToProjectionMatrix (breaking change)
+	.Source
+		VideoIn (breaking change)
+		CvImage (breaking change)
+		CvImage (RGBA) (breaking change)
+		CvImage (Array) (breaking change)
+	.Utils
+		Info (breaking change)
+* All help patches using any of the affected nodes above have been updated to match the new node signatures
+* OpenPoseDetector, YOLODetector and YOLO3Detector nodes have been marked Obsolete, MediaPipe is the way
+* Tooltips now show default CvImages
+* VideoIn device listing and SupportedVideoFormats cleaned up and improved, all distinct video input devices for both DSHOW and MediaFoundation will now appear on the device selection enum
+* Expose ConvertColor's Cahce region's Force pin as optional for odd cases where the Cache region fails to detect changes (Spout source)
+* All help patches that require external resources (OpenPose, YOLO, etc) now have helper nodes to automagically download the necessary resources
+* The following nodes in .Utils.Advanced have been moved to .Utils.Internal:
+	* EnforceGrayDefault (breaking change)
+	* IsDamon (breaking change)
+	* CvImage forward (breaking change)
+	* PooledQueue (breaking change)
+	* Clone (breaking change)
+	* Image (breaking change)
+	* Image (Rows Cols Format) (breaking change)
+	* ImageQueue (breaking change)
+	* CopyToAndReturn (breaking change)
+	* GetMatTypeFromEnum (breaking change)
+	* GetPixelAsFloats (breaking change)
+	* MatSerializer (breaking change)
+	* CvImageSerializer (breaking change)
+* .Source ImageReader (Reactive) moved to .Source.Advanced (breaking change)
+* VideoPlayer and VideoPlayer (Experimental) marked obsolete
+* The following nodes in .Conversion were moved to .Conversion.Advanced:
+	* ToRGBA (BGR) (breaking change)
+	* ToRGBA (RGB) (breaking change)
+	* ToRGBA (BGRA) (breaking change)
+	* FromChannelsToColumns (breaking change)
+	* ToValues (Custom) (breaking change)
+
+
+## Fixed
+
+* Renderer no longer interpolates small images producing gradient artifacts
+* Renderer can now more accurately scale down and represent small resolution images
+* All calibration related help patches are now using FindChessboardCorners instead of FindChessboardCornersSB due to a bug that reverts the order of the detected corners
+* FindChessboardCorners no longer throws exception when receiving default values
+* FrameDelay no longer throws exception when receiving default values
+* FrameDifference no longer throws exception when receiving default values
+* OpticalFlow no longer throws exception when receiving default values
+
+
+### Removed
+
+* Reference Drawing nodes help patch
+* Reference Available filters help patch
+* VideoIn (Reactive) (breaking change)
+* SupportedVideoFormats (Index) (breaking change)
+* Link to vvvTV OpenCV episode
+
 # [3.0.3] - 18/11/2024
 
 ## Changed 
