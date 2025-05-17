@@ -28,33 +28,33 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 * VideoPlayer (Blocking) was refactored and renamed to VideoReader (breaking change)
 * Resize (Width Height) was renamed to Resize (breaking change)
 * All nodes that had separate integer Width and Height or similar inputs and outputs have been refactored to use Int2 instead, this affect the following nodes:
-	.Calibration
-		BoardCorners (breaking change)
-		FindChessboardCornersSB (breaking change)
-		FindChessboardCorners (breaking change)
-		CalibrateProjector (breaking change)
-		CalibrateCamera (breaking change)
-		CalibrationMatrixValues (breaking change)
-	.Drawing
-		DrawChessboardCorners (breaking change)
-	.Filter
-		Blur (breaking change)
-		GaussianBlur (breaking change)
-		Resize (breaking change)
-	.Sink
-		VideoWriter (Append) (breaking change)
-		VideoWriter (breaking change)
-	.Transform
-		PixelToNormalizedSpace (breaking change)
-		Perspective (RH) (breaking change)
-		IntrinsicsToProjectionMatrix (breaking change)
-	.Source
-		VideoIn (breaking change)
-		CvImage (breaking change)
-		CvImage (RGBA) (breaking change)
-		CvImage (Array) (breaking change)
-	.Utils
-		Info (breaking change)
+	* .Calibration
+		* BoardCorners (breaking change)
+		* FindChessboardCornersSB (breaking change)
+		* FindChessboardCorners (breaking change)
+		* CalibrateProjector (breaking change)
+		* CalibrateCamera (breaking change)
+		* CalibrationMatrixValues (breaking change)
+	* .Drawing
+		* DrawChessboardCorners (breaking change)
+	* .Filter
+		* Blur (breaking change)
+		* GaussianBlur (breaking change)
+		* Resize (breaking change)
+	* .Sink
+		* VideoWriter (Append) (breaking change)
+		* VideoWriter (breaking change)
+	* .Transform
+		* PixelToNormalizedSpace (breaking change)
+		* Perspective (RH) (breaking change)
+		* IntrinsicsToProjectionMatrix (breaking change)
+	* .Source
+		* VideoIn (breaking change)
+		* CvImage (breaking change)
+		* CvImage (RGBA) (breaking change)
+		* CvImage (Array) (breaking change)
+	* .Utils
+		* Info (breaking change)
 * All help patches using any of the affected nodes above have been updated to match the new node signatures
 * OpenPoseDetector, YOLODetector and YOLO3Detector nodes have been marked Obsolete, MediaPipe is the way
 * Tooltips now show default CvImages
