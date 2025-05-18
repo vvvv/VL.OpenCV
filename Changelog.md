@@ -3,11 +3,25 @@ All notable changes to the VL.OpenCV repository will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+# [3.1.1-preview] - 19/05/2025
+
+## Changed
+
+* Transformation conversions between OpenCV and Stride were simplified by removing redundant rotations from Stride to OpenCV and back to Stride space. Patches using calibration nodes like SolvePnP and Aruco detectors require therefore less nodes and calculations. (breaking change)
+	* ExtrinsicsToViewMatrix is now marked as obsolete
+	* ExtrinsicsToStrideMatrix replaces the former. Some patches that originally had an explicit requirement to convert transformations from Stride to OpenCV space might now work without this
+	* The following helppatches were changed:
+		* "Tutorial Calculate a camera position using [Aruco|SolvePnP]" are now called "Tutorial Calculate a pose using [Aruco|SolvePnP]". Both show application of detected pose to a camera view or alternatively to an object transform.
+		* Tutorial Calibrate and Reproject
+		* Example AR Water Molecule
+		* HowTo Estimate the pose of Aruco markers
+
+
 # [3.1.0-preview] - 17/05/2025
 
 ## Added
 
-* Camera clibration tool example help patch in Calibration category
+* Camera calibration tool example help patch in Calibration category
 * AR Water molecule help patch in Detection category
 * Sample calibration file for 1280x720 resolution
 * .Utils.Advanced.FromInternalMat node
