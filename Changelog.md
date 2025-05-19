@@ -3,7 +3,7 @@ All notable changes to the VL.OpenCV repository will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-# [3.1.1-preview] - 19/05/2025
+# [4.0.0-preview] - 19/05/2025
 
 ## Changed
 
@@ -15,6 +15,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 		* Tutorial Calibrate and Reproject
 		* Example AR Water Molecule
 		* HowTo Estimate the pose of Aruco markers
+* Updated help text on VideoIn node
+* Updated AR water molecule help patch
+* Added note to Calibrate projector and reproject help patch
 
 
 # [3.1.0-preview] - 17/05/2025
