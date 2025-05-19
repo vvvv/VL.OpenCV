@@ -3,6 +3,15 @@ All notable changes to the VL.OpenCV repository will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+# [4.0.0] - 19/05/2025
+
+## Changed
+
+* Moved .Conversion.FromImage to .Source
+* Moved .Conversion.ToImage to .Sink
+* Moved .Conversion .ToValues to .Sink
+* Removed Experimental from FacemarkDetector
+
 # [4.0.0-preview] - 19/05/2025
 
 ## Changed
