@@ -8,13 +8,14 @@ Computer vision library with the following features:
   
 Not GPU accalerated!
 
-For use with vvvv, the visual live-programming environment for .NET: http://visualprogramming.net
+For use with vvvv, the visual live-programming environment for .NET: http://vvvv.org
 
 ## Getting started
 - Install as [described here](https://thegraybook.vvvv.org/reference/hde/managing-nugets.html) via commandline:
 
     `nuget install VL.OpenCV`
 
+- Watch an [Introduction to VL.OpenCV](https://www.youtube.com/live/fjw2m8w6RNU)
 - Usage examples and more information are included in the pack and can be found via the [Help Browser](https://thegraybook.vvvv.org/reference/hde/findinghelp.html)
 
 ## Contributing
