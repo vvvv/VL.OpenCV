@@ -8,6 +8,10 @@ Computer vision library based on [OpenCV](https://opencv.org/) with the followin
   
 Not GPU accalerated!
 
+For an introduction, watch vvvvTv episodes:  
+📺 [Introduction to OpenCV](https://www.youtube.com/live/fjw2m8w6RNU)  
+📺 [AR using OpenCV with ArUco Markers](https://www.youtube.com/live/j7DWMET-qM8)  
+
 For use with vvvv, the visual live-programming environment for .NET: http://vvvv.org
 
 ## Getting started
@@ -27,4 +31,5 @@ For use with vvvv, the visual live-programming environment for .NET: http://vvvv
 * Based on [OpenCvSharp](https://github.com/shimat/opencvsharp)
 * Which in turn in based on [OpenCV 4.9.0](https://docs.opencv.org/4.9.0/)
 * Also using [SharpDX MediaFoundation](http://sharpdx.org/wiki/class-library-api/mediafoundation/)
+
 
