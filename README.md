@@ -15,7 +15,7 @@ For use with vvvv, the visual live-programming environment for .NET: http://vvvv
 
     `nuget install VL.OpenCV`
 
-- Watch an 📺 [Introduction to OpenCV](https://www.youtube.com/live/fjw2m8w6RNU) and 📺 [AR using OpenCV with ArUco Markers](https://www.youtube.com/live/j7DWMET-qM8)  
+- Watch 📺 [Introduction to OpenCV](https://www.youtube.com/live/fjw2m8w6RNU) and 📺 [AR using OpenCV with ArUco Markers](https://www.youtube.com/live/j7DWMET-qM8)  
 - Usage examples and more information are included in the pack and can be found via the [Help Browser](https://thegraybook.vvvv.org/reference/hde/findinghelp.html)
 
 ## Contributing
@@ -27,6 +27,7 @@ For use with vvvv, the visual live-programming environment for .NET: http://vvvv
 * Based on [OpenCvSharp](https://github.com/shimat/opencvsharp)
 * Which in turn in based on [OpenCV 4.9.0](https://docs.opencv.org/4.9.0/)
 * Also using [SharpDX MediaFoundation](http://sharpdx.org/wiki/class-library-api/mediafoundation/)
+
 
 
 
